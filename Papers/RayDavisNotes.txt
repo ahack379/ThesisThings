@@ -1,0 +1,10 @@
+1]Threshold of neutrino capture reaction v+Cl37->Ar37 + e- is 0.816 MeV. Thus, from flux plot and the 
+fact that the cross section for the capture reaction is very large for the energetic neutrinos from B8 reaction, B8 neutrinos make up 90% of the nuetrinos.  The others come from Be7 decay at 0.861 MeV.  
+
+2]Upper limit of neutron capture rate per Cl37 atom was 2x less than expected from solar model calculations
+
+Increase sensitivity, gain insight into other neutruno fluxes such as those from Be7, and HHe-vD. 80% due to B8
+
+3]Experiment in Homestake ran from 1970-1985 2.1+/-0.3 SNU (with increased sensitivity using pulse rise-time measuremnets. 
+
+4] 1998 RD - neutrino capture cross section increases greatly above 5.8 MeV due to gs transition of Cl37 to isobaric state Ar37

@@ -1,0 +1,35 @@
+Information pages to cite sources later:
+
+1] Ray Davis "Solar Neutrinos"
+http://www.osti.gov/cgi-bin/rd_accomplishments/display_biblio.cgi?id=ACC0067&numPages=16&fp=N
+
+2] Ray Davis "Search For Neutrinos From teh Sun"
+http://journals.aps.org/pr/pdf/10.1103/PhysRev.135.B137
+
+3] Ray Davis "Variations in the Solar Neutrino Flux"
+http://www.osti.gov/accomplishments/documents/fullText/ACC0063.pdf
+
+**4] Ray Davis, "Search For Neutrinos from the Sun"
+http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.20.1205
+Found that the solar neutrino flux due to B8 reaction was < 3*10^-36 captures per sec , or 3 SNU.  
+
+**5]http://iopscience.iop.org/0004-637X/496/1/505/pdf/0004-637X_496_1_505.pdf
+Ran 1970-1994
+108 Solar neutrino observations
+Sensitivity increased using pulse rise time restriction (discrim between signal and background)
+2500m below surface in Homestake (exp located at teh 4850ft level)
+Experiment leak tested because atmosphere is 0.934% Argon (he vacuum leak tested)
+C2Cl4.  Ar37 created by reaction decays back to Cl37-- reach saturation level where decay = production
+Divide by saturation fraction and multiple by decay constant-- should get rate of the reaction sum(flux*cross section)
+Backgrounds: cosmics muon->proton (proton causes bkgd), rock neutrons from alpha emitters (thorium and uranium), internal alphas, negligible contribution from atmospheric neutrinos 
+Thorough review of the work in **4 confirmed that ~1/3 of the expected events were observed at Homestake
+Later when Kamiokande data became available, it was seen that probably closer to ~0.5 of the expected events were observed. Be7 <1/10 expected value-- pp consistent
+~10^6 B8 neutrinos cm^-2 s^-1 elec neutrino flux from sun
+SNO and Kamiokande sensitive to B8 neutrino flux
+Galium and SAGE sensitive to Be7 , pep, CNO elec neutrino fluxes 
+
+
+**6] (2001) Solar B8 and hep Neutrino Measurements from 1258 Days of Super-Kamiokande Data
+http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.86.5651
+Threshold 5MeV (vs 0.814MeV from previous-- sensitive to higher energy neutrinos (from atmosphere?))
+
