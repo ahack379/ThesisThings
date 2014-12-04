@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 DEC 2014 11:37
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  4 DEC 2014 15:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,6 +297,10 @@ Missing character: There is no Õ in font cmr12!
 Missing character: There is no Õ in font cmr12!
 Missing character: There is no Õ in font cmr12!
 Missing character: There is no Õ in font cmr12!
+
+
+LaTeX Warning: Citation `ray0' on page 3 undefined on input line 41.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 41.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -304,52 +308,74 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 41.
 
-
 LaTeX Warning: Citation `ray0' on page 3 undefined on input line 41.
 
 
-LaTeX Warning: Citation `ray0' on page 3 undefined on input line 41.
+LaTeX Warning: Citation `ray0' on page 3 undefined on input line 45.
 
 
 LaTeX Warning: Citation `rayreview' on page 3 undefined on input line 45.
 
+
+LaTeX Warning: Citation `kam0' on page 3 undefined on input line 45.
+
+
+LaTeX Warning: Citation `sno0' on page 3 undefined on input line 45.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 45.
+
+LaTeX Warning: Citation `kam0' on page 3 undefined on input line 45.
+
+
+LaTeX Warning: Citation `kam0' on page 3 undefined on input line 45.
+
 [3
 
 ]
+
+LaTeX Warning: Citation `gal0' on page 4 undefined on input line 55.
+
+
+LaTeX Warning: Citation `gal2' on page 4 undefined on input line 55.
+
+
+LaTeX Warning: Citation `sage' on page 4 undefined on input line 55.
+
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no Õ in font cmr12!
- [4]
-Underfull \hbox (badness 10000) in paragraph at lines 81--88
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 79--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--88
+Underfull \hbox (badness 10000) in paragraph at lines 79--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--88
+Underfull \hbox (badness 10000) in paragraph at lines 79--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--88
+Underfull \hbox (badness 10000) in paragraph at lines 79--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--88
+Underfull \hbox (badness 10000) in paragraph at lines 79--86
 
  []
 
-[5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 106.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 106.
+[5] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
  (./prospectus.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 106.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 106.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 122.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
 
 
 Package rerunfilecheck Warning: File `prospectus.out' has changed.
@@ -357,40 +383,48 @@ Package rerunfilecheck Warning: File `prospectus.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `prospectus.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  6FD1F578D1D0429FE0F74C8ABEDF5FA9;656.
+(rerunfilecheck)             Before: 9B5D6CB208B618F28A55BFA4F2E7F4E3;117
+(rerunfilecheck)             After:  9CEEE6DF6215DE19CD35E97146197DE6;494.
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 106.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 122.
  ) 
 Here is how much of TeX's memory you used:
- 5237 strings out of 493488
- 77549 string characters out of 3141326
- 171441 words of memory out of 3000000
- 8507 multiletter control sequences out of 15000+200000
+ 5256 strings out of 493488
+ 77699 string characters out of 3141326
+ 172449 words of memory out of 3000000
+ 8518 multiletter control sequences out of 15000+200000
  9932 words of font info for 35 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 29i,6n,32p,1915b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
-ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
-al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
-live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texl
-ive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on prospectus.pdf (6 pages, 139224 bytes).
+ 29i,8n,32p,1915b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
+usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
+texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
+e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
+/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/20
+12/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on prospectus.pdf (7 pages, 162122 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
- 24 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 135 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 17 words of extra memory for PDF output out of 10000 (max. 10000000)
 

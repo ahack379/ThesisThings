@@ -32,4 +32,37 @@ Galium and SAGE sensitive to Be7 , pep, CNO elec neutrino fluxes
 **6] (2001) Solar B8 and hep Neutrino Measurements from 1258 Days of Super-Kamiokande Data
 http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.86.5651
 Threshold 5MeV (vs 0.814MeV from previous-- sensitive to higher energy neutrinos (from atmosphere?))
+Used the angle of the interaction with respect to the direction of the sun (very directional events)
+22.5kton water cherenkov detector which detects solar neutrinos elastic scatter off atomic electrons
 
+**7] Real-time, directional measurement of 8 solar neutrinos in the Kamiokande II detector
+SSM: Solar core in hydrogen burning phase, in which 4 H nuclei convert into He nucleus, 2 positrongs and 2 neutrinos with release of 26.7 MeV 
+98.5% of sun's energy generated from reaction pp->dev, 1.5% CNO cycle
+Total neutrino flux on earth : 6.6*10^10 /cm^2/s
+B8 reaction is of interest mainly because of its higher energies (up to 15 MeV), but accounts for less than 10^-4 of total flux
+B8 flux largely uncertain because the reaction it results from Be7+p->B8Y is dependent on temperature of center of sun
+and value of proton Be7 cross section at low protn KE
+SIZE: Cylinder 16m high, 15.6 m diameter.  
+10 MeV electron leaves point-like track of 5cm
+
+**8]Gallex Total Results
+http://ac.els-cdn.com/S0920563298004381/1-s2.0-S0920563298004381-main.pdf?_tid=4c2ab9ea-7b10-11e4-bf18-00000aacb35e&acdnat=1417627245_691faf8a46d7cbc453d05917ce44ce1c
+Gallex IV 
+http://ac.els-cdn.com/S0370269398015792/1-s2.0-S0370269398015792-main.pdf?_tid=06e58d10-7b1f-11e4-af7b-00000aacb362&acdnat=1417633571_bae6259819a2a693f94f8ef65efc0d3b
+100 ton GaCl2 target.  Ultra low-level counting to detect Ge7 
+4 solar neutrino runs, 1 tank contents change
+In addition to solar neutrino runs, ther were 2 51Cr runs and Ar runs in which sources were placed in the detector.
+->produced 746keV neutrinos.  
+->source experiment proves that GALLEX has sensitivity to 7Be neutrinos with full efficiency
+
+Gallex 51Cr results:
+http://www.sciencedirect.com/science/article/pii/S0370269397015621
+>60 PBq 51Cr source 
+
+9] SAGE
+http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.77.4708
+
+10] SuperK  
+Evidence for Oscillation of Atmospheric Neutrinos
+http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.81.1562
+50 kton
