@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  4 DEC 2014 15:45
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  5 DEC 2014 12:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -277,7 +277,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./prospectus.toc)
+(./prospectus.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+)
 \tf@toc=\write4
 \openout4 = `prospectus.toc'.
 
@@ -297,85 +304,45 @@ Missing character: There is no Õ in font cmr12!
 Missing character: There is no Õ in font cmr12!
 Missing character: There is no Õ in font cmr12!
 Missing character: There is no Õ in font cmr12!
-
-
-LaTeX Warning: Citation `ray0' on page 3 undefined on input line 41.
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 41.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 41.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 41.
+(Font)              <5> on input line 43.
+ [3
 
-LaTeX Warning: Citation `ray0' on page 3 undefined on input line 41.
-
-
-LaTeX Warning: Citation `ray0' on page 3 undefined on input line 45.
-
-
-LaTeX Warning: Citation `rayreview' on page 3 undefined on input line 45.
-
-
-LaTeX Warning: Citation `kam0' on page 3 undefined on input line 45.
-
-
-LaTeX Warning: Citation `sno0' on page 3 undefined on input line 45.
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 45.
-
-LaTeX Warning: Citation `kam0' on page 3 undefined on input line 45.
-
-
-LaTeX Warning: Citation `kam0' on page 3 undefined on input line 45.
-
-[3
-
-]
-
-LaTeX Warning: Citation `gal0' on page 4 undefined on input line 55.
-
-
-LaTeX Warning: Citation `gal2' on page 4 undefined on input line 55.
-
-
-LaTeX Warning: Citation `sage' on page 4 undefined on input line 55.
-
+] [4]
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no Õ in font cmr12!
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 79--86
+ [5]
+Underfull \hbox (badness 10000) in paragraph at lines 81--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--86
+Underfull \hbox (badness 10000) in paragraph at lines 81--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--86
+Underfull \hbox (badness 10000) in paragraph at lines 81--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--86
+Underfull \hbox (badness 10000) in paragraph at lines 81--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--86
+Underfull \hbox (badness 10000) in paragraph at lines 81--88
 
  []
 
-[5] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
+[6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 129.
  [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 129.
  (./prospectus.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 122.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 129.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 129.
 
 
 Package rerunfilecheck Warning: File `prospectus.out' has changed.
@@ -383,26 +350,23 @@ Package rerunfilecheck Warning: File `prospectus.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `prospectus.out':
-(rerunfilecheck)             Before: 9B5D6CB208B618F28A55BFA4F2E7F4E3;117
-(rerunfilecheck)             After:  9CEEE6DF6215DE19CD35E97146197DE6;494.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 122.
+(rerunfilecheck)             Before: 2C2B032D8E94042850AC12333EA3641F;564
+(rerunfilecheck)             After:  40689F34DC89FCD6AD5D749EE150DEBC;571.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 129.
  ) 
 Here is how much of TeX's memory you used:
- 5256 strings out of 493488
- 77699 string characters out of 3141326
- 172449 words of memory out of 3000000
- 8518 multiletter control sequences out of 15000+200000
+ 5269 strings out of 493488
+ 77851 string characters out of 3141326
+ 170748 words of memory out of 3000000
+ 8527 multiletter control sequences out of 15000+200000
  9932 words of font info for 35 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 29i,8n,32p,1915b,424s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
+ 29i,8n,32p,1915b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exi
 st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -421,10 +385,10 @@ e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
 012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/20
 12/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on prospectus.pdf (7 pages, 162122 bytes).
+Output written on prospectus.pdf (7 pages, 167300 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 110 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 185 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

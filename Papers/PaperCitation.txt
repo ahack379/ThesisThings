@@ -63,6 +63,19 @@ http://www.sciencedirect.com/science/article/pii/S0370269397015621
 http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.77.4708
 
 10] SuperK  
+Mozumi Mine, 3300 ft under ground 
 Evidence for Oscillation of Atmospheric Neutrinos
 http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.81.1562
 50 kton
+~11000 PMTs
+Main mode of detection is the elastic electron neutrino scattering channel
+
+11] SNO
+Creighton Mine, Ontario, Sudbury Canada, 6800 ft
+1 ktonne heavy water
+9600 PMTs, 850 cm sphere. 
+Only electron neutrinos can interact in a charged current interaction in which the neutron in the deuteron->proton. This is because the solar neutrinos have energies less than then mass of muon (105.7 MeV) and tau (1776.82 MeV).  Electron carries off most of the neutrino's energy (5-15 MeV).  Proton produces less energy and is more difficult to detect.
+In a neutral current interaction a neutrino dissociates the neutron proton and the neutrino and continues on with less energy.  Neutron capture cross section is small on heavy water(deuterium)-- when it IS captured, emits a 6 MeV gamma ray. All three neutrinos interact with equal probability. 
+
+11a] Prob won't use this as a source, but here si a concise lecture summary of neutrino history:
+http://www2.warwick.ac.uk/fac/sci/physics/current/teach/module_home/px435/lec_oscillations.pdf
