@@ -5,6 +5,11 @@
 \usepackage{color}
 \usepackage{hyperref}
 \usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{tabularx}
+\usepackage{wrapfig}
+\usepackage{esvect} %vector notation
 \usepackage[margin=1in]{geometry}
 
 %End preamble, begin document
@@ -33,9 +38,7 @@ Llamas be where it's at.
 
 \section{Overview and History}
 
-
-\subsection{The Beginning}
-Definitive proof for neutrino oscillation has been delivered over and again in the last 15 years. Alongside this proof however, have come several notoriously anomalous results. Liquid Scintillator Neutrino Detector (LSND), an oscillation experiment from the 90Õs, observed an excess of low energy electron anti-neutrino events for L/E ~ 1m/MeV (Fig 1), explained at the time with a simple 2-neutrino oscillation model (Fig 2). These unexpected results led directly to Mini Booster Neutrino Experiment (MiniBooNE). After 10 years of running, MiniBooNEÕs data revealed an excess of low energy neutrino events in both neutrino and anti-neutrino mode at energies below and incorporating LSNDÕs data(Fig 3). These results did several important things: first, MiniBooNEÕs data supported LSND in anti-neutrino mode, while at the same time refuted the previous 2-neutrino oscillation explanation.  MiniBooNE also observed different amounts of excess in neutrino and anti-neutrino mode, leading to more questions about nuclear interactions and cross sections; lastly, it called into question the nature of the observed excess. MiniBooNE is a Cherenkov detector (Fig 4). In a Cherenkov detector, an electron and single photon are indistinguishable; how can we determine if MiniBooNEÕs excess was due to neutrinos or to photon background?
+Definitive proof for neutrino oscillation has been delivered over and again in the last 15 years. Alongside this proof however, have come several notoriously anomalous results. In this section, we explore some of these anomolous results and their impact on the present day path of neutrinos physics. 
 \subsection{Solar Neutrino Problem}
 Any sort of historical review of neutrino physics at some point comes to Ray Davis, and so we might as well start our story here.  In the late 1960s, Ray Davis of Brookhaven National Lab (BNL) ventured 4850ft underground in the Homestake mine with a plan to measure various contributions to solar neutrino flux \cite{ray0}. Working closely with John Bahcall's theory team at CalTech, Davis' group built a tetrachloroethylene detector sensitive down to 0.814 MeV and primarily to $B^8$ solar neutrinos\cite{ray0} a mile underground in Homestake Mine. In 1968, the group released results which revealed that a fraction of the predicted solar neutrinos were missing (it was confirmed by a special task force that the mine's mole people did not eat the missing $2/3$ neutrinos).  This result became known as "the solar neutrino problem".
 
@@ -48,23 +51,44 @@ By the late 1990s, the theory of neutrino oscillation as a solution to the solar
 Quick to follow suit was the Subnury Neutrino Observatory (SNO) in 2002.  SNO was a 1 ktonne spherical deuterium Cherenkov detector located 6800ft under ground in the Creighton Mine in Sudbury\cite{sno}. The greatest barrier experiments before SNO had faced in detecting $\nu_\mu$ or $\nu_\tau$ interactions was that $\mu$ and $\tau$ are heavier (105 MeV and 1777 MeV respectively) than the energy of the solar neutrino spectrum which only extends to about 30MeV. Deuterium, which replaces the hydrogen in water with a proton and a neutron, has a dissociation energy of ~2 MeV. This fact uniquely equipped SNO to measure the flux of all three neutrino flavors\cite{sno}--this total flux matched shockingly well with Bahcall's predictions in his SSM. SNO had conclusively solved the solar neutrino problem, but more fun was in store.  
 \\ 2) KAMland
 
-\subsection{Further Anomalies}
-Double double toil and more trouble. Despite the resolution of the solar neutrino problem, further issues were bubbling. As mentioned above, Super K was one of the first to tango with Atmospheric neutrinos.  Atmospheric neutrino experiments look primarily at directionality and zenith angle of the interactions they observe. Experiments looking for these oscillations The atmospheric anomaly represents the apparent disappearance of $\nu_\mu$, without corresponding increase in $\nu_e$, implying oscillation into a third neutrino, the $\nu_\tau$. As discussed above, Super K produced data which agreed with the 2 neutrino oscillation model, although they were not sensitive to the $\nu_\tau$ \cite{superk}. Other experiments such as OPERA were built in order to detect this $\nu_\tau$
-
-Summarize what these things collectively can imply--transition from this into a technology we can use which will help answer some of these questions
-
 \section{Theory}
-Go into some detail about the neutrino oscillations--maybe do a derivation in the appendix.  Make sure you quote all relevant resources.  
-Include in this section thus far collection information on :
 
-1) neutrino oscillation frequency $\Delta m^2$ 
+Each neutrino flavor ( $\nu_e, \nu_\mu, \nu_\tau$) can be written as a linear combination of 3 mass eigen states with the use of a unitary rotation matrix. It is often convenient, however, to begin by looking at a simplified 2 neutrino oscillation model:
+\begin{equation} \label{eq:eig}
+|\nu_x> = \sum_{j=1,2} U_{ij} |\nu_j>  
+\end{equation}
+Using the time-dependent Hamiltonian of the system, it is possible to derive a probability of oscillation from flavor $\alpha$ to flavor $\beta$ (see Appendix A for more detail about this derivation).  After applying the time propagator and doing some rearranging, we arrive at 
+\begin{equation} \label{eq:prob}
+P(\nu_\alpha \rightarrow \nu_\beta) = sin^2(2\theta)sin(1.27\Delta m^2  \frac{L}{E})
+\end{equation}
+where $\theta$ is the mixing angle of the oscillation, $\Delta m^2$ is the frequency of neutrino oscillation, L is length the neutrino traveled and E is the energy of the neutrino at its source.  L/E is a parameter controllable by the experiment--different value of L/E will make an experiment sensitive to different ranges of $\Delta m^2$ and $sin^2(2\theta)$.
+
+\subsection{Exclusion Plots}
+In addition to dependance on L and E as mentioned above, the sensitivity of an experiment to $\Delta m^2$ and $sin^2(2\theta)$ depends also on event rate. We can see this by re-writing equation (\ref{eq:prob}) as
+\begin{equation} \label{eq:probN}
+N_\beta = N_\alpha sin^2(2\theta)sin(1.27\Delta m^2  \frac{L}{E})
+\end{equation}
+
+
+Event rate comes into A short baseline experiment is sensitive to very large values of $\Delta m^2$ becuase it is most senstive for $\Delta m^2 \approx E/L$ \cite{warwick}.  
 \\ 2) oscillation amplitude $sin^2 2\theta$
 
-\section{Liquid Argon Time Projection Chambers (LArTPCs)}
- There are a number of properties that make Liquid Argon (LAr) an appealing detector medium for particle physicists: it is cheap, easy to cool, and transparent to its own scintillation light.  When a charged particle travels through a TPC in LAr, it leaves a trail of ionization electrons that are drifted by an applied field to wire planes. Readout from the wires make the Y and Z coordinates of an interaction accessible, while scintillation signals seen by an array of PMTs make the drift direction accessible.  Thus a LArTPC with 3 (or even 2) planes give us the capability to reconstruct 3 dimensional configurations of events in the detector. It is important to note that LAr scintillates outside the visible spectra at 128nm. In order to ÔseeÕ events in LAr, our Photo Multiplier Tubes (PMTs) must be coated in a layer of wavelength shifting material, currently Tetraphenyl Butadiene (TPB).
+\subsection{Further Anomalies}
+Double double toil and more trouble. Despite the resolution of the solar neutrino problem, further issues were bubbling. As mentioned above, Super K was one of the first to tango with atmospheric neutrinos.  Experiments investigating atmospheric neutrino look primarily at directionality and zenith angle of the interactions in data. SuperK and other atmospheric neutrino experiments observed a disappearance of $\nu_\mu$, without corresponding increase in $\nu_e$, implying oscillation into a third neutrino, the $\nu_\tau$. As discussed above, Super K produced data which agreed with the 2 neutrino oscillation model, although they were not sensitive to the $\nu_\tau$ \cite{superk}. Other experiments such as MINOS, a magnetized iron detector produced data which matched theoretical predictions of $\nu_\mu$ oscillation into $\nu_\tau$ \cite{minos}. Thus rested the atmospheric neutrino anomaly.
+In the last 20 years, a variety of other experimental results have indicated that the 3-neutrino oscillation model (and thus, the Standard Model), may not be complete. Liquid Scintillator Neutrino Detector (LSND), a scintillation detector in a stopped pion beam from the 90Õs, observed an excess of low energy electron anti-neutrino events for $\frac{L}{E} ~ 1 m\frac{MeV}{-1}$ (Fig 1), explained at the time with a simple 2-neutrino oscillation model (Figure reference). These unexpected results led to the construction of the Mini Booster Neutrino Experiment (MiniBooNE). After 10 years of running, MiniBooNE's data revealed an excess of low energy events in both neutrino and anti-neutrino mode at energies below and incorporating LSNDÕs data(Fig 3). These results did several important things: first, MiniBooNEÕs data supported LSND in anti-neutrino mode, while at the same time refuted the previous 2-neutrino oscillation explanation.  MiniBooNE also observed different amounts of excess in neutrino and anti-neutrino mode, leading to more questions about nuclear interactions and cross sections; lastly, it called into question the nature of the observed excess. MiniBooNE is a Cherenkov detector (Fig 4). In a Cherenkov detector, an electron and single photon are indistinguishable, which leads us to the present day: how can we determine if MiniBooNEÕs excess was due to neutrinos or to photon background?
 
+\section{Liquid Argon Time Projection Chambers (LArTPCs)}
+ There are a number of properties that make Liquid Argon (LAr) an appealing detector medium for particle physicists: it is cheap, easy to cool, and transparent to its own scintillation light.  When a charged particle travels through a TPC in LAr, it leaves a trail of ionization electrons (and excited LAr dimers) that are drifted in a uniform electric field to wire readout planes.  Readout from the wires make the Y and Z coordinates of an interaction accessible, while scintillation signals seen by an array of PMTs make the drift direction accessible\footnote{It is important to note that the success of a LArTPC does not rely on PMTs to extract "X"--this extra piece of information does help to tag backgrounds events which occur in the beam window}.  Thus a LArTPC with 3 (or 2) planes give us the capability to reconstruct 3 dimensional configurations of events in the detector. LAr scintillates outside the visible spectra at 128nm. In order to ÔseeÕ events in LAr, our Photo Multiplier Tubes (PMTs) must be coated in a layer of wavelength shifting material, currently Tetraphenyl Butadiene (TPB).
 Liquid Argon Time Projection Chambers (LArTPCs) are ideal detectors for neutrino oscillation experiments with long baselines. 
 
+\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{center}
+\input{neutrino2014_table}
+\end{center}
+\caption{Properties of MicroBoonE}
+\end{wrapfigure}
+
+\color{black}
 \subsection{MicroBooNE}
 
 
@@ -81,6 +105,25 @@ The flux in BNB has been well characterized by the MiniBooNE collaboration and i
 
 \appendix
 \section{Aaaarrrppendix number 1}
+In the 2 neutrino oscillation model, we can represent a flavor state as the linear combination of mass eigenstates via a unitary matrix
+\begin{equation}
+|\nu_x> = \sum_{j=1,2} U_{ij} |\nu_j>  
+\end{equation}
+\\ A 2d unitary matrix can be written as cos, sin, or
+\begin{equation}
+U = \begin{bmatrix}
+cos(\theta) & sin(\theta)
+\\ -sin(\theta)& cos(\theta)
+\end{bmatrix}
+\end{equation},
+implying that a single oscillation can be represented via a relation given by:
+\begin{equation}
+\nu_x = cos(\theta)\nu_i + sin(\theta)\nu_i 
+\end{equation}.
+
+Let us now conside the time dependent propagation 
+$e^{Et - \vec{p}\cdot\vec{x}}$
+
 
 \begin{thebibliography}{10} %1 should be replaced with number of citations
 \bibitem{ray0}
@@ -114,6 +157,12 @@ The Songs of Distance Earth
 
 \bibitem{sno}
 FIRST RESULTS FROM THE SUDBURY NEUTRINO OBSERVATORY
+
+\bibitem{minos}	
+MINOS paper
+
+\bibitem{warwick}
+Neutrino Lecture
 
 \end{thebibliography}
 
