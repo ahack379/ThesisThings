@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  10 DEC 2014 14:17
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  22 JAN 2015 13:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -654,55 +654,63 @@ Package: wrapfig 2003/01/31  v 3.6
 Package: esvect 
 \symesvector=\mathgroup4
 )
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+\Gin@req@height=\dimen171
+\Gin@req@width=\dimen172
+)
 (/usr/local/texlive/2012/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@cnth=\count279
 \Gm@cntv=\count280
 \c@Gm@tempcnt=\count281
-\Gm@bindingoffset=\dimen171
-\Gm@wd@mp=\dimen172
-\Gm@odd@mp=\dimen173
-\Gm@even@mp=\dimen174
-\Gm@layoutwidth=\dimen175
-\Gm@layoutheight=\dimen176
-\Gm@layouthoffset=\dimen177
-\Gm@layoutvoffset=\dimen178
+\Gm@bindingoffset=\dimen173
+\Gm@wd@mp=\dimen174
+\Gm@odd@mp=\dimen175
+\Gm@even@mp=\dimen176
+\Gm@layoutwidth=\dimen177
+\Gm@layoutheight=\dimen178
+\Gm@layouthoffset=\dimen179
+\Gm@layoutvoffset=\dimen180
 \Gm@dimlist=\toks23
 )
 (./prospectus.aux)
 \openout1 = `prospectus.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count282
-\scratchdimen=\dimen179
+\scratchdimen=\dimen181
 \scratchbox=\box45
 \nofMPsegments=\count283
 \nofMParguments=\count284
 \everyMPshowfont=\toks24
 \MPscratchCnt=\count285
-\MPscratchDim=\dimen180
+\MPscratchDim=\dimen182
 \MPnumerator=\count286
 \makeMPintoPDFobject=\count287
 \everyMPtoPDFconversion=\toks25
 )
 \AtBeginShipoutBox=\box46
-Package hyperref Info: Link coloring OFF on input line 16.
+Package hyperref Info: Link coloring OFF on input line 18.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -711,9 +719,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count288
 )
-LaTeX Info: Redefining \ref on input line 16.
-LaTeX Info: Redefining \pageref on input line 16.
-LaTeX Info: Redefining \nameref on input line 16.
+LaTeX Info: Redefining \ref on input line 18.
+LaTeX Info: Redefining \pageref on input line 18.
+LaTeX Info: Redefining \nameref on input line 18.
 
 (./prospectus.out) (./prospectus.out)
 \@outlinefile=\write3
@@ -781,7 +789,7 @@ File: siunitx-binary.cfg 2012/05/03 v2.5c siunitx: Binary units
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c_siunitx_mathsf_int=\count289
-LaTeX Font Info:    Try loading font information for U+esvect on input line 16.
+LaTeX Font Info:    Try loading font information for U+esvect on input line 18.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
@@ -805,70 +813,113 @@ pectus.toc)
 
  [2
 
-] [3
+]
+<solarFlux.png, id=84, 463.7325pt x 372.39125pt>
+File: solarFlux.png Graphic file (type png)
+ <use solarFlux.png>
+Package pdftex.def Info: solarFlux.png used on input line 48.
+(pdftex.def)             Requested size: 231.86568pt x 186.19516pt.
+ [3
 
-] [4]
-Missing character: There is no Õ in font cmr12!
-Missing character: There is no Õ in font cmr12!
-Missing character: There is no Õ in font cmr12!
-Missing character: There is no Õ in font cmr12!
-Missing character: There is no Ô in font cmr12!
-Missing character: There is no Õ in font cmr12!
- [5] (./neutrino2014_table.tex
+]
+[4 <./solarFlux.png>] <lsnd.png, id=128, 519.9425pt x 504.88625pt>
+File: lsnd.png Graphic file (type png)
+
+<use lsnd.png>
+Package pdftex.def Info: lsnd.png used on input line 81.
+(pdftex.def)             Requested size: 207.97331pt x 201.95091pt.
+ <minib2.png, id=129, 440.64626pt x 473.77pt>
+File: minib2.png Graphic file (type png)
+ <use minib2.png>
+Package pdftex.def Info: minib2.png used on input line 82.
+(pdftex.def)             Requested size: 176.25537pt x 189.50464pt.
+
+[5] <tpc.png, id=141, 907.39pt x 395.4775pt>
+File: tpc.png Graphic file (type png)
+ <use tpc.png>
+Package pdftex.def Info: tpc.png used on input line 87.
+(pdftex.def)             Requested size: 362.94957pt x 158.18819pt.
+ [6 <./lsnd.png> <./minib2.png>] <EVsignal.png, id=152, 547.04375pt x 430.60875
+pt>
+File: EVsignal.png Graphic file (type png)
+
+<use EVsignal.png>
+Package pdftex.def Info: EVsignal.png used on input line 94.
+(pdftex.def)             Requested size: 218.81361pt x 172.24043pt.
+ <EVgamma.png, id=153, 595.22375pt x 430.60875pt>
+File: EVgamma.png Graphic file (type png)
+
+<use EVgamma.png>
+Package pdftex.def Info: EVgamma.png used on input line 96.
+(pdftex.def)             Requested size: 238.08528pt x 172.24043pt.
+ [7 <./tpc.png>] (./neutrino2014_table.tex
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 13.
+
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 94
-.
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 11
+1.
 
+<cryo.png, id=162, 506.89375pt x 466.74374pt>
+File: cryo.png Graphic file (type png)
+ <use cryo.png>
+Package pdftex.def Info: cryo.png used on input line 115.
+(pdftex.def)             Requested size: 202.7539pt x 186.69418pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--107
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 100--107
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 100--107
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 100--107
+<cryo2.png, id=163, 371.3875pt x 395.4775pt>
+File: cryo2.png Graphic file (type png)
+ <use cryo2.png>
+Package pdftex.def Info: cryo2.png used on input line 117.
+(pdftex.def)             Requested size: 148.55235pt x 158.18819pt.
+ [8 <./EVsignal.png> <./EVgamma.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 128--134
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--107
+Underfull \hbox (badness 10000) in paragraph at lines 128--134
 
  []
 
-[6] [7] [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
- [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--134
+
+ []
+
+[9 <./cryo.png> <./cryo2.png>] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 209.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 209.
  (./prospectus.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 173.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 173.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 209.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 209.
 Package rerunfilecheck Info: File `prospectus.out' has not changed.
-(rerunfilecheck)             Checksum: BA74819B51EB5F62291460BA25F1B200;562.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
+(rerunfilecheck)             Checksum: 667C5B7BB5E641319166308EEBB39351;616.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
  ) 
 Here is how much of TeX's memory you used:
- 14091 strings out of 493488
- 275287 string characters out of 3141326
- 320711 words of memory out of 3000000
- 17165 multiletter control sequences out of 15000+200000
+ 14201 strings out of 493488
+ 276924 string characters out of 3141326
+ 315837 words of memory out of 3000000
+ 17252 multiletter control sequences out of 15000+200000
  15344 words of font info for 62 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 32i,11n,32p,1915b,840s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
+ 32i,11n,32p,1920b,761s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exi
 st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
 , replaced by a fixed one
@@ -896,10 +947,10 @@ ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 2/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2012
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2012/
 texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on prospectus.pdf (9 pages, 196633 bytes).
+Output written on prospectus.pdf (11 pages, 2200475 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 48 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 259 PDF objects out of 1000 (max. 8388607)
+ 219 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

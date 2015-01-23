@@ -79,3 +79,17 @@ In a neutral current interaction a neutrino dissociates the neutron proton and t
 
 11a] Prob won't use this as a source, but here si a concise lecture summary of neutrino history:
 http://www2.warwick.ac.uk/fac/sci/physics/current/teach/module_home/px435/lec_oscillations.pdf
+
+12] LSND-- 798 MeV proton beam on target
+
+13] http://arxiv.org/pdf/0806.1449v2.pdf
+MiniBoone paper on BNB flux
+800 tons mineral oil, 1520 PMTs
+protons injected 400MeV
+84 buckets, 81 2ns wide buckets filled, 19ns apart
+MAX prot/pulse: 5*10^12
+7 cylindrical slugs of Be in target, 71 cm long, 0.5 cm rad. Air cooled
+Intensity of beam = number of protons/ pulse.  There is a BPM (beam position monitor) and a set of wires which determine what the size of the beam is.
+Horn is aluminum.  ~170kA current in both modes. ~1.5T in inner conductor, water cooling on inner conductor
+concrete collimator ~300cm from horn. 45m airfilled decay region--then 50 m upstream of target is beam stop (steel and concrete).
+primary products of p+Be = pi+- , K+-, K0, p, n
