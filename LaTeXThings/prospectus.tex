@@ -12,6 +12,7 @@
 \usepackage{esvect}      %vector notation
 \usepackage{indentfirst} %automatically indents the beginning of each section
 \usepackage{graphicx}    %include graphics
+\usepackage[font=scriptsize]{caption}
 \usepackage[margin=1in]{geometry}
 
 %End preamble, begin document
@@ -22,10 +23,16 @@
 \date{\today}
 \maketitle
 
+
 \renewcommand{\abstractname}{Abstract}
 \begin{abstract}
 Llamas be where it's at.
 \end{abstract}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{ubooneLift.png}
+\end{figure}
 
 \clearpage
 
@@ -45,9 +52,17 @@ Definitive proof for neutrino oscillation has been delivered over and again in t
 Any sort of historical review of neutrino physics at some point comes to Ray Davis, and so we might as well start our story here.  In the late 1960s, Ray Davis of Brookhaven National Lab (BNL) ventured 4850ft underground in the Homestake mine with a plan to measure various contributions to solar neutrino flux \cite{ray0}. Working closely with John Bahcall's theory team at CalTech, Davis' group built a tetrachloroethylene detector sensitive down to 0.814 MeV and primarily to $B^8$ solar neutrinos\cite{ray0} a mile underground in Homestake Mine. In 1968, the group released results which revealed that a fraction of the predicted solar neutrinos were missing. This result became known as "the solar neutrino problem".
 
 \par The Homestake experiment ran for ~20 years, with results through the duration pointing to the same conclusion: 2/3 of the neutrinos predicted by Bahcall's Standard Solar Model were not accounted for in the data\cite{ray0}.  Throughout the 80's and 90's, a series of experimental results from various collaborations confirmed the mysterious lack of solar neutrinos \cite{rayreview} \cite{kam0} \cite{sno0}.  Kamiokande II\footnote{The original Kamiokande focused primarily on proton decay. After initial data taking, adjustments were made to the original detector in order to make it sensitive enough to study electron recoils from elastic neutrino scatters in water. One example addition was a surrounding layer of water which was intended to decrease background radiation.  This "new" experiment was called Kamiokande II}, a 3 kton water Cherenkov detector built in Japan in the 80s, was only sensitive to $B^8$ neutrinos above ~6 MeV\cite{kam0} because of the surrounding radioactivity. Despite its inability to probe the keV energies of the Homestake experiment, Kamiokande II was a highly appealing detector due to its real time depiction of events and its ability to reconstruct both the energies and directions of those events\cite{kam0}. Due to this unique ability of this detector, Kamiokande II was able to for the first time conclude that neutrinos were coming from the sun.  In addition to this remarkable discovery, Kamiokande II also observed an apparent lack of solar neutrinos.
-\\\includegraphics[scale=0.5]{solarFlux.png}
+
+
 \par GALLEX was a radiochemical experiment at Gran Sasso, Italy in the 90s. GALLEX was sensitive to the pp neutrino flux energies, with a threshold of 233 keV \cite{gal0}; it was thus able to probe uncharted waters (Homestake threshold had only been 0.814 keV, making it insensitive to pp neutrinos).   After 6 years of running, results showed solar pp flux at $>40\%$ that expected by the SSM\footnote{This only showed conclusive signs for deficit of $Be^7$ neutrino flux}. The validity of this result was confirmed with a 51Cr source experiment in the detector\cite{gal2}. SAGE, another Ga experiment set in Russia in the 90s observed a deficit comparable to GALLEX's.   A similar test of the SAGE detector's efficiency with a 51Cr source confirmed it was operating near 100\% on the 51Cr neutrinos\cite{sage};  these 2 pieces of the puzzle are examples of the Gallium Anomaly.  
 A quick recap at this point would indicate something a bit unsettling about our story thus far. The Davis experiment began digging into Bahcall's models in the 60s; yet here we were in the 90s with still no verified explanation of what was causing the observed neutrino deficit.  Were neutrinos oscillating? Was something wrong with the sun?\cite{Clarke} 
+\\ \begin{wrapfigure}{r}{0.5\textwidth}
+\begin{center}
+\captionsetup{justification=centering}
+\includegraphics[scale=0.5]{solarFlux.png}
+\end{center}
+\caption{John Bahcall's Solar Flux Model}
+\end{wrapfigure}
 
 \par By the late 1990s, the theory of neutrino oscillation as a solution to the solar neutrino problem had been flirting with physicists for years, but remained unproven.  Super Kamiokande, successor experiment to Kamiokande II, is a massive 50 kton ultra pure water detector built to investigate solar and atmospheric neutrino oscillations\footnote{And primarily, to a set better limit on proton decay}.  Atmospheric neutrinos originate from high energy cosmic radiation in the upper atmosphere, ~15km above the surface of the earth (13000 km from the other side of the earth). The flux of atmospheric neutrinos is far smaller than that of solar neutrinos, but luckily interaction cross section increases with energy. In 1998, the Super K collaboration reported data at various energies that complied with a 2 neutrino oscillation model\cite{superk}.
 Quick to follow suit was the Subnury Neutrino Observatory (SNO) in 2002.  SNO was a 1 ktonne spherical deuterium Cherenkov detector located 6800ft under ground in the Creighton Mine in Sudbury\cite{sno}. The greatest barrier experiments before SNO had faced in detecting $\nu_\mu$ or $\nu_\tau$ interactions was that $\mu$ and $\tau$ are heavier (105 MeV and 1777 MeV respectively) than the energy of the solar neutrino spectrum which only extends to about 30MeV. Deuterium, which replaces the hydrogen in water with a proton and a neutron, has a dissociation energy of ~2 MeV. This fact uniquely equipped SNO to measure the flux of all three neutrino flavors\cite{sno}--this total flux matched shockingly well with Bahcall's predictions in his SSM. SNO had conclusively solved the solar neutrino problem.  
@@ -78,29 +93,44 @@ Event rate comes into A short baseline experiment is sensitive to very large val
 Double double toil and more trouble. Despite the resolution of the solar neutrino problem, further issues were bubbling. As mentioned above, Super K was one of the first to tango with atmospheric neutrinos.  Experiments investigating atmospheric neutrino look primarily at directionality and zenith angle of the interactions in data. SuperK and other atmospheric neutrino experiments observed a disappearance of $\nu_\mu$, without corresponding increase in $\nu_e$, implying oscillation into a third neutrino, the $\nu_\tau$. As discussed above, Super K produced data which agreed with the 2 neutrino oscillation model, although they were not sensitive to the $\nu_\tau$ \cite{superk}. Other experiments such as MINOS, a magnetized iron detector produced data which matched theoretical predictions of $\nu_\mu$ oscillation into $\nu_\tau$ \cite{minos}. Thus rested the atmospheric neutrino anomaly.
 \subsection{LSND and MiniBooNE}
 In the last 20 years, a variety of other experimental results have indicated that the 3-neutrino oscillation model (and thus, the Standard Model), may not be complete. Liquid Scintillator Neutrino Detector (LSND), a scintillation detector in a stopped pion beam from the 90's, expected the majority of its events to come from $\nu_\mu$ and $\bar{\nu_\mu}$ interactions with a tiny fraction of $\bar{\nu_e}$'s--in their results, they observed an excess of low energy electron anti-neutrino events for $\frac{L}{E} \sim 1 \frac{m}{MeV}$ (Fig 1), explained at the time with a simple 2-neutrino oscillation model \cite{lsnd}**. These unexpected results led to the construction of the Mini Booster Neutrino Experiment (MiniBooNE), a Cherenkov detector in Booster Neutrino Beam (BNB) at Fermilab (Fig 4). After 10 years of running, MiniBooNE's data revealed an excess of low energy events in both neutrino and anti-neutrino mode at energies below and incorporating LSND's data(Fig 3) \footnote{ MiniBooNE also observed different amounts of excess in neutrino and anti-neutrino mode, leading to additional questions about nuclear interactions, cross sections and the relationship between teh neutrino and its antineutrino\cite{miniboone}}.  These results did several important things: first, MiniBooNE's data refuted the previous 2-neutrino oscillation explanation \cite{miniboone}; it also called into question the nature of the observed low-energy excess. In a Cherenkov detector, electromagnetic showers such as the electron and single photon both have a fuzzy-ring signature (as opposed to a muon, which leaves a distinct ring signature) making it impossible to distinguish an electron neutrino event from a photon produced in some background reaction. So MiniBooNE which had set out to resolve an anomaly left one of its own. What was causing this low energy excess? 
-\\\includegraphics[scale=0.4]{lsnd.png}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{lsnd3.png}
+\hspace{1.5 cm}
 \includegraphics[scale=0.4]{minib2.png}
+\caption{Low energy excesses seen by the LSND (left) and MiniBooNE (right) experiments}
+\end{figure}
 %\includegraphics[scale=0.4]{miniDetector.png}
 
 
+\newpage
 \section{Liquid Argon Time Projection Chambers (LArTPCs)}
+\begin{figure}[h!]
+\centering
 \includegraphics[scale=0.4]{tpc.png}
+\caption{The generalized process of readout in a TPC}
+\end{figure}
 \par Liquid Argon Time Projection Chambers (LArTPCs) are ideal detectors for neutrino oscillation experiments with long baselines.  There are a number of properties that make Liquid Argon (LAr) well suited for the role of medium in this the case: it is cheap, easy to cool, and transparent to its own scintillation light.  When a charged particle travels through a TPC in LAr, it leaves a trail of ionization electrons (and excited LAr dimers) that are drifted in a uniform electric field to wire readout planes (3 planes in MicroBooNE's case). 
 
 Readout from the wires makes the Y and Z coordinates of an interaction accessible, while the drift time acts as the third X coordinate; scintillation signals seen by an array of PMTs also play an important role in making the drift direction accessible\footnote{It is important to note that the success of a LArTPC does not rely on PMTs to extract "X"--this extra piece of information establishes $t_0$ in correspondance with the beam gate, while also tagging backgrounds events which occur in the beam window}.  Thus a LArTPC with 3 (or 2) planes gives us the capability to reconstruct fine-grained, 3 dimensional configurations of events in the detector. \vspace{4 mm}
 \par Two of the primary benefits of using a TPC as your detector is that you get calorimetric information + image quality as seen in Figures x and y.  Figure x,y depict example events in which an electron, gamma were produced respectively. At first glance, a somewhat obvious distinction between the two events is the gap between the start of the shower and vertex in Figure y.  This gap is associated with a gamma and is due to our inability to detect neutral particles directly. In other words, we do not see the gamma until it pair produces or Compton scatters in the detector, thus the gap followed by the EM shower. In contrast to the birth of the gamma EM shower, the electron EM shower is seen as soon as the electron is born \footnote{That is, assuming it is above some threshold}.  When an electron scatters off an Argon atom, it produces a Bremsstrahlung photon which then pair procuces, etc leading to an EM shower with no gap. This topological cut is a powerful tool in discriminating between the particle type which caused grief for MiniBooNE. 
-\vspace{4 mm} \par There is one slightly problematic caveat to the story thus far, but it has a pleasant solution so fear not! Monte Carlo simulations show us that the photon can sometimes pair produce near enough to the vertex of interaction to appear gap-less. This casts doubt (or at least a decrease in event selection efficiency) on the signal ample selected by just the topology cut. But there is something we have not used yet.  An electron is a minimally ionizing particle (MIP) leaving $\sim 2 \frac{Mev}{cm}$ behind in its wake. When a gamma pair produces, which account for $\sim 94\%$ of events above 150 MeV, it creates 2 MIPs.  Thus if we examine the first few cm ($\sim 2.4cm$) of the shower, we should see an energy deposition per cm (or $\frac{dE}{dx}$) of 1 MIP for an electron shower and 2 MIPs for a gamma shower \cite{szelc}. This technique allows us to distinguish between gammas an electrons with high efficiency.    
-%\newpage
-\\\includegraphics[scale=0.4]{EVsignal.png}
+\begin{figure}[h!]
+\includegraphics[scale=0.4]{EVsignal.png}
 \hspace{2 mm}
 \includegraphics[scale=0.4]{EVgamma.png}
-
+\caption{Readout images from the Argoneut detector. The event on the left is a signal $\nu_e$ CCQE event, while the event on the right is a background event producing a gamma} 
+\end{figure}
+\vspace{4 mm} \par There is one slightly problematic caveat to the story thus far, but it has a pleasant solution so fear not! Monte Carlo simulations show us that the photon can sometimes pair produce near enough to the vertex of interaction to appear gap-less. This casts doubt (or at least a decrease in event selection efficiency) on the signal ample selected by just the topology cut. But there is something we have not used yet.  An electron is a minimally ionizing particle (MIP) leaving $\sim 2 \frac{Mev}{cm}$ behind in its wake. When a gamma pair produces, which account for $\sim 94\%$ of events above 150 MeV, it creates 2 MIPs.  Thus if we examine the first few cm ($\sim 2.4cm$) of the shower, we should see an energy deposition per cm (or $\frac{dE}{dx}$) of 1 MIP for an electron shower and 2 MIPs for a gamma shower \cite{szelc}. This technique allows us to distinguish between gammas an electrons with high efficiency.    
 %include Andrzej's dEdx plot here
 %\newpage
-%\includegraphics[scale=0.4]{
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{argo.png}
+\caption{ $frac{dE}{dx}$ separation of electron vs $\gamma$ \cite{szelc}} 
+\end{figure}
 
 %\newpage
-\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{wrapfigure}{r}{0.3\textwidth}
 \begin{center}
 \input{neutrino2014_table}
 \end{center}
@@ -110,20 +140,50 @@ Readout from the wires makes the Y and Z coordinates of an interaction accessibl
 \color{black}
 \subsection{MicroBooNE}
 
-
 MicroBooNE, the latest in a series of Booster Beam experiments located at Fermilab, is a Liquid Argon Time Projection Chamber (LArTPC) that will investigate the low energy neutrino excess seen by its predecessor, MiniBooNE. Cherenkov detectors, such as MiniBooNE, are limited by their inability to distinguish between single electrons and photons, a task LArTPCs are well suited for, as described in more depth above. With the high precision reconstruction capabilities of a LArTPC, MicroBooNE will be able to determine with high statistical certainty whether electrons or photons caused the anomalous MiniBooNE low energy excess. Of further interest to MicroBooNE, and the further proposal of this prospectus, are various neutrino-nucleon interaction cross-sections. Cross sections have accounted for much of the uncertainty in recent results from a variety of neutrino experiments\cite{miniboone} and sensitive measurements by MicroBooNE have the potential to lead to improved nuclear models and rate predictions. Beyond MicroBooNE, LArTPCs will continue to play a notable role in oscillation physics. LAr1-ND will act as a baseline for improving systematic uncertainties in MicroBooNE and investigating the nature of the MiniBooNE excess, while also acting as a small-scale phase experiment for future, bigger LArTPCs such as T600 and LBNF. 
-\\\includegraphics[scale=0.4]{cryo.png}
-\hspace{6 mm}
+\begin{figure}[h!]
+\includegraphics[scale=0.4]{cryo.png}
+\hspace{2 cm}
 \includegraphics[scale=0.4]{cryo2.png}
-%Picture of microboone
+\caption{MicroBooNE the model and MicroBooNE the real man. (Right)Taken when the TPC was slid into the cryostat December 2013.}
+\end{figure}
 
 \section{Current Efforts and Proposal}
-\par The proposal of this prospectus is to make an inclusive cross section measurement of neutral current pi0 interaction cross section. There are a few things which make $\pi_0$ events interesting to study.  For one, only 3 such cross section measurements exist to this day ****cite colin,etc, meaning that our knowledge about them is limited.  Additionally, $\pi_0$ events act as one of MicroBooNE's primary background candidates; because one of MicroBooNE's primary analyses will be a $\nu_e$ appearance search, it is crucial to accurately characterize accurately all background signals.
-\par A neutral current interaction is one in which a $Z^0$ is exchanged no charged leptons are produced.
-\par When a $\pi_0$ is produced, it quickly decays into 2 $\gamma$'s (very rarely, it will decay into 3).  If we are able to contain and see both $\gamma$'s, we can appropriately tag the event as a $\pi_0$, and it does not contaminate our $\nu_e$ sample. There are several ways a $\pi_0$ can contaminate the sample however:
-1) One shower is not contained, in which case the $\pi_0$ will appear to be a single EM shower (a signal candidate).
-2) One shower is absorbed by/lost in the detector.
-3) The showers have a small angle with respect to one another and appear to be one shower in readout.
+\par The proposal of this prospectus is to make an inclusive cross section measurement of neutral current $\pi^0$ interaction cross section. There are a few things which make $\pi^0$ events interesting to study.  For one, only 3 such cross section measurements exist to this day \cite{k2k},\cite{sciboone}, \cite{anderson} meaning that our knowledge of them is limited.  Additionally, $\pi^0$ events act as one of MicroBooNE's primary background candidates; because one of MicroBooNE's primary analyses will be a $\nu_e$ appearance search, it is crucial to accurately characterize all background signals. Thus, to find and tag these events we must first have a good idea of what we're looking for, and what we can expect to see.
+\par A neutral current interaction is one in which a $Z^0$ is exchanged. Thus, one of the things we can expect NOT to see when we search through events for NC $\pi^0$ is a charged lepton; this together with the image resolution of a LArTPC gives us good topological discriminatory power between CC and NC $pi^0$ events. The topology of the $pi^0$ itself is also very distinct.  When a $\pi^0$ is produced, it quickly decays into 2 $\gamma$'s (very rarely, it will decay into 3). Thus topologically, the $pi^0$ signature is EM showers separated from a vertex defined either by hadronic acitivty or by nothing. 
+\par Digging a bit deeper, we look to the nature of the event we search for.  A neutral current $\pi^0$ interaction comes in two flavors: coherent and incoherent.  In coherent $\pi^0$ production, the neutrino interacts with the whole neucleus to produce a pi0 (equation \ref{eq:coh}) .  In an incoherent interaction, the neutrino interacts with a neucleon or constituent quark (equation \ref{eq:incoh}). The latter interactions occur more prevalently at higher energies, and have the potential to produce very messy event displays (particularly in the case of quark excitation).   
+\begin{equation} \label{eq:coh}
+\nu_\mu A \rightarrow \nu_\mu \pi^0 A 
+\end{equation}
+\begin{equation} \label{eq:incoh}
+\nu_\mu N \rightarrow \nu_\mu \pi^0 N
+\end{equation}
+\par One of the main purposes of this study as noted above is that $\pi^0$ constitute a significant background data set for MicroBooNE. There are several ways a $\pi^0$ can be mistaken for signal $\nu_e$:
+\par 1) One shower is not contained, in which case the $\pi^0$ will appear to be a single EM shower.
+\par 2) One shower is absorbed by/lost in the detector.
+\par 3) The showers have a small angle with respect to one another and appear to be one shower in readout.
+\par 4)
+\\\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{EVpi0cand.png}
+\caption{$\pi^0$ candidate found in Argoneut data}
+\end{figure}
+\par what is pi0 inclusive? All interactions which produce 1 and only 1 pi0 in the final state, accompanied by no other mesons. "inclusive" is an important distinction because then we can ignore final state interacitons and just look at the results of the interaction, also useful for constraining backgrounds.  K2K used this definition. SciBooNE relaxed it to "any pi0s in final state" exclusive prod of pi0 accounts for the majority of nc 1pi0 production.  NC pi+-, elastic, DIS, etc are small.  Real difference is in inco vs coherent incoherent pi0 cross section predicted to be smaller for sntineutrino signal selection--1) NC vs CC. 2) Event contians pi0.  A CC event will be associated with a charged lepton, where as an NC event (incoherent or coherent) will be associated with a pi0 and hadrons.  Because we are neglecting to include FSI as part ofthis measurements, a NC neutrino interaction which produces a pi0 that is subsequently absorbed and thus not seen, will not count as signal.  
+Sample selection effectiveness- efficiency (number events collected after cuts), purity (number of correct (signal) events selected) 
+
+beam trigger fires 4.6us before beam spill, and lasts 19.2us after
+
+Things to be described: Kinds of cuts which can be made.  For example, go into a little bit of detail about merging, matching, shower, track system. log likelihoods of electron, gamma candidates based on rad lenght, dedx.   What are your backgrounds (cosmics) ? How will you minimize them? 
+Other cuts: fiducial, log likelihoods of event being pi0 vs being somethign else.  Make cuts based on this. Invariant mass cut. etc
+
+purity must be measured according to reconstructed kinematics. For example, the only thing to distinguish signal from background in a reconstructed sample is the corresponding reconstructed kinematics.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{eventRatePredictions.png}
+\caption{Event rate prediction for $6.6*10^{20}$ POT}
+\end{figure}
+
 
 \par MicroBooNE, a surface dweller, is subject to a constant bombardment of cosmic radiation from the upper atmosphere. Electromagnetic showers originating from cosmic $\mu^+$ and $\mu^-$ are our primary source of background in this case, carrying the ability to mimic MicroBooNE's single electron shower signal(with vertex activity). There are two subsets of events we can break these backgrounds into in order to maximize our rejection efficiency and minimize our signal rejection.  The first is the case in which the muon parent is seen in the beam window. This class of shower backgrounds can be minimized fairly effectively with a series of cuts described in DocDB \# [technote].  The second and more concerning class of showers are those who either originate from a neutral particle (ie, neutron, $\pi^0$ ), or those whose charged particle parent does not enter the detector.  While ionization electrons originating outisde the detector can be rejected as "entering showers", gammas produced outside may not Compton scatter/ pair produce until they are inside the detector; this gives it a high probablity to be tagged as a signal event if steps are not taken to minimize this background. To filter these background events from data, we can look at various parameters that may distinguish them from our desired signal. A dEdx cut can be used with 94\% efficiency to separate pair producing gmmas from cosmics frmo the Compton scatters ****DocDB\#[Andrzej technote]. Also useful is the idea that most cosmic radiation will come from above the detector; it is thus reasonable to expect many of the Compton scattered (and pair produced) showers to have a downward trajectory. In addition, the interaction length in Liquid Argon (14cm) limits the distance we can expect a Compton gamma to travel before interacting (DocDB 3693).   We explore these and other parameters in further detail in this study.
 \\ \\  In the second, the cosmogenic sample described above is examined.  In such a case, there are 2 subsets of interactions to sift through which might mimic our primary signal: Compton scatters and pair production.  A fiducial volume cut guarantees the vertex is inside the detector volume and dE/dx information from the first 2.4cm of a shower can help distinguish gamma from electron activity; we are then able to distinguish between these two interactions in a true sample.  Our first mode of action beyond this is thus to introduce a tag which stores properties of each interaction mode separately (I'm pretty sure I'm going into unnecessary detail here?). Using the selected sample of Compton scatters from Cosmic data, we then investigate properties of the interactions.  In particular, we (will) use geometric algorithms to calculate the distance back along the trajectory from vertex to detector edge.  Combing this information with interaction length, energy and angle, we are able to successfully ( hopefully--not done yet) reduce background Compton scatters while minimally reducing events in the true single electron sample. 
@@ -201,6 +261,18 @@ LSND PAPER
 
 \bibitem{szelc}
 LSND PAPER
+
+\bibitem{anderson}
+Measurement of Muon Neutrino and AntiNeutrino Induced Single Neutral Pion Production Cross Section
+
+\bibitem{technote}
+Cosmic things
+
+\bibitem{k2k}
+"Measurement of single pi0 production in neutral current interactions with water by a 1.3 GeV wide band muon neutrino band"
+
+\bibitem{sciboone}
+"Measurement of inclusive neutral current $\pi^0$ production on carbon in a few-GeV neutrino beam"
 
 \end{thebibliography}
 
