@@ -93,3 +93,10 @@ Intensity of beam = number of protons/ pulse.  There is a BPM (beam position mon
 Horn is aluminum.  ~170kA current in both modes. ~1.5T in inner conductor, water cooling on inner conductor
 concrete collimator ~300cm from horn. 45m airfilled decay region--then 50 m upstream of target is beam stop (steel and concrete).
 primary products of p+Be = pi+- , K+-, K0, p, n
+
+N] K2K single pi0 measurement: http://arxiv.org/pdf/hep-ex/0408134v1.pdf
+"Measurement of single pi0 production in neutral current interactions with water by a 1.3 GeV wide band muon neutrino band"
+
+N+1] sciboone pi0 measurement
+http://journals.aps.org/prd/pdf/10.1103/PhysRevD.81.033004
+"Measurement of incluse neutral current.. "

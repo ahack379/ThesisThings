@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  27 JAN 2015 12:17
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  4 MAR 2015 15:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -662,82 +662,148 @@ Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@height=\dimen171
 \Gin@req@width=\dimen172
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip59
+\f@ncyO@elh=\skip60
+\f@ncyO@erh=\skip61
+\f@ncyO@olh=\skip62
+\f@ncyO@orh=\skip63
+\f@ncyO@elf=\skip64
+\f@ncyO@erf=\skip65
+\f@ncyO@olf=\skip66
+\f@ncyO@orf=\skip67
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/mhchem/mhchem.sty
+Package: mhchem 2011/06/03 v3.11 for typesetting chemical formulae
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count279
+\calc@Bcount=\count280
+\calc@Adimen=\dimen173
+\calc@Bdimen=\dimen174
+\calc@Askip=\skip68
+\calc@Bskip=\skip69
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count281
+\calc@Cskip=\skip70
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/twoopt.sty
+Package: twoopt 2008/08/11 v1.5 Definitions with two optional arguments (HO)
+)
+\tok@mhchem@ce@iii=\toks23
+\mhchem@arrowminlength=\skip71
+\mhchem@arrows@box=\box45
+\mhchem@arrowlength@pgf=\skip72
+\mhchem@arrowminlength@pgf=\skip73
+\mhchem@bondwidth=\skip74
+\mhchem@bondheight=\skip75
+\mhchem@smallbondwidth@tmpA=\skip76
+\mhchem@smallbondwidth@tmpB=\skip77
+\mhchem@smallbondwidth=\skip78
+\mhchem@cf@result=\toks24
+\mhchem@cf@element=\toks25
+\mhchem@cf@amount=\toks26
+\mhchem@cf@sup=\toks27
+\mhchem@cf@presub=\toks28
+\mhchem@cf@presup=\toks29
+\mhchem@cf@replaceMath@result=\toks30
+\mhchem@cf@replaceMathMinusDot@result=\toks31
+\mhchem@prepostscript@tmp@i=\skip79
+\mhchem@prepostscript@tmp@ii=\skip80
+\mhchem@mathbox@tmp@i=\skip81
+\mhchem@mathbox@tmp@ii=\skip82
+\mhchem@minispace@tmp=\skip83
+\mhchem@option@minussidebearingleft=\skip84
+\mhchem@option@minussidebearingright=\skip85
+
+
+Package mhchem Warning: You did not specify a 'version' option for the mhchem
+(mhchem)                package. If you are about to create a new document,
+(mhchem)                please write \usepackage[version=3]{mhchem} in your pre
+amble in
+(mhchem)                order to use the most recent version of mhchem.
+
+) (/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2012/02/19 v3.2f Customizing captions (AR)
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
-\captionmargin=\dimen173
-\captionmargin@=\dimen174
-\captionwidth=\dimen175
-\caption@indent=\dimen176
-\caption@parindent=\dimen177
-\caption@hangindent=\dimen178
+\captionmargin=\dimen175
+\captionmargin@=\dimen176
+\captionwidth=\dimen177
+\caption@indent=\dimen178
+\caption@parindent=\dimen179
+\caption@hangindent=\dimen180
 )
-\c@ContinuedFloat=\count279
+\c@ContinuedFloat=\count282
 Package caption Info: hyperref package is loaded.
 Package caption Info: wrapfig package is loaded.
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count280
-\Gm@cntv=\count281
-\c@Gm@tempcnt=\count282
-\Gm@bindingoffset=\dimen179
-\Gm@wd@mp=\dimen180
-\Gm@odd@mp=\dimen181
-\Gm@even@mp=\dimen182
-\Gm@layoutwidth=\dimen183
-\Gm@layoutheight=\dimen184
-\Gm@layouthoffset=\dimen185
-\Gm@layoutvoffset=\dimen186
-\Gm@dimlist=\toks23
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
+\Gm@bindingoffset=\dimen181
+\Gm@wd@mp=\dimen182
+\Gm@odd@mp=\dimen183
+\Gm@even@mp=\dimen184
+\Gm@layoutwidth=\dimen185
+\Gm@layoutheight=\dimen186
+\Gm@layouthoffset=\dimen187
+\Gm@layoutvoffset=\dimen188
+\Gm@dimlist=\toks32
 )
 (./prospectus.aux)
 \openout1 = `prospectus.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count283
-\scratchdimen=\dimen187
-\scratchbox=\box45
-\nofMPsegments=\count284
-\nofMParguments=\count285
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count286
-\MPscratchDim=\dimen188
-\MPnumerator=\count287
-\makeMPintoPDFobject=\count288
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count286
+\scratchdimen=\dimen189
+\scratchbox=\box46
+\nofMPsegments=\count287
+\nofMParguments=\count288
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count289
+\MPscratchDim=\dimen190
+\MPnumerator=\count290
+\makeMPintoPDFobject=\count291
+\everyMPtoPDFconversion=\toks34
 )
-\AtBeginShipoutBox=\box46
-Package hyperref Info: Link coloring OFF on input line 19.
+\AtBeginShipoutBox=\box47
+Package hyperref Info: Link coloring OFF on input line 21.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
 (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count289
+\c@section@level=\count292
 )
-LaTeX Info: Redefining \ref on input line 19.
-LaTeX Info: Redefining \pageref on input line 19.
-LaTeX Info: Redefining \nameref on input line 19.
+LaTeX Info: Redefining \ref on input line 21.
+LaTeX Info: Redefining \pageref on input line 21.
+LaTeX Info: Redefining \nameref on input line 21.
 
 (./prospectus.out) (./prospectus.out)
 \@outlinefile=\write3
@@ -807,18 +873,18 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c_siunitx_mathsf_int=\count290
-LaTeX Font Info:    Try loading font information for U+esvect on input line 19.
+\c_siunitx_mathsf_int=\count293
+LaTeX Font Info:    Try loading font information for U+esvect on input line 21.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 )
-\c_siunitx_mathtt_int=\count291
+\c_siunitx_mathtt_int=\count294
 
-<ubooneLift.png, id=44, 502.87875pt x 376.40625pt>
+<ubooneLift.png, id=52, 502.87875pt x 376.40625pt>
 File: ubooneLift.png Graphic file (type png)
  <use ubooneLift.png>
-Package pdftex.def Info: ubooneLift.png used on input line 34.
+Package pdftex.def Info: ubooneLift.png used on input line 30.
 (pdftex.def)             Requested size: 251.43875pt x 188.20265pt.
 
 [1
@@ -832,66 +898,106 @@ eLift.png>] (./prospectus.toc)
 \tf@lof=\write5
 \openout5 = `prospectus.lof'.
 
- (./prospectus.lot)
-\tf@lot=\write6
-\openout6 = `prospectus.lot'.
 
- [2
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[2
 
 ]
-<solarFlux.png, id=117, 463.7325pt x 372.39125pt>
+LaTeX Info: Redefining \bond on input line 60.
+LaTeX Info: Redefining \dbond on input line 60.
+LaTeX Info: Redefining \tbond on input line 60.
+LaTeX Info: Redefining \bond on input line 60.
+LaTeX Info: Redefining \dbond on input line 60.
+LaTeX Info: Redefining \tbond on input line 60.
+LaTeX Info: Redefining \bond on input line 60.
+LaTeX Info: Redefining \dbond on input line 60.
+LaTeX Info: Redefining \tbond on input line 60.
+ <solarFlux.png, id=127, 463.7325pt x 372.39125pt>
 File: solarFlux.png Graphic file (type png)
  <use solarFlux.png>
-Package pdftex.def Info: solarFlux.png used on input line 62.
+Package pdftex.def Info: solarFlux.png used on input line 65.
 (pdftex.def)             Requested size: 231.86568pt x 186.19516pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--65
+Underfull \hbox (badness 10000) in paragraph at lines 61--69
 
  []
 
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
 [3
 
-] [4 <./solarFlux.png>] <lsnd3.png, id=155, 384.43625pt x 371.3875pt>
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4 <./solarFlux.png>] <lsnd3.png, id=165, 384.43625pt x 371.3875pt>
 File: lsnd3.png Graphic file (type png)
 
 <use lsnd3.png>
 Package pdftex.def Info: lsnd3.png used on input line 98.
 (pdftex.def)             Requested size: 192.21765pt x 185.69328pt.
- <minib2.png, id=156, 440.64626pt x 473.77pt>
+ <minib2.png, id=166, 440.64626pt x 473.77pt>
 File: minib2.png Graphic file (type png)
  <use minib2.png>
 Package pdftex.def Info: minib2.png used on input line 100.
 (pdftex.def)             Requested size: 176.25537pt x 189.50464pt.
 
-[5] [6 <./lsnd3.png> <./minib2.png>] <tpc.png, id=173, 907.39pt x 395.4775pt>
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[5] <tpc.png, id=180, 907.39pt x 395.4775pt>
 File: tpc.png Graphic file (type png)
-
-<use tpc.png>
-Package pdftex.def Info: tpc.png used on input line 110.
+ <use tpc.png>
+Package pdftex.def Info: tpc.png used on input line 111.
 (pdftex.def)             Requested size: 362.94957pt x 158.18819pt.
- <EVsignal.png, id=176, 547.04375pt x 430.60875pt>
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6 <./lsnd3.png> <./minib2.png> <./tpc.png>]
+<EVsignal.png, id=188, 547.04375pt x 430.60875pt>
 File: EVsignal.png Graphic file (type png)
-
-<use EVsignal.png>
-Package pdftex.def Info: EVsignal.png used on input line 118.
+ <use EVsignal.png>
+Package pdftex.def Info: EVsignal.png used on input line 120.
 (pdftex.def)             Requested size: 218.81361pt x 172.24043pt.
- <EVgamma.png, id=177, 595.22375pt x 430.60875pt>
-File: EVgamma.png Graphic file (type png)
 
-<use EVgamma.png>
-Package pdftex.def Info: EVgamma.png used on input line 120.
+<EVgamma.png, id=189, 595.22375pt x 430.60875pt>
+File: EVgamma.png Graphic file (type png)
+ <use EVgamma.png>
+Package pdftex.def Info: EVgamma.png used on input line 122.
 (pdftex.def)             Requested size: 238.08528pt x 172.24043pt.
 
+<dedx.png, id=192, 366.36874pt x 374.39874pt>
+File: dedx.png Graphic file (type png)
+ <use dedx.png>
+Package pdftex.def Info: dedx.png used on input line 129.
+(pdftex.def)             Requested size: 183.18391pt x 187.19891pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<argo.png, id=179, 624.3325pt x 458.71375pt>
-File: argo.png Graphic file (type png)
- <use argo.png>
-Package pdftex.def Info: argo.png used on input line 128.
-(pdftex.def)             Requested size: 249.72858pt x 183.48224pt.
- [7 <./tpc.png>]
-(./neutrino2014_table.tex
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7 <./EVsignal.png> <./EVgamma.png>] (./neutrino2014_table.tex
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 13.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ts1cmr.fd
@@ -904,77 +1010,138 @@ Overfull \hbox (35.70663pt too wide) in paragraph at lines 7--24
 )
 
 Package wrapfig Warning: Stationary wrapfigure forced to float on input line 14
-1.
+3.
 
-[8 <./EVsignal.png> <./EVgamma.png> <./argo.png>]
-<cryo.png, id=195, 506.89375pt x 466.74374pt>
+<cryo.png, id=204, 506.89375pt x 466.74374pt>
 File: cryo.png Graphic file (type png)
  <use cryo.png>
-Package pdftex.def Info: cryo.png used on input line 145.
+Package pdftex.def Info: cryo.png used on input line 147.
 (pdftex.def)             Requested size: 202.7539pt x 186.69418pt.
 
-<cryo2.png, id=196, 371.3875pt x 395.4775pt>
+<cryo2.png, id=205, 371.3875pt x 395.4775pt>
 File: cryo2.png Graphic file (type png)
  <use cryo2.png>
-Package pdftex.def Info: cryo2.png used on input line 147.
+Package pdftex.def Info: cryo2.png used on input line 149.
 (pdftex.def)             Requested size: 148.55235pt x 158.18819pt.
- [9 <./cryo.png> <./cryo2.png>] <EVpi0cand.png, id=207, 597.23125pt x 431.6125p
-t>
-File: EVpi0cand.png Graphic file (type png)
 
-<use EVpi0cand.png>
-Package pdftex.def Info: EVpi0cand.png used on input line 168.
-(pdftex.def)             Requested size: 238.88826pt x 172.64194pt.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8 <./dedx.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9 <./cryo.png> <./cryo2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10] <eventRatePredictions.png, id=228, 845.1575pt x 293.095pt>
+File: eventRatePredictions.png Graphic file (type png)
+
+<use eventRatePredictions.png>
+Package pdftex.def Info: eventRatePredictions.png used on input line 195.
+(pdftex.def)             Requested size: 422.57771pt x 146.54713pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10] <eventRatePredictions.png, id=217, 845.1575pt x 293.095pt>
-File: eventRatePredictions.png Graphic file (type png)
 
-<use eventRatePredictions.png>
-Package pdftex.def Info: eventRatePredictions.png used on input line 183.
-(pdftex.def)             Requested size: 422.57771pt x 146.54713pt.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--194
+[11] <EVpi0cand.png, id=239, 597.23125pt x 431.6125pt>
+File: EVpi0cand.png Graphic file (type png)
+ <use EVpi0cand.png>
+Package pdftex.def Info: EVpi0cand.png used on input line 208.
+(pdftex.def)             Requested size: 238.88826pt x 172.64194pt.
 
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12 <./eventRatePredictions.png> <./EVpi0cand.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14]
+Overfull \hbox (73.32433pt too wide) in paragraph at lines 351--352
+\OT1/cmr/m/n/12 http://www2.warwick.ac.uk/fac/sci/physics/current/teach/modulei
+[]home/px435/lec[]oscillations.pdf. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--194
-
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
+[]\OT1/cmr/m/n/12 Caratelli, D., et al. "Elec-tron Neu-trino Cos-mo-genic Back-
+ground Mit-i-ga-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--194
-
+Underfull \hbox (badness 3058) in paragraph at lines 366--367
+\OT1/cmr/m/n/12 tion in Mi-cro-BooNE." Tech-note 3978. (2014): n. page. Print. 
+http://www-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--194
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
- []
+[15]
+Missing character: There is no Ï in font cmr12!
+Missing character: There is no € in font cmr12!
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 378.
 
-[11 <./EVpi0cand.png> <./eventRatePredictions.png>] [12] [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 281.
- [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 281.
 
-(./prospectus.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 281.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 281.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 378.
+ (./prospectus.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 378.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 378.
 Package rerunfilecheck Info: File `prospectus.out' has not changed.
-(rerunfilecheck)             Checksum: 667C5B7BB5E641319166308EEBB39351;616.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 281.
+(rerunfilecheck)             Checksum: 6138BF6329273478201206438628AD28;727.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 378.
  ) 
 Here is how much of TeX's memory you used:
- 15196 strings out of 493488
- 295090 string characters out of 3141326
- 330942 words of memory out of 3000000
- 18219 multiletter control sequences out of 15000+200000
- 15344 words of font info for 62 fonts, out of 3000000 for 9000
+ 15719 strings out of 493488
+ 303639 string characters out of 3141326
+ 358557 words of memory out of 3000000
+ 18721 multiletter control sequences out of 15000+200000
+ 14741 words of font info for 60 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,11n,38p,1936b,838s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,19n,43p,1930b,850s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -994,28 +1161,27 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
-usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/lo
-cal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loca
-l/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/te
-xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texl
-ive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive
-/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
-12/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
+usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
+al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
+/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texliv
+e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2012/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2012/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2012/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2012/texmf
--dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on prospectus.pdf (14 pages, 3077787 bytes).
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2012/texm
+f-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on prospectus.pdf (16 pages, 3047978 bytes).
 PDF statistics:
- 323 PDF objects out of 1000 (max. 8388607)
- 273 compressed objects within 3 object streams
- 74 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 356 PDF objects out of 1000 (max. 8388607)
+ 304 compressed objects within 4 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
