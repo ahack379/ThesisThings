@@ -19,7 +19,7 @@
 
 %End preamble, begin document
 \begin{document}
-\title{Proposal to Measure the Cross Section of NC Inclusive Pi0 Interaction Channel }
+\title{Proposal to Measure the Cross Section of NC Inclusive $\pi^0$ Interaction Channel }
 \author{Ariana Hackenburg  \\Yale University \\ 
 			\texttt{ariana.hackenburg@yale.edu}}
 \date{\today}
@@ -73,6 +73,7 @@ Quick to follow suit was the Sudbury Neutrino Observatory (SNO) in 2002.  SNO wa
 \subsection{Further Anomalies}
 Double double toil and more trouble. Despite the resolution of the solar neutrino problem, further issues were brewing. As mentioned above, Super K was one of the first to tango with atmospheric neutrinos.  Experiments investigating atmospheric neutrinos look primarily at directionality and zenith angle of the interactions in data. SuperK and other atmospheric neutrino experiments observed a disappearance of $\nu_\mu$, without a corresponding increase in $\nu_e$, implying oscillation into a third neutrino, the $\nu_\tau$. As discussed above, Super K produced data which agreed with the 2 neutrino oscillation model, although they were not sensitive to the $\nu_\tau$ \cite{superk}. Other experiments such as MINOS, a magnetized iron detector, produced data which matched theoretical predictions of $\nu_\mu$ oscillation into $\nu_\tau$ \cite{minos}. Thus rested the atmospheric neutrino anomaly.
 
+
 \section{Theory}
 
 \par Each neutrino flavor ( $\nu_e, \nu_\mu, \nu_\tau$) can be written as a linear combination of 3 mass eigenstates with the use of a unitary rotation matrix. It is most convenient to begin by looking at a simplified 2 neutrino oscillation model:
@@ -103,8 +104,18 @@ In the last 20 years, a variety of other experimental results have indicated tha
 \end{figure}
 %\includegraphics[scale=0.4]{miniDetector.png}
 
+\subsection{Connection to NC $\pi^0$}
+In order to investigate the anomolies discussed above, it is necessary to have a well-characterized background for whichever signal search we're doing.  The primary background for a search which involves an electromagnetic shower (like an electron) are other electromagnetic showers.  In Figure \ref{fig:lsnd} we see that the MiniBooNE's primary background comes from neutral current $\pi^0$'s in red.  In this case, one shower from the $\pi^0$ decay escapes or is lost in the detector.  Although this is only one example, and there are ways for distinguishing between photons and electrons with more precise detector technology (discussed below), NC $\pi^0$ consistently show up as background in signal neutrino searches. Thus, they are an important background to estimate precisely before embarking on signal search.  
+\par NC were first seen in Gargamelle, a freon bubble chamber operating in PS at CERN in the 70's with an average incident neutrino energy of about 3.5GeV.  This is an important place to start because Gargamelle was a high precision detector, meaning it got beautiful shots of the interactions happening inside of it (Figure \ref{fig:gar}).  The asterisk here is that high precision detector technology loses some of its power when it is not accomanied by a precisely measured flux. Because the flux is imprecisely known here and in many of the earlier bubble chamber experiments, we see a series of relative cross sectionsmeasurements coming out of the 70's and 80's. Meaning, a lot of NC cross section measurements which are normalized to better known interaction channelsin order to remove flux dependence. I propose here to measure the NC $\pi^0$ cross section using the precisely known flux of the Booster Neutrino Beam (BNB)--this measurement has never before been made on Liquid Argon.  
 
-%\newpage
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{Gargamelle.png}
+\caption{1973, Gargamelle sees first evidence of Neutral Current}
+\label{fig:gar}
+\end{figure}
+
+\newpage
 \section{Liquid Argon Time Projection Chambers (LArTPCs)}
 \begin{figure}[h!]
 \centering
@@ -154,10 +165,19 @@ MicroBooNE, the latest in a series of Booster Beam experiments located at Fermil
 \section{Current Efforts and Proposal}
 \par The proposal of this prospectus is to measure an inclusive neutral current(NC) $\pi^0$ interaction cross section. In this case, we take "inclusive" to indicate all interactions which conclude with a single $\pi^0$ and no other mesons. This condition purposefully includes all final state interactions (FSI) in order to decrease model dependent uncertainties, and limit this study to production we can feasibly see in the detector.  The elimination of a state-dependent model also makes the cross section measurement itself more useful for the experiment. $\pi^0$ events act as one of MicroBooNE's primary background candidates; because MicroBooNE's flagship analysis will be a $\nu_e$ appearance search, it is crucial to have a well-characterized background (naturally cateogorized under this banner of inclusiveness). Thus, our first goal is to identify what will constitute the signal of this study, a NC $\pi^0$. 
 \subsection{Topology}
-\par A neutral current interaction is one in which a $Z^0$ is exchanged between the neutrino in initial and final states. This is in contrast with a charged current (CC) interaction where a charged W boson is exchanged between the incoming neutrino and out going charged lepton. Thus, one of the things we can expect NOT to see when we search for NC $\pi^0$ events is a charged lepton leaving a production vertex; this gives us good discriminatory power against CC events.  The topology of the $\pi^0$ itself is also very distinct.  When a $\pi^0$ is produced, it quickly decays into 2 $\gamma$'s (and very rarely, into 3). The $\pi^0$ signature we'll look for is thus 2 EM showers separated from a vertex defined either by hadronic acitivty or by nothing, but no other charged leptons or mesons. 
+\par A neutral current interaction is one in which a $Z^0$ is exchanged between the neutrino in initial and final states (Figure \ref{fig:CCNC}). This is in contrast with a charged current (CC) interaction where a charged W boson is exchanged between the incoming neutrino and out going charged lepton. Thus, one of the things we can expect NOT to see when we search for NC $\pi^0$ events is a charged lepton leaving a production vertex; this gives us good discriminatory power against CC events.  The topology of the $\pi^0$ itself is also very distinct.  When a $\pi^0$ is produced, it quickly decays into 2 $\gamma$'s (and very rarely, into 3). The $\pi^0$ signature we'll look for is thus 2 EM showers separated from a vertex defined either by hadronic acitivty or by nothing, but no other charged leptons or mesons. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{CC.png}
+\hspace{.5 cm}
+\includegraphics[scale=0.4]{NC.png}
+\caption{Charged Current event with nucleons interacting via Meson Exchange Current (MEC) (Left). Neutral Current Event with outgoing $\pi^0$ (Right)}
+\label{fig:CCNC}
+\end{figure}
 
 %\par One of the main purposes of this study, as noted above, is to precisely characterize and constrain the $\pi^0$ background for MicroBooNE's oscillation analyses. There are several ways a $\pi^0$ can be mistaken for signal $\nu_e$:
-It is worth noting that there are several ways a $\pi_0$ can be mistaken for signal $\nu_e$:
+It is worth noting that there are several ways a $\pi^0$ can be mistaken for signal $\nu_e$:
 \par 1) One shower is not contained, in which case the $\pi^0$ will appear to be a single EM shower.
 \par 2) One shower is absorbed by/lost in the detector.
 \par 3) The showers have a small angle with respect to one another and appear to be one shower in readout.
@@ -181,13 +201,13 @@ One of the most important tasks on this side of data taking is to ensure that re
  N_{obs} = \sigma * \Phi * \epsilon 	
 \end{equation}
 \\ \\ where $N_{obs}$ is number of interactions selected from the reconstruction described above, $\Phi$ is the flux of the interaction of interest and $\epsilon$ is the efficiency with which events are selected.  The flux of the BNB has been well characterized by the MiniBooNE collaboration \cite{miniboone}. If our reconstruction were perfect, and our sample efficiency and purity were both 1, then we would divide our event rate by total flux and we would be done. But our samples will not be pure, nor will they be selected with 100\% efficiency--background events will inevitably leak in, and we lose signal to our series of cuts. Detector effects may also lead to "smearing" of kinematic variables which must be in some sense "unsmeared" before we work with them.  This means the real lifting comes in estimating our efficiency, and correcting for it. There are a few aspects of estimating efficiency of event selection.  The first is that efficiency is energy dependent.  One way to overlook this issue is to calculate a differential cross section of our channel of interest on Ar with respect to energy.  Another issue is that estimating the efficiency of our automated reconstruction is tricky.  With a limited sample of un-blinded data, we won't have high statistics and will possibly need to rely on MC truth estimates to produce this number.     
-\par \vspace{3 mm}It is worth noting only 3 such $\pi_0$ cross section measurements from K2K, SciBooNE and MiniBooNE to this day \cite{k2k}\cite{sciboone}\cite{anderson}. 
+\par \vspace{3 mm}It is worth noting only 3 such $\pi^0$ cross section measurements from K2K, SciBooNE and MiniBooNE to this day \cite{k2k}\cite{sciboone}\cite{anderson}. 
 
 \subsection{Backgrounds}
 
- MicroBooNE, a surface dweller, is subject to constant bombardment by cosmic radiation from the upper atmosphere. Gammas from these upper atmosphere cascades can Compton scatter or pair produce in the detector, resulting in either an electron shower from the former, or electron/positron showers from the latter. These backgrounds have the potential to mimic MicroBooNE's primary signal, a single electron shower, and to muddy our $\pi_0$ sample.  To filter these background events from data, various parameters of interactions were examined. For instance, most gamma radiation comes from above the detector; it is thus reasonable to expect many cosmic showers to have a downward trajectory. As another example, the interaction length in Liquid Argon (14cm) limits the distance we can expect a Compton gamma to travel before interacting. At the end of 2014, major efforts were undertaken to estimate these cosmogenic backgrounds \cite{technote}.   
-\par The strategy of this study was the following: using a Monte Carlo sample, examine both cosmic events which can be correlated to charged tracks and those which cannot be. While Compton scatters are much lower energy, and thus mostly eliminated by the energy cuts we invoke for signal events, the ones that sneak through are dangerous. They mimic $\nu_e$ signal with little apparent discrimination.  The pair producing photons, while higher energy and most likely to mimic our $\pi_0$ signal, are mostly eliminated by the $\frac{dE}{dx}$ cut described above. 
-\par While this study was primarily targeted towards estimating a cosmogenic background for signal $\nu_e$ events, it can be extended to estimate a pi0 background as well. Other studies for dirt background (neutrino interactions in material external to the detector whose byproducts end up in the detector) are also being undertaken.  
+ MicroBooNE, a surface dweller, is subject to constant bombardment by cosmic radiation from the upper atmosphere. Gammas from these upper atmosphere cascades can Compton scatter or pair produce in the detector, resulting in either an electron shower from the former, or electron/positron showers from the latter. These backgrounds have the potential to mimic MicroBooNE's primary signal, a single electron shower, and to muddy our $\pi^0$ sample.  To filter these background events from data, various parameters of interactions were examined. For instance, most gamma radiation comes from above the detector; it is thus reasonable to expect many cosmic showers to have a downward trajectory. As another example, the interaction length in Liquid Argon (14cm) limits the distance we can expect a Compton gamma to travel before interacting. At the end of 2014, major efforts were undertaken to estimate these cosmogenic backgrounds \cite{technote}.   
+\par The strategy of this study was the following: using a Monte Carlo sample, examine both cosmic events which can be correlated to charged tracks and those which cannot be. While Compton scatters are much lower energy, and thus mostly eliminated by the energy cuts we invoke for signal events, the ones that sneak through are dangerous. They mimic $\nu_e$ signal with little apparent discrimination.  The pair producing photons, while higher energy and most likely to mimic our $\pi^0$ signal, are mostly eliminated by the $\frac{dE}{dx}$ cut described above. 
+\par While this study was primarily targeted towards estimating a cosmogenic background for signal $\nu_e$ events, it can be extended to estimate a $\pi^0$ background as well. Other studies for dirt background (neutrino interactions in material external to the detector whose byproducts end up in the detector) are also being undertaken.  
 
 
 \begin{figure}[h!]
@@ -366,7 +386,7 @@ Anderson, Colin. "Measurement of Muon Neutrino and AntiNeutrino Induced Single N
 Caratelli, D., et al. "Electron Neutrino Cosmogenic Background Mitigation in MicroBooNE." Technote 3978. (2014): n. page. Print. http://www-microboone.fnal.gov/at\_work/technotes.html.
 
 \bibitem{k2k}
-Nakayama, S., et al. "Measurement of single pi0 production in neutral current neutrino interactions with water by a 1.3 GeV wide band muon neutrino beam." Phys. Lett. B. 619.255-262 (2004): n. page. Print.
+Nakayama, S., et al. "Measurement of single $\pi^0$ production in neutral current neutrino interactions with water by a 1.3 GeV wide band muon neutrino beam." Phys. Lett. B. 619.255-262 (2004): n. page. Print.
 
 \bibitem{sciboone}
 Kurimoto, Y., et al "Measurement of inclusive neutral current π0 production on carbon in a few-GeV neutrino beam." Phys. Rev. D. 81. (2010): n. page. Print.

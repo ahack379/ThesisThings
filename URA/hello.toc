@@ -1,0 +1,8 @@
+\contentsline {section}{\color {red}PreIntro: A Word on Llamas}{1}{section*.4}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Structure}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Structure 2.0: Llama Environment}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Structure 3.0: Llama Hygiene}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Structure 4.0: What Gives the Llama its Jive?}{2}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Structure 5.0: Llama-Friendly Meals}{2}{subsection.2.4}
+\contentsline {section}{\numberline {A}Aaaarrrppendix number 1}{2}{appendix.A}

@@ -1,0 +1,53 @@
+%hello.tex- First LaTeX example
+%In preamble
+\documentclass[10pt]{article}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{setspace}
+%\singlespace
+%\onehalfspacing
+%\doublespace
+%\linespread{2}
+
+%End preamble, begin document
+\begin{document}
+\title{\color{blue}Pirate Typesetting or How to Structure a \LaTeX{} Document}
+\author{\color{red}Burger McHack  \\That Burga Joint \\ 
+			\texttt{ahack@llama.gov}}
+\date{\today}
+\maketitle
+
+\renewcommand{\abstractname}{Llama Abstracts are better than normal Abstracts}
+\begin{abstract}
+World be where it's at.
+Where-at?
+Here.
+Test duffle.  Duf{}fle.
+H$_2$O 
+
+\^x + \^y + \^z = \^r
+\end{abstract}
+%Set Table of contents depth to 3 levels
+\tableofcontents
+\listoffigures
+\listoftables
+\setcounter{tocdepth}{3} 
+\phantomsection
+\addcontentsline{toc}{section}{\color{red}PreIntro: A Word on Llamas}
+\section*{PreIntro: A Word on Llamas}
+They are gray and beaked.
+\section{Introduction}
+Llamas are always ignored in the introduction. I would like to make note of the llama. This article will explore the experiences of llamas on the high seas. They're pirates, at heaaaaaaaaaarrrrrrrrt.
+	
+	Here is a new paragraph on llamas.
+	
+\section{Structure}
+\subsection{Structure 2.0: Llama Environment}
+\subsection{Structure 3.0: Llama Hygiene}
+\subsection{Structure 4.0: What Gives the Llama its Jive?}
+\subsection{Structure 5.0: Llama-Friendly Meals}
+
+\appendix
+\section{Aaaarrrppendix number 1}
+	
+\end{document}

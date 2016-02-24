@@ -1,0 +1,67 @@
+Definitions and info: docdb 4635  
+
+Inclusive Single: Events w a single pi0 and other stuff (n, p, pi+-, K+-).
+Inclusive: Events w n pi0 and other stuff 
+Exclusive: Events w n pi0 and no other mesons (pi+-, K+-0)
+Coherent : No nucleons excited in the event.  Nucleus is left in ground state
+
+Mass : 134.98 MeV/c2
+Mass pi+- : 139.57 MeV/c2
+
+Why is it important?
+-It acts as an important background to nue oscillation analysis (microboone + miniboone background analysis)
+-This particularly channel has been measured infrequently and also in a ratio measurement.
+-Study the even more infrequently studied coherent production.
+-Dive more deeply into variety of nuclear models which explain what's going on inside (pion exchange,FSI,etc)
+-Contributes to background for proton decay studies
+
+What's been done?
+See the chart in your WIDG talk. Summary:
+-Gargamelle 1978: Freon(Hydrogen?) Bubble Chamber : Exclusive 1pi0 measurement
+-MiniBooNE  2004: Carbon Cherenkov Detector       : Exclusive 1pi0 measurement
+-K2K        2005: Oxygen Cherenkov Detector       : Exclusive 1pi0 measurement
+-NOMAD      2009: Carbon Drift Chamber            : Coherent pi0
+-SciBooNE   2010: Carbon Tracking/Calorimetric    : Inclusive pi0
+-Argoneut    2015: Argon LArTPC                    : Inclusive pi0
+
+What can MicroBooNE offer?
+-(See WIDG talk for equations) flux-averaged cross section on LAr
+-Compare what we see to various generator predictions
+-Look at differential cross sections wrt momentum, production angle wrt beam
+
+Need to do some MCTruth checks:
+Notes on MCTruth: Efficiency of selection=1, Background=0
+
+sigma_i     = (N_sig_i - N_bkgd)/(eff * N_targets * flux_i
+(for truth) = (N_sig_i)/(N_targets * flux_i) 
+
+
+
+How can we get to this measurement in microboone?
+0)What is our signal? NC exclusive events
+More on Signal (docdb 5170): NC single pi0 with no mesons (exclusive)
+-Once we have decided on a signal, need to understand how many pi0s we reconstruct/see vs how many we miss due to inefficiency
+-In microboone, this works as follows: Everything is fully reconstructed.  Once everything is reconstructed (into ERTool tracks and showers) select reconstructed pi0s.  Then put pi0s together with the tracks they should live with.  Once we have full event topologies, categorize the event type (ie, final state (?)).  Can then look at variables like momentum, angle of select NC pi0 events
+
+1)What is our background? 
+  -Charge current events
+  -Cosmics
+  -Dirt Interactions
+  -NC inclusive (if your signal is exclusive, ie no pi+-)
+More on backgorunds: Single pi0 with at least 1 meson, NC >1 pi0, CC >= 1pi0 (and CC/NC 0 pi0??)
+
+To DO:
+-Understand the generators available. What do these generators predict for the cross sections of whatever signal you decide on?
+-Look at perfect reco (NOT mctruth).  Perfect reco has access to some mcinfo, but it only has access to DEPOSITED energy in the detector.  Not the full energy of shower. It is important to study perfect reco case to distinguish between selection and reconstruction efficiencies.
+  -Basic breakdown of differences: 
+   -MC : Access to PDG, interaction type, total energy, particle mass, real position, real momentum, vertex
+   -Perfect Reco: Acess to deposited energy, direction and momentum based on charge deposition
+
+    -LL : currently, likelihood function uses dEdx, radiation lenght (distance from vertex).
+    -Ignore dalitz decays (1%) -- 2 photon events 
+
+-Look at mass distribution of perfect reco-- look at events below some cut value (should hug the detector wall). 
+-Require Shower E > 20MeV
+-Require pi0 vertex to be at least 18cm from TPC walls (rad length 18cm for photon)
+->  M = sqrt(2*E1*E2*(1-cos(thetaYY)))
+

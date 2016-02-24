@@ -1,0 +1,201 @@
+%hello.tex- First LaTeX example
+%In preamble
+\documentclass[12pt]{article}
+
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{tabularx}
+\usepackage{wrapfig}	 %embed figure in text
+\usepackage{esvect}      %vector notation
+\usepackage{indentfirst} %automatically indents the beginning of each section
+\usepackage{graphicx}    %include graphics
+\usepackage{fancyhdr}
+\usepackage{mhchem}       %for chemistry typesetting 
+\usepackage{pdfpages}       %for chemistry typesetting 
+\usepackage[font=scriptsize]{caption}
+\usepackage[margin=1in]{geometry}
+
+%End preamble, begin document
+\begin{document}
+\includepdf[pages=-]{URAHack}
+\includepdf[pages=-]{CoverSheetHack}
+
+%\title{ URA Fellowship Proposal: Tool Validation using First Data, and Investigation of the Neutral Current Pi0 Background in LArTPCs }
+\title{ URA Fellowship Proposal: Study and Mitigation of the Neutral Current Pi0 Background in LArTPCs }
+\author{Ariana Hackenburg  \\Yale University \\} 
+\date{\today}
+\maketitle
+
+\renewcommand{\abstractname}{Proposal Summary}
+\begin{abstract}
+In this proposal I am requesting funding for a non-consequtive 3-4 month stay at Fermilab over the period of September 1, 2016 - August 30, 2017.  During this time, I will pursue two courses of action.  First, I will continue work I have already begun on tool validation and development for analysis of first data.  Second, with the use of these completed and validated tools, I will calculate the interaction cross section of the Neutral Current (NC) $\pi^0$, one of MicroBooNE's most prominent backgrounds, on Liquid Argon.  These investigations will require a lot of detailed, careful work which will be aided and accelerated by direct collaboration with Fermilab research scientists and postdocs. Furthermore, these efforts will benefit the whole experiment, in addition to future users of LArTPC technology (e.g., SBND, DUNE). 
+
+%MicroBooNE is a Liquid Argon Time Projection Chamber (LArTPC) sitting in the Booster Neutrino Beam (BNB) at Fermilab. Among the range of measurements and studies MicroBooNE has the potential to perform is the characterization of MiniBooNE's low energy excess. One of the most unforgiving backgrounds of this $e^-$ neutrino search is the neutral currents pi0.  In previous experiments, this background has been particularly difficult to mitigate due to the differing capabilities of various detector technologies.  With the excellent topological characterization and high resolution calorimetric capabilities of LArTPCs, MicroBooNE has the potential to both answer this question posed by MiniBooNE definitively, and to improve our understanding of the NC pi0 interaction channel.  While simple to describe in this way, this end requires a lot of detailed, careful work which will be aided and accelerated by easy access to the many experts at Fermilab.  
+\end{abstract}
+
+\pagestyle{fancy}% C
+\fancyhead[C]{}
+\renewcommand{\headrulewidth}{0.4pt}% 
+\tableofcontents
+\setcounter{tocdepth}{3} 
+\phantomsection
+\clearpage
+
+\section{Experiment Overview}
+\subsection{MicroBooNE}
+MicroBooNE, the latest in a series of Booster Beam experiments located at Fermilab, is a Liquid Argon Time Projection Chamber (LArTPC) investigating the low energy excess seen by MiniBooNE. With the high precision reconstruction capabilities of a LArTPC, MicroBooNE will be able to determine with high statistical certainty whether $e^-$'s or $\gamma$'s caused the anomalous MiniBooNE low energy excess. Of further interest to MicroBooNE, and the subject of this proposal, are neutrino-nucleon interaction cross-sections. Cross sections have accounted for much of the uncertainty in recent results from a variety of neutrino experiments\cite{miniboone} and sensitive measurements by MicroBooNE have the potential to lead to improved nuclear models and rate predictions. 
+
+\subsection{Liquid Argon Time Projection Chambers}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Pics/tpc.png}
+\caption{Event readout in a TPC}
+\end{figure}
+\par Liquid Argon Time Projection Chambers (LArTPCs) are ideal detectors for neutrino oscillation experiments with short and long baselines. The benefits of using TPC technology include good calorimetric information and image quality resolution (Figure \ref{fig:argoneut}).  Readout from multiple wire planes makes the Y and Z coordinates of an interaction accessible, while the drift time, in conjunction with $t_0$ given by the PMTs, makes the X coordinate. It is important to note that the optical flashes seen by the PMTs play a crucial role in coordinating TPC events with the beam gate (thus establishing $t_0$ and "X") and mitigating cosmic background, as discussed later. Beyond MicroBooNE, LArTPCs (such as SBND and DUNE) will continue to play a notable role in neutrino oscillation physics, and thus the work done here on MicroBooNE will likely aid future efforts and analyses. 
+%\par  
+
+\begin{figure}[h!]
+\includegraphics[scale=0.4]{Pics/EVsignal.png}
+\hspace{2 mm}
+\includegraphics[scale=0.4]{Pics/EVgamma.png}
+\caption{Readout images from the Argoneut detector. The event on the left is a signal $\nu_e$ CCQE event, while the event on the right is a background event producing a $\gamma$} 
+\label{fig:argoneut}
+\end{figure}
+
+\subsection{ $e^-$, $\gamma$ Discrimination }
+ One of MiniBooNE's biggest problems was its inability to distinguish between $e^-$ and $\gamma$'s.  Luckily, this discrimination will not be majorly problematic for MicroBooNE, due to its usage of a LArTPC.  Figure \ref{fig:argoneut} displays two example events from Argoneut in which an $e^-$ and $\gamma$ were produced respectively. A clear distinction between these two displays is the degree of gap between the start of the showery object and the event vertex.  This gap is associated with a neutral particle which cannot be detected directly; this means we only see a $\gamma$ when it scatters or pair produces to cause an electro-magnetic (EM) shower. In contrast, the gapless $e^-$ EM shower is seen as soon as the $e^-$ is born \footnote{Assuming it is above some threshold.}. %This topological cut is a powerful tool in discriminating between the interactions that caused grief for MiniBooNE.  
+\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{center}
+\includegraphics[scale=0.4]{Pics/dedx.png}
+\end{center}
+\caption{ $\frac{dE}{dx}$ separation of electron vs $\gamma$ \cite{szelc}}
+\label{fig:dedx}
+\end{wrapfigure}
+
+\par An important caveat to this story is that the $\gamma$ can sometimes pair produce near enough to the vertex of interaction to appear gap-less.  This means that using just a topology cut to discriminate between the two can negatively impact the purity of our selected signal sample. To take this into account, we note that the $e^-$ is a minimally ionizing particle (MIP) with a $\frac{dE}{dx}$ of $\sim 2 \frac{Mev}{cm}$, while a $\gamma$ pair produces (2 MIPs, and accounts for $\sim 94\%$ of events above 150 MeV) with a $\frac{dE}{dx}$ of $\sim 4 \frac{Mev}{cm}$ \cite{szelc}. The first few cm of the showering particle will contain this information, and thus allow us to discriminate with high efficiency. A successful example of this discrimination technique is shown for Argoneut (Figure \ref{fig:dedx}).
+
+%\begin{figure}[h!]
+
+%\end{figure}
+
+
+% 64 \captionsetup{justification=centering}
+
+\section{Proposal}
+Below I detail the proposed activities and explain why Fermilab is the best place for me to carry them out. 
+\subsection{Understanding NC $\pi^0$ Background}
+
+In order to investigate MiniBooNE's low energy excess and to complete its flagship $\nu_e$ appearance anlysis, MicroBooNE first needs to have a well-characterized background. Studies have shown \cite{sbnd} that NC $\pi^0$ events are one of MicroBooNE's primary backgrounds (Figure \ref{fig:CCNC}a). Part of this proposal is thus to measure the inclusive NC $\pi^0$ interaction cross section on Liquid Argon, where "inclusive" indicates all interactions which conclude with a single $\pi^0$ and no other mesons (example event in Figure \ref{fig:CCNC}b). This condition of inclusiveness purposefully includes all final state interactions (FSI) in order to both decrease model dependent uncertainties and to limit this study to production we can feasibly see in the detector. While simply described, this task is actually a series of tasks, and requires the use of some tools which are incompletely developed. A considerable amount of work, the majority of which will occur in collaboration with people stationed at Fermilab, will need to be done to bring these tools up to speed.
+\par \vspace{3 mm}It is worth noting that only a handful of such $\pi^0$ cross section measurements exist today, some examples of which are K2K, SciBooNE and MiniBooNE \cite{k2k}\cite{sciboone}\cite{anderson}. Thus, this analysis will also add an important data point to a small sample of measurements. 
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{Pics/sbnd.png}
+\hspace{.5 cm}
+\includegraphics[scale=0.4]{Pics/NC.png}
+\caption{(a)Rate predictions at MicroBooNE for POT 1.32E21; (b) Example Inclusive NC $\pi^0$ event  }
+\label{fig:CCNC}
+\end{figure}
+
+
+\subsection{Reconstruction Efforts}
+Automating reconstruction is crucial for both MicroBooNE analyses and the new generation of LArTPCs which will rack in more than a million neutrino events per year. While track ($\mu$, $\pi^+$, $\pi^-$, etc.) reconstruction has existed for some time, electromatic shower reconstruction ($e^-$, $\gamma$) is an unfinished product (different topologies of "track" and "shower" shown in Figure \ref{fig:argoneut}). High quality shower reconstruction is crucial. We need the 3D shower angle to calculate "dx" in $\frac{dE}{dx}$ and to discriminate effectively between $e^-$ and $\gamma$'s as discussed above (this will allow us to resolve MiniBooNE's anomaly). Shower reconstruction currently works as follows: "hits" from MicroBooNE's 3 wire readout planes are clustered (per plane) by first preliminary and then more sophisticated algorithms. These "clusters" are then matched across the planes to reconstruct 3D showers and assign event characterization based on log likelihood calculations. While the actual reconstruction of the shower has been shown to work well on perfectly clustered information, it falters when either stage of clustering (preliminary/sophisticated) is bad (Figure \ref{fig:fuzzy}a). Recently, I began an effort with several people stationed at Fermilab to investigate the potential of image processing software tools (OpenCV) to reconstruct showers. We have made rapid progress (Figure \ref{fig:fuzzy}b), but there is a lot of work that needs to be done before these tools can be useful for everyone. The majority of people working on reconstruction improvement are based at Fermilab. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Pics/fuzzy.png}
+\hspace{.5 cm}
+\includegraphics[scale=0.4]{Pics/opencv.png}
+\caption{The 3 planes of hit-readout for MC $\pi^0$'s using two different clustering schemes. Note, we only need 2 good planes to do shower reconstruction.  (a) Current default clustering used by MicroBooNE, before any additional clustering has been carried out--note that at this preliminary stage, we have already over clustered. (b) Clustering on same event using OpenCV.}
+\label{fig:fuzzy}
+\end{figure}
+
+\subsection{Cosmic Background}
+MicroBooNE, a surface dweller, is subject to constant bombardment by cosmic radiation from the upper atmosphere. Quantitatively, this bombardment amounts to 5 kHz, or 8 cosmics per MicroBooNE's 2.2 ms drift window. As mentioned earlier, scintillation light seen by the PMTs plays a large role in determining the $t_0$, or time of occurence with respect to the beam trigger, of an event. However, this timing information is only useful to us if we're able to combine it efficiently with reconstructed TPC information. This track to light matching ("flash matching") is crucial to the mitigation of our high cosmic rate, and the successful completion of most MicroBooNE analyses. I am currently working in conjunction with Fermilab postdocs and students to both improve and implement flash matching.  Thus far, we have shown that it works on MC and in simple reco scenarios (eg, single $\mu$ samples).  There is much validation still to be done before we can use this tool.
+
+\subsection{Potential for Further Studies}
+
+\par On a final note, we can potentially extend the depths of the study described above to investigate in more depth the underlying physics of exclusive channel production of $\pi^0$. The exclusive channels of neutral current $\pi^0$ production are the coherent and incoherent channels.  In coherent $\pi^0$ production, the neutrino interacts with the whole neucleus to produce a $\pi^0$ (Equation \ref{eq:coh}). In constrast, a neutrino with a bit more momentum can interact with a neucleon or constituent quark (Equation \ref{eq:incoh}) and cause incoherent $\pi^0$ production. The latter interactions occur more prevalently at higher momentum transfers, and have the potential to produce very messy event displays (particularly in the case of quark excitation). A measurement such as this also requires us to invoke an FSI model, particularly for an incoherent measurement; for every $\pi^0$ we see, we need to account for those which were absorbed or exchanged in the nucleus, and thus not seen in the detector. Despite this necessary model assumption, the results of this study may offer us, and future neutrino experiments, a more complete picture of the physics occurring in our detector. 
+
+\begin{equation} \label{eq:coh}
+\nu_\mu A \rightarrow \nu_\mu \pi^0 A 
+\end{equation}
+\begin{equation} \label{eq:incoh}
+\nu_\mu N \rightarrow \nu_\mu \pi^0 N
+\end{equation}
+
+
+%
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Pics/EVpi0cand.png}
+\caption{NC $\pi^0$ candidate found in Argoneut data}
+\end{figure}
+
+%\newpage
+\begin{thebibliography}{20} %1 should be replaced with number of citations
+
+\bibitem{miniboone}
+MiniBooNE Collaboration. "The Neutrino Flux prediction at MiniBooNE." Phys. Rev. D. (2008): n. page. Print.
+
+\bibitem{szelc}
+Szlec, A. M. "Recent Results from ArgoNeuT and Status of MicroBooNE." Proceedings from Neutrino 2014. (2014): n. page. Print.
+
+\bibitem{anderson}
+Anderson, Colin. "Measurement of Muon Neutrino and AntiNeutrino Induced Single Neutral Pion Production Cross Section." Thesis. (2011): n. page. Print.
+
+\bibitem{k2k}
+Nakayama, S., et al. "Measurement of single $\pi^0$ production in neutral current neutrino interactions with water by a 1.3 GeV wide band muon neutrino beam." Phys. Lett. B. 619.255-262 (2004): n. page. Print.
+
+\bibitem{sciboone}
+Kurimoto, Y., et al "Measurement of inclusive neutral current π0 production on carbon in a few-GeV neutrino beam." Phys. Rev. D. 81. (2010): n. page. Print.
+
+\bibitem{sbnd}
+Acciari, R., Adams, C., et al. (2015). A Proposal for a Three Detector Short-Baseline Neutrino Oscillation Program in the Fermilab Booster Neutrino Beam. ArXiv:1503.01520.
+
+\end{thebibliography}
+
+\newpage
+\section{ Budget }
+\noindent I plan to make 5 trips to Fermilab from September 2016 - August 2017 (explained further in biosketch).  These trips will total approximately 3 non-consequitive months:
+\\
+
+\par October 2016              : 2 weeks
+\par December 2016-Janury 2017 : 4 weeks
+\par March 2017                : 2 weeks
+\par June - July 2017          : 4 weeks
+\par July - August 2017        : 3-4 weeks \\
+
+\noindent Note: The salary requested below is equivalent to a Yale physics graduate student stipend. 
+\begin{table}[h!]
+%\centering
+ \begin{tabular}{| l | l |} 
+ \hline
+ Description & Cost \\ [0.5ex] 
+ \hline\hline
+  Airfare + Transport to Airport & \$400/trip (x5 trips) \\ \hline
+  Rental Car & \$500/month  (x3 months) \\ \hline
+  Lodging   & \$500/month     (x3 months) \\ \hline
+  Salary    & \$2781/month (x3 months) \\ \hline
+  Total  & \$13,343 \\ \hline
+ \end{tabular}
+\end{table}
+
+\newpage
+\section{BioSketch}
+My name is Ariana Hackenburg and I am a 4th year graduate physics student at Yale University. I work primarily on MicroBooNE, secondarily on SBND, under the advisement of Bonnie Fleming. \\ 
+
+\par I began my path to physics at Rutgers University working for Ron Ransome on Minerva. Over the 3 school years I worked on Minerva, I completed a variety of tasks ranging from fixing “light leaky” photomultiplier tubes to analyzing event displays. For my senior thesis, I wrote a series of routines in C++ and root to model neutrino-nucleon interactions at various energies, angles and distances. During the summers, I got to work with Daya Bay, Neutrino Factory Muon Collider, and (what was at the time) LBNE with Dr Minfang Yeh, Dr. Juan Gallardo, and Dr. Mary Bishai respectively. \\
+
+\par During my first year as a graduate student, I worked under Dr. Dan McKinsey on PIXeY. PIXeY is a Xenon time projection chamber that tracks the origin of gamma radiation, for example, loose nuclear materials. While on PIXeY I built (with Dr. Ethan Bernard) a wire-readout board that would enable us to achieve high resolution of interaction positions in our detector.  Now on MicroBooNE, my roles have been diverse and several fold. I have maintained the MicroBooNE geometry file, done an extensive cosmic rate study, worked to understand light collection and its combination with TPC information, and helped to develop various reconstruction algorithms (in nearly all cases, in collaboration with those at Fermilab). Now with first MicroBooNE data, I will also be able to grow as an analyzer. \\
+
+Teaching has played an important role throughout the duration of my PhD. The graduate physics program at Yale requires us to teach for our first 2 years; however, the option to continue teaching beyond this time(in addition to full time research) is open to us.  This unique opportunity has allowed me to gain valuable teaching experience for the past 2 years in parallel to my PhD work. Because I teach during the year, it is only possible for me to travel to Fermilab over undergraduate breaks (fall, winter, spring break and summer recess) Shared knowledge and clear communication are crucial for doing good science; teaching will continue to play a valuable role in my physics career. The URA would enable me to continue teaching while doing valuable research in collaboration with scientists at Fermilab. \\
+
+\par Throughout my time in graduate school, I have also managed to keep a strong hold on my interests outside of physics.  I have played flute for Yale's concert band and for one of Yale's opera companies (currently rehearsing L'Etoile), am captain of the intramural physics frisbee team (The Ultraviolet Catastrophes), and play for an intramural softball team. In my past visits to Fermilab, I have frisbee'd on the Village fields, played guitar with some of the Village musicians, and joined the Big Bangers softball team on the field and off for some fun times. \\
+
+
+\end{document}
