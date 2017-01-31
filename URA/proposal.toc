@@ -6,6 +6,6 @@
 \contentsline {subsection}{\numberline {2.1}Understanding NC $\pi ^0$ Background}{6}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Reconstruction Efforts}{6}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Cosmic Background}{7}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Potential for Further Studies}{7}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.4}Potential for Further Studies}{8}{subsection.2.4}
 \contentsline {section}{\numberline {3} Budget }{10}{section.3}
 \contentsline {section}{\numberline {4}BioSketch}{11}{section.4}

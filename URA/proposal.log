@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  24 FEB 2016 11:02
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  4 APR 2016 10:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1025,30 +1025,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [5 <./Pics/EVsignal.png> <./Pics/EVgamma.png> <./Pics/dedx.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 89.
+(hyperref)                removing `math shift' on input line 91.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\pi' on input line 89.
+(hyperref)                removing `\pi' on input line 91.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 89.
+(hyperref)                removing `superscript' on input line 91.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 89.
+(hyperref)                removing `math shift' on input line 91.
 
 <Pics/sbnd.png, id=130, 221.82875pt x 161.60374pt>
 File: Pics/sbnd.png Graphic file (type png)
  <use Pics/sbnd.png>
-Package pdftex.def Info: Pics/sbnd.png used on input line 97.
+Package pdftex.def Info: Pics/sbnd.png used on input line 99.
 (pdftex.def)             Requested size: 155.27905pt x 113.12184pt.
 
 <Pics/NC.png, id=131, 480.79625pt x 271.0125pt>
 File: Pics/NC.png Graphic file (type png)
  <use Pics/NC.png>
-Package pdftex.def Info: Pics/NC.png used on input line 99.
+Package pdftex.def Info: Pics/NC.png used on input line 101.
 (pdftex.def)             Requested size: 192.31508pt x 108.40306pt.
 
 
@@ -1061,13 +1061,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 <Pics/fuzzy.png, id=145, 415.5525pt x 326.21875pt>
 File: Pics/fuzzy.png Graphic file (type png)
  <use Pics/fuzzy.png>
-Package pdftex.def Info: Pics/fuzzy.png used on input line 110.
+Package pdftex.def Info: Pics/fuzzy.png used on input line 112.
 (pdftex.def)             Requested size: 166.21805pt x 130.48518pt.
 
 <Pics/opencv.png, id=147, 404.51125pt x 322.20375pt>
 File: Pics/opencv.png Graphic file (type png)
  <use Pics/opencv.png>
-Package pdftex.def Info: Pics/opencv.png used on input line 112.
+Package pdftex.def Info: Pics/opencv.png used on input line 114.
 (pdftex.def)             Requested size: 161.80162pt x 128.87921pt.
 
 
@@ -1077,12 +1077,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7 <./Pics/fuzzy.png> <./Pics/opencv.png>]
-<Pics/EVpi0cand.png, id=159, 597.23125pt x 431.6125pt>
+<Pics/EVpi0cand.png, id=158, 597.23125pt x 431.6125pt>
 File: Pics/EVpi0cand.png Graphic file (type png)
 
 <use Pics/EVpi0cand.png>
-Package pdftex.def Info: Pics/EVpi0cand.png used on input line 135.
+Package pdftex.def Info: Pics/EVpi0cand.png used on input line 137.
 (pdftex.def)             Requested size: 238.88826pt x 172.64194pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8 <./Pics/EVpi0cand.png>]
 Missing character: There is no Ï in font cmr12!
 Missing character: There is no € in font cmr12!
 
@@ -1092,20 +1100,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8 <./Pics/EVpi0cand.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
@@ -1116,7 +1117,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
 
  []
 
@@ -1126,11 +1127,6 @@ Missing character: There is no œ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no  in font cmr12!
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
@@ -1146,7 +1142,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 201.
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 203.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1154,18 +1155,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 201.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 203.
  (./proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 201.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 201.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 203.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 203.
 Package rerunfilecheck Info: File `proposal.out' has not changed.
 (rerunfilecheck)             Checksum: 15BB632556A066BEA95BACB82D61515A;697.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 201.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 203.
  ) 
 Here is how much of TeX's memory you used:
  16182 strings out of 493488
  311099 string characters out of 3141326
- 361029 words of memory out of 3000000
+ 362029 words of memory out of 3000000
  19221 multiletter control sequences out of 15000+200000
  16410 words of font info for 67 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1188,7 +1189,7 @@ ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
 2/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2012
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on proposal.pdf (11 pages, 2438945 bytes).
+Output written on proposal.pdf (11 pages, 2441136 bytes).
 PDF statistics:
  241 PDF objects out of 1000 (max. 8388607)
  191 compressed objects within 2 object streams
