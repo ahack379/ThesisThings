@@ -205,9 +205,19 @@ A purity monitor with a 50 cm drift lives directly downstream of the filters des
 \end{figure}
 
 \subsubsection{Time Projection Chamber} 
+\par Liquid Argon Time Projection Chambers (LArTPCs) are ideal detectors for neutrino oscillation experiments with short and long baselines.  There are a number of properties that make Liquid Argon (LAr) well suited for the TPC medium: it is cheap, easy to cool, and transparent to its own scintillation light (expanded on in Figure \ref{fig:larProp}).  When a charged particle travels through a TPC in LAr, it leaves a trail of ionization electrons and (excited LAr dimers) that are drifted in a uniform electric field to wire readout planes.  Readout from the wires makes the Y and Z coordinates of an interaction accessible, while the drift time acts as the third X coordinate; scintillation signals seen by an array of PMTs also play an important role in making the drift direction accessible\footnote{It is important to note that the success of a LArTPC does not rely on PMTs to extract "X"--this extra piece of information establishes $t_0$ in correspondance with the beam gate, while also tagging backgrounds events which occur in the beam window.}.  Thus a LArTPC with 3 (or 2) planes gives us the capability to reconstruct fine-grained, 3 dimensional configurations of events in the detector. Each of the parts that make up the TPC are elaborated on below.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{NewFigures/larProperties.png}
+\caption{ Properties of Liquid Argon }
+\label{fig:larProp }
+\end{figure}
+%
+
 Wire Planes, Cathode and Anode, Field Cage, High Voltage 
 \subsubsection{Wire Planes}
-Ionization charge from interactions in MicroBooNE drifts in the applied electric field to t3 wire readout planes.  The passing charge leaves induced pulses on the first 2 "induction" planes, and collects onto the final "collection" plane. The 2 induction planes are at 60 and -60 degrees to the vertical and contain 2400 150 $\mu$m gold-plated copper wires. The collection plane contains 3456 wires all perfectly vertical. 
+Ionization charge from interactions in MicroBooNE drifts in the applied electric field to 3 wire readout planes.  The passing charge leaves induced pulses on the first 2 "induction" planes, and collects onto the final "collection" plane. The 2 induction planes are at 60 and -60 degrees to the vertical and contain 2400 150 $\mu$m gold-plated copper wires. The collection plane contains 3456 wires all perfectly vertical. 
 \noindent Once charge is collected, signals from the wires are amplified and sent on to be stored analyzed. 
 \subsubsection{PMTs}
 MicroBooNE relies on the fine grained calorimetric abilities of a LArTPC to do its reconstruction and particle ID. However, MicroBooNE is a surface detector and is subject to large number of cosmic backgrounds.  
