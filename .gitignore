@@ -5,3 +5,8 @@
 *.log
 *.toc
 *.lof
+Equations/*
+HoldOriginal/*
+FMTechnote/*
+NewPerspectives/*
+Prospectus/*
