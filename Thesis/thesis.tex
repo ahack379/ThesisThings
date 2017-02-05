@@ -27,6 +27,7 @@
 			\texttt{ariana.hackenburg@yale.edu}}
 \date{\today}
 \maketitle
+\thispagestyle{empty}
 
 \begin{figure}[h!]
 \centering
@@ -43,13 +44,18 @@
 \renewcommand{\headrulewidth}{0.4pt}% Default \headrulewidth is 0.4pt
 %\renewcommand{\footrulewidth}{0.4pt}% Default \footrulewidth is 0pt
 
+\pagenumbering{roman}
 %Set Table of contents depth to 3 levels
 \tableofcontents
+\clearpage
+
 \listoffigures
 \setcounter{tocdepth}{3} 
 \phantomsection
 
 \clearpage
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
 
 \section{Introduction}
 \section{Brief History of Neutrinos}
@@ -138,12 +144,7 @@ A number of previous measurements on the charged current (CC) $\pi^0$ cross sect
 %\label{fig:dedx}
 %\end{figure}
 
-%\begin{wrapfigure}{r}{0.3\textwidth}
-%\begin{center}
-%\input{Tables/neutrino2014_table}
-%\end{center}
-%\caption{Properties of MicroBoonE}
-%\end{wrapfigure}
+
 
 \newpage
 
@@ -153,9 +154,9 @@ A number of previous measurements on the charged current (CC) $\pi^0$ cross sect
 \subsection{Booster Neutrino Beamline}
 The Booster Neutrino Beamline (BNB) is situated at Fermi National Laboratory in Batavia Illinois.  The BNB delivers a neutrino beam to the MicroBooNE detector 470 m from the target through a series of acceleration, focusing, collimating. The various stages of the beam are described here.  
 \subsubsection{Proton Acceleration}
-Neutrino beam creation begins with $H^-$ ion production and acceleration to 750 keV in a Cockcroft-Walton DC accelerator \cite{anderson}. The beam of H- ions are subsequently boosted to 400 MeV in a linear acceleration and stripped of their electrons before they enter the Booster \cite{bib:bnbflux}.  The Booster operates at a cycle frequency of 15 Hz, while each RF cavity operates at 84x this rate. As the protons move through the various RF cavities, they are bunched into 81 buckets (3 of what would otherwise be 84 buckets are removed in order to preserve beam uniformity), where all buckets are separated by 19 ns, and all buckets are 2 ns in width.  One collection of these 81 buckets is called a beam spill, lasts around 1.6 $\mu$s and typically consists of 1 - 5e12 Protons On Target (POT). Spills are directed into the Booster Neutrino Beamline by a switch magnet, and steered to the target by a series of dipole and focusing-defocusing (FODO) quadrupole magnets.  The configuration of this assembly is shown in Figure \ref{fig:beamline0}a. 
+Neutrino beam creation begins with $H^-$ ion production and acceleration to 750 keV in a Cockcroft-Walton DC accelerator \cite{anderson}. The beam of H- ions are subsequently boosted to 400 MeV in a linear acceleration and stripped of their electrons before they enter the Booster \cite{bib:bnbflux}.  The Booster operates at a cycle frequency of 15 Hz, while each RF cavity operates at 84x this rate. As the protons move through the various RF cavities, they are bunched into 81 buckets 19 ns apart, where all buckets are 2 ns in width.  One collection of these 81 buckets is called a beam spill, lasts around 1.6 $\mu$s and typically consists of 1 - 5e12 Protons On Target (POT). Spills are directed into the Booster Neutrino Beamline by a switch magnet, and steered to the target by a series of dipole and focusing-defocusing (FODO) quadrupole magnets.  The configuration of this assembly is shown in Figure \ref{fig:beamline0}a. 
 \subsubsection{Beam Target and Horn}
-\par At this point, the bunched protons are impinged on a Beryllium Target. The target consists of 7 Be slugs, 10 cm long, 1 cm in diameter, and is embedded at the front end of the Booster Horn (Figure \ref{fig:beamline0}b). The slugs are suspended in an outer Be tube by three Be fins placed equi-distanced around the tube.  Air is circulated around the slugs and then passed across a heat exhanger before being recycled, to maintain the slugs at a constant temperature. This temperature is monitored at all times, and the proton beam is shut off if any abnormality in temperature or radioactivity is detected. The location of the beam is calibrated with a multi-wire chambers to ensure that it is interacting with the target itself and not surrounding material. The beam's intensity and position are monitored consistently.
+\par At this point, the bunched protons are impinged on a Beryllium Target. The target consists of 7 Be slugs, 10 cm long, 1 cm in diameter (Figure \ref{fig:beamline0}b), and is embedded at the front end of the Booster Horn. The slugs are suspended in an outer Be tube by three Be fins placed equi-distanced around the tube.  Air is circulated around the slugs and then passed across a heat exhanger before being recycled, to maintain the slugs at a constant temperature. This temperature is monitored at all times, and the proton beam is shut off if any abnormality in temperature or radioactivity is detected. The location of the beam is calibrated with a multi-wire chambers to ensure that it is interacting with the target itself and not surrounding material. The beam's intensity and position are monitored consistently.
 \par The result of proton collision with the Be is a spray of other particles which then pass into the magnetic focusing horn. The horn is made from aluminum alloy and consists of an inner conductor along which current runs in, and an outer conductor along which it returns. This configuration of current flow induces a toroidal magnetic field between the conductors, which enables the removal of charged particles: positive in Neutrino Mode, negative in Anti-Neutrino Mode. During this process, the horn heats up and needs to be cooled.  Ports in the outer conductor allow nozzles to spray water onto the inner conductor, which then drains out the bottom of the horn.
 
 \begin{figure}[h!]
@@ -174,21 +175,31 @@ Neutrino beam creation begins with $H^-$ ion production and acceleration to 750 
 \end{figure}
 
 \subsubsection{Neutrino Beam}
-\par The singularly charged beam now heads downstream to the collimator.  This 214 cm of concrete sits 214 cm from the front of the target and acts as a dump for particles from secondary interactions which will not contribute to the neutrino flux of interest. 
+\par The singularly charged beam now heads downstream to a collimator.  This 214 cm of concrete sits 214 cm from the front of the target and acts as a dump for particles from secondary interactions which will not contribute to the neutrino flux of interest. 
 \par The remaining particles then enter the decay pipe.  This 2 m wide pipe is made of corrugated steel, filled with air and packed into dolomite. In the 45 m length of the decay pipe, $\pi^+$ from the initial proton-Be interaction will decay into $\mu^+$ and $\nu_\mu$.  A concrete and steel beam stop at the end of the decay pipe captures $\mu^+$'s, allowing only neutrinos to pass on.  At this point, the neutrinos travel 470 m through the ground until they reach the MicroBooNE detector (Figure \ref{fig:beamline1}).
 
 \subsection{The MicroBooNE Detector}
-The Micro Booster Neutrino Experiment (MicroBooNE) is a Liquid Argon Time Projection chamber. Its various subsystems are described in detail below.
-\subsubsection{Cryogenics}
-\par  MicroBooNE's cryostat is a type 304 stainless steel tube with inner diameter of 3.81 m, length of 12.2 m, and capacity of 170 tonnes.  The stability of the detector medium has a large systematic impact on the data taken by MicroBooNE. For example, the drift velocity of electrons is dependent on both the temperature and pressure of the Liquid Argon (LAr), as well as its laminar and turbulent flow. Because the drift time and drift X coordinates only maintain a clear correlation when the drift velocity is well understood, it is crucial to set conditions under which this is the case.  The expected drift velocity of electrons is 1600 $\frac{m}{s}$ at 500 $\frac{V}{cm}$ in LAr. In order to achieve a 0.1\% consistency in drift velocity, the temperature gradient must be controlled to within 0.1 K, and flow rate of LAr controlled to 1 $\frac{m}{s}$. A layer of insulating foam around the cryostat prevents Liquid Argon from boiling off due to large temperature differences in surrounding materials. Additionally, 12 Resistive Thermal Devices (RTD) are used to consistently monitor the temperature of the detector at various locations. \cite{bib:uboone_JINST} 
-\par MicroBooNE also requires the LAr in the detector to be very pure to mitigate other systematic effects. These requirements include a 100 ppt $O_2$ contamination level, to ensure the proper detection of events that must traverse the full 2.5 m drift length, and a 2 ppm $N_2$ contamination level to minimize quenching of scintillation light from interactions. Additionally, the vessel is designed to minimize both outgassing by the detector walls and leakage through weld ports; contamination from these sources is cleaned and recycled using a purification system.  The MicroBooNE purification system consists of 2 condensers (1 used primarily for backup), 2 pumps and 2 filters, and proceeds as follows: In the beginning, gaseous Argon leaves the detector and enters one of the condensers. Each condenser, designed to control the heat load on the detector, contains a liquid nitrogen coil over which the gaseous Argon passes before it's pumped through the filter in liquid form.  Each condenser is designed to handle a load of 9.5 kW; this compares with the 6 kW heat load during a normal day of running the pumps and all electronics.  The LAr is then pumped through 1 of 2 parallel filter skids, where each filter skid contains 2 filters. The first filter is a 4A molecular sieve tasked mainly with removing water from the Argon.  The second filter removes $O_2$ and any remaining water; since this filter effectively removes water, it is placed after the first filter to avoid saturating the second filter with water contaminent and allowing the remaining $O_2$ to recirculate. Finally, the Argon is passed through a stainless steel particulate filter of grate width 10 microns to prevent any materials from the piping entering the detector. 
-\par The purity is monitored using double-gridded ion chambers ***REFERENCE.  The monitors are effectively small TPCs: $Q_C$ charge is generated at the cathode, the charge drifts in an applied electric field, and $Q_A$ charge is detected at the anode. The ratio of these charges is known as the electron lifetime given by the formula below: 
+The Micro Booster Neutrino Experiment (MicroBooNE) is a Liquid Argon Time Projection chamber which sits in the BNB at Fermi National Laboratory. A model and live representation of the full detector are shown in Figure \ref{fig:cryo2}. Its primary goal is to resolve the nature of MiniBooNE's observed low energy excess, in addition to making a suite of cross section measurements and performing R\&D on new technologies for the next generation of LArTPCs. The various subsystems are described in detail below.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Figures/cryo.png}
+\hspace{4 mm}
+\includegraphics[scale=0.5]{Figures/cryo2.png}
+\caption{a) Model of the MicroBooNE cryostat with side transparent to expose the inner TPC; b) A picture of the MicroBooNE detector taken when the TPC was slid into the cryostat in December 2013.  MicroBooNE's cryostat is a type 304 stainless steel tube with inner diameter of 3.81 m, length of 12.2 m, and capacity of 170 tonnes. }
+\label{fig:cryo2}
+\end{figure}
 
+\subsubsection{Cryogenics}
+\par The stability of the detector medium has a large systematic impact on the data taken by MicroBooNE. Temperature, pressure and flow, for example, affect the drift velocity of electrons. The drift time and drift X coordinates only maintain a clear correlation when the drift velocity is well understood, and so it is crucial to control these quantities carefully. Temperature is consistently monitored at various locations in the detector by 12 Resistive Thermal Devices (RTDs), and a layer of insulating foam around the cryostat prevents Liquid Argon from boiling off due to large temperature differences in surrounding materials.
+\par The LAr in the detector must also be kept very pure. The presence of too much $O_2$ attenuates ionization charge, while $N_2$ contamination quenches scintillation light. The MicroBooNE purification system consists of 2 condensers (1 used primarily for backup), 2 pumps and 2 filters. In the beginning, gaseous Argon leaves the detector and enters one of the condensers. Each condenser, designed to control the heat load on the detector, contains a liquid nitrogen coil over which the gaseous Argon passes before it's pumped through the filter in liquid form. The LAr is then pumped through 1 of 2 parallel filter skids, where each filter skid contains 2 filters. The first filter is a 4A molecular sieve tasked mainly with removing water from the Argon, while the second filter primarily removes $O_2$ and any remaining water. Finally, the Argon is passed through a stainless steel particulate filter of grate width 10 microns to prevent any materials from the piping entering the detector. 
+\par Directly downstream of the filter is a 50 cm drift double-grid ion chamber which functions as a purity monitor: $Q_C$ charge is generated at the cathode, the charge drifts in an applied electric field, and $Q_A$ charge is detected at the anode. The ratio of these charges is known as the electron lifetime given by the formula below: 
+%since this filter effectively removes water, it is placed after the first filter to avoid saturating the second filter with water contaminent and allowing the remaining $O_2$ to recirculate. 
 \begin{equation}
   \frac{Q_A}{Q_C} = e^{-\frac{t}{\tau}} 
 \end{equation}
 
-A purity monitor with a 50 cm drift lives directly downstream of the filters described above to test their effectiveness. 2 other monitors live in the detector itself, one at the cathode and one at the anode. These 2 monitors sit at different depths, to measure depth effect on lifetime. The MicroBooNE lifetime is consistently very high (how high???). The cryostat is maintained at the purity levels described in Figure \ref{fig:cryo1}. 
+\noindent  2 other monitors live in the detector at different depths and drift locations (one at the cathode, one at the anode). 
+\par The full system is depicted in Figure \ref{fig:cryo0} and described in greater detail externally \cite{bib:purity} \cite{bib:purity2}. The cryostat design limits are expanded on and summarized in Figure \ref{fig:cryo1} \cite{bib:uboone_JINST}.
 
 \begin{figure}[h!]
 \centering
@@ -196,31 +207,168 @@ A purity monitor with a 50 cm drift lives directly downstream of the filters des
 \caption{ 3D model of the MicroBooNE's cryogenics system including pumps, filters, cooling system and monitors.  } 
 \label{fig:cryo0}
 \end{figure}
+  
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.7]{NewFigures/cryoStandards.png}
-\caption{ MicroBooNE was designed with these described contaminent limits in mind.  } 
+\includegraphics[scale=0.6]{NewFigures/cryoStandards0.png}
+\caption{ MicroBooNE was designed with these described contaminent limits in mind. Parameter limits discussed in more detail in and summarized from detector paper \cite{bib:uboone_JINST} }
 \label{fig:cryo1}
 \end{figure}
 
+%\begin{minipage}{\linewidth}
+%\centering
+%\captionof{table}{MicroBooNE was designed with these described contaminent limits in mind. Parameter limits discussed in more detail in and summarized from detector paper \cite{bib:uboone_JINST} } \label{tab:cryo1} 
+% \begin{tabular}{| l | l | l |}
+% \hline
+% Parameter & Limit & Motivation \\ [0.1ex] 
+% \hline \hline 
+%Purity & $<$ 100 ppt $O_2$ & Particle ID across full 2.5m drift \\ 
+%Purity & $<$ 2 ppm $N_2$ & Preserve Scintillation Light [ $\frac{g}{mol}$] \\
+%Recirculation & 1 volume change per 2.5 days & Maintain purity \\
+%Temperature gradient of LAr & $<$ 0.1 K & Maintain uniform drift velocity \\
+%\hline
+%\end{tabular}
+%\end{minipage}
+
+
 \subsubsection{Time Projection Chamber} 
-\par Liquid Argon Time Projection Chambers (LArTPCs) are ideal detectors for neutrino oscillation experiments with short and long baselines.  There are a number of properties that make Liquid Argon (LAr) well suited for the TPC medium: it is cheap, easy to cool, and transparent to its own scintillation light (expanded on in Figure \ref{fig:larProp}).  When a charged particle travels through a TPC in LAr, it leaves a trail of ionization electrons and (excited LAr dimers) that are drifted in a uniform electric field to wire readout planes.  Readout from the wires makes the Y and Z coordinates of an interaction accessible, while the drift time acts as the third X coordinate; scintillation signals seen by an array of PMTs also play an important role in making the drift direction accessible\footnote{It is important to note that the success of a LArTPC does not rely on PMTs to extract "X"--this extra piece of information establishes $t_0$ in correspondance with the beam gate, while also tagging backgrounds events which occur in the beam window.}.  Thus a LArTPC with 3 (or 2) planes gives us the capability to reconstruct fine-grained, 3 dimensional configurations of events in the detector. Each of the parts that make up the TPC are elaborated on below.
+\par Liquid Argon Time Projection Chambers (LArTPCs) are ideal detectors for neutrino oscillation experiments with short and long baselines.  There are a number of properties that make Liquid Argon (LAr) well suited for the TPC medium: it is cheap, easy to cool, and transparent to its own scintillation light (expanded on in Table \ref{tab:larProp}).  When a charged particle travels through a TPC in LAr, it leaves a trail of ionization electrons in its wake that are drifted in a uniform electric field to wire readout planes. Once charge is collected, signals from the wires are amplified and sent on to be stored and analyzed. The passing charge leaves induced pulses on the first 2 "induction" planes, and collects onto the final "collection" plane. Readout from the wires makes the Y and Z coordinates of an interaction accessible, while the drift time acts as the third X coordinate; scintillation signals seen by an array of PMTs also play an important role in making the drift direction accessible\footnote{It is important to note that the success of a LArTPC does not rely on PMTs to extract "X"--this extra piece of information establishes $t_0$ in correspondance with the beam gate, while also tagging backgrounds events which occur in the beam window.}.  Thus a LArTPC with 3 (or 2) planes gives us the capability to reconstruct fine-grained, 3 dimensional configurations of events in the detector. Each part of the TPC is described below, with more detailed descriptions available in the Technical Design Report \cite{bib:tdr}.
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.8]{NewFigures/larProperties.png}
+%\caption{ Properties of Liquid Argon }
+%\label{fig:larProp }
+%\end{figure}
+
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{General Properties of Liquid Argon \cite{bib:uboone_proposal} \label{tab:larProp}} 
+ \begin{tabular}{| l | l | l |}
+ \hline
+ Property & Value \\ [0.1ex] \hline \hline 
+ Atomic number & 18 \\ \hline
+ Atomic weight & 39.95 [$\frac{g}{mol}$] \\ \hline
+ Boiling point at 1 atm & 87.3 [K] \\ \hline
+ Density & 1.39 [$\frac{g}{cm^3}$] \\ \hline
+ Radiation length & 14.0 [cm] \\ \hline
+Absorption length & 83.6 [cm] \\ \hline
+ Moliere radius & 10.0 [cm] \\ \hline 
+ Work function to ionizie Ar atom  & 23.6 [$\frac{eV}{pair}$] \\
+\hline
+\end{tabular}
+\end{minipage}
+
+%\begin{wrapfigure}{r}{0.5\textwidth}
+%\begin{center}
+%%\centering
+%\input{Tables/neutrino2014_table}
+%\end{center}
+%\caption{Properties of MicroBooNE's Liquid Argon Time Projection Chamber}
+%\end{wrapfigure}
+
+\paragraph{Cathode} 
+\par The cathode is composed of 9 type 304 stainless steel sheets which are 2.3 mm thick.  The sheets are welded together rather than screwed (Figure \ref{fig:cathodeShine}a) to mitigate any sharpness of features which could impact the electric field. The fully constructed cathode plane was tested with a laser setup for flatness and determined to be parallel to within 0.04 degrees of the anode planes \cite{bib:uboone_JINST} . The cathode is currently held at -70kV.  
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.6]{NewFigures/larProperties.png}
-\caption{ Properties of Liquid Argon }
-\label{fig:larProp }
+\includegraphics[scale=0.4]{NewFigures/cathode.png}
+\hspace{3 mm}
+\includegraphics[scale=0.9]{NewFigures/tpc0.png}
+\caption{a) Inside the MicroBooNE TPC, the polished cathode appears on the left; b) The fully constructed TPC from the outside }
+\label{fig:cathodeShine}
 \end{figure}
-%
 
-Wire Planes, Cathode and Anode, Field Cage, High Voltage 
-\subsubsection{Wire Planes}
-Ionization charge from interactions in MicroBooNE drifts in the applied electric field to 3 wire readout planes.  The passing charge leaves induced pulses on the first 2 "induction" planes, and collects onto the final "collection" plane. The 2 induction planes are at 60 and -60 degrees to the vertical and contain 2400 150 $\mu$m gold-plated copper wires. The collection plane contains 3456 wires all perfectly vertical. 
-\noindent Once charge is collected, signals from the wires are amplified and sent on to be stored analyzed. 
-\subsubsection{PMTs}
-MicroBooNE relies on the fine grained calorimetric abilities of a LArTPC to do its reconstruction and particle ID. However, MicroBooNE is a surface detector and is subject to large number of cosmic backgrounds.  
+\paragraph{Field Cage}
+\par The role of the field cage is to create a uniform electric field that steps down from the high voltage applied at the cathode to near 0 V at the anode.  This system is composed of 64 2.54 cm diameter stainless steel field cage tubes which are supported by G10 infrastructure. Most tubes have all 4 corners formed by 2 couplings and a 5.24 cm radius elbow. A number of precautious are taken to avoid rough surfaces and other potential sources of breakdown. The first tube has a wider diameter and serves an extra role as cathode frame and support; the second tube, is also unique in that it has a slightly wider radius. Additionally, the first several tubes near the cathode are welded rather than connected with screws.
+\par MicroBooNE has also taken precautions in the case a breakdown does occur. The field cage tube connections are designed with several features to mitigate the damage caused in the event of a breakdown. The tubes are connected by a resistor-divider chain which enables a constant voltage step down of 1 kV (at current operating voltage) per tube across the 2.56 m width. The first 16 tubes have 499 M$\Omega$ Mettalux resistors rated at 48 kV; the remaining tubes are connected via 4 Slim-Mox 150 M$\Omega$ resistors rated to 10kV. Lower rated resistors are used further from the anode as the impact of a breakdown is attenuated when discharge occurs nearer to the anode. Finally, carefully tested surge protector varistors \cite{bib:surge} were applied between tubes 1 and 32.  Varistors are devices whose electrical resistances vary with applied voltage. These resistors exhibit high resistance under normal operation of the detector, thus influencing the circuit negligibly. In the case of breakdown, the varistors short and protect downstream electronics from damage.
+
+\paragraph{Anode}
+\par The anode plays host to 3 individual wire readout planes. The 2 induction planes (U and V) are at +60 and -60 degrees to the vertical and contain 2400 wires. The collection plane contains 3456 wires all perfectly vertical. The wires are attached to gold pins on wire carrier boards in groups of 16 for U and V and 32 for Y (Figure \ref{fig:wire_stuff}a) and wound to tension using a wire winding machine (Figure \ref{fig:wire_stuff}b). 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{NewFigures/wireBoard.png}
+\hspace{3 mm} 
+\includegraphics[scale=0.7]{NewFigures/wireWind.png}
+\caption{ a) Complete wire carrier board for the Y plane; b) Wire winding machine used to apply consistent tension to all wires in each plane. }
+\label{fig:wire_stuff}
+\end{figure}
+
+\par The wires themselves are 150 $\mu$m gold-plated copper.  This material shrinks when cooled from room temperature to 87.3 K, and thus must be carefully tension tested before secured into the stainless steel anode frame. 10 minute tension measurement were performed to check wire stability by applying 3 times the normal expected load value of 0.7 kg \cite{bib:uboone_JINST}.  This process was performed again when the boards were completely assembled to verify that the assembly process had no negative effects on the wires. A final tension test which used a laser and spectrum analysis software was performed once the carrier boards were installed in the anode frame. The completely installed wire readout boards are shown on the nearest face in Figure \ref{fig:cathodeShine}b.
+
+\par A number of studies were performed to establish wire plane parameters. The planes themselves are held at different voltages with U at -200 V, V at 0 V, and Y at +440 V.  These values and ratios were established by simulations which sought to minimize the amount of charge collected on the U and V induction planes \cite{bib:uboone_proposal} \cite{bib:tdr}.  The tilt angle of the U and V plane wires were also established via simulations.  Those studies attempted to maximize the signal to noise ratio (which scales with $\frac{1}{cos\alpha}$) and minimize the number of necessary feedthroughs and channels, while maintaining the 3D tracking capability of planes at sufficiently differing angles.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.5]{NewFigures/hv.png}
+\caption{ MicroBooNE HV feedthrough resting in the receptacle cup attached to the cathode. } 
+\label{fig:hv_cup}
+\end{wrapfigure}
+
+\paragraph{High Voltage}
+\par A negative high voltage (HV) is applied to the cathode using a Glassman LX150N12 power supply that lives outside the detector.  The output from the Glassman passes through a low pass filter to reduce ripple, and passes through a specifically designed port on the cryostat near the cathode.  The HV tube rests in a receptacle pot attached to the cathode as shown in Figure \ref{fig:hv_cup}.
+\noindent Though tested up to 200kV sucessfully, the high voltage system is currently held at -70kV.
+
+\subsection{Light Collection}
+\par The MicroBooNE light collection system enables us to infer geometric and timing interaction information from light produced in the TPC. MicroBooNE expects only 1 neutrino interaction for every 660 spills \cite{bib:first_nus} and is subject to a high cosmic rate of 5 kHz; thus it is crucial to be able to limit the amount of neutrino-less readout windows that we store. This rejection of background-only readout windows with little or no light in coincident with the beam gate is one of the primary roles of the light collection system \cite{bib:uboone_JINST}.
+%Beam spill trigger signals from Fermilab Accelerator Division tell MicroBooNE when to open its 4.8 ms readout window and start recording data.
+
+\paragraph{Photo Multiplier Tubes (PMTs)}
+
+\par The MicroBooNE light collection system consists of 32 cryogenic Hamamatsu 5912-02MOD PMTs (Figure \ref{fig:pmt}a), each with an effective quantum efficiency of 15.3\% \cite{bib:ben_jones}. The PMTs live in the low bias +440 V field produced at the collection plane behind the anode planes, which are 86\% transparency to light.  The same PMT rack plays host to 4 R\&D light guide paddles (Figure \ref{fig:paddle}). The design of the paddle prototypes allows larger surface area coverage, a big benefit to larger detectors like DUNE and SBND currently under design. The paddles absorb and guide wavelength-shifted scintillation light to a PMT (or SiPM) at the end. The slim profiles of the paddles also make their placement less of a design challenge than traditional PMTs. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.46]{NewFigures/single_pmt.png}
+\hspace{3 mm}
+\includegraphics[scale=0.9]{NewFigures/pmt1.png}
+\caption{ a) A single PMT installed on the PMT rack in the MicroBooNE cryostat; b) Several installed PMT's with TPB coated plates  } 
+\label{fig:pmt}
+\end{figure}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+\centering
+\includegraphics[scale=0.5]{NewFigures/paddle.png}
+\caption{One of the 4 lightguide prototypes in the MicroBooNE PMT rack}
+\label{fig:paddle}
+\end{wrapfigure}
+
+
+
+
+
+\paragraph{Scintillation}
+\par Liquid Argon has a high scintillation yield of 24000 $\frac{photons}{MeV}$ at 273 $\frac{V}{cm}$.  Scintillation light has both prompt and late components and is emited at 128nm in Argon (red line in Figure \ref{fig:decay}a), outside the visible range of our PMTs (blue line in Figure \ref{fig:decay}a). Tertaphenyl butadiene (TPB) coated acrylic plates are placed in front of each PMT to wavelength shift the light out of the VUV and into the visible spectrum (green line in Figure \ref{fig:decay}a). 
+
+\paragraph{Recombination and Exciton Luminescence}
+
+\par Argon is ionized when charged particles pass by. Ideally, the resulting electrons will all drift to the readout planes; however, with many positively charged Argon ions floating around from ionization, it's unlikely that all electrons will make it. Recombination begins when an ionized argon and ground state argon form a combined excited state with an electron called an excimer (Figure \ref{fig:decay}b). When this excimer dexcites, it emits a scintillation photon. Concretely, minimally ionized charge has a roughly 20\% chance of recombining with an Argon ion rather than drifting to the anode planes \cite{bib:sorel}; more highly ionizing particles are subject to greater recombination losses. This process suggests an anit-correlation between scintillation light and ionization charge.
+
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics[scale=0.45]{NewFigures/tpb0.png}}
+\hspace{1 mm}
+\fbox{\includegraphics[scale=0.31]{NewFigures/lightExcitement}} %decayTime.png}}
+\caption{ a) Spectra of VUV scintillation photons, visibility of PMT and wavelength shifted photons; b) Process of scintillation photon production for each mode  } 
+\label{fig:decay}
+\end{figure}
+
+
+\par Recombination is not the only way to lose energy deposition information about an interaction. Roughly 17\% of the time a charged particle will excite rather than ionize the Argon \cite{bib:sorel}. From here, the excited Argon can join with a ground state Argon to form an excimer (Figure \ref{fig:decay}b, bottom). This excimer similarly dexcites via a scintillation photon at 128 nm.  A closer look at the shared excimer state of the 2 processes reveals that there are 2 ways for the electron spin state to couple to the argon (Figure \ref{fig:light}a), with 2 different decay times \cite{bib:lumin}. The result is a prompt peaks when the interction occurs followed by a long tail of late light (Figure \ref{fig:light}b). We are generally most interested in the prompt light, and the tail can cause some problems for delayed coincidences (ex Michel electrons).
+
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics[scale=0.28]{NewFigures/lightRatio.png}}
+\hspace{2 mm}
+\fbox{\includegraphics[scale=0.4]{NewFigures/decayTime.png}}
+\caption{ a) Excimer decay rates for each state; b) PMT signal over time exhibits prompt light from singlet state of excimer de-excitation and late light from triplet. } 
+\label{fig:light}
+\end{figure}
+
+
+\clearpage
 
 \newpage
 \section{Software}
@@ -352,12 +500,8 @@ The result of our reconstruction + selection chain is 585 CC $\pi^0$ candidate e
 
 %MicroBooNE, the latest in a series of Booster Beam experiments located at Fermilab, is a Liquid Argon Time Projection Chamber (LArTPC) that will investigate the low energy neutrino excess seen by its predecessor, MiniBooNE. Cherenkov detectors, such as MiniBooNE, are limited by their inability to distinguish between single electrons and photons, a task LArTPCs are well suited for, as described in more depth above. With the high precision reconstruction capabilities of a LArTPC, MicroBooNE will be able to determine with high statistical certainty whether electrons or photons caused the anomalous MiniBooNE low energy excess. Of further interest to MicroBooNE, and the further proposal of this prospectus, are various neutrino-nucleon interaction cross-sections. Cross sections have accounted for much of the uncertainty in recent results from a variety of neutrino experiments\cite{miniboone} and sensitive measurements by MicroBooNE have the potential to lead to improved nuclear models and rate predictions. Beyond MicroBooNE, LArTPCs will continue to play a notable role in oscillation physics. LAr1-ND will act as a baseline for improving systematic uncertainties in MicroBooNE and investigating the nature of the MiniBooNE excess, while also acting as a small-scale phase experiment for future, bigger LArTPCs such as and LBNF. MicroBooNE is currently getting ready to commission the detector.
 
-\begin{figure}[H]
-\includegraphics[scale=0.4]{Figures/cryo.png}
-\hspace{2 cm}
-\includegraphics[scale=0.4]{Figures/cryo2.png}
-\caption{MicroBooNE the model and MicroBooNE the real man. (Right)Taken when the TPC was slid into the cryostat December 2013.}
-\end{figure}
+
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{Figures/CC.png}
@@ -501,12 +645,10 @@ We regroup at this point by summarizing the state of our candidate sample pool a
  \hline
  Total Reco'd $\pi^0$ Events & Signal & Background & Total Efficiency & Purity \\ [0.5ex]
  \hline\hline
-
 \hline
  % 120 events
   585 & 254 & 331 & 8.4\% & 43.4\% \\ 
 \hline 
- 
    \end{tabular}
 \end{minipage}
 
@@ -774,6 +916,41 @@ https://inspirehep.net/record/1280829?ln=en
   The MicroBooNE Collaboration, \emph{Design and Construction of the MicroBooNE Detector},\\
   \texttt{https://arxiv.org/pdf/1612.05824v2.pdf}
 
+\bibitem{bib:uboone_proposal}
+  The MicroBooNE Collaboration, \emph{A Proposal for a New Experiment Using the Booster and NuMI Neutrino Beamlines: MicroBooNE},\\
+  \texttt{http://www-microboone.fnal.gov/public/MicroBooNE\_10152007.pdf}
+
+\bibitem{bib:first_nus}
+  The MicroBooNE Collaboration, \emph{First Neutrino Interactions Observed with the MicroBooNE Liquid-Argon TPC Detector},\\
+  \texttt{http://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1002-PUB.pdf}
+
+\bibitem{bib:ben_jones}
+  Benjamin J.P. Jones, Thesis, \emph{Steril Neutrinos in Cold Climates},\\
+  \texttt{https://inspirehep.net/record/1389805/files/fermilab-thesis-2015-17.pdf}
+
+\bibitem{bib:purity}
+  The MicroBooNE Collaboration, \emph{Measurement of the Electronegative Contaminants and Drift Electron Lifetime in the MicroBooNE Experiment},\\
+  \texttt{http://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1003-PUB.pdf}
+
+\bibitem{bib:purity2}
+  R. Acciarri, et al., \emph{Liquid Argon Dielectric Breakdown Studies with the MicroBooNE Purification System}, \\
+  \texttt{https://arxiv.org/pdf/1408.0264v1.pdf}
+
+\bibitem{bib:tdr}
+  The MicroBooNE Collaboration, \emph{The MicroBooNE Technical Design Report}, \\
+  \texttt{http://www-microboone.fnal.gov/publications/TDRCD3.pdf}
+
+\bibitem{bib:surge}
+  J. Asaadi, et al., \emph{Testing of High Voltage Surge Protection Devices for Use in Liquid Argon TPC Detectors}, \\
+  \texttt{https://arxiv.org/pdf/1406.5216v2.pdf}
+
+\bibitem{bib:sorel}
+  M. Sorel, \emph{Expected performance of an ideal liquid argon neutrino detector with enhanced sensitivity to scintillation light}, \\
+  \texttt{https://arxiv.org/pdf/1405.0848.pdf}
+
+\bibitem{bib:lumin}
+  M. Sorel, \emph{Argon, kryton, and xenon excimer luminescence: From the dilute gas to the condensed phase}, \\
+  \texttt{http://aip.scitation.org/doi/pdf/10.1063/1.457108}
 
 \end{thebibliography}
 
