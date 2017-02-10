@@ -1,4 +1,3 @@
-%hello.tex- First LaTeX example
 %In preamble
 \documentclass[12pt]{article}
 
@@ -14,27 +13,74 @@
 \usepackage{graphicx}    %include graphics
 \usepackage{fancyhdr}
 \usepackage{mhchem}       %for chemistry typesetting 
-\usepackage{float}        % for end page after figure [H]
+\usepackage{float}        %for end page after figure [H]
+\usepackage{textcomp}     %for copyright symbol
 \usepackage[font=scriptsize]{caption}
 \usepackage[margin=1in]{geometry}
 
 \doublespacing
+\addtolength{\evensidemargin}{-1.5in}
 
 %End preamble, begin document
 \begin{document}
-\title{Proposal to Measure the Cross Section of NC Inclusive $\pi^0$ Interaction Channel }
-\author{Ariana Hackenburg  \\Yale University \\ 
-			\texttt{ariana.hackenburg@yale.edu}}
-\date{\today}
+
+\begin{center}
+{\footnotesize ABSTRACT}\\
+\vspace{4 mm}
+{\large \textbf{MEASUREMENT OF A NEUTRINO-INDUCED CHARGED CURRENT SINGLE NEUTRAL PION CROSS SECTION AT MICROBOONE}}\\
+\vspace{6 mm}
+{\footnotesize ARIANA HACKENBURG\\
+2017\\}
+\end{center}
+Liquid Argon Time Projection Chambers (LArTPCs) such as MicroBooNE provide excellent calorimetric information and image quality resolution. Of particular interest to MicroBooNE are electromagnetic showers, and the origin of the low energy excess. π0’s, which decay into 2 electromagnetic showers (γ’s), form a fraction of the flagship analysis background and are thus an important topic of study. In this note, we calculate our expected MC cross section of charged current (CC) π0 final state on Argon using an MC BNB sample. We also describe the algorithms we’ve built to automatically select CC $\pi^0$ interactions. We have chosen final state CC-$\pi^0$ interactions as our signal in order to compare with MiniBooNE results and to produce a measurement that will have potential use to other experimentalists. Finally, we will present the preliminary cross section measurement on MC BNB+cosmics, and examine the different variables that contribute to the result.
+\thispagestyle{empty}
+\clearpage
+
+\singlespacing
+\title{MEASUREMENT OF A NEUTRINO-INDUCED CHARGED CURRENT SINGLE NEUTRAL PION CROSS SECTION AT MICROBOONE}
+%\author{Ariana Hackenburg  \\Yale University } 
+\date{}
 \maketitle
+
+\vspace{4 cm}
+
+%\date{\today}
+\begin{center}
+A Dissertation \\
+Presented to the Faculty of the Graduate School \\
+of \\
+Yale University \\
+in Candidacy for the Degree of \\
+Doctor of Philosophy\\ 
+
+\vspace{6 cm}
+%{\small
+by \\
+Ariana Hackenburg \\
+\vspace{3 mm}
+Dissertation Director: Associate Professor Bonnie T. Fleming \\
+\vspace{3 mm}
+December 2017 \\ %}
+\end{center}
 \thispagestyle{empty}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.5]{Figures/ubooneLift.png}
-\end{figure}
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.5]{Figures/ubooneLift.png}
+%\end{figure}
 
 \clearpage
+
+\vspace*{\fill}
+\begin{center}
+\textcopyright 2017 by Ariana Hackenburg\\
+All rights reserved.
+\end{center}
+\vspace*{\fill}
+
+\clearpage
+
+\doublespacing
 
 %For adding the header (footer) if so desired
 \pagestyle{fancy}% Change page style to fancy
@@ -58,28 +104,37 @@
 \setcounter{page}{1}
 
 \section{Introduction}
-\section{Brief History of Neutrinos}
+The idea of the neutrino was born out of an unwillingness to abandon energy conservation without a fight. Two body beta decay was expected to occur at a singular energy value, in order to preserve conversation of energy. However, the observation made by multiple exeriments (citations) was that the decay products were not singular, but rather spectral, suggesting that beta decay theory was either incomplete on incorrect.  In 1930 Wolfgana Pauli proposed the existence of an additional particle emitted during the decay which carried away some fraction of the energy to explain the obeserved beta spectrum. These weakly interacting, spin 1/2, "small neutral particles" were later named "neutrinos" by Enrico Fermi. 
+\par The clean transformation of theoretical predictions into experimentally measurable, physical parameters can at times prove to be its own kind of science. Pauli himself believed he had done a "frightful thing" by proposing what he believed to be an undetectable particle. But nearly 30 years after Pauli's theory was introduced, Clyde Cowan and Frederick Reines confirmaed the existence of neutrinos experimentally near the Savannah River Plant \cite{bib:cowan}. In 1995, they received the Nobel prize for their work.
+\par And so conservation of energy was safe from overthowal, and for another 10 years neutrino physics would feel like a settled game. However, in the late 1960's, the Homestake experiment guided in a new era for neutrino experiments. In fact, nearly 90 years after it was first proposed, the neutrino remains shrouded in a number of mysteries. In this section, we explore some of these results and their impact on the present state of neutrino physics, the theory behind neutrino oscillation and interactions and . 
+% Definitive proof for neutrino oscillation has been delivered over and again in the last 15 years. Alongside this proof, however, has come several notoriously anomalous results. 
+%%As additional groups began to build experiments designed to look for neutrinos from different sources and energy scales, a number of questions arose.
 
-Definitive proof for neutrino oscillation has been delivered over and again in the last 15 years. Alongside this proof however, have come several notoriously anomalous results. In this section, we explore some of these anomolous results and their impact on the present state of neutrinos physics. 
-\subsection{Solar Neutrino Problem}
-Any sort of historical review of neutrino physics at some point comes to Ray Davis, and so we might as well start our story here.  In the late 1960s, Ray Davis of Brookhaven National Lab (BNL) ventured 4850ft underground in the Homestake mine with a plan to measure various contributions to solar neutrino flux \cite{ray0}. Working closely with John Bahcall's theory team at CalTech, Davis' group built a tetrachloroethylene detector sensitive down to 0.814 MeV and primarily to $B^8$ solar neutrinos\cite{ray0} a mile underground in Homestake Mine. In 1968, the group released results which revealed that a fraction of the predicted solar neutrinos were missing. This result became known as "the solar neutrino problem".
 
-\par The Homestake experiment ran for ~20 years, with results through the duration pointing to the same conclusion: 2/3 of the neutrinos predicted by Bahcall's Standard Solar Model (Figure \ref{fig:SSM}) were not accounted for in the data\cite{ray0}.  Throughout the 80's and 90's, a series of experimental results from various collaborations confirmed the mysterious lack of solar neutrinos \cite{rayreview} \cite{kam0} \cite{sno}.  Kamiokande II\footnote{The original Kamiokande focused primarily on proton decay. After initial data taking, adjustments were made to the original detector in order to make it sensitive enough to study electron recoils from elastic neutrino scatters in water. One example addition was a surrounding layer of water which was intended to decrease background radiation.  This "new" experiment was called Kamiokande II}, a 3 kton water Cherenkov detector built in Japan in the 80s, was only sensitive to $B^8$ neutrinos above ~6 MeV\cite{kam0} because of the surrounding radioactivity. Despite its inability to probe the keV energies of the Homestake experiment, Kamiokande II was a highly appealing detector due to its real time depiction of events and its ability to reconstruct both the energies and directions of those events\cite{kam0}. Due to the unique ability of this detector, Kamiokande II was able to for the first time conclude that neutrinos were coming from the sun.  In addition to this remarkable discovery, Kamiokande II also observed an apparent lack of solar neutrinos.
+\subsection{A Brief History Rife with Anomoly}
+%\subsection{Solar Neutrino Problem}
+%Any sort of historical review of neutrino physics at some point comes to Ray Davis, and so we might as well start our story here.  
+In the late 1960s, Ray Davis of Brookhaven National Lab (BNL) ventured 4850ft underground in the Homestake mine with a plan to measure various contributions to solar neutrino flux \cite{ray0}. Working closely with John Bahcall's theory team at CalTech, Davis' group built a tetrachloroethylene detector sensitive down to 0.814 MeV and primarily to $B^8$ solar neutrinos\cite{ray0} a mile underground in Homestake Mine. In 1968, the group released results which revealed that a fraction of the predicted solar neutrinos were missing. This result became known as "the solar neutrino problem".
 
-\par A quick recap at this point would indicate something a bit unsettling about our story thus far. The Davis experiment began digging into Bahcall's models in the 60s; yet here we were in the 90s with still no verified explanation of what was causing the observed neutrino deficit.  Were neutrinos oscillating? Was something wrong with the sun\cite{Clarke}? 
-\\ \begin{wrapfigure}{r}{0.5\textwidth}
-\begin{center}
-\captionsetup{justification=centering}
+\begin{wrapfigure}{r}{0.5\textwidth}
+%\begin{center}
+%\captionsetup{justification=centering}
 \includegraphics[scale=0.5]{Figures/solarFlux.png}
-\end{center}
+%\end{center}
 \caption{John Bahcall's Standard Solar Flux Model}
 \label{fig:SSM}
 \end{wrapfigure}
 
+\par The Homestake experiment ran for ~20 years, with results through the duration pointing to the same conclusion: 2/3 of the neutrinos predicted by Bahcall's Standard Solar Model (Figure \ref{fig:SSM}) were not accounted for in the data\cite{ray0}.  Throughout the 80's and 90's, a series of experimental results from various collaborations confirmed the mysterious lack of solar neutrinos \cite{rayreview} \cite{kam0} \cite{sno}.  Kamiokande II\footnote{The original Kamiokande focused primarily on proton decay. After initial data taking, adjustments were made to the original detector in order to make it sensitive enough to study electron recoils from elastic neutrino scatters in water. One example addition was a surrounding layer of water which was intended to decrease background radiation.  This "new" experiment was called Kamiokande II}, a 3 kton water Cherenkov detector built in Japan in the 80s, was only sensitive to $B^8$ neutrinos above ~6 MeV\cite{kam0} because of the surrounding radioactivity. Despite its inability to probe the keV energies of the Homestake experiment, Kamiokande II was a highly appealing detector due to its real time depiction of events and its ability to reconstruct both the energies and directions of those events\cite{kam0}. Due to the unique ability of this detector, Kamiokande II was able to for the first time conclude that neutrinos were coming from the sun.  In addition to this remarkable discovery, Kamiokande II also observed an apparent lack of solar neutrinos.
+
+\par A quick recap at this point would indicate something a bit unsettling about our story thus far. The Davis experiment began digging into Bahcall's models in the 60s; yet here we were in the 90s with still no verified explanation of what was causing the observed neutrino deficit.  Were neutrinos oscillating? Was something wrong with the sun\cite{Clarke}? 
+
+
+\paragraph{SNO : A Conclusion to the Solar Neutrino Problem}
 Quick to follow suit was the Sudbury Neutrino Observatory (SNO) in 2002.  SNO was a 1 ktonne spherical deuterium Cherenkov detector located 6800ft under ground in the Creighton Mine in Sudbury\cite{sno}. The greatest barrier experiments before SNO had faced in detecting $\nu_\mu$ or $\nu_\tau$ interactions was that the $\mu$ and $\tau$ are heavier (105 MeV and 1777 MeV respectively) than the energy of the solar neutrino spectrum, which only extends to about 30MeV. Deuterium, which replaces the hydrogen in water with a proton and a neutron, has a dissociation energy of ~2 MeV. This fact uniquely equipped SNO to measure the flux of all three neutrino flavors\cite{sno}--this total flux matched shockingly well with Bahcall's predictions in his SSM. SNO had conclusively solved the solar neutrino problem.  
 
-\subsection{LSND and MiniBooNE}
-In the last 20 years, a variety of other experimental results have indicated that the 3-neutrino oscillation model (and thus, the Standard Model), may not be complete. Liquid Scintillator Neutrino Detector (LSND), a scintillation detector in a stopped pion beam from the 90's, expected the majority of its events to come from $\nu_\mu$ and $\bar{\nu_\mu}$, with a small fraction of $\bar{\nu_e}$ interactions--in their results, they observed an excess of low energy electron anti-neutrino events for $\frac{L}{E} \sim 1 \frac{m}{MeV}$ (Figure \ref{fig:lsnd}), explained at the time with a simple 2-neutrino oscillation model \cite{lsnd}. These unexpected results led to the construction of the Mini Booster Neutrino Experiment (MiniBooNE), a Cherenkov detector in Booster Neutrino Beam (BNB) at Fermilab. After 10 years of running, MiniBooNE's data revealed an excess of low energy events in both neutrino and anti-neutrino modes at energies below and incorporating LSND's data (Figure \ref{fig:lsnd}) \footnote{ MiniBooNE also observed different amounts of excess in neutrino and anti-neutrino mode, leading to additional questions about nuclear interactions, cross sections and the relationship between the neutrino and antineutrino\cite{miniboone}}.  These results did a couple important things: first, MiniBooNE's data refuted the previous 2-neutrino oscillation explanation \cite{miniboone}, and second, it called into question the nature of the observed low-energy excess. This is the question MicroBooNE resolves to answer, and where my story begins. 
+\paragraph{LSND and MiniBooNE}
+In the last 20 years, a variety of other experimental results have indicated that the 3-neutrino oscillation model (and thus, the Standard Model), may not be complete. Liquid Scintillator Neutrino Detector (LSND), a scintillation detector in a stopped pion beam from the 90's, expected the majority of its events to come from $\nu_\mu$ and $\bar{\nu_\mu}$, with a small fraction of $\bar{\nu_e}$ interactions--in their results, they observed an excess of low energy electron anti-neutrino events for $\frac{L}{E} \sim 1 \frac{m}{MeV}$ (Figure \ref{fig:lsnd}), explained at the time with a simple 2-neutrino oscillation model \cite{lsnd}. These unexpected results led to the construction of the Mini Booster Neutrino Experiment (MiniBooNE), a Cherenkov detector in Booster Neutrino Beam (BNB) at Fermilab. After 10 years of running, MiniBooNE's data revealed an excess of low energy events in both neutrino and anti-neutrino modes at energies below and incorporating LSND's data (Figure \ref{fig:lsnd}) \footnote{ MiniBooNE also observed different amounts of excess in neutrino and anti-neutrino mode, leading to additional questions about nuclear interactions, cross sections and the relationship between the neutrino and antineutrino\cite{miniboone}}.  These results did two important things: first, MiniBooNE's data refuted the previous 2-neutrino oscillation explanation \cite{miniboone}, and second, it called into question the nature of the observed low-energy excess. Identification of the source of the MiniBooNE low energy excess is the main question MicroBooNE was designed to answer; however, this flagship measurement will be background narrative to the story of this thesis. 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Figures/lsnd3.png}
@@ -89,7 +144,7 @@ In the last 20 years, a variety of other experimental results have indicated tha
 \label{fig:lsnd}
 \end{figure}
 
-\subsection{Theory}
+\subsection{Neutrinos and the Standard Model}
 \par Each neutrino flavor ($\nu_e, \nu_\mu, \nu_\tau$) can be written as a linear combination of 3 mass eigenstates with the use of a unitary rotation matrix. It is most convenient to begin by looking at a simplified 2 neutrino oscillation model:
 \begin{equation} \label{eq:eig}
 |\nu_x> = \sum_{j=1,2} U_{ij} |\nu_j>  
@@ -115,6 +170,13 @@ A number of previous measurements on the charged current (CC) $\pi^0$ cross sect
 \par A final measurement of note is that of inclusive CC $\pi^0$ production cross section by K2K in 2011 \cite{bib:k2k_paper}; this measurement is presented as a ratio measurement to CCQE.  
 \par MicroBooNE, like MiniBooNE and SciBooNE, lives in the BNB at Fermilab.  In the remaining parts of this note, we will run our analysis with the high statistics MiniBooNE results in mind for direct comparison.  This will be the first CC $\pi^0$ measurement on Argon.
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{NewFigures/ccpi0.png}
+\caption{A neutrino-induced CC event resutlts in a final state muon, $\pi^0$, and any number of additional nucleons and mesons } 
+\label{fig:CCNC}
+\end{figure}
+
 
 %\newpage
 %\section{Liquid Argon Time Projection Chambers (LArTPCs)}
@@ -124,9 +186,7 @@ A number of previous measurements on the charged current (CC) $\pi^0$ cross sect
 %\section{The MicroBooNE Experiment}
 %\caption{The generalized process of readout in a TPC}
 %\end{figure}
-%\par Liquid Argon Time Projection Chambers (LArTPCs) are ideal detectors for neutrino oscillation experiments with short and long baselines.  There are a number of properties that make Liquid Argon (LAr) well suited for the TPC medium: it is cheap, easy to cool, and transparent to its own scintillation light.  When a charged particle travels through a TPC in LAr, it leaves a trail of ionization electrons (and excited LAr dimers) that are drifted in a uniform electric field to wire readout planes. 
 %
-%Readout from the wires makes the Y and Z coordinates of an interaction accessible, while the drift time acts as the third X coordinate; scintillation signals seen by an array of PMTs also play an important role in making the drift direction accessible\footnote{It is important to note that the success of a LArTPC does not rely on PMTs to extract "X"--this extra piece of information establishes $t_0$ in correspondance with the beam gate, while also tagging backgrounds events which occur in the beam window.}.  Thus a LArTPC with 3 (or 2) planes gives us the capability to reconstruct fine-grained, 3 dimensional configurations of events in the detector. \vspace{4 mm}
 %\par Two of the primary benefits of using a TPC as your detector is that you get calorimetric information + image quality resolution as seen in Figure \ref{fig:argoneut}.  These event displays depict example events in which an electron, gamma were produced respectively. At first glance, a somewhat obvious distinction between the two events is the gap between the start of the shower and vertex in the display on the right.  This gap is associated with a gamma and is due to our inability to detect neutral particles directly. In other words, we do not see the gamma until it pair produces or Compton scatters in the detector, at which point we observe an electro-magnetic (EM) shower. In contrast to the birth of the gamma EM shower, the electron EM shower is seen as soon as the electron is born \footnote{That is, assuming it is above some threshold.}.  When an electron scatters off an Argon atom, it produces a Bremsstrahlung photon which then pair procuces, etc leading to an EM shower with no gap. This topological cut is a powerful tool in discriminating between the interactions that caused grief for MiniBooNE. 
 %
 %\begin{figure}[h!]
@@ -148,9 +208,9 @@ A number of previous measurements on the charged current (CC) $\pi^0$ cross sect
 
 \newpage
 
-% I hope for this section to take 50 pages or so
+% I hope for this section to take 50 pages or so (20 hardware, 30 software)
 %\section{The MicroBooNE Experiment}
-\section{Hardware}
+\section{Hardware} \label{sec:hardware}
 \subsection{Booster Neutrino Beamline}
 The Booster Neutrino Beamline (BNB) is situated at Fermi National Laboratory in Batavia Illinois.  The BNB delivers a neutrino beam to the MicroBooNE detector 470 m from the target through a series of acceleration, focusing, collimating. The various stages of the beam are described here.  
 \subsubsection{Proton Acceleration}
@@ -311,13 +371,13 @@ Absorption length & 83.6 [cm] \\ \hline
 \par A negative high voltage (HV) is applied to the cathode using a Glassman LX150N12 power supply that lives outside the detector.  The output from the Glassman passes through a low pass filter to reduce ripple, and passes through a specifically designed port on the cryostat near the cathode.  The HV tube rests in a receptacle pot attached to the cathode as shown in Figure \ref{fig:hv_cup}.
 \noindent Though tested up to 200kV sucessfully, the high voltage system is currently held at -70kV.
 
-\subsection{Light Collection}
+\subsection{Light Collection} \label{subsec:lightCollection}
 \par The MicroBooNE light collection system enables us to infer geometric and timing interaction information from light produced in the TPC. MicroBooNE expects only 1 neutrino interaction for every 660 spills \cite{bib:first_nus} and is subject to a high cosmic rate of 5 kHz; thus it is crucial to be able to limit the amount of neutrino-less readout windows that we store. This rejection of background-only readout windows with little or no light in coincident with the beam gate is one of the primary roles of the light collection system \cite{bib:uboone_JINST}.
 %Beam spill trigger signals from Fermilab Accelerator Division tell MicroBooNE when to open its 4.8 ms readout window and start recording data.
 
 \paragraph{Photo Multiplier Tubes (PMTs)}
 
-\par The MicroBooNE light collection system consists of 32 cryogenic Hamamatsu 5912-02MOD PMTs (Figure \ref{fig:pmt}a), each with an effective quantum efficiency of 15.3\% \cite{bib:ben_jones}. The PMTs live in the low bias +440 V field produced at the collection plane behind the anode planes, which are 86\% transparency to light.  The same PMT rack plays host to 4 R\&D light guide paddles (Figure \ref{fig:paddle}). The design of the paddle prototypes allows larger surface area coverage, a big benefit to larger detectors like DUNE and SBND currently under design. The paddles absorb and guide wavelength-shifted scintillation light to a PMT (or SiPM) at the end. The slim profiles of the paddles also make their placement less of a design challenge than traditional PMTs. 
+\par The MicroBooNE light collection system consists of 32 cryogenic Hamamatsu 5912-02MOD PMTs (Figure \ref{fig:pmt}a), each with an effective quantum efficiency of 15.3\% \cite{bib:ben_jones}. The PMTs live in the low bias +440 V field produced at the collection plane behind the anode planes, which are 86\% transparency to light.  The same PMT rack plays host to 4 R\&D light guide paddles (Figure \ref{fig:paddle}), which absorb and guide wavelength-shifted scintillation light to a PMT (or SiPM) at the end. The long flat geometry of the paddle prototypes allow larger surface area coverage with fewer design challenges than traditional bulky PMTs; these characteristics especially benefit larger detectors like DUNE and SBND currently under design.  
 
 \begin{figure}[h!]
 \centering
@@ -338,13 +398,12 @@ Absorption length & 83.6 [cm] \\ \hline
 
 
 
-
 \paragraph{Scintillation}
 \par Liquid Argon has a high scintillation yield of 24000 $\frac{photons}{MeV}$ at 273 $\frac{V}{cm}$.  Scintillation light has both prompt and late components and is emited at 128nm in Argon (red line in Figure \ref{fig:decay}a), outside the visible range of our PMTs (blue line in Figure \ref{fig:decay}a). Tertaphenyl butadiene (TPB) coated acrylic plates are placed in front of each PMT to wavelength shift the light out of the VUV and into the visible spectrum (green line in Figure \ref{fig:decay}a). 
 
 \paragraph{Recombination and Exciton Luminescence}
 
-\par Argon is ionized when charged particles pass by. Ideally, the resulting electrons will all drift to the readout planes; however, with many positively charged Argon ions floating around from ionization, it's unlikely that all electrons will make it. Recombination begins when an ionized argon and ground state argon form a combined excited state with an electron called an excimer (Figure \ref{fig:decay}b). When this excimer dexcites, it emits a scintillation photon. Concretely, minimally ionized charge has a roughly 20\% chance of recombining with an Argon ion rather than drifting to the anode planes \cite{bib:sorel}; more highly ionizing particles are subject to greater recombination losses. This process suggests an anit-correlation between scintillation light and ionization charge.
+\par Argon is ionized when charged particles pass by. Ideally, the resulting electrons will all drift to the readout planes; however, with many positively charged Argon ions floating around from ionization, it's unlikely that all electrons will make it. Recombination occurs when an ionized argon and ground state argon form a combined excited state with an electron called an excimer (Figure \ref{fig:decay}b), which hen dexcites and emits a scintillation photon. Concretely, minimally ionized charge has a roughly 20\% chance of recombining with an Argon ion rather than drifting to the anode planes \cite{bib:sorel}; more highly ionizing particles are subject to greater recombination losses.This process suggests an anit-correlation between scintillation light and ionization charge.
 
 \begin{figure}[h!]
 \centering
@@ -356,7 +415,7 @@ Absorption length & 83.6 [cm] \\ \hline
 \end{figure}
 
 
-\par Recombination is not the only way to lose energy deposition information about an interaction. Roughly 17\% of the time a charged particle will excite rather than ionize the Argon \cite{bib:sorel}. From here, the excited Argon can join with a ground state Argon to form an excimer (Figure \ref{fig:decay}b, bottom). This excimer similarly dexcites via a scintillation photon at 128 nm.  A closer look at the shared excimer state of the 2 processes reveals that there are 2 ways for the electron spin state to couple to the argon (Figure \ref{fig:light}a), with 2 different decay times \cite{bib:lumin}. The result is a prompt peaks when the interction occurs followed by a long tail of late light (Figure \ref{fig:light}b). We are generally most interested in the prompt light, and the tail can cause some problems for delayed coincidences (ex Michel electrons).
+\par Recombination is not the only way to lose charge deposition information about an interaction. Roughly 17\% of the time a charged particle will excite rather than ionize the Argon \cite{bib:sorel}. From here, the excited Argon can join with a ground state Argon to form an excimer (Figure \ref{fig:decay}b, bottom). This excimer similarly dexcites via a scintillation photon at 128 nm.  A closer look at the shared excimer state of the 2 processes reveals that there are 2 ways for the electron spin state to couple to the argon (Figure \ref{fig:light}a), with 2 different decay times \cite{bib:lumin}. The result is a prompt peaks when the interction occurs followed by a long tail of late light (Figure \ref{fig:light}b). We are generally most interested in the prompt light, and the tail can cause some problems for delayed coincidences (ex Michel electrons).
 
 \begin{figure}[h!]
 \centering
@@ -367,18 +426,76 @@ Absorption length & 83.6 [cm] \\ \hline
 \label{fig:light}
 \end{figure}
 
+\subsection{Electronics and Readout}
+\paragraph{LArTPC}
+The induction and collection plane analog response to drifted ionization charge is small, as mentioned in a previous section.  Thus, before the wire readout data can be stored and analyzed the pulses must be amplified, shaped and digitized.  To reduce noise, the boards are in the cliquid argon and positioned near the ends of the wires \cite{bib:uboone_JINST}. The pre-amplification and shaping electronics live on ASIC chips on cold motherboards. There are both top and side type motherboards in the detector, where the top board connects 48 U, 48 V and 96 Y wires and the side board connects 96 U and 96 V; this design is necessary to account for the shorter U and V wires that connect along the height of the TPC. Once signal has traveled through the boards, cold cables carry the information through additional intermediate amplifiers and out feed throughs in the cryostat to 130 Analog Digital Converter (ADC) and Front End Modules (FEMs). Here, signals first pass through 12 bit ADC to be digitized at 16 MHz, where baseline for induction plane is set at half the range (2055 ADC) and baseline for collection plane is set lower (450 ADC). The sampling rate is reduced to 2 MHz on the FEM boards.
+\par At this point, a decision must be made about whether or not to send information to DAQ for processing. In the case of a neutrino stream, this decision is made based on trigger information from accelerator division. If a neutrino spill has occurred, 4.8 ms readout from buffer is sent to the DAQ; else, these events are disgarded. 
+\paragraph{PMTs}
+In the event of beam event trigger from accelerator division, PMT information must also be stored. PMT signals from the 32 PMTs are amplified and shaped with 60 ns rise time and digitized at 64 MHz into both low and high gain channels. A sampling rate of 64 MHz over a beam window of 23.4 $\mu$s means 1500 consecutive 15.625ns time slices starting 4 $\mu$s before the BNB or NuMI beam gates (which are 1.6 and 10 $\mu$s wide, respectively). Storing information from such high sampling over the entire readout window of 4.8 ms would be prohibitive; thus, a threshold requirement is imposed on the digitized signal for events occuring outside the beam window. \\
+\par As mentioned in section \ref{subsec:lightCollection}, it is prohibitive to store all 4.8 ms readout windows from every beam spill, as relatively few of these windows contain a neutrino. To handle this, an additional trigger stores only readout windows in which a required PE threshold in coincidence with 1.6 $\mu$s beam gate is met; this trigger will be discussed in more detail in Section \ref{sec:software}.
+
+%The MicroBooNE LArTPC electronics readout system consists of both cold and warm systems. 
+
+\subsection{Hardware + Software Triggers - (Neutrino Note) }
+Difference betwen BNB and EXT trigger
+EXT trigger is orthogonal trigger. It is the length of the BNB window and occurs at certain intervals (dk the rate).  
+
+DAQ software:
+hardware trigger: acc division says beam is coming
+software trigger: decide which events are interesting ( need because we cannot store everything) 
+Any light in 1.6us? if so, store. If not, don't store. Reduces vast majority of events without neutrinos.  This trigger drops 97-98\% of events. 
+
+Want to keep interesting (optical activity) + store randomly for later study for bias.  
+
+Make decision to throw away events before we store file; what if there's a bug? So we also store random unbiased sample , so we can study what it is that we're throwing away (and our software trigger). 
+
+BNB : BNB events that pass software trigger, op activity in 1.6us
+BNB Unbiased: sample that's randomly stored without software trigger algorithm (without threshold) for later study
+
+EXT: useful for studying pure background.  {
+  EXT software trigger: outcome of external events after software trigger ; optical act in 1.6us which we just made up, because not from acc div; just define in readout window.
+    EXT software trigger unbiased: sample randomly for comparison
+    }
+
+    This info is stored in binary file different from root. To open, need daq software that knows how to open and close. 
+
+    Data production: type of data processing that produces output data file. data processing doesn't necessarily produce output data file.   
+
+    First processing in data production: swizzling: convert binary file to larsoft root file format.  You have 100 events in a file let's say, ex , first is BNB, second is EXT, third unbiased BNB, etc.  Very confusing.  So first we separate software trigger outputs.  4 output files for the 4 software trigger types.  People call each of these 4 data streams.  BNB stream, BNB unbiased stream, EXT stream etc.  
+
 
 \clearpage
 
 \newpage
-\section{Software}
+\section{Software} \label{sec:software}
+Beamlime and detector simulations are intended to represent truth level estimations. These estimations serve as a baseline for comparison with collected data, and are colloquially referred to as MC or Monte Carlo.  For a beamline experiment of the size and complexity of MicroBooNE, there are a number of systems to model and details to account for to ensure the simulation reflects a near reality of the detector. 
+
+%These simulations are performed in the LArSoft framework, a suite of tools available to LArTPC experiments. 
 \subsection{Simulation}
-\subsubsection{Genie and the Booster Neutrino Beam}
-\subsubsection{Geant, NuWro, and the Interactions} 
-\subsubsection{Detector}
-\subsubsection{Hardware + Software Triggers - (Neutrino Note) }
+Neutrino interaction simulation begins with the beamline.  The products of primary proton interactions with the Beryllium target slugs are modeled by the GENIE neutrino generator \cite{bib:genie}, and propagated along the target horn geometry and beamline using GEANT4 \cite{bib:geant4}.  The target/horn complex, beamline and MicroBooNE detector use a GDML geometrical description \cite{bib:gdml} to simulate the various materials and their locations that the neutrino beam will encounter as it travels along and interacts. A detailed view of the MicroBooNE TPC, cryostat and detector hall are shown in Figures \ref{fig:gdml}a-d.
+\par 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{NewFigures/gdml_tpc.png}
+\hspace{2 mm}
+\includegraphics[scale=0.4]{NewFigures/gdml_cryostat0.png}
+\hspace{2 mm}
+\includegraphics[scale=0.4]{NewFigures/gdml_hall0.png}
+\hspace{2 mm}
+\includegraphics[scale=0.55]{NewFigures/gdml_hall1.png}
+\caption{GDML formatted geometry used for simulations of the MicroBooNE a) TPC; b) Cryostat and surround materials inside Liquid Argon Test Facility (LArTF); c) LArTF + surrounding world with block missing from side to allow view inside outer materials; d) LArTF + surrounding world with labels. }
+\label{fig:gdml}
+\end{figure}
+
+\par The current framework in place to handle simulation, reconstruction and analysis in LArTPCs is called LArSoft, and is used by several Liquid Argon experiment.  These systems are discussed in more details below, beginning with the neutrino beam. GEANT4 is employed by LArG4 (G4), a LArSoft module which serves as a foundation for particle simulation and propagation in MicroBooNE. GEANT4 takes a particle along discrete steps determined by particle interaction probabilities in different media; energy in the form of charge and light is deposited at each step.  From here, these electrons are "drifted" \footnote{They are actually teleported, rather than propagated via G4 here.  The number of electons is calculated based on the energy deposition, and the number of electrons remaining at the wire planes are estimated using lifetime and recombination models.  The xyz positions are varied by a gaussian function and assigned to the nearest wire channel. } in groups of 600 to the wire planes.
+\par From here, the detector response must be modeled to best account for the fact that we will not see delta function at the arrival but rather a digitized and shaped signal. We must also account for the fact the field response of each plane is different. These models are implemented in the LArSoft framework caldata module (no idea if this is true). 
+
 \subsection{Reconstruction}
+Both TPC and PMT information are now available in a raw form to be used. This information on its own is probably not very useful beyond low level cutting.  In order to extract meaningful quantities for various analyses including this cross section measurement, we must now build more complex objects from our initial simulation (or data) output.
 \subsubsection{Optical Hit and Flash Finding }
+Optical hit finding procedes as follows:
+The current flash finding algorithm performs as follows.  The 23.6 $\mu$s beam gate is divided into 0.1 $\mu$s coincidence windows. We then loop through all the optical hits we've reconstructed and search for hits with greater than 5 PE; the charge deposition and channel information of these hits are stored in the appropriate coincidence window (bin).  From here, we look to combine any late light tails with prompt light by comparing the relative charge in neighboring bins and combining bins i and i + 1 when bin i contains less charge, but more than 0.  In this final configuration, bins with greater than 10 PE are used to create a "SimpleFlash" object.
 \subsubsection{Hit Reconstruction}
 \subsubsection{OpenCV Clustering}
 OpenCV is an open source computer vision library with functions to aid in pattern recognition and image processing. More on the framework and OpenCV tools developed previously are discussed in a previous technote \cite{bib:5856}. Here we describe new algorithms developed to improve the selected sample size obtained from Neutrino 2016 efforts\cite{bib:5864}.
@@ -502,12 +619,6 @@ The result of our reconstruction + selection chain is 585 CC $\pi^0$ candidate e
 
 
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.4]{Figures/CC.png}
-\caption{Charged Current event with nucleons interacting via Meson Exchange Current (MEC)}
-\label{fig:CCNC}
-\end{figure}
 
 
 \newpage
@@ -819,14 +930,24 @@ P(\nu_\beta\rightarrow\nu_\alpha)=sin^2 (2\theta) sin\big(\frac{1}{4}\frac{L}{E}
 
 \newpage
 \begin{thebibliography}{20} %1 should be replaced with number of citations
+\singlespacing
+
+\bibitem{bib:cowan}
+  C. L. Cowan, Jr., F. Reines, et al., \emph{Detection of the Free Neutrino: a Confirmation}, \\
+  \texttt{http://science.sciencemag.org/content/sci/124/3212/103.full.pdf}
+
 \bibitem{ray0}
 Davis, Raymond, and Don S. Harmer. "Solar Neutrinos." Solar Neutrinos. (1964): n. page. Print.
+
 \bibitem{rayreview}
 Cleveland, Bruce T., et al. "Measurement of the Solar Electron Neutrino Flux with the Homestake Chlorine Detector." ApJ. 496.505 (1998): n. page. Print.
+
 \bibitem{kam0}
 Hirata, K. S., et al. "Real-time, directional measurement of 8 solar neutrinos in the Kamiokande II detector." Phys. Rev. D. 44.2241 (1991): n. page. Print.
+
 \bibitem{gal0}
 Hampel, W., et al. "GALLEX solar neutrino observations: Results for GALLEX IV." Phys. Lett. B. 447. (1999): 127-133. Print.
+
 \bibitem{gal2}
 Hampel, W., et al. "Final results of the 51Cr neutrino source experiments in GALLEX." Phys. Lett.. 420.1-2 (1998): 114-126. Print.
 \bibitem{sage}
@@ -951,6 +1072,20 @@ https://inspirehep.net/record/1280829?ln=en
 \bibitem{bib:lumin}
   M. Sorel, \emph{Argon, kryton, and xenon excimer luminescence: From the dilute gas to the condensed phase}, \\
   \texttt{http://aip.scitation.org/doi/pdf/10.1063/1.457108}
+
+\bibitem{bib:genie}
+  C. Andreopoulos et al., \emph{The GENIE Neutrino Monte Carlo Generator}, \\
+  \texttt{http://aip.scitation.org/doi/pdf/10.1063/1.457108}
+
+\bibitem{bib:gdml}
+  R. Chytracek, J. McCormick, W. Pokorski, and G. Santin, \emph{Geometry Description Markup Language for Physics Simulation and Analysis Applications}, \\
+  \texttt{http://ieeexplore.ieee.org/document/1710291}
+
+\bibitem{bib:geant4}
+  S. Agostinelli et al., \emph{Geant4--a simulation toolkit},\\
+  \texttt{http://www.sciencedirect.com/science/article/pii/S0168900203013688}
+
+
 
 \end{thebibliography}
 
