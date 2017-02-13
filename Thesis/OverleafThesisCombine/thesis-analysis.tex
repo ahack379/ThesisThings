@@ -1,9 +1,9 @@
 \clearpage
-\section{ $\nu_{\mu}$ CC Inclusive Selection(II) Cuts }
+\section{ $\nu_{\mu}$ CC Inclusive Selection Cuts }
 
 %\begin{table*} 
 % \centering
-% \captionof{table}{Corresponding POT (e20) in anatree and art root files used in this note.  Recall that OffBeam POT is less for Reco2 files due to failed grid jobs during processing of Selection II at this stage. \label{tab:pot}}
+% \captionof{table}{Corresponding POT (e20) in anatree and art root files used in this note.  Recall that OffBeam POT is less for Reco2 files due to failed grid jobs during processing of CC Inclusive Selection at this stage. \label{tab:pot}}
 % \begin{tabular}{| l | l | l | l |}
 %  \hline
 %  POT (E20) & OnBeam & OffBeam & MCBNBCos \\ [0.1ex] \hline
@@ -11,38 +11,42 @@
 %Reco2 & 0.492 & 0.227 & 4.232 \\ \hline
 % \end{tabular}
 %\end{table*}
-\par In this section we begin to search for candidate events to perform the cross section analysis. This search is broken into three stages.  In the first stage, we search for charged current interactions. In this document, we refer to this as the "CC Inclusive" filter. The role of CC Inclusive is largely to reduce the cosmic background and select neutrino interactions in time with the beam spill that contain a forward-going $\mu$ candidate. When we've filted events with no candidate track that meets all CC Inclusive criteria, we run shower reconstruction on the remaining events.  This involves first identifying electromagnetic-like candidate hit activity, clustering these candidate hits together with open-source computer vision tools, matching clusters across planes and performing reconstructing the clusters into shower candidate.  Finally, we consider two parallel $\pi^0$ candidate selections: those that require two reconstructed showers in the interactions, and those that require one.  We perform our final cross section analysis on both samples.
+\par In this section we begin to search for candidate events to perform the cross section analysis. This search is broken into three stages.  In the first stage, we search for charged current inclusive interactions. The role of this "CC Inclusive" filter is largely to reduce the cosmic background and select neutrino interactions in time with the beam spill that contain a forward-going $\mu$ candidate. When we've filted events with no candidate track that meets all CC Inclusive criteria, we run shower reconstruction on the remaining events.  This involves first identifying electromagnetic-like candidate hit activity, clustering these candidate hits together with open-source computer vision tools, matching clusters across planes and reconstructing the clusters into shower candidates.  Finally, we consider two parallel $\pi^0$ candidate selections: those that require two reconstructed showers in the interactions, and those that require one.  We perform our final cross section analysis on both samples.
 
 %\par Throughout the next few sections, we will show data-MC comparisons at each stage of the selection chain.  These comparisons
 
 \subsection{Signal and Backgrounds Descriptions}
-\par We begin our discussion of the CC Inclusive filter with a set of signal and background definitions, and their evolutions across the different filters we employ.  These categories are used to tune analysis cuts and present resulting distributions after the filter is applied.  These backgrounds will be grouped in tabular form throughout this document into the following categories: Signal, $\nu_\mu$ CC-0$\pi^0$, $\nu_\mu$ NC-0$\pi^0$, $\nu_\mu$ NC-$\pi^0$, Other, Cosmic - $\nu$ Coincident, and Cosmic - In Time (Data). Backgrounds will be further broken down into subcategories in data-MC comparison histograms to give the reader a more in-depth look at the selected interactions.  These categories (and sub-categories for the CC Inclusive portion of the selection) are described here. Note that all signal and background categories except for the data-extracted ``Cosmic" are defined by the GENIE final state information stored for each interaction.
+\par We begin our discussion of the CC Inclusive filter with a set of signal and background definitions.  These categories are used to tune analysis cuts and to present resulting pass rates and sample composition after each filter is applied.  These backgrounds will be grouped in tabular form throughout this document into the following categories: Signal, $\nu_\mu$ CC-0$\pi^0$, $\nu_\mu$ NC-0$\pi^0$, $\nu_\mu$ NC-$\pi^0$, Other, Cosmic + Neutrino, and Cosmic. Backgrounds will be further broken down into subcategories in data-MC comparison histograms to give the reader a more in-depth look at the selected interactions.  These categories (and sub-categories used in the CC Inclusive portion of the selection) are described here. Note that all signal and background categories--except data-extracted ``Cosmic"--are defined by the GENIE final state information stored for each interaction.
 
-%We do this for the first part of the analysis (Selection II) by using truth information to track the origin of the candidate $\mu$. We will revisit the background breakdown once we've reconstructed showers and have this additional truth information.
+%We do this for the first part of the analysis (CC Inclusive Selection) by using truth information to track the origin of the candidate $\mu$. We will revisit the background breakdown once we've reconstructed showers and have this additional truth information.
 
 \paragraph{Signal - $\nu_\mu$ CC 1$\pi^0$} The Signal category describes events with a single $\mu^-$, single final state $\pi^0$, any additional particles (except a second final state $\pi^0$), and a FV-contained true-interaction vertex.  Note that this is the only category with a FV requirement.
 
 \paragraph{ $\nu_\mu$ CC 0$\pi^0$}
-The CC 0$\pi^0$ background describes charged current interactions with a single $\mu^-$, and 0 observable $\pi^0$'s originating from the interaction vertex.  Sub-categories of this background include CC $\pi^{\pm}$ charge exchange (`CC Cex'), interactions with 1 or more photons in the final state (`X$\rightarrow$ $\geq$ 1$\gamma$'), and other charged current (`CC Other') interactions. CC 0$\pi^0$ is the dominant background at the Selection II stage as we haven't yet reconstructed and selected for events with $\pi^0$'s.
+The CC 0$\pi^0$ background describes charged current interactions with a single $\mu^-$, and 0 observable $\pi^0$'s originating from the interaction vertex.  Sub-categories of this background include CC $\pi^{\pm}$ charge exchange (`CC Cex'), interactions with 1 or more photons in the final state (`X$\rightarrow$ $\geq$ 1$\gamma$'), and other charged current (`CC Other') interactions. CC 0$\pi^0$ is the dominant background at the CC Inclusive Selection stage as we haven't yet reconstructed and selected for events with $\pi^0$'s.
 
 \paragraph{  $\nu_\mu$ NC 0$\pi^0$}
-The NC 0$\pi^0$ background describes neutral current events with no observable $\pi^0$ originating from the vertex.  NC 0$\pi^0$ will be shown in lime green in Selection II data-MC stacked histograms. 
+The NC 0$\pi^0$ background describes neutral current events with no observable $\pi^0$ originating from the vertex.  
+%NC 0$\pi^0$ will be shown in lime green in CC Inclusive Selection data-MC stacked histograms. 
 
 %electromagnetic activity at the vertex, charge exchange, $K^\pm$ decay, $\eta$ decay, proton and neutron inelastic events. 
 
 \paragraph{  $\nu_\mu$ NC $\pi^0$}
-The NC $\pi^0$ background includes neutral current events in which 1 or more $\pi^0$'s originate at the neutrino vertex.  This background will be shown in dark green in data-MC stacked histograms.
+The NC $\pi^0$ background includes neutral current events in which 1 or more $\pi^0$'s originate at the neutrino vertex.  
+%This background will be shown in dark green in data-MC stacked histograms.
 
 %This is the dominant background at the final stage of the analysis.
 
 \paragraph{ Other}
-This category of events includes CC 1$\pi^0$ events with true vertex outside the fiducial volume, CC events with multiple $\pi^0$'s originating from the vertex, $\overline{\nu}_\mu$ and $\nu_e$-induced interactions.  These backgrounds will be shown in shades of purple and yellow in data-MC stacked histograms.
+This category of events includes CC 1$\pi^0$ events with true vertex outside the fiducial volume, CC events with multiple $\pi^0$'s originating from the vertex, $\overline{\nu}_\mu$ and $\nu_e$-induced interactions. 
+%These backgrounds will be shown in shades of purple and yellow in data-MC stacked histograms.
 
 \paragraph{ Cosmic + Neutrino }
-In this class of events, we have a neutrino interacting somewhere in the cryostat, but we have instead selected a cosmic ray as our candidate $\mu$.  This background is shown in dark grey in data-MC stacked histograms.  
+In this class of events, we have a neutrino interacting somewhere in the cryostat during the beam spill, but we have instead selected a cosmic ray as our candidate $\mu$. 
+%This background is shown in dark grey in data-MC stacked histograms.  
 
 \paragraph{Cosmic }
-Data cosmics are selected and scaled from External BNB (EXTBNB) data.  This background describes events in which a cosmic interacts in the detector during the beam spill window when there is no neutrino interaction anywhere in the TPC.  This background will be shown in light grey in all data-MC stacked histograms.
+Data cosmics are selected and scaled from External BNB (``EXTBNB" or ``OffBeam") data.  This background describes events in which a cosmic interacts in the detector during the beam spill window when there is no neutrino interaction anywhere in the TPC.  This background will be shown in light grey in all data-MC stacked histograms.
 
 
 %\subsection{Sample Normalization}
@@ -106,30 +110,32 @@ Data cosmics are selected and scaled from External BNB (EXTBNB) data.  This back
 % \end{tabular}
 %\end{table*}
 
-\subsection{Tuning Selection II}
-In this section we describe first the Selection II stage of the analysis.  Here we consider the following producers: simpleFlashBeam flashes, pandoraNu tracks, pandoraNu vertices, and pandoraNucalo calorimetry.
+\subsection{Tuning CC Inclusive Selection}
+In this section we describe analysis cuts employed in the CC Inclusive Selection stage of this analysis.  
 
-\noindent \paragraph{Beam Windows} An important first step is to understand the beam window locations. These boundaries are different for each sample and are necessary for checking that a 40 PE flash has occurred in coincidence with the beam. The window is found by plotting the flash times with respect to the trigger and empirically setting the beam gate boundaries by the leading edge. The OnBeam and OffBeam windows are offset due to differing trigger condition configurations. Specifically, OffBeam has a configured delay between the trigger time and the beginning of the waveform of 400 ns larger than OnBeam. Note that the cosmic samples contain an exponential feature near the trigger. This is due to late light from cosmic interactions occurring before the trigger which causes a flash pile up near the beginning of the window. More detail on distribution features is discussed externally \cite{bib:davidcpot}. These windows are shown in Figure \ref{fig:misc_beamwindows} and summarized in Table \ref{tab:windows}.
+%\noindent \paragraph{Beam Windows} An important first step is to understand the beam window locations. These boundaries are different for each sample and are necessary for imposing a flash analysis cut in time with the beam spill.  The OnBeam and OffBeam windows are offset due to differing trigger condition configurations. Specifically, OffBeam has a configured delay between the trigger time and the beginning of the waveform of 400 ns larger than OnBeam. Note that the cosmic samples contain an exponential feature near the trigger. This is due to late light from cosmic interactions occurring before the trigger which causes a flash pile up near the beginning of the window. More detail on distribution features is discussed externally \cite{bib:davidcpot}. These windows are shown in Figure \ref{fig:misc_beamwindows} and summarized in Table \ref{tab:windows}.
+%
+%\begin{figure}[h!]
+%%\centering
+%\begin{subfigure}[b]{0.3\textwidth}
+%\includegraphics[scale=0.28]{Selection_II_Section/CutJustify_sel2_MCBNBCos_beamwindow.png}
+%\caption{ }
+%\end{subfigure}
+%\hspace{3mm}
+%\begin{subfigure}[b]{0.3\textwidth}
+%\includegraphics[scale=0.28]{Selection_II_Section/CutJustify_sel2_OnBeam_beamwindow.png}
+%\caption{ }
+%\end{subfigure}
+%\hspace{3mm}
+%\begin{subfigure}[b]{0.3\textwidth}
+%\includegraphics[scale=0.28]{Selection_II_Section/CutJustify_sel2_OffBeam_beamwindow.png}
+%\caption{ }
+%\end{subfigure}
+%\caption{Time associated with a flash since the trigger time in the ``beam readout''. Using these distributions we can isolate when the beam windows occur for a) MC BNB + Cosmics simulation, b) On Beam data, and c) Off Beam data.}
+%\label{fig:misc_beamwindows}
+%\end{figure}
 
-\begin{figure}[h!]
-%\centering
-\begin{subfigure}[b]{0.3\textwidth}
-\includegraphics[scale=0.28]{Selection_II_Section/CutJustify_sel2_MCBNBCos_beamwindow.png}
-\caption{ }
-\end{subfigure}
-\hspace{3mm}
-\begin{subfigure}[b]{0.3\textwidth}
-\includegraphics[scale=0.28]{Selection_II_Section/CutJustify_sel2_OnBeam_beamwindow.png}
-\caption{ }
-\end{subfigure}
-\hspace{3mm}
-\begin{subfigure}[b]{0.3\textwidth}
-\includegraphics[scale=0.28]{Selection_II_Section/CutJustify_sel2_OffBeam_beamwindow.png}
-\caption{ }
-\end{subfigure}
-\caption{Time associated with a flash since the trigger time in the ``beam readout''. Using these distributions we can isolate when the beam windows occur for a) MC BNB + Cosmics simulation, b) On Beam data, and c) Off Beam data.}
-\label{fig:misc_beamwindows}
-\end{figure}
+\paragraph{Flash Cuts}
 
 \begin{table} 
  \centering
@@ -137,18 +143,15 @@ In this section we describe first the Selection II stage of the analysis.  Here 
  \begin{tabular}{| l | l | l |}
   \hline
  Sample & Lower Bound [$\mu$s] & Upper Bound [$\mu$s] \\ [0.1ex] \hline
-MCBNBCos & 3.2 & 4.8 \\ 
+Simulation & 3.2 & 4.8 \\ 
 OnBeam & 3.3 & 4.9   \\ 
 OffBeam & 3.65 & 5.25 \\ \hline
 \end{tabular}
 \end{table}
 
-%neutrino interactions without electromagnetic activity in the final state, notably $\nu_\mu$ CC and NC 0-$\pi^0$.
-
-% Need data-MC flash cut comparison plot
-\paragraph{Flash Cuts}
-Once we've found the beam windows, we can begin to filter down our samples. The first cut in Selection II requires that there be a flash of 40 PE or greater in the beam window. The highest PE flash per event is shown per neutrino interaction in an MCBNB + Cosmics sample in Figure \ref{fig:cutjust_sel2_numPE}a. A zoom into the low PE region in Figure \ref{fig:cutjust_sel2_numPE}b shows that this cut has a stronger effect on our background distributions. This effect is largely due to the FV requirement: interactions tend to have higher reconstructed PE flashes when they occur directly in front of the PMT array, then in the surrounding FV regions. To minimize the impact of the systematic effect of our scintillation mismodeling \cite{bib:kazu_optical_bug} we have opted for a conservatively loose cut of 40 PE. A data-MC comparison is also shown in Figure \ref{fig:cutjust_sel2_numPE_datamc}.
-\par We next move to matching candidate pandoraNu tracks to the flash we just identified.  Flash matching considers the weighted-PE $z$ position of the highest PE flash found in the event as well as the start and end $z$ points of all candidate tracks. The distance between the weighted PE flash $z$ position and the start or end of the track must be $\leq$ 70 cm in order for the track to pass. \textbf{If the weighted $z$ position of the flash is between the start and end point of a candidate track, the distance is set to 0 cm}. A data-MC comparison at this cut can be seen in Figure \ref{fig:cutjust_sel2_flashtrkdist}a, with background distributions in Figure \ref{fig:cutjust_sel2_flashtrkdist}b.  A zoom in on the lower-distance region can be found in Figures \ref{fig:cutjust_sel2_flashtrkdist_zoom}a and b. 
+The first analysis cut in the CC Inclusive Selection requires that there be a flash of 40 PE or greater in the beam window. The highest PE flash per event is shown per neutrino interaction in MicroBooNE Simulation in Figure \ref{fig:cutjust_sel2_numPE}a. A zoom into the low PE region in Figure \ref{fig:cutjust_sel2_numPE}b shows that this cut has a stronger effect on our background distributions. This effect is largely due to the FV requirement: interactions tend to have higher reconstructed PE flashes when they occur directly in front of the PMT array, then in the surrounding FV regions. A known bug in the scintillation modelling in current simulation causes an underestimatation of the light production in the MC sample we employ here.  Thus, to minimize the impact of the bug, we have opted for a conservatively loose cut of 40 PE with mind to re-assess when new simulation samples are available.  A data-MC comparison of highest PE flash is shown in Figure \ref{fig:cutjust_sel2_numPE_datamc}.
+\par We next move to matching candidate tracks to the flash we just identified.  Flash matching considers the weighted-PE $z$ position of the highest PE flash found in the event as well as the start and end $z$ points of all candidate tracks. The distance between the weighted PE flash $z$ position and the start or end of the track must be $\leq$ 70 cm in order for the track to pass. If the weighted $z$ position of the flash is between the start and end point of a candidate track, the distance is set to 0 cm. A data-MC comparison for this cut can be seen in Figure \ref{fig:cutjust_sel2_flashtrkdist}a, with background distributions in Figure \ref{fig:cutjust_sel2_flashtrkdist}b.  A zoom in on the lower-distance region can be found in Figures \ref{fig:cutjust_sel2_flashtrkdist_zoom}a and b. 
+% FUTURE ADD: Flash match diagram
 
 %A more sophisticated flash-matching technique of minimizing the observed flash PE distribution with respect to optical simulation hypothesis for each candidate track is in progress and will be used in future iterations of CC Selection \cite{bib:marco_selection}.
 
@@ -222,7 +225,7 @@ Once we've found the beam windows, we can begin to filter down our samples. The 
 \end{figure}
 
 \paragraph{Track-Vertex Association + $\frac{dE}{dx}$ Correction}
-At this point we have a preliminary set of flash-matched candidate $\mu^-$ tracks. We next want to associate these flash-match candidates with pandoraNu candidate vertices in the event. This is done by comparing the distance between the start (or end) of each track with each pandoraNu candidate vertex. If this distance is less than 3 cm, a track-vertex association is built.  The number of tracks associated to each vertex at the end of this procedure is called the ``vertex multiplicity''; a data-MC comparison and a break down of backgrounds at this vertex-association stage are shown in Figures \ref{fig:cutjust_sel2_vtxtrackdist}a and b.  The (unstacked) multiplicity distributions after this association are shown in Figures \ref{fig:cutjust_sel2_mult} a (normal) and b (log).
+At this point we have a preliminary set of candidate $\mu^-$ tracks that have been matched to a $\geq$ 40 flash in the beam window. We next want to associate these flash-match candidates tracks with candidate vertices in the event. This is done by comparing the distance between the start (or end) of each track with each pandoraNu candidate vertex. If this distance is less than 3 cm, a track-vertex association is built.  The number of tracks associated to each vertex at the end of this procedure is called the ``observed vertex multiplicity''; a data-MC comparison and a break down of backgrounds at this vertex-association stage are shown in Figures \ref{fig:cutjust_sel2_vtxtrackdist}a and b.  The (unstacked) multiplicity distributions after this association are shown in Figures \ref{fig:cutjust_sel2_mult} a (normal) and b (log).
 
 \begin{figure}[h!]
 \centering
@@ -258,11 +261,11 @@ At this point we have a preliminary set of flash-matched candidate $\mu^-$ track
 \label{fig:cutjust_sel2_mult}
 \end{figure}
 
-\par  Next we consider the mean energy deposition over distance of our tracks.  For convenience, we first describe the calorimetric calculation procedure. The track $\frac{dE}{dx}$ and $\frac{dQ}{dx}$ are calculated via the larreco Calorimetry module during production.  The $\frac{dQ}{dx}$ per track-associated-hit, per plane is calculated by taking the integral of the hit (ADC's) and dividing it by the pitch (wire spacing divided by dot product of the 3D track direction and wire plane direction). To convert this $\frac{dQ}{dx}$ from $\frac{ADC}{cm}$ to $\frac{e^-}{cm}$, we next apply the Calibrations-Team-extracted conversion constants in the default calorimetry fcl file in the v06\_26\_01\_06 version of uboonecode (calorimetry\_microboone.fcl). The MC constants are 5.029e-3, 5.088e-3 and 5.183e-3 $\frac{ADC}{e^-}$ for planes 0, 1 and 2 respectively.  The data constants are 4.746e-3, 4.7e-3 and 4.688e-3 $\frac{ADC}{e^-}$ for planes 0, 1 and 2.  These constants were extracted using MCC7 files, as noted in a fcl-file comment above the constants.  The calibrations group is actively working to extract new calorimetry constants for MCC8.3 that we will integrate once they are released. 
+\par  Next we consider the mean energy deposition over distance of our tracks.  For convenience, we first describe the calorimetric calculation procedure.  The $\frac{dQ}{dx}$ per track-associated-hit, per plane is calculated by taking the integral of the hit (ADC's) and dividing it by the pitch (wire spacing divided by dot product of the 3D track direction and wire plane direction). To convert this $\frac{dQ}{dx}$ from $\frac{ADC}{cm}$ to $\frac{e^-}{cm}$, we next apply the Calibrations-Team-extracted conversion constants in the default calorimetry configuation file.  The MC constants are 5.029e-3, 5.088e-3 and 5.183e-3 $\frac{ADC}{e^-}$ for planes 0, 1 and 2 respectively.  The data constants are 4.746e-3, 4.7e-3 and 4.688e-3 $\frac{ADC}{e^-}$ for planes 0, 1 and 2.  These constants were extracted using MCC7 files, as noted in a fcl-file comment above the constants.  The calibrations group is actively working to extract new calorimetry constants for MCC8.3 that we will integrate once they are released. 
 To get to $\frac{dE}{dx}$, a lifetime correction is first applied to the $\frac{dQ}{dx}$ computed in the previous step with electron lifetime 1 s. When lower electron lifetime data is added, this will be modified.  A recombination correction derived from the ``Box Model'' at a field of 273 $\frac{V}{cm}$ is also applied \cite{bib:argoneut_recomb}. % {\color{red} \bf REFERENCE NEEDED}.
 
 %can consider each interaction by a set of individual multiplicity cuts we need to consider two additional items. First, 
-\par Before we use the $\frac{dE}{dx}$ described above, we consider two additional items. First, we must choose a plane in which to consider the $\frac{dE}{dx}$.  We do this by selecting the plane which has the most track-related hits; we call this the ``best plane''. A breakdown of backgrounds and data-MC comparison for best plane is shown in Figures \ref{fig:cutjust_sel2_bestplane}a and b. Second, we correct the $\frac{dE}{dx}$ in the selected plane for any variation over drift distance. It is beneficial to shift things as little as possible in these distributions while we perform the corrections. Thus, we choose to shift to a value that already aligns fairly well with the distributions to avoid distorting our results more than necessary.  These corrections are found by first considering the MC $\frac{dE}{dx}$ vs x distributions in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}. In particular, we look at the collection plane. We empirically determine the peak value of the uncorrected, but mostly-flat-over-x, collection plane view to be 1.63 $\frac{MeV}{cm}$; this value was also used in the original work that was done by Tingjun on improving Selection II after Neutrino 2016. With our chosen 1.63 $\frac{MeV}{cm}$ baseline in hand, we proceed by fitting a line to the $\frac{dE}{dx}$ vs $x$ distributions and shifting the distributions using the baseline in conjunction with this fit. These correction equations as a function of x are summarized for all three samples in Table \ref{tab:dedx_corr}. These corrections were previously shown to improve the performance of Selection II \cite{bib:6172}. Examples of these before- and after-correction distributions for all three planes of the MCBNBCos sample are shown in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}, OnBeam in Figure \ref{fig:cutjust_sel2_onbeam_dedx_v_x}, and OffBeam in Figure \ref{fig:cutjust_sel2_offbeam_dedx_v_x}. The corresponding corrected 1D distributions are shown in Figure \ref{fig:cutjust_sel2_1d_dedx_v_x}.  
+\par Before we use the $\frac{dE}{dx}$ described above, we consider two additional items. First, we must choose a plane in which to consider the $\frac{dE}{dx}$.  We do this by selecting the plane which has the most track-related hits; we call this the ``best plane''. A breakdown of backgrounds and data-MC comparison for best plane is shown in Figures \ref{fig:cutjust_sel2_bestplane}a and b. Second, we correct the $\frac{dE}{dx}$ in the selected plane for any variation over drift distance. It is beneficial to shift things as little as possible in these distributions while we perform the corrections. Thus, we choose to shift to a value that already aligns fairly well with the distributions to avoid distorting our results more than necessary.  These corrections are found by first considering the MC $\frac{dE}{dx}$ vs x distributions in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}. In particular, we look at the collection plane. We empirically determine the peak value of the uncorrected, but mostly-flat-over-x, collection plane view to be 1.63 $\frac{MeV}{cm}$; this value was also used in the original work that was done by Tingjun on improving CC Inclusive Selection after Neutrino 2016. With our chosen 1.63 $\frac{MeV}{cm}$ baseline in hand, we proceed by fitting a line to the $\frac{dE}{dx}$ vs $x$ distributions and shifting the distributions using the baseline in conjunction with this fit. These correction equations as a function of x are summarized for all three samples in Table \ref{tab:dedx_corr}. These corrections were previously shown to improve the performance of CC Inclusive Selection \cite{bib:6172}. Examples of these before- and after-correction distributions for all three planes of the MCBNBCos sample are shown in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}, OnBeam in Figure \ref{fig:cutjust_sel2_onbeam_dedx_v_x}, and OffBeam in Figure \ref{fig:cutjust_sel2_offbeam_dedx_v_x}. The corresponding corrected 1D distributions are shown in Figure \ref{fig:cutjust_sel2_1d_dedx_v_x}.  
 
 \begin{table} 
  \centering
@@ -611,7 +614,7 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
 
 \clearpage
 \paragraph{Multiplicity $>$ 1 Cuts}
-Cosmic tracks can be mistakenly reconstructed as higher multiplicity events when they are ``broken'' (two recob::Tracks are derived for a single particle). To minimize the contribution of these events to our sample, the first cut we consider is on the angle between the two longest tracks. Selection II bookkeeping ensures that all track directions reflect the location of the current candidate vertex; thus, if the two tracks are part of the same particle, the angle between them should be close to 180 degrees. This distribution is shown in Figure \ref{fig:cutjust_sel2_cosangle}; we cut candidates with a cos($\theta$) $>$ 0.9.  To further mitigate broken cosmic track contamination we consider the end point.  If the candidate $\mu$ track end point is higher in Y than the second longest track end point in Y, we employ additional cuts. Our goal with these additional cuts is to reduce cosmic-induced events of the topology shown in Figure \ref{fig:cut_ex_2}. This cut, being contingent on the Y end point, has the effect of producing a sample with a higher concentration of candidate end points at low y than at high Y.  This will be seen later when we consider cuts for Multiplicity 2 events.  In this case, we cut candidates with a second longest track length $<$ 30 cm and a directional y component of the candidate track of $>$ 0.65. The 1D distributions of each variable are shown in Figures \ref{fig:cutjust_sel2_multgt1_tracklen1} and \ref{fig:cutjust_sel2_multgt1_dcosy}.  2D distributions of signal and background are shown in Figure \ref{fig:cutjust_sel2_multgt1_len_v_cosy}; corresponding data distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_multgt1_len_v_cosy}. 
+Cosmic tracks can be mistakenly reconstructed as higher multiplicity events when they are ``broken'' (two recob::Tracks are derived for a single particle). To minimize the contribution of these events to our sample, the first cut we consider is on the angle between the two longest tracks. CC Inclusive Selection bookkeeping ensures that all track directions reflect the location of the current candidate vertex; thus, if the two tracks are part of the same particle, the angle between them should be close to 180 degrees. This distribution is shown in Figure \ref{fig:cutjust_sel2_cosangle}; we cut candidates with a cos($\theta$) $>$ 0.9.  To further mitigate broken cosmic track contamination we consider the end point.  If the candidate $\mu$ track end point is higher in Y than the second longest track end point in Y, we employ additional cuts. Our goal with these additional cuts is to reduce cosmic-induced events of the topology shown in Figure \ref{fig:cut_ex_2}. This cut, being contingent on the Y end point, has the effect of producing a sample with a higher concentration of candidate end points at low y than at high Y.  This will be seen later when we consider cuts for Multiplicity 2 events.  In this case, we cut candidates with a second longest track length $<$ 30 cm and a directional y component of the candidate track of $>$ 0.65. The 1D distributions of each variable are shown in Figures \ref{fig:cutjust_sel2_multgt1_tracklen1} and \ref{fig:cutjust_sel2_multgt1_dcosy}.  2D distributions of signal and background are shown in Figure \ref{fig:cutjust_sel2_multgt1_len_v_cosy}; corresponding data distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_multgt1_len_v_cosy}. 
 
 \begin{figure}[t!]
   \centering
@@ -881,8 +884,8 @@ Multiplicity 2 events pass first through the previous set of cuts for mult $>$ 1
 \end{figure}
 
 \clearpage
-\subsection{Selection II Results}
-\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and MCBNB + Cosmic in Table \ref{tab:sel2_event_rates}. We focus specifically here on the final two columns, where we can draw conclusions from direct Data to simulation comparison. There are a number of interesting features in this table.  First, the scaled number of ``No Cuts'' interactions before any cuts have been applied show a disagreement in row 1 of Table \ref{tab:sel2_event_rates}.  Note that the ``No Cuts'' events in the MC column do not include a requirement on the software trigger, while the data do.  We do no believe this will cause problems later in the analysis because we apply a 40 PE cut during Selection II.  Another feature worth noting in the last two columns of this table is the excess of MC over Data at the final stage of the Selection. To understand this further, an external study showed that the MC and data can be brought into agreement by modifying our GENIE simulation by including scaling for quasi-elastic events in $q_0 -- q_3$ space to account for nuclear screening (roughly 5\% reduction in QE events), suppressed non-resonant single charged pion production down by 75\%, reduced resonant single charged pion production by 10\%, and scale down by 50\% the empirical MEC contribution~\cite{bib:jaz_datamc_agreement}.  A check was additionally performed to verify the scaling of the OffBeam to the OnBeam data in Ref.~\cite{bib:davidcpot}. 
+\subsection{CC Inclusive Selection Results}
+\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and MCBNB + Cosmic in Table \ref{tab:sel2_event_rates}. We focus specifically here on the final two columns, where we can draw conclusions from direct Data to simulation comparison. There are a number of interesting features in this table.  First, the scaled number of ``No Cuts'' interactions before any cuts have been applied show a disagreement in row 1 of Table \ref{tab:sel2_event_rates}.  Note that the ``No Cuts'' events in the MC column do not include a requirement on the software trigger, while the data do.  We do no believe this will cause problems later in the analysis because we apply a 40 PE cut during CC Inclusive Selection.  Another feature worth noting in the last two columns of this table is the excess of MC over Data at the final stage of the Selection. To understand this further, an external study showed that the MC and data can be brought into agreement by modifying our GENIE simulation by including scaling for quasi-elastic events in $q_0 -- q_3$ space to account for nuclear screening (roughly 5\% reduction in QE events), suppressed non-resonant single charged pion production down by 75\%, reduced resonant single charged pion production by 10\%, and scale down by 50\% the empirical MEC contribution~\cite{bib:jaz_datamc_agreement}.  A check was additionally performed to verify the scaling of the OffBeam to the OnBeam data in Ref.~\cite{bib:davidcpot}. 
 
 \begin{table*} 
  \centering
@@ -936,7 +939,7 @@ Final & 0.058 & 0.630 & 0.021 & 0.058 & 0.020 & 0.051 & 0.162 \\ \hline
 
 \clearpage
 \subsection{ MIP Consistency Cuts}
-Selection II up until this point selects too many $\nu_e$ interactions for us to unblind more than the open 5e19 POT of data according to the blinding policy.  We thus consider two additional cuts here to comply with blinding policy for a run over Run 1.  These cuts are considered in extensive detail externally, and only discussed briefly here \cite{bib:jz_unblinding_note}.  These cuts are exclusively applied to the candidate muon track selected by Selection II.  We will be using reco2 files processed through Selection II for these studies and for the rest of the note.  Note that we also include here the optical precut filter developed by the Deep Learning group (without the PMT fraction cut) \cite{bib:jarrett_opticalprecut}.
+CC Inclusive Selection up until this point selects too many $\nu_e$ interactions for us to unblind more than the open 5e19 POT of data according to the blinding policy.  We thus consider two additional cuts here to comply with blinding policy for a run over Run 1.  These cuts are considered in extensive detail externally, and only discussed briefly here \cite{bib:jz_unblinding_note}.  These cuts are exclusively applied to the candidate muon track selected by CC Inclusive Selection.  We will be using reco2 files processed through CC Inclusive Selection for these studies and for the rest of the note.  Note that we also include here the optical precut filter developed by the Deep Learning group (without the PMT fraction cut) \cite{bib:jarrett_opticalprecut}.
 \par First, we consider track length and truncated mean $\frac{dQ}{dx}$ on the collection plane of the candidate $\mu$ track. These cuts aim to identify events in which the candidate $\mu$ is not consistent with a MIP hypothesis. The tagged track is generally inconsistent with the MIP hypothesis when it is actually a proton. 1D distribution of these cuts are shown in a format similar to the previous section in Figures \ref{fig:cutjust_sel2_multall_len} and \ref{fig:cutjust_sel2_multall_dqdx}. Note that there is a bump in the $\frac{dQ}{dx}$ distribution at low values of $\frac{elec}{cm}$; this is understood to originate from crossing tracks that are near-perpendicular to the anode plane.  2D distributions are shown for signal and all backgrounds in Figure \ref{fig:cutjust_mip_2d}.  Note that the majority of NC events lie in the region we're cutting; these cuts thus play a large role in mitigating the NC background.
 
 \begin{figure}[h!]
@@ -1016,7 +1019,7 @@ Selection II up until this point selects too many $\nu_e$ interactions for us to
 \label{fig:cutjust_mip_2d}
 \end{figure}
 
-We consider one additional cut before proceeding to the results of this augmented Selection II filter.  Much of the $\nu_e$ population remaining after the MIP consistency cuts have a candidate $\mu$ track that is mis-reconstructed across a shower or across several particles.  This causes the angular deviation of the track to be higher on average than a well-reconstructed candidate.  We thus consider a cut on maximum angular deviation of the candidate track.  This angular distribution for all events left after the default Selection II is shown in Figure \ref{fig:cutjust_sel2_multall_deviation}.  The implementation of this cut and the MIP consistency cut brings our selected $\nu_e$ below the required number in the blinding scheme \cite{bib:jz_unblinding_note}.  For the rest of this note, we will refer to the usual Selection II pass described previously and these additional MIP consistency and angle cuts collectively as the new `Selection II'.
+We consider one additional cut before proceeding to the results of this augmented CC Inclusive Selection filter.  Much of the $\nu_e$ population remaining after the MIP consistency cuts have a candidate $\mu$ track that is mis-reconstructed across a shower or across several particles.  This causes the angular deviation of the track to be higher on average than a well-reconstructed candidate.  We thus consider a cut on maximum angular deviation of the candidate track.  This angular distribution for all events left after the default CC Inclusive Selection is shown in Figure \ref{fig:cutjust_sel2_multall_deviation}.  The implementation of this cut and the MIP consistency cut brings our selected $\nu_e$ below the required number in the blinding scheme \cite{bib:jz_unblinding_note}.  For the rest of this note, we will refer to the usual CC Inclusive Selection pass described previously and these additional MIP consistency and angle cuts collectively as the new `CC Inclusive Selection'.
 
 \begin{figure}[t!]
 \centering
@@ -1037,9 +1040,9 @@ We consider one additional cut before proceeding to the results of this augmente
 
 \clearpage
 
-\subsection{New Selection II Results}
-Here we evaluate the effect of the new MIP and angle cuts on our remaining sample of events.  We will perform these evaluations, and all future evaluations in this note, using reco2 files. This is in contrast to the anatree files used to perform the Selection II pass rate and composition studies discussed previously. Thus we expect some small, statistical variance in pass rate and composition for the various samples.  More details on the separate samples are discussed in the introduction.
-\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and MCBNBCosmic in Table \ref{tab:sel2_w_mip_event_rates} for this new Selection II. Note that the MC excess over Data we saw in the previous section remains after the MIP consistency and angular cuts. Event break downs by interaction mode before and after Selection II are shown in Figures \ref{fig:physics_sel2_inttype}a and b.  
+\subsection{New CC Inclusive Selection Results}
+Here we evaluate the effect of the new MIP and angle cuts on our remaining sample of events.  We will perform these evaluations, and all future evaluations in this note, using reco2 files. This is in contrast to the anatree files used to perform the CC Inclusive Selection pass rate and composition studies discussed previously. Thus we expect some small, statistical variance in pass rate and composition for the various samples.  More details on the separate samples are discussed in the introduction.
+\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and MCBNBCosmic in Table \ref{tab:sel2_w_mip_event_rates} for this new CC Inclusive Selection. Note that the MC excess over Data we saw in the previous section remains after the MIP consistency and angular cuts. Event break downs by interaction mode before and after CC Inclusive Selection are shown in Figures \ref{fig:physics_sel2_inttype}a and b.  
 \begin{figure}[t!]
 \centering
   \begin{subfigure}[t]{0.35\textwidth}
@@ -1054,7 +1057,7 @@ Here we evaluate the effect of the new MIP and angle cuts on our remaining sampl
     \caption{ }
   \end{subfigure} 
 
-\caption{ Event type broken down by neutrino interaction mode a) before and b) after Selection II cuts. Note that these blocks contain raw MC numbers that are not scaled to data. }
+\caption{ Event type broken down by neutrino interaction mode a) before and b) after CC Inclusive Selection cuts. Note that these blocks contain raw MC numbers that are not scaled to data. }
 \label{fig:physics_sel2_inttype}
 \end{figure}
 
@@ -1066,7 +1069,7 @@ Here we evaluate the effect of the new MIP and angle cuts on our remaining sampl
   \hline
    & OnBeam & OffBeam & On - OffBeam & MCBNBCos \\ [0.1ex] \hline
 No Cuts & 544751 $\pm$ 738 & 462076 $\pm$ 1001 & 82675 $\pm$ 1244 & 48972 $\pm$76 \\ 
-Selection II & 6031 $\pm$ 738 & 1086 $\pm$ 49 & 4945 $\pm$ 92 & 6150 $\pm$ 27  \\ \hline
+CC Inclusive Selection & 6031 $\pm$ 738 & 1086 $\pm$ 49 & 4945 $\pm$ 92 & 6150 $\pm$ 27  \\ \hline
 MIP Consistency & 4162 $\pm$ 65 & 661 $\pm$ 38 & 3501 $\pm$ 75 & 4570 $\pm$ 23  \\ 
 Angular Deviation & 3753 $\pm$ 61 & 564 $\pm$ 35 & 3189 $\pm$ 71 & 4268 $\pm$ 22  \\ \hline
 
@@ -1077,12 +1080,12 @@ Angular Deviation & 3753 $\pm$ 61 & 564 $\pm$ 35 & 3189 $\pm$ 71 & 4268 $\pm$ 22
 
 \begin{table*}
 \centering
-\captionof{table}{Evolution of passing rates for various stages of the analysis. ``MIP Consistency '' refers to cuts on the Selection II candidate muon track length and the truncated mean $\frac{dQ}{dx}$, while ``Angular Deviation'' refers the track straightness cut that requires there is not angular deflection in the Selection II candidate muon greater than 8$^{o}$. \label{tab:passrates}}
+\captionof{table}{Evolution of passing rates for various stages of the analysis. ``MIP Consistency '' refers to cuts on the CC Inclusive Selection candidate muon track length and the truncated mean $\frac{dQ}{dx}$, while ``Angular Deviation'' refers the track straightness cut that requires there is not angular deflection in the CC Inclusive Selection candidate muon greater than 8$^{o}$. \label{tab:passrates}}
  \begin{tabular}{| l | l | l |l|l|l|l|}
  \hline
  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & All \\ [0.1ex] \hline
 No Cuts & - & - & - & - & - & -\\
-Selection II & 0.478 & 0.136 & 0.067 & 0.044 & 0.084 & 0.126 \\ \hline
+CC Inclusive Selection & 0.478 & 0.136 & 0.067 & 0.044 & 0.084 & 0.126 \\ \hline
 MIP Consistency & 0.362 & 0.111 & 0.018 & 0.011 & 0.036 & 0.093 \\ 
 Angular Deviation & 0.331 & 0.105 & 0.008 & 0.010 & 0.030 & 0.087 \\ \hline
 \end{tabular}
@@ -1091,12 +1094,12 @@ Angular Deviation & 0.331 & 0.105 & 0.008 & 0.010 & 0.030 & 0.087 \\ \hline
 
 \begin{table*}
 \centering
-\captionof{table}{Evolution of sample composition.  ``MIP Consistency '' refers to cuts on the Selection II candidate muon track length and the truncated mean $\frac{dQ}{dx}$, while ``Angular Deviation'' refers the track straightness cut that requires there is not angular deflection in the Selection II candidate muon greater than $8^{o}$.  \label{tab:purity}}
+\captionof{table}{Evolution of sample composition.  ``MIP Consistency '' refers to cuts on the CC Inclusive Selection candidate muon track length and the truncated mean $\frac{dQ}{dx}$, while ``Angular Deviation'' refers the track straightness cut that requires there is not angular deflection in the CC Inclusive Selection candidate muon greater than $8^{o}$.  \label{tab:purity}}
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Cosmic, $\nu$ Flash & Cosmic, In time (Data) \\ [0.1ex] \hline
 No Cuts & 0.018 & 0.695 & 0.046 & 0.194 & 0.047 & - & -\\ 
-Selection II & 0.058 & 0.639 & 0.021 & 0.058 & 0.027 & 0.046 & 0.150 \\ \hline
+CC Inclusive Selection & 0.058 & 0.639 & 0.021 & 0.058 & 0.027 & 0.046 & 0.150 \\ \hline
 MIP Consistency & 0.061 & 0.725 & 0.007 & 0.020 & 0.016 & 0.044 & 0.126 \\ 
 Angular Deviation & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\ \hline
 \end{tabular}
@@ -1210,7 +1213,7 @@ Signal and background distributions are shown for a variety of kinematic variabl
     \caption{ }
   \end{subfigure} 
  
-\caption{ Data to simulation comparison of a) observed track multiplicity and b) $\mu$ contained length after Selection II filter.  Note that Selection II includes un-contained and contained candidate $\mu$'s, but we are only able to observe the length contained within the TPC.  }
+\caption{ Data to simulation comparison of a) observed track multiplicity and b) $\mu$ contained length after CC Inclusive Selection filter.  Note that CC Inclusive Selection includes un-contained and contained candidate $\mu$'s, but we are only able to observe the length contained within the TPC.  }
 \label{fig:physics_sel2_mulen}
 \end{figure}
 
@@ -1227,7 +1230,7 @@ Signal and background distributions are shown for a variety of kinematic variabl
     \includegraphics[scale=0.3]{Selection_II_Section/Physics_sel2_onoffseparate_mu_phi.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Data to simulation comparison of $\mu$ a) $\cos\theta$  and b) $\phi$ after Selection II filter }
+\caption{ Data to simulation comparison of $\mu$ a) $\cos\theta$  and b) $\phi$ after CC Inclusive Selection filter }
 \label{fig:physics_sel2_muphi}
 \end{figure}
 
@@ -1244,7 +1247,7 @@ Signal and background distributions are shown for a variety of kinematic variabl
 \includegraphics[scale=0.3]{Selection_II_Section/Physics_sel2_onoffseparate_mu_endx.png}
    \caption{ }
   \end{subfigure} 
-\caption{ Data to simulation comparison of $\mu$ a) start and b) end in x after Selection II filter }
+\caption{ Data to simulation comparison of $\mu$ a) start and b) end in x after CC Inclusive Selection filter }
 \label{fig:physics_sel2_x}
 \end{figure}
 
@@ -1261,7 +1264,7 @@ Signal and background distributions are shown for a variety of kinematic variabl
 \includegraphics[scale=0.3]{Selection_II_Section/Physics_sel2_onoffseparate_mu_endy.png}
    \caption{ }
   \end{subfigure} 
-\caption{ Data to simulation comparison of $\mu$ a) start and b) end in y after Selection II filter }
+\caption{ Data to simulation comparison of $\mu$ a) start and b) end in y after CC Inclusive Selection filter }
 \label{fig:physics_sel2_y}
 \end{figure}
 
@@ -1279,7 +1282,7 @@ Signal and background distributions are shown for a variety of kinematic variabl
    \caption{ }
   \end{subfigure} 
 
-\caption{ Data to simulation comparison of $\mu$ a) start and b) end in z after Selection II filter }
+\caption{ Data to simulation comparison of $\mu$ a) start and b) end in z after CC Inclusive Selection filter }
 \label{fig:physics_sel2_z}
 \end{figure}
 
@@ -1309,7 +1312,7 @@ Hit Removal is a suite of algorithms developed by David Caratelli to identify el
 OpenCV is an open source computer vision library with functionality to aid in pattern recognition and image processing \cite{bib:opencv}. These functions have been developed by a world-wide community and are designed to be both efficient and fast. OpenCV has Python, C++, and Java interfaces, and is easy to use. Here we describe algorithms developed to improve the efficiency and quality of the selected sample from Neutrino 2016 efforts \cite{bib:5864}. More on OpenCV tools used specifically for Neutrino 2016 can be found in Ref.~\cite{bib:5856}.  All fcl parameters associated with this chain are referenced in Appendix \ref{sec:AppA}.
 
 \subsection{LArOpenCV Framework}
-LArOpenCV is a C++ framework application built on top of the LArLite event processing framework with an interface to the OpenCV API. The LArOpenCV framework allows for event-by-event image creation, application of image manipulation algorithms, two dimensional contour matching between three physical wire planes, and cluster and PFParticle creation and output. The input into LArOpenCV is either a full readout or region of interest (ROI) reconstructed hit object. Input data products are first translated into an ``event image'' (described in next section), then handed over to a separate manager class for image processing. In this work, we consider reconstructed information inside an ROI around the Selection II candidate vertex.  More detail on translation of event into image coordinates is discussed in Ref. \cite{bib:5856}.
+LArOpenCV is a C++ framework application built on top of the LArLite event processing framework with an interface to the OpenCV API. The LArOpenCV framework allows for event-by-event image creation, application of image manipulation algorithms, two dimensional contour matching between three physical wire planes, and cluster and PFParticle creation and output. The input into LArOpenCV is either a full readout or region of interest (ROI) reconstructed hit object. Input data products are first translated into an ``event image'' (described in next section), then handed over to a separate manager class for image processing. In this work, we consider reconstructed information inside an ROI around the CC Inclusive Selection candidate vertex.  More detail on translation of event into image coordinates is discussed in Ref. \cite{bib:5856}.
 
 \subsection{Event Image}
 \par In order to process hit objects as input with our LArOpenCV framework, we first need to translate our data products into a data format compatible with OpenCV. To do this, the LArOpenCV framework creates a single channel image for each plane determined by the wire and time tick ranges. Each row pixel represents a single wire and each column pixel a single time tick. The integral charge of each hit is scaled to 8 bits (integer 0 to 255) and assigned to that hit's peak time and wire. The result is a single channel grey-scale image. Note that this scaling is solely for the purposes of identifying clusters at the OpenCV stage. All analysis post-clustering (including energy reconstruction) is entirely independent of OpenCV and the LArOpenCV framework. 
@@ -1342,7 +1345,7 @@ LArOpenCV is a C++ framework application built on top of the LArLite event proce
 \label{fig:sbc}
 \end{figure}
 
-\par Once our first candidate clusters have been identified, we run a set of simple filters.  First we remove very small clusters ($<$ 10 hits); the rational for this cut is motivated by the later matching stage and will be discussed later. Next, we remove any cluster that pierces or lies outside of a Region of Interest (ROI)  (Figure \ref{fig:roi}).  This corresponds to five radiation lengths beyond the first conversion length which means that little energy will pierce this boundary (Figure \ref{fig:davidc_conversion_distance}). Thus, reconstructed clusters extending outside the ROI are unlikely candidates for our $\gamma$ search. We only consider information in this ROI around the Selection II candidate vertex throughout the remainder of the clustering chain.
+\par Once our first candidate clusters have been identified, we run a set of simple filters.  First we remove very small clusters ($<$ 10 hits); the rational for this cut is motivated by the later matching stage and will be discussed later. Next, we remove any cluster that pierces or lies outside of a Region of Interest (ROI)  (Figure \ref{fig:roi}).  This corresponds to five radiation lengths beyond the first conversion length which means that little energy will pierce this boundary (Figure \ref{fig:davidc_conversion_distance}). Thus, reconstructed clusters extending outside the ROI are unlikely candidates for our $\gamma$ search. We only consider information in this ROI around the CC Inclusive Selection candidate vertex throughout the remainder of the clustering chain.
 
 \begin{figure}[H]
 \centering
@@ -1354,7 +1357,7 @@ LArOpenCV is a C++ framework application built on top of the LArLite event proce
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.35]{Cluster_Shower/Misc_ROI.png}
-\caption{$\pi^0$ Region Of Interest (ROI) around $\nu_\mu$ CC Selection II tagged  vertex. The bounds extend 1m away from the vertex in each direction. }
+\caption{$\pi^0$ Region Of Interest (ROI) around $\nu_\mu$ CC CC Inclusive Selection tagged  vertex. The bounds extend 1m away from the vertex in each direction. }
 \label{fig:roi}
 \end{figure}
 
@@ -1380,7 +1383,7 @@ dot), and likewise the end point in the other segment (orange star). }
 \label{fig:misc_flashlights}
 \end{figure}
 
-\par Finally, we apply 2 simple filters to reduce the number of bad/uninteresting clusters passing on to matching. First, we remove any clusters which are not aligned well with the vertex.  We do this by considering the dot product of the cluster's direction with the direction vector from the vertex to the cluster's start point.  If this dot product is $>$ 0.71 or if the cluster start point is closer than 12 pixels to the vertex, the cluster is kept, where these values were determined empirically to minimize the removal of visually well-aligned clusters.  The latter condition prevents removing clusters that appear to have very misaligned directions by function of being near the vertex. This algorithm removes lingering cosmic rays and some mis-clustered hits. Second, we filter clusters whose surrounding contour contains the Selection II vertex (Figure \ref{fig:vertex_in_hull}). Occasionally when events are busy (e.g. a crossing cosmic muon through the interaction, a large amount of charge deposited, etc.) the flashlight algorithm will over-merge. A contained vertex is nearly always a good sign that over-merging has occurred.  
+\par Finally, we apply 2 simple filters to reduce the number of bad/uninteresting clusters passing on to matching. First, we remove any clusters which are not aligned well with the vertex.  We do this by considering the dot product of the cluster's direction with the direction vector from the vertex to the cluster's start point.  If this dot product is $>$ 0.71 or if the cluster start point is closer than 12 pixels to the vertex, the cluster is kept, where these values were determined empirically to minimize the removal of visually well-aligned clusters.  The latter condition prevents removing clusters that appear to have very misaligned directions by function of being near the vertex. This algorithm removes lingering cosmic rays and some mis-clustered hits. Second, we filter clusters whose surrounding contour contains the CC Inclusive Selection vertex (Figure \ref{fig:vertex_in_hull}). Occasionally when events are busy (e.g. a crossing cosmic muon through the interaction, a large amount of charge deposited, etc.) the flashlight algorithm will over-merge. A contained vertex is nearly always a good sign that over-merging has occurred.  
 
 \begin{figure}[H]
 \centering
@@ -1460,7 +1463,7 @@ The calibration constants used in shower energy reconstruction for the rest of t
 
 \subsection{Shower Quality and Energy Correction}
 %We begin by studying the reconstructed shower energy (via the shower's associated collection plane cluster).
-We next consider the quality of the post-Selection II shower reconstruction discussed above.  Specifically, we study the reconstructed energy of the shower via its associated collection-plane cluster. To begin, we use the BackTracker module to identify and store all true particle energy depositions in the TPC at the hit level.  An example of the resulting `mcclusters' is shown in Figure \ref{fig:mcclusters}. At this point, we narrow our consideration to mcclusters that are produced by a neutrino-induced $\pi^0$. Using this set of $\pi^0$-related mcclusters, we define two metrics: Cluster `purity' is defined to be the number of hits in the reconstructed cluster associated to the mccluster with the largest overlap in hits over the total hits of the reco cluster. Cluster `completeness' is defined to be the number of hits in the reconstructed cluster associated to the mccluster with the largest overlap in hits over the total hits of the mccluster. A pictorial example is shown in Figure \ref{fig:showerquality_purcompex}. In this example, each reconstructed cluster has both a purity and a completeness.  The purity of the purple reconstructed cluster is 100\% because the reconstruction has only included hits from one truth cluster (green). On the other hand, the red reconstructed cluster was over-merged, and ended up with hits from both the green and blue truth clusters.  Thus, the purity of the red cluster is less than 1. We likewise consider the completeness of each reconstructed cluster. The completeness tells us how much of the truth cluster the reconstruction has captured.  In both the case of the purple and the red reconstructed clusters, hits were missed during reconstruction. Thus the completeness for both is less than 1.  The purity and completeness of our sample of reconstructed showers are shown in Figure \ref{fig:showerquality_purcomp}. Note that a purity of zero indicates that a reconstructed shower shares no hits with any neutrino-induced $\pi^0$ cluster in the event. 
+We next consider the quality of the post-CC Inclusive Selection shower reconstruction discussed above.  Specifically, we study the reconstructed energy of the shower via its associated collection-plane cluster. To begin, we use the BackTracker module to identify and store all true particle energy depositions in the TPC at the hit level.  An example of the resulting `mcclusters' is shown in Figure \ref{fig:mcclusters}. At this point, we narrow our consideration to mcclusters that are produced by a neutrino-induced $\pi^0$. Using this set of $\pi^0$-related mcclusters, we define two metrics: Cluster `purity' is defined to be the number of hits in the reconstructed cluster associated to the mccluster with the largest overlap in hits over the total hits of the reco cluster. Cluster `completeness' is defined to be the number of hits in the reconstructed cluster associated to the mccluster with the largest overlap in hits over the total hits of the mccluster. A pictorial example is shown in Figure \ref{fig:showerquality_purcompex}. In this example, each reconstructed cluster has both a purity and a completeness.  The purity of the purple reconstructed cluster is 100\% because the reconstruction has only included hits from one truth cluster (green). On the other hand, the red reconstructed cluster was over-merged, and ended up with hits from both the green and blue truth clusters.  Thus, the purity of the red cluster is less than 1. We likewise consider the completeness of each reconstructed cluster. The completeness tells us how much of the truth cluster the reconstruction has captured.  In both the case of the purple and the red reconstructed clusters, hits were missed during reconstruction. Thus the completeness for both is less than 1.  The purity and completeness of our sample of reconstructed showers are shown in Figure \ref{fig:showerquality_purcomp}. Note that a purity of zero indicates that a reconstructed shower shares no hits with any neutrino-induced $\pi^0$ cluster in the event. 
 
 \begin{figure}[h!]
 \centering
@@ -1585,19 +1588,19 @@ To finish up our discussion of shower quality, we additionally consider shower s
 
 \clearpage
 \subsection{Shower Reconstruction Efficiency}
-Finally, we consider our shower reconstruction efficiency. This information will give us a sense of what kind of overall efficiency to expect at the final stage of selection. To do this, we consider all signal CC 1$\pi^0$ events that passed the Selection II + MIP consistency cuts. Of this sample, 3\% of the photons that originate from the $\pi^0$ decay convert outside the active TPC volume. Of the remaining showers that convert inside the TPC, we look at the shower energy dependent reconstruction efficiency. We define this efficiency to be the number of reconstructed showers that are matched to a true signal shower divided by the number of true signal showers. The results are shown in Figure \ref{fig:shower_reco_efficiency}.  The majority of the subleading shower population is below 100 MeV, where shower reconstruction efficiency drops below 50\%.  This is the main reason for the large number of signal events that have only one signal shower reconstructed, as we will see in the next subsection. In the past, we explored methods to perform a second pass reconstruction to increase our efficiency for subleading photons, but there was limited success \cite{bib:jz_catch_subleading}.  
+Finally, we consider our shower reconstruction efficiency. This information will give us a sense of what kind of overall efficiency to expect at the final stage of selection. To do this, we consider all signal CC 1$\pi^0$ events that passed the CC Inclusive Selection + MIP consistency cuts. Of this sample, 3\% of the photons that originate from the $\pi^0$ decay convert outside the active TPC volume. Of the remaining showers that convert inside the TPC, we look at the shower energy dependent reconstruction efficiency. We define this efficiency to be the number of reconstructed showers that are matched to a true signal shower divided by the number of true signal showers. The results are shown in Figure \ref{fig:shower_reco_efficiency}.  The majority of the subleading shower population is below 100 MeV, where shower reconstruction efficiency drops below 50\%.  This is the main reason for the large number of signal events that have only one signal shower reconstructed, as we will see in the next subsection. In the past, we explored methods to perform a second pass reconstruction to increase our efficiency for subleading photons, but there was limited success \cite{bib:jz_catch_subleading}.  
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.7]{Cluster_Shower/shower_reco_efficiency.png}
-\caption{Shower reconstruction efficiency after Selection II, with the subleading and leading energy distributions normalized to fit in the same plot.  }
+\caption{Shower reconstruction efficiency after CC Inclusive Selection, with the subleading and leading energy distributions normalized to fit in the same plot.  }
 \label{fig:shower_reco_efficiency}
 \end{figure}
 
 
 \subsection{Data - MC Shower Comparison}
 
-In this section, we compare absolutely normalized shower reconstruction parameters between data and simulation. An important first step is to consider the number of showers reconstructed per event.  In Figure \ref{fig:physics_sel2_nshrs}, we see a large discrepancy in the 0 reconstructed showers bin, and better agreement for higher numbers of showers. It is difficult to draw a strong conclusion on the 0-bin disagreement due to the data-MC discrepancy observed at the Selection II stage, however, we note that we will only be focusing on events with at least 1 shower to tag $\pi^0$ candidates for the remainder of this note where the agreement is considerably better. Kinematic distributions related specifically to events with 0-showers reconstructed can be found in Appendix \ref{sec:AppC}. We additionally consider the origin of the reconstructed showers in each bin in Figure \ref{fig:physics_sel2_nshrs}. These breakdowns are shown for 1 - 7 reconstructed showers in Figure \ref{fig:physics_sel2_nshr_background_breakdown}. As expected, most identified electromagnetic activity is due to a $\pi^0$. Note that sometimes more than 1 reconstructed shower will correspond to the same truth shower; we discuss a cut on opening angle later to prevent these kinds of shower pairs from entering our final sample.  An event mode breakdown is shown in Figure \ref{fig:physics_gt0shower_eventtype}.
+In this section, we compare absolutely normalized shower reconstruction parameters between data and simulation. An important first step is to consider the number of showers reconstructed per event.  In Figure \ref{fig:physics_sel2_nshrs}, we see a large discrepancy in the 0 reconstructed showers bin, and better agreement for higher numbers of showers. It is difficult to draw a strong conclusion on the 0-bin disagreement due to the data-MC discrepancy observed at the CC Inclusive Selection stage, however, we note that we will only be focusing on events with at least 1 shower to tag $\pi^0$ candidates for the remainder of this note where the agreement is considerably better. Kinematic distributions related specifically to events with 0-showers reconstructed can be found in Appendix \ref{sec:AppC}. We additionally consider the origin of the reconstructed showers in each bin in Figure \ref{fig:physics_sel2_nshrs}. These breakdowns are shown for 1 - 7 reconstructed showers in Figure \ref{fig:physics_sel2_nshr_background_breakdown}. As expected, most identified electromagnetic activity is due to a $\pi^0$. Note that sometimes more than 1 reconstructed shower will correspond to the same truth shower; we discuss a cut on opening angle later to prevent these kinds of shower pairs from entering our final sample.  An event mode breakdown is shown in Figure \ref{fig:physics_gt0shower_eventtype}.
 
 % 
 \begin{figure}[t!]
@@ -1798,7 +1801,7 @@ Now that we have a highly signal-enriched sample, we're almost in a position to 
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Total \\ [0.1ex] \hline
-Selection II & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.087 \\
+CC Inclusive Selection & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.087 \\
 At Least Two Showers & 0.106 & 0.001 & 0.002 & 0.0002 & 0.008 & 0.003 \\ \hline
 \end{tabular}
 \end{table}
@@ -1810,13 +1813,13 @@ At Least Two Showers & 0.106 & 0.001 & 0.002 & 0.0002 & 0.008 & 0.003 \\ \hline
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Cosmic (MC) & Cosmic (Data) \\ [0.1ex] \hline
-Selection II & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\
+CC Inclusive Selection & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\
 At Least Two Showers & 0.624 & 0.179 & 0.037 & 0.010 & 0.120 & 0.016 & 0.014\\ \hline
 \end{tabular}
 \end{table}
 
 \subsubsection{Signal and Backgrounds for $\pi^0\rightarrow\geq 2 \gamma$}
-The background breakdowns discussed throughout the note thus far were chosen to give the reader a sense of sample composition at each selection stage given the information at hand. This was done by backtracking the origin of the candidate $\mu$ to first identify cosmic- and noise-originating events. For the remaining $\nu$-origin candidates, we assigned each interaction to a background category based on its truth information. At this point, we have additional information about our reconstructed shower candidates.  Because of this new information, it's important that we re-classify all interactions in which at least 1 of the showers is of cosmic origin into a 'cosmic' category to maintain a pure sample of signals. We will describe these new backgrounds below and use them in the following data-MC comparison plots, however we will continue to present pass rate and composition tables using the backgrounds described at the beginning of the note.  This is because there isn't a good way to translate these new background definitions, that use reconstructed shower information, back to Selection II or the No Cuts stage, before that information existed. Thus, for continuity with the rest of the note, we choose to present the original backgrounds in those tables.  
+The background breakdowns discussed throughout the note thus far were chosen to give the reader a sense of sample composition at each selection stage given the information at hand. This was done by backtracking the origin of the candidate $\mu$ to first identify cosmic- and noise-originating events. For the remaining $\nu$-origin candidates, we assigned each interaction to a background category based on its truth information. At this point, we have additional information about our reconstructed shower candidates.  Because of this new information, it's important that we re-classify all interactions in which at least 1 of the showers is of cosmic origin into a 'cosmic' category to maintain a pure sample of signals. We will describe these new backgrounds below and use them in the following data-MC comparison plots, however we will continue to present pass rate and composition tables using the backgrounds described at the beginning of the note.  This is because there isn't a good way to translate these new background definitions, that use reconstructed shower information, back to CC Inclusive Selection or the No Cuts stage, before that information existed. Thus, for continuity with the rest of the note, we choose to present the original backgrounds in those tables.  
 
 \paragraph{ Cosmics}
 This category remains un-changed from the previously described background breakdowns.  It represents the OffBeam data contribution to the stack. 
@@ -2056,7 +2059,7 @@ We begin by considering the raw reconstructed energy of both candidate showers f
   \hline
    & OnBeam & OffBeam & On - OffBeam & MCBNBCos \\ [0.1ex] \hline
 No Cuts & 544751 $\pm$ 738 & 462076 $\pm$ 1001 & 82675 $\pm$ 1244 & 48949 $\pm$ 76 \\ 
-Selection II & 3753 $\pm$ 61 & 564 $\pm$ 35 & 3189 $\pm$ 71 & 4268 $\pm$ 22 \\ 
+CC Inclusive Selection & 3753 $\pm$ 61 & 564 $\pm$ 35 & 3189 $\pm$ 71 & 4268 $\pm$ 22 \\ 
 2 Shower Cuts & 69 $\pm$ 8 & 0 $\pm$ 2 & 67 $\pm$ 9 & 74 $\pm$ 2  \\ \hline
 \end{tabular}
  \end{table*}
@@ -2087,7 +2090,7 @@ SelectionII & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \end{tabular}
 \end{table*}
 
-Signal and background distributions are shown for a variety of kinematic variables in Figures \ref{fig:physics_pi0_mu_len} - \ref{fig:physics_pi0signalonly_mass}. Note that the $\pi^0$ mass peak is displaced from the expected 135 MeV; this is well understood to be the result of the multiple ways that we can lose energy during shower reconstruction. First, some energy depositions are not large enough to be detected during hit reconstruction. Thus, energy is missed during this stage. This (in conjunction with containment) has a roughly 10\% effect on biasing the mass peak \cite{bib:davidc_hitthresholding}. Additionally, some amount of charge is lost during the hit removal and clustering stages of the chain.  This has been investigated extensively externally \cite{bib:davidc_missingE} to have a roughly 15\% combined effect. When these effects are combined, we expect to see a peak with a roughly 25\% bias, and to sit around 100 MeV. The combination of these effects can be seen in the shower energy resolution (Figure \ref{fig:showerquality_eres_corr}b), where it is clear that a simple linear energy scale correction is not sufficient to recover most of the lost charge. For that reason we propose to not correct the shower energy. One consequence of this is that we will not be able to produce a $M_{\pi^0}$ distribution. This naturally raises the question: how do we know that the showers we are reconstructing are both photons and originating from a $\pi^0$ decay? The first element of this question pertains to how we know the `showers’ we are reconstructing are truly photons. We can answer this question by considering the conversion distance in Figure \ref{fig:physics_pi0signalonly_mass}b.  Here we see that a fit to the data returns a conversion distance of 24 $\pm$ 12 cm; this is in agreement with the expected value of 25 cm for photons at our energies, suggesting that we are in fact selecting photons. We can confirm we are selecting $\pi^0$'s by considering the reconstructed $\pi^0$ mass peak (Figures \ref{fig:physics_pi0signalonly_mass}a).  As noted earlier, the mass peak is offset due to the multiple sources of energy loss in our current reconstruction chain. Thus, to verify that the two-shower “mass” distribution follows our expectation we consider the result of reconstructing a sample of single-particle $\pi^0$’s with and without cosmics. For an apples to apples comparison, we additionally smear the vertex location of the single particle samples according to the vertex resolution after Selection II.  The agreement between the peak location and shape between the signal and the single particle samples agrees within statistical uncertainty, and improves as we move from the sample without to the sample with cosmics. 
+Signal and background distributions are shown for a variety of kinematic variables in Figures \ref{fig:physics_pi0_mu_len} - \ref{fig:physics_pi0signalonly_mass}. Note that the $\pi^0$ mass peak is displaced from the expected 135 MeV; this is well understood to be the result of the multiple ways that we can lose energy during shower reconstruction. First, some energy depositions are not large enough to be detected during hit reconstruction. Thus, energy is missed during this stage. This (in conjunction with containment) has a roughly 10\% effect on biasing the mass peak \cite{bib:davidc_hitthresholding}. Additionally, some amount of charge is lost during the hit removal and clustering stages of the chain.  This has been investigated extensively externally \cite{bib:davidc_missingE} to have a roughly 15\% combined effect. When these effects are combined, we expect to see a peak with a roughly 25\% bias, and to sit around 100 MeV. The combination of these effects can be seen in the shower energy resolution (Figure \ref{fig:showerquality_eres_corr}b), where it is clear that a simple linear energy scale correction is not sufficient to recover most of the lost charge. For that reason we propose to not correct the shower energy. One consequence of this is that we will not be able to produce a $M_{\pi^0}$ distribution. This naturally raises the question: how do we know that the showers we are reconstructing are both photons and originating from a $\pi^0$ decay? The first element of this question pertains to how we know the `showers’ we are reconstructing are truly photons. We can answer this question by considering the conversion distance in Figure \ref{fig:physics_pi0signalonly_mass}b.  Here we see that a fit to the data returns a conversion distance of 24 $\pm$ 12 cm; this is in agreement with the expected value of 25 cm for photons at our energies, suggesting that we are in fact selecting photons. We can confirm we are selecting $\pi^0$'s by considering the reconstructed $\pi^0$ mass peak (Figures \ref{fig:physics_pi0signalonly_mass}a).  As noted earlier, the mass peak is offset due to the multiple sources of energy loss in our current reconstruction chain. Thus, to verify that the two-shower “mass” distribution follows our expectation we consider the result of reconstructing a sample of single-particle $\pi^0$’s with and without cosmics. For an apples to apples comparison, we additionally smear the vertex location of the single particle samples according to the vertex resolution after CC Inclusive Selection.  The agreement between the peak location and shape between the signal and the single particle samples agrees within statistical uncertainty, and improves as we move from the sample without to the sample with cosmics. 
 Ten events selected from data are shown in Figure \ref{fig:physics_pi0_onbeam_eventdisplays}.
 
 \begin{figure}[h!]
@@ -2409,7 +2412,7 @@ $\nu$-Induced track & $\nu$-Induced track & 0.002 \\ \hline
 \clearpage
 \subsection{Candidates With At Least One Showers}
 In this section, we consider the hypothesis that any neutrino-induced photon originating from the vertex indicates the presence of a $\pi^0$.  This strategy will allow us access to the single-reconstructed shower events, and give us a chance to regain a significant chunk of events. More detail on the one-shower hypothesis exists externally \cite{bib:timb_singleshower}.
-\par As mentioned in an earlier section, by requiring at least 2 showers we reduce our sample size by 95\%.  However, this 95\% reduction includes roughly 50\% of the remaining signal after the Selection II filter has completed. This chunk of signals with only one reconstructed shower is largely the result of our shower reconstruction efficiency, shown earlier in Figure \ref{fig:shower_reco_efficiency}. Below 100 MeV of deposited shower energy, the shower reconstruction efficiency drop below 50\%, which results in a number of signal events with only 1 reconstructed shower. When we include these events by only requiring 1 shower be reconstructed in an event, we see the pass rates and sample compositions change.  These values are shown Tables \ref{tab:pi0_1shower_eventrates} and \ref{tab:pi0_1shower_composition}. We see from these tables that, before any additional checks or cuts, our signal efficiency and purity are 26\% and 40\% respectively; this is in contrast to 11\% and 62\% efficiency and purity we saw in the corresponding two-shower Tables \ref{tab:pi0_2showers_eventrates} and \ref{tab:pi0_2showers_composition}. 
+\par As mentioned in an earlier section, by requiring at least 2 showers we reduce our sample size by 95\%.  However, this 95\% reduction includes roughly 50\% of the remaining signal after the CC Inclusive Selection filter has completed. This chunk of signals with only one reconstructed shower is largely the result of our shower reconstruction efficiency, shown earlier in Figure \ref{fig:shower_reco_efficiency}. Below 100 MeV of deposited shower energy, the shower reconstruction efficiency drop below 50\%, which results in a number of signal events with only 1 reconstructed shower. When we include these events by only requiring 1 shower be reconstructed in an event, we see the pass rates and sample compositions change.  These values are shown Tables \ref{tab:pi0_1shower_eventrates} and \ref{tab:pi0_1shower_composition}. We see from these tables that, before any additional checks or cuts, our signal efficiency and purity are 26\% and 40\% respectively; this is in contrast to 11\% and 62\% efficiency and purity we saw in the corresponding two-shower Tables \ref{tab:pi0_2showers_eventrates} and \ref{tab:pi0_2showers_composition}. 
 
 \begin{table}[H]
 \centering
@@ -2417,7 +2420,7 @@ In this section, we consider the hypothesis that any neutrino-induced photon ori
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Total \\ [0.1ex] \hline
-Selection II & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.087 \\
+CC Inclusive Selection & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.087 \\
 $\geq$ 1 Shower & 0.257 & 0.006 & 0.005 & 0.001 & 0.015 & 0.010 \\ \hline
 \end{tabular}
 \end{table}
@@ -2428,7 +2431,7 @@ $\geq$ 1 Shower & 0.257 & 0.006 & 0.005 & 0.001 & 0.015 & 0.010 \\ \hline
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Cosmic (MC) & Cosmic (Data) \\ [0.1ex] \hline
-Selection II & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\
+CC Inclusive Selection & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\
 $\geq$ 1 Shower & 0.402 & 0.335 & 0.021 & 0.016 & 0.061 & 0.031 & 0.135\\ \hline
 \end{tabular}
 \end{table}
@@ -2484,7 +2487,7 @@ Similar to how we proceeded to tune our 2-shower cuts, we begin here by breaking
   \hline
    & OnBeam & OffBeam & On - OffBeam & MCBNBCos \\ [0.1ex] \hline
 No Cuts & 544751 $\pm$ 738 & 462076 $\pm$ 1001 & 82675 $\pm$ 1244 & 48949 $\pm$ 76 \\ 
-Selection II & 3753 $\pm$ 61 & 564 $\pm$ 35  & 3189 $\pm$ 71 & 4268 $\pm$ 22  \\ 
+CC Inclusive Selection & 3753 $\pm$ 61 & 564 $\pm$ 35  & 3189 $\pm$ 71 & 4268 $\pm$ 22  \\ 
 Single Shower Cuts & 257 $\pm$ 16 & 15 $\pm$ 6 & 242 $\pm$ 17 & 252 $\pm$ 5  \\ \hline
 \end{tabular}
  \end{table}
@@ -2763,7 +2766,7 @@ Noise & 0.031  \\ \hline
 \par At this point we are in a position to calculate the cross section of CC 1-$\pi^0$ on argon.  Before we do so, it is important to understand whether we have introduced kinematical bias into the analysis at any stage.  In the following sections we will examine the analysis efficiencies across all stages and a variety of variables, as well as gathering all the pieces we need and calculating the final cross section.
 
 \subsection{Truth and Efficiency Distributions}
-This section considers the distributions and selection efficiencies across a variety of kinematic variables across the selection process.  The events considered in these plots are CC events with a single neutrino-induced $\pi^0$ originating from a true vertex contained in the FV. The efficiency is defined here to be the number of this kind of events at some stage (Selection II or $\pi^0$ cuts) divided by the number of this kind of event before any cuts have been applied.  Figures \ref{fig:pi0_effs_0} - \ref{fig:pi0_effs_6} show various kinematic distributions and their corresponding efficiencies at each stage of our CC$\pi^0$ selection up through the 2-shower set of cuts.  We show a similar set of plots for the single shower set of cuts.  These results are shown in Figures \ref{fig:pi0_effs_7} - \ref{fig:pi0_effs_13}. Given the flatness of our efficiencies we conclude that we will not be kinematically biasing an absolute cross section measurement. Only statistical uncertainties are considered here. 
+This section considers the distributions and selection efficiencies across a variety of kinematic variables across the selection process.  The events considered in these plots are CC events with a single neutrino-induced $\pi^0$ originating from a true vertex contained in the FV. The efficiency is defined here to be the number of this kind of events at some stage (CC Inclusive Selection or $\pi^0$ cuts) divided by the number of this kind of event before any cuts have been applied.  Figures \ref{fig:pi0_effs_0} - \ref{fig:pi0_effs_6} show various kinematic distributions and their corresponding efficiencies at each stage of our CC$\pi^0$ selection up through the 2-shower set of cuts.  We show a similar set of plots for the single shower set of cuts.  These results are shown in Figures \ref{fig:pi0_effs_7} - \ref{fig:pi0_effs_13}. Given the flatness of our efficiencies we conclude that we will not be kinematically biasing an absolute cross section measurement. Only statistical uncertainties are considered here. 
 
 \begin{figure}[h!]
 \centering
@@ -2922,7 +2925,7 @@ Our first step is to calculate the GENIE flux-averaged cross section on argon fo
 \end{equation}
 
 \noindent where $N_{tagged}$, $N_{bkgd}$ are the number of tagged events and background events respectively, $\epsilon$ is the efficiency, $N_{targ}$ the number of Argon nuclei targets and $\phi$ the flux. 
-\par We use the previously described 420k MC BNB + Cosmics sample to perform this initial calculation.  Because we are using MC information to calculate a true value here, we use $\epsilon$ = 1, $N_{bkgd}$=0 and $N_{tagged}$=$N_{signal}$.  To calculate $N_{signal}$, we choose our volume of interest to be the Fiducial Volume (FV) used by Selection II, with 20cm from the wall in X and Y, and 10cm from the wall in Z. We find $N_{tagged}$ = 7567, for signal interaction vertices inside the FV. Note that while 420k events are simulated, more than half of these interactions occur outside the FV. 
+\par We use the previously described 420k MC BNB + Cosmics sample to perform this initial calculation.  Because we are using MC information to calculate a true value here, we use $\epsilon$ = 1, $N_{bkgd}$=0 and $N_{tagged}$=$N_{signal}$.  To calculate $N_{signal}$, we choose our volume of interest to be the Fiducial Volume (FV) used by CC Inclusive Selection, with 20cm from the wall in X and Y, and 10cm from the wall in Z. We find $N_{tagged}$ = 7567, for signal interaction vertices inside the FV. Note that while 420k events are simulated, more than half of these interactions occur outside the FV. 
 \par Our next job is to calculate the number of targets in our FV:
 
 \begin{equation} \label{eq:1}
@@ -3391,7 +3394,7 @@ Here we consider the distributions of events which have 0 showers reconstructed.
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mult.png}
 \hspace{2 mm}
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_len.png}
-\caption{ Data to simulation comparison of a) multiplicity and b) $\mu$ length after Selection II filter }
+\caption{ Data to simulation comparison of a) multiplicity and b) $\mu$ length after CC Inclusive Selection filter }
 \label{fig:physics_sel2_0shower_mulen}
 \end{figure}
 
@@ -3400,7 +3403,7 @@ Here we consider the distributions of events which have 0 showers reconstructed.
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_angle.png}
 \hspace{2 mm}
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_phi.png}
-\caption{ Data to simulation comparison of $\mu$ a) $\theta$  and b) $\phi$ after Selection II filter }
+\caption{ Data to simulation comparison of $\mu$ a) $\theta$  and b) $\phi$ after CC Inclusive Selection filter }
 \label{fig:physics_sel2_0shower_muphi}
 \end{figure}
 
@@ -3408,7 +3411,7 @@ Here we consider the distributions of events which have 0 showers reconstructed.
 \centering
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_startx.png}
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_endx.png}
-\caption{ Data to simulation comparison of $\mu$ a) start and b) end in x after Selection II filter }
+\caption{ Data to simulation comparison of $\mu$ a) start and b) end in x after CC Inclusive Selection filter }
 \label{fig:physics_sel2_0shower_x}
 \end{figure}
 
@@ -3416,7 +3419,7 @@ Here we consider the distributions of events which have 0 showers reconstructed.
 \centering
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_starty.png}
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_endy.png}
-\caption{ Data to simulation comparison of $\mu$ a) start and b) end in y after Selection II filter }
+\caption{ Data to simulation comparison of $\mu$ a) start and b) end in y after CC Inclusive Selection filter }
 \label{fig:physics_sel2_0shower_y}
 \end{figure}
 
@@ -3424,6 +3427,6 @@ Here we consider the distributions of events which have 0 showers reconstructed.
 \centering
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_startz.png}
 \includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_endz.png}
-\caption{ Data to simulation comparison of $\mu$ a) start and b) end in z after Selection II filter }
+\caption{ Data to simulation comparison of $\mu$ a) start and b) end in z after CC Inclusive Selection filter }
 \label{fig:physics_sel2_0shower_z}
 \end{figure}
