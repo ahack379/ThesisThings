@@ -32,7 +32,7 @@
 {\footnotesize ARIANA HACKENBURG\\
 2017\\}
 \end{center}
-Liquid Argon Time Projection Chambers (LArTPCs) such as MicroBooNE provide excellent calorimetric information and image quality resolution. Of particular interest to MicroBooNE are electromagnetic showers, and the origin of the low energy excess. π0’s, which decay into 2 electromagnetic showers (γ’s), form a fraction of the flagship analysis background and are thus an important topic of study. In this note, we calculate our expected MC cross section of charged current (CC) π0 final state on Argon using an MC BNB sample. We also describe the algorithms we’ve built to automatically select CC $\pi^0$ interactions. We have chosen final state CC-$\pi^0$ interactions as our signal in order to compare with MiniBooNE results and to produce a measurement that will have potential use to other experimentalists. Finally, we will present the preliminary cross section measurement on MC BNB+cosmics, and examine the different variables that contribute to the result.
+THIS IS TEMPORARY; FIX IT EVENTUALLY Liquid Argon Time Projection Chambers (LArTPCs) such as MicroBooNE provide excellent calorimetric information and image quality resolution. Of particular interest to MicroBooNE are electromagnetic showers, and the origin of the low energy excess. π0’s, which decay into 2 electromagnetic showers (γ’s), form a fraction of the flagship analysis background and are thus an important topic of study. In this note, we calculate our expected MC cross section of charged current (CC) π0 final state on Argon using an MC BNB sample. We also describe the algorithms we’ve built to automatically select CC $\pi^0$ interactions. We have chosen final state CC-$\pi^0$ interactions as our signal in order to compare with MiniBooNE results and to produce a measurement that will have potential use to other experimentalists. Finally, we will present the preliminary cross section measurement on MC BNB+cosmics, and examine the different variables that contribute to the result.
 \thispagestyle{empty}
 \clearpage
 
@@ -104,17 +104,17 @@ All rights reserved.
 \setcounter{page}{1}
 
 \section{Introduction}
-The idea of the neutrino was born out of an unwillingness to abandon energy conservation without a fight. Two body beta decay was expected to occur at a singular energy value, in order to preserve conversation of energy. However, the observation made by multiple exeriments (citations) was that the decay products were not singular, but rather spectral, suggesting that beta decay theory was either incomplete on incorrect.  In 1930 Wolfgana Pauli proposed the existence of an additional particle emitted during the decay which carried away some fraction of the energy to explain the obeserved beta spectrum. These weakly interacting, spin 1/2, "small neutral particles" were later named "neutrinos" by Enrico Fermi. 
-\par The clean transformation of theoretical predictions into experimentally measurable, physical parameters can at times prove to be its own kind of science. Pauli himself believed he had done a "frightful thing" by proposing what he believed to be an undetectable particle. But nearly 30 years after Pauli's theory was introduced, Clyde Cowan and Frederick Reines confirmaed the existence of neutrinos experimentally near the Savannah River Plant \cite{bib:cowan}. In 1995, they received the Nobel prize for their work.
-\par And so conservation of energy was safe from overthowal, and for another 10 years neutrino physics would feel like a settled game. However, in the late 1960's, the Homestake experiment guided in a new era for neutrino experiments. In fact, nearly 90 years after it was first proposed, the neutrino remains shrouded in a number of mysteries. In this section, we explore some of these results and their impact on the present state of neutrino physics, the theory behind neutrino oscillation and interactions and . 
+The idea of the neutrino was born out of an unwillingness to abandon energy conservation without a fight. At the heart of the debate was the experimetnally observed energy spectrum of beta decay. According to energy conservation, two body beta decay was expected to occur at a single energy, however observations showed this distribution to be spectral; this suggested that the theory describing the process was either incomplete on incorrect.  In 1930 Wolfgang Pauli proposed the existence of an additional particle emitted during the decay which carried away some fraction of the energy to explain the obeserved beta spectrum \cite{bib:pauli}. These weakly interacting, spin 1/2, "small neutral particles" were later named "neutrinos" by Enrico Fermi \cite{bib:fermi}. 
+\par The clean transformation of theoretical predictions into experimentally measurable, physical parameters can at times prove to be its own kind of science. Pauli himself thought he had done a "frightful thing" by proposing what he believed at the time to be an undetectable particle. However, nearly 30 years after Pauli's theory was born, Clyde Cowan and Frederick Reines confirmed the existence of anti-neutrinos experimentally in a cadmium-chloride liquid scintillator detector near the Savannah River Plant \cite{bib:cowan}. In 1995, they received the Nobel prize for their work.
+\par With that conservation of energy was safe, but new puzzles lay ahead. Nearly 90 years after it was first proposed, the neutrino remains shrouded in a number of mysteries. In this section, we explore some anomalous results and their impact on the present state of neutrino physics.  We also consider the theory behind the Standard Model, neutrino oscillation and interactions and the primary interaction of interest to this thesis work. 
+%In the late 1960's, the Homestake experiment guided in a new era for neutrino experiments.
 % Definitive proof for neutrino oscillation has been delivered over and again in the last 15 years. Alongside this proof, however, has come several notoriously anomalous results. 
 %%As additional groups began to build experiments designed to look for neutrinos from different sources and energy scales, a number of questions arose.
-
 
 \subsection{A Brief History Rife with Anomoly}
 %\subsection{Solar Neutrino Problem}
 %Any sort of historical review of neutrino physics at some point comes to Ray Davis, and so we might as well start our story here.  
-In the late 1960s, Ray Davis of Brookhaven National Lab (BNL) ventured 4850ft underground in the Homestake mine with a plan to measure various contributions to solar neutrino flux \cite{ray0}. Working closely with John Bahcall's theory team at CalTech, Davis' group built a tetrachloroethylene detector sensitive down to 0.814 MeV and primarily to $B^8$ solar neutrinos\cite{ray0} a mile underground in Homestake Mine. In 1968, the group released results which revealed that a fraction of the predicted solar neutrinos were missing. This result became known as "the solar neutrino problem".
+\paragraph {Solar Neutrino Problem} In the late 1960s, Ray Davis of Brookhaven National Lab (BNL) ventured 4850ft underground in the Homestake mine with a plan to measure various contributions to solar neutrino flux \cite{ray0}. Working closely with John Bahcall's theory team at CalTech, Davis' group built a tetrachloroethylene detector sensitive down to 0.814 MeV and primarily to $B^8$ solar neutrinos a mile underground in Homestake Mine \cite{ray0}. In 1968, the group released results which revealed that a fraction of the predicted solar neutrinos were missing. The Homestake experiment ran for ~20 years, with results through the duration pointing to the same conclusion: 2/3 of the neutrinos predicted by Bahcall's Standard Solar Model (Figure \ref{fig:SSM}) were not accounted for in the data \cite{ray0}. This result became known as "the solar neutrino problem".
 
 \begin{wrapfigure}{r}{0.5\textwidth}
 %\begin{center}
@@ -125,26 +125,29 @@ In the late 1960s, Ray Davis of Brookhaven National Lab (BNL) ventured 4850ft un
 \label{fig:SSM}
 \end{wrapfigure}
 
-\par The Homestake experiment ran for ~20 years, with results through the duration pointing to the same conclusion: 2/3 of the neutrinos predicted by Bahcall's Standard Solar Model (Figure \ref{fig:SSM}) were not accounted for in the data\cite{ray0}.  Throughout the 80's and 90's, a series of experimental results from various collaborations confirmed the mysterious lack of solar neutrinos \cite{rayreview} \cite{kam0} \cite{sno}.  Kamiokande II\footnote{The original Kamiokande focused primarily on proton decay. After initial data taking, adjustments were made to the original detector in order to make it sensitive enough to study electron recoils from elastic neutrino scatters in water. One example addition was a surrounding layer of water which was intended to decrease background radiation.  This "new" experiment was called Kamiokande II}, a 3 kton water Cherenkov detector built in Japan in the 80s, was only sensitive to $B^8$ neutrinos above ~6 MeV\cite{kam0} because of the surrounding radioactivity. Despite its inability to probe the keV energies of the Homestake experiment, Kamiokande II was a highly appealing detector due to its real time depiction of events and its ability to reconstruct both the energies and directions of those events\cite{kam0}. Due to the unique ability of this detector, Kamiokande II was able to for the first time conclude that neutrinos were coming from the sun.  In addition to this remarkable discovery, Kamiokande II also observed an apparent lack of solar neutrinos.
+%\cite{rayreview} \cite{kam0} \cite{sno}. 
+\par Throughout the 80's and 90's, a series of experimental results from various collaborations confirmed the mysterious lack of solar neutrinos. Kamiokande II, a 3 kton water Cherenkov detector built in Japan in the 80s, was sensitive to $B^8$ neutrinos above ~6 MeV\footnote{The original KamiokaNDE focused primarily on proton decay. After initial data taking, adjustments were made to the original detector in order to make it sensitive enough to study electron recoils from elastic neutrino scatters in water. One example addition was a surrounding layer of water which was intended to decrease background radiation.  This "new" experiment was called Kamiokande II}. Due to surrounding radioactivity, Kamiokande II was unable to probe the keV energies of the Homestake experiment; however, Kamiokande II was a highly appealing detector due to its real time depiction of events and its ability to reconstruct both the energies and directions of those events. Due to the unique ability of this detector, Kamiokande II was able to for the first time conclude that neutrinos were coming from the sun \cite{kam0}.  In addition to this remarkable discovery, Kamiokande II also observed an apparent lack of solar neutrinos.
+\par Quick to follow suit was the Sudbury Neutrino Observatory (SNO) in 2002.  SNO was a 1 ktonne spherical deuterium Cherenkov detector located 6800ft under ground in the Creighton Mine in Sudbury \cite{sno}. The greatest barrier experiments before SNO had faced in detecting $\nu_\mu$ or $\nu_\tau$ interactions was that the $\mu$ and $\tau$ are heavier (105 MeV and 1777 MeV respectively) than the energy of the solar neutrino spectrum, which only extends to about 30MeV. Deuterium, which replaces the hydrogen in water with a proton and a neutron, has a dissociation energy of ~2 MeV. This fact uniquely equipped SNO to measure the flux of all three neutrino flavors, and their final measured flux matched shockingly well with Bahcall's predictions in his SSM \cite{sno}.  SNO had conclusively solved the solar neutrino problem.  
+\paragraph{The Gallium Anomaly} The Gallium Experiment, or GALLEX, was a radiochemical experiment at Gran Sasso, Italy in the 90's. GALLEX was sensitive to the pp neutrino flux energies with a threshold of 233 keV; this enabled it to probe uncharted regions of the solar flux related to nuclear fusion. After 6 years of running, results showed the neutrino flux at a deficit of 60\% of that predicted by the Standard Solar Model(SSM) \cite{gal0}. This result was reproduced when a \ce{^{51}Cr} source was added to the detector \cite{gal2}. SAGE, another Gallium experiment set in Russia in the 90's observed a deficit comparable to GALLEX's.  A similar test of the SAGE detector's efficiency with a \ce{^{51}Cr} source confirmed it was operating near 100\% on the \ce{^{51}Cr} neutrinos \cite{sage}.  Together, these pieces are examples of the Gallium Anomaly.  
 
-\par A quick recap at this point would indicate something a bit unsettling about our story thus far. The Davis experiment began digging into Bahcall's models in the 60s; yet here we were in the 90s with still no verified explanation of what was causing the observed neutrino deficit.  Were neutrinos oscillating? Was something wrong with the sun\cite{Clarke}? 
+%\par A quick recap at this point would indicate something a bit unsettling about our story thus far. The Davis experiment began digging into Bahcall's models in the 60s; yet here we were in the 90s with still no verified explanation of what was causing the observed neutrino deficit.  Were neutrinos oscillating? Was something wrong with the sun \cite{Clarke}? 
 
-
-\paragraph{SNO : A Conclusion to the Solar Neutrino Problem}
-Quick to follow suit was the Sudbury Neutrino Observatory (SNO) in 2002.  SNO was a 1 ktonne spherical deuterium Cherenkov detector located 6800ft under ground in the Creighton Mine in Sudbury\cite{sno}. The greatest barrier experiments before SNO had faced in detecting $\nu_\mu$ or $\nu_\tau$ interactions was that the $\mu$ and $\tau$ are heavier (105 MeV and 1777 MeV respectively) than the energy of the solar neutrino spectrum, which only extends to about 30MeV. Deuterium, which replaces the hydrogen in water with a proton and a neutron, has a dissociation energy of ~2 MeV. This fact uniquely equipped SNO to measure the flux of all three neutrino flavors\cite{sno}--this total flux matched shockingly well with Bahcall's predictions in his SSM. SNO had conclusively solved the solar neutrino problem.  
+%\paragraph{SNO : A Conclusion to the Solar Neutrino Problem}
+\paragraph{Reactor Anomaly}
 
 \paragraph{LSND and MiniBooNE}
-In the last 20 years, a variety of other experimental results have indicated that the 3-neutrino oscillation model (and thus, the Standard Model), may not be complete. Liquid Scintillator Neutrino Detector (LSND), a scintillation detector in a stopped pion beam from the 90's, expected the majority of its events to come from $\nu_\mu$ and $\bar{\nu_\mu}$, with a small fraction of $\bar{\nu_e}$ interactions--in their results, they observed an excess of low energy electron anti-neutrino events for $\frac{L}{E} \sim 1 \frac{m}{MeV}$ (Figure \ref{fig:lsnd}), explained at the time with a simple 2-neutrino oscillation model \cite{lsnd}. These unexpected results led to the construction of the Mini Booster Neutrino Experiment (MiniBooNE), a Cherenkov detector in Booster Neutrino Beam (BNB) at Fermilab. After 10 years of running, MiniBooNE's data revealed an excess of low energy events in both neutrino and anti-neutrino modes at energies below and incorporating LSND's data (Figure \ref{fig:lsnd}) \footnote{ MiniBooNE also observed different amounts of excess in neutrino and anti-neutrino mode, leading to additional questions about nuclear interactions, cross sections and the relationship between the neutrino and antineutrino\cite{miniboone}}.  These results did two important things: first, MiniBooNE's data refuted the previous 2-neutrino oscillation explanation \cite{miniboone}, and second, it called into question the nature of the observed low-energy excess. Identification of the source of the MiniBooNE low energy excess is the main question MicroBooNE was designed to answer; however, this flagship measurement will be background narrative to the story of this thesis. 
+Finally we arrive at the direct predecessors of MicroBooNE. Liquid Scintillator Neutrino Detector (LSND), a scintillation detector in a stopped pion beam from the 90's, expected the majority of its events to come from $\nu_\mu$ and $\bar{\nu}_\mu$, with a small fraction of $\bar{\nu}_e$ interactions. Their results indicated an excess of low energy $\bar{\nu}_e$ events for $\frac{L}{E} \sim 1 \frac{m}{MeV}$ (Figure \ref{fig:lsnd}), explained at the time with a simple 2-neutrino oscillation model \cite{lsnd}. These unexpected results led to the construction of the Mini Booster Neutrino Experiment (MiniBooNE), a Cherenkov detector in the Booster Neutrino Beam (BNB) at Fermilab with a comparable $\frac{L}{E}$ to LSND. After 10 years of running, MiniBooNE's data revealed an excess of low energy events in both neutrino and anti-neutrino modes at energies below and incorporating LSND's data (Figure \ref{fig:lsnd}).  MiniBooNE also observed different amounts of excess in neutrino and anti-neutrino mode, leading to additional questions about nuclear interactions, cross sections and the relationship between the neutrino and antineutrino \cite{miniboone}.  These results did two important things: first, MiniBooNE's data refuted the previous 2-neutrino oscillation explanation \cite{miniboone}, and second, it called into question the nature of the observed low-energy excess. Identification of the source of the MiniBooNE low energy excess is the main question MicroBooNE was designed to answer, in addition tothe valuable cross section measurements and R\&D it will make. 
+%; R\&D and cross section measurements on Argon are his flagship measurement will be background narrative to the story of this thesis. 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Figures/lsnd3.png}
-\hspace{1.5 cm}
-\includegraphics[scale=0.4]{Figures/minib2.png}
-\caption{Low energy excesses seen by the LSND (left) and MiniBooNE (right) experiments}
+\hspace{1.5 mm}
+\includegraphics[scale=.65]{NewFigures/minibooneNeuMode.png}
+\caption{Low energy excesses seen by a) the LSND and b) MiniBooNE experiments.  MiniBooNE data is depicted here for runs taken in Neutrino Mode.}
 \label{fig:lsnd}
 \end{figure}
 
-\subsection{Neutrinos and the Standard Model}
+\subsection{Neutrino Oscillation}
 \par Each neutrino flavor ($\nu_e, \nu_\mu, \nu_\tau$) can be written as a linear combination of 3 mass eigenstates with the use of a unitary rotation matrix. It is most convenient to begin by looking at a simplified 2 neutrino oscillation model:
 \begin{equation} \label{eq:eig}
 |\nu_x> = \sum_{j=1,2} U_{ij} |\nu_j>  
@@ -161,21 +164,84 @@ where $\theta$ is the mixing angle of the oscillation, $\Delta m^2$ is the frequ
 %\end{equation}
 %where $N_\beta$ is the number of signal events expected, and $N_\alpha$ is the number of original neutrinos in the absence of oscillations. Sensitivity to $\Delta m^2$ can be shown to be dependent on $L^{-\frac{1}{2}}, E,$ and $N^{-\frac{1}{4}}$ \cite{warwick}; for a given L, we can increase our sensitivity to $\Delta m^2$ by increasing event rate(generally dependent on factors like runtime, which are out of experiment's control), or energy(tricky). 
 
-\subsection{Neutrino-Induced Charged Current $\pi^0$}
-A number of previous measurements on the charged current (CC) $\pi^0$ cross section exist, and it worth first understanding where the field is and how we can contribute to it.  
-\par In the 80's a number of CC $\pi^0$ cross section measurements were made by a variety of different experiments.  Argonne National Laboratory used a 12-ft bubble chamber full of hydrogen and deuterium to investigate single-pion production by the weak charged current \cite{bib:ANL1} \cite{bib:ANL2}. ANL examined a restricted energy range of $E_\nu$ < 1.5GeV in order to restrict multi-$\pi$ backgrounds entering their final sample of 273 events. They measured the cross section as a function of energy. BNL performed similar studies in a 7ft deuterium bubble chamber in a broad band beam with average energy 1.6GeV. Their signal sample was bigger at 853 events, and spanned an energy range up to 3 GeV. A few other experiments made measurements at higher energies, above the range of MicroBooNE \cite{bib:HE_unknown1} \cite{bib:HE_unknown2}.
-\par More recently, several experiments at Fermilab have made this cross section measurement. In 2011, the MiniBooNE experiment, a Cherenkov detector filled with mineral oil that sits in the Booster Neutrino Beam (BNB), made cross section and differential cross section measurements of the charged current neutral $\pi^0$ interaction channel. They required their signal events to have an observed single $\mu^-$, single $\pi^0$, any number of additional nucleons, and no additional mesons or leptons. With 5810 signal events in their sample, they measured a flux-integrated cross section of (9.2 $\pm$ 0.3stat. $\pm$ 1.5syst.) x $10^{-39}$ $\frac{cm^2}{CH_2}$ \cite{bib:numucc_miniboone} \cite{bib:miniboone_thesis}.  
-\par From 2007-2008, SciBar Booster Neutrino Experiment at Fermilab (SciBooNE) took data in the Booster Neutrino Beam.  In 2014, a SciBooNE thesis measurement showed a measured CC $\pi^0$ cross section of (5.6 $\pm$ $1.9_{fit}$ $\pm$ $0.7_{fit}$ $\pm$ $0.5_{int}$ - $0.7_{det})$ x $10^{-40}$ $\frac{cm^2}{nucleon}$ with 141 signal data events. The signal definition employed was different than that used by MiniBooNE in that it allowed N additional mesons in its final state.  Nevertheless, when the MiniBooNE result is scaled per nucleon, the results agree with one another \cite{bib:sciboone_thesis}.
-\par Most recently in 2015, the Minerva experiment measured $\overline{\nu}_\mu$ charged current $\pi^0$ differential cross sections against a number of variables  on polystyrene \cite{bib:minerva_thesis} \cite{bib:minerva_paper}.  Minerva lies in the Neutrinos at the Main Injector (NuMI) beamline at Fermilab, and probes an energy range of 2-10 GeV.  While MicroBooNE lies in the BNB and will probe a lower energy range, we note that the measurement signal here is the same as MiniBooNE with the requirement of a $\mu^+$ rather than a $\mu^-$ in the final state. 
-\par A final measurement of note is that of inclusive CC $\pi^0$ production cross section by K2K in 2011 \cite{bib:k2k_paper}; this measurement is presented as a ratio measurement to CCQE.  
-\par MicroBooNE, like MiniBooNE and SciBooNE, lives in the BNB at Fermilab.  In the remaining parts of this note, we will run our analysis with the high statistics MiniBooNE results in mind for direct comparison.  This will be the first CC $\pi^0$ measurement on Argon.
+
+\subsection{Standard Model}
+The Standard Model (SM) is a theory of fundamental forces and particles that together describe the state of matter in the world. The SM itself contains 2 different classes of particles (quarks and leptons), a group force carriers (gauge bosons) and most recently the Higgs Boson (Figure \ref{fig:SM}a); other recent additions to the SM include the tau neutrino observed by the DONUT experiment in 2000 \cite{bib:donut}, and the top quark in 1995 \cite{bib:cdf}. Despite the suggestion of these descriptions, there are a number of physical processes that are not explained by the current SM, suggesting the SM is incomplete.  Some of these phenomena are gravitation (graviton), accelerating galaxies (dark energy), and neutrino oscillation (SM neutrinos are massless). 
+
+\begin{figure}[h!]
+%\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.5]{NewFigures/standardModel.png}
+\hspace{6 mm}
+\includegraphics[scale=0.5]{NewFigures/betaDecay.png}
+\caption{a) The Standard Model of particle physics in its current state; b) Beta decay involves an exchange of $W^-$ boson, and the emission of an electron and anti electron neutrino. }
+\label{fig:SM}
+%\end{wrapfigure}
+\end{figure}
+\par The Standard Model is made up two classes of particles: fermions and bosons. Fermions are particles which have half-integer spin and obey Fermi-Dirac statistics. Leptons (particles that do not experience strong interactions, such as electrons) and baryons (3 quark particles like protons) are both characterized as fermions. Because of their spin properties, fermions must conserve both lepton and baryon numbers, as well as obey the Pauli Exclusion Principle. 
+\par Bosons, on the other hand, have integer spin, obey Bose-Einstein statistics and do not obey the Pauli Exclusion Principle. The 4 gauge bosons (photon, gluon, W, Z) and single scalar boson (Higgs) described by the SM are called elementary bosons. While the Higgs is thought to be the particle that gives other particles mass, the gauge bosons are force carriers and mediate interactions that occur between composite bosons (such as mesons) and fermions.  The gluon mediates the aptly named strong force, strongest of all the forces. The gluon mediates interactions between quarks and other gluons and residually facilitates the nuclear force. This residual force, or interaction between nucleon and mesons, is responsible for holding the nucleus together. A second force mediated by a gauge boson is the electromagnetic force.  This force is 137 times weaker than the strong force at distances of 1 femtometer \cite{bib:forces}, and controlled by photon exchange between charged particles. The final force described by the SM is the weak interaction, a million times weaker than the strong force, and mediated by the W and Z gauge bosons.  The W boson is its own anti-particle and can facilitate neutrino emission and absorption, energy exchange and particle change as shown in Figure \ref{fig:SM}b. The Z boson in neutral and only allows for exchange of energy, momenta and spin between particles; this leaves the original neutrino less energy, but otherwise in tact. Gravitation, though not included in the SM, is the weakest of the forces and $10^{38}$ times weaker than the strong force.
+
+\subsection{Cross Sections}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{NewFigures/xsec.png}
+\caption{ Diagramatic example of an interaction; the $N_I$ blue dots are the incident particles over some beam area A, the $N_T$ green dots are the targets and the $N_S$ red dots are the number of scatters.}  
+\label{fig:Xsec}
+\end{figure}
+
+%The concept of a cross section is simple.
+Before an experiment is designed and built, experimentalists need to understand the rates at which they can expect different interactions to occur. This process is important; we don't want to design a detector that cannot meet the required sensitivity specifications we hope for our results to attain because we are overwhelmed by background events. In other words, given a beam of $N_I$ particles incident on $N_T$ targets, we want to be able to predict how many scatters, or interactions, we can expect to occur in our detector (Figure \ref{fig:Xsec}). This probability of interaction is called a cross section (Eq \ref{eq:xsec}). 
+
+\begin{equation}
+\sigma = A * \frac{N_S}{N_T * N_I}
+\label{eq:xsec}
+\end{equation}
+
+%The cross section of a single target particle can be thought of as the 2D area it takes up; If we extend that idea of of probabilty of interaction for 1 incident particle to many, we can calculate the total probability of an interaction/or a scatter in our detector.
+
+
+\par We can take this idea of predicting interaction rates further with the differential cross section.  Typically in an experiment we want to know not just the probability that an interaction will occur, but the probability that it will also result in particles with specific properties, most commonly momentum and direction. The differential probability for a particle to scatter into some volume in parameter space is given by Equation \ref{eq:diffxsec}:
+
+\begin{equation}
+\frac{d\sigma}{dX}(X',E_T,E_S) = \frac{\frac{dN_S}{dX}(X')}{N_T*N_I} * A 
+\label{eq:diffxsec}
+\end{equation}
+
+, where $\frac{dN_S}{dX}$ is the number of scatters into some volume of parameter space dX, and $\frac{N_I}{A}$ is the beam flux $\phi$. In its current state, Equation \ref{eq:diffxsec} suggests that the flux is independent of other variables, such as the energy of the incident beam; however this is generally not true. The equation can be rewritten to account for this as follows:
+
+\begin{equation}
+\frac{d\sigma}{dX}(X',E'_\nu) = \frac{1}{N_T*\frac{d\phi}{dE_\nu}(E'_\nu)}\frac{dN_S}{dXdE_\nu}(X',E'_\nu)
+\label{eq:diffxsec_edep}
+\end{equation}
+
+may have noticed, the situation becomes more complex in the case where we dobn’t know the neutrino energy and we can’t calculate it based only on the information we see in our detector.  Because we cannot reconstruct the energy of the incident neutrino in this case, we lose the ability to measure the differential rate as a function of energy.  So what we can do is calculate the flux-averaged cross section over incident neutrino energy.  nd when we do that we see that we have an energy averaged diff cross section which depends only on flux, not differential flux as in the case where we know incident neutrino eneryg. 
+
+
+\subsection{The Charged Current}
+As mentioned earlier, the $W^\pm$ and Z bosons mediate the weak force. When an interaction occurs via the exchange of a $W^\pm$ boson, the interaction is called charged current (CC).  A neutrino can also interact by the exchange of a Z boson; Z exchange is called neutral current (NC) (Figures \ref{fig:CCNC}). For the remainder of this section and thesis we will focus on CC interactions. 
+
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{NewFigures/ccpi0.png}
-\caption{A neutrino-induced CC event resutlts in a final state muon, $\pi^0$, and any number of additional nucleons and mesons } 
+\hspace{3 mm}
+\includegraphics[scale=0.4]{NewFigures/ncpi0.png}
+\caption{a) A CC interaction has a lepton in the final state; b) An NC interaction will lack a final state lepton.} 
 \label{fig:CCNC}
 \end{figure}
+
+Neutrinos can interact with a nucleon via the charged current to produce a lepton in the final state and any number of other particles depending on the original neutrino energy. The signal definition we adopt here will cover events with a single $\mu$, single $\pi^0$ in the final state, and any number of other mesons and nucleons. This choice
+
+\subsection{History of Neutrino-Induced Charged Current $\pi^0$}
+ A number of previous measurements of the Charged Current (CC) $\pi^0$ cross section exist, and it is worth understanding where the field is and how we can contribute to it.  
+\par In the 80's several CC $\pi^0$ cross section measurements were made by a variety of experiments.  Argonne National Laboratory (ANL) used a 12-ft bubble chamber full of hydrogen and deuterium to investigate single-pion production by the weak charged current \cite{bib:ANL1} \cite{bib:ANL2}. ANL examined an energy range of $E_\nu$ $<$ 1.5GeV in order to restrict multi-$\pi$ backgrounds entering their final sample of 273 events. They measured the final cross section as a function of energy. BNL performed similar studies in a 7ft deuterium bubble chamber in a broad band beam with average energy 1.6GeV; their signal sample was bigger at 853 events, and spanned an energy range up to 3 GeV. A few other experiments made measurements at higher energies, above the range of MicroBooNE \cite{bib:HE_unknown1} \cite{bib:HE_unknown2}.
+\par More recently, experiments at Fermilab have also made this measurement. In 2011 the MiniBooNE experiment, a Cherenkov detector filled with $CH_2$ mineral oil and sitting in the Booster Neutrino Beam (BNB), made cross section and differential cross section measurements of the charged current single neutral $\pi^0$ interaction channel. They required their signal events to have an observed single $\mu^-$, single $\pi^0$, any number of additional nucleons, and no additional mesons or leptons. With 5810 signal events in their sample, they measured a flux-integrated cross section of (9.2 $\pm$ 0.3stat. $\pm$ 1.5syst.) x $10^{-39}$ $\frac{cm^2}{CH_2}$ \cite{bib:numucc_miniboone} \cite{bib:miniboone_thesis}. 
+\par From 2007-2008, SciBar Booster Neutrino Experiment at Fermilab (SciBooNE) took data in the Booster Neutrino Beam.  In 2014, a SciBooNE thesis measurement showed a measured CC $\pi^0$ cross section of (5.6 $\pm$ $1.9_{fit}$ $\pm$ $0.7_{fit}$ $\pm$ $0.5_{int}$ - $0.7_{det})$ x $10^{-40}$ $\frac{cm^2}{nucleon}$ with 141 signal data events \cite{bib:sciboone_thesis}. When the MiniBooNE result is scaled per nucleon, the results agree with one another. A few things are worth noting here. First, the SciBooNE signal definition employed was different than that used by MiniBooNE in that it allowed N additional mesons in its final state. Second, the large statistical difference between final signal samples is due to both the much higher total collected Protons On Target (POT) available to the MiniBooNE measurement, and MiniBooNE's considerably higher selection efficiency. %The SciBooNE detector consists of 3 pieces: SciBar, or the Carbon/Iron Core for neutrino interactions, the Electron Catcher and the Muon Range Detec
+\par Most recently in 2015, the MINERvA experiment measured $\overline{\nu}_\mu$ charged current $\pi^0$ differential cross sections against a number of variables on polystyrene \cite{bib:minerva_thesis} \cite{bib:minerva_paper}.  MINERvA lies in the Neutrinos at the Main Injector (NuMI) beamline at Fermilab, and probes an energy range of 2-10 GeV.  MicroBooNE lies in the BNB and will probe a lower energy range, however we note that MINERvA's measurement signal described here is the same as MiniBooNE with the requirement of a $\mu^+$ rather than a $\mu^-$ in the final state. This is valuable for the purpose of comparison, development and testing of theoretical models \footnote{The MiniBooNE and MINERvA neutrino induced CC $\pi^0$ results were used by a group of theorists in 2015 to test the Adler-Nussinov-Paschos model \cite{bib:min_compare}}.
+\par Lastly we mention K2K, which in 2011 produced an inclusive CC $\pi^0$ production cross section ratio with respect to the CCQE channel \cite{bib:k2k_paper}. As the MicroBooNE CCQE measurement is not mature enough yet for this comparison, we note this measurement here only for the sake of completeness.  
+\par A number of different signal definitions are described above and it is prudent to carefully pick which one we will adopt before proceeding. This thought process is motivated by the hope that this measurement will not just be useful for us as experimentalists, but also for those interested in testing models across experimental results.  With this in mind, there are two things to note about the early ANL and BNL measurements which make them less desirable for direct comparison. For one, these experiments were performed on low-Z material. Because the nuclear density of the detector medium correlates strongly with the number of interactions, low-Z material for a neutrino experiment generally results in lower statistics. Additionally, the neutrino fluxes of these early experiments was not well understood, which led to high systematic errors. Looking later in time, higher-Z experiments at Fermilab (particularly in the BNB) benefited from MiniBooNE's careful and in-depth modeling of the Booster Neutrino Beamline flux \cite{bib:bnbflux}.
+\par MiniBooNE's high statistics, $CH_2$ medium and utilization of the BNB make it an ideal candidate for signal adoption.  However, the MiniBooNE requirement of no meson in the final state requirement complicates the situation for MicroBooNE, whose particle ID (PID) algorithms are still under development.  Currently, requiring the final state to be meson-less artificially damages the purity of the signal measurement we obtain, while also damaging the efficiency. For this reason, we will adopt the signal definition used by SciBooNE for direct comparison and keep the MiniBooNE result in mind for future studies.  This will be the first CC $\pi^0$ measurement on Argon.
+
 
 
 %\newpage
@@ -932,6 +998,13 @@ P(\nu_\beta\rightarrow\nu_\alpha)=sin^2 (2\theta) sin\big(\frac{1}{4}\frac{L}{E}
 \begin{thebibliography}{20} %1 should be replaced with number of citations
 \singlespacing
 
+
+\bibitem{bib:pauli}
+W. Pauli, Phys. Today 31N9 (1978) 27
+
+\bibitem{bib:fermi}
+E. Fermi, Z. Phys. 88, 161 (1934)
+
 \bibitem{bib:cowan}
   C. L. Cowan, Jr., F. Reines, et al., \emph{Detection of the Free Neutrino: a Confirmation}, \\
   \texttt{http://science.sciencemag.org/content/sci/124/3212/103.full.pdf}
@@ -970,7 +1043,18 @@ Boyd, Steve. "Neutrino Oscillations." PX435 Neutrino Physics. N.p.. Web. 19 Feb 
 MiniBooNE Collaboration. "The Neutrino Flux prediction at MiniBooNE." Phys. Rev. D. (2008): n. page. Print.
 
 \bibitem{lsnd}
-Aguilar, A., et al. "Evidence for Neutrino Oscillations from the Observation of Electron Anti-neutrinos in a Muon Anti-Neutrino Beam." Phys. Rev. D. (2001): n. page. Print.
+Aguilar, A., et al. \emph{Evidence for Neutrino Oscillations from the Observation of Electron Anti-neutrinos in a Muon Anti-Neutrino Beam.} Phys. Rev. D. (2001): n. page. Print.
+
+\bibitem{bib:donut}
+DONUT Collaboration, Phys. Lett. B 504 (2001) 218 [hep-ex/0012035].
+
+\bibitem{bib:cdf}
+CDF Collaboration, \emph{Observation of Top Quark Production in p $\overline{p}$ Collusions with the Collider Detector at Fermilab},\\
+  \texttt{http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.74.2626}
+
+\bibitem{bib:forces}
+Strassler, Matt. \emph{Of Particular Significance},\\
+  \texttt{https://profmattstrassler.com/articles-and-posts/particle-physics-basics/the-known-forces-of-nature/the-strength-of-the-known-forces}
 
 \bibitem{szelc}
 Szlec, A. M. "Recent Results from ArgoNeuT and Status of MicroBooNE." Proceedings from Neutrino 2014. (2014): n. page. Print.
@@ -985,7 +1069,7 @@ Caratelli, D., et al. "Electron Neutrino Cosmogenic Background Mitigation in Mic
 Nakayama, S., et al. "Measurement of single $\pi^0$ production in neutral current neutrino interactions with water by a 1.3 GeV wide band muon neutrino beam." Phys. Lett. B. 619.255-262 (2004): n. page. Print.
 
 \bibitem{sciboone}
-Kurimoto, Y., et al "Measurement of inclusive neutral current π0 production on carbon in a few-GeV neutrino beam." Phys. Rev. D. 81. (2010): n. page. Print.
+Kurimoto, Y., et al "Measurement of inclusive neutral current $\pi^0$ production on carbon in a few-GeV neutrino beam." Phys. Rev. D. 81. (2010): n. page. Print.
 
 \bibitem{bib:bnbflux}
   Aguilar, A., et al., \emph{The Neutrino Flux at MiniBooNE},\\
@@ -1027,6 +1111,10 @@ https://inspirehep.net/record/1280829?ln=en
   
 \bibitem{bib:minerva_paper}
    \emph{Single neutral pion production by charged current $\overline{\nu_\mu}$ interactions on hydrocarbon at $< E_\nu >$ =3.6 GeV},\\
+  \texttt{http://www.sciencedirect.com/science/article/pii/S0370269315005493}  
+
+\bibitem{bib:min_compare}
+  J. Y. Yu, E. A. Paschos, and I. Schienbein \emph{Comparison of the Adler-Nussinov-Paschos model with the data for neutrino induced single pion production from the MiniBooNE and MINERvA experiments},\\
   \texttt{http://www.sciencedirect.com/science/article/pii/S0370269315005493}  
   
 \bibitem{bib:k2k_paper}
