@@ -128,14 +128,14 @@ The idea of the neutrino was born out of an unwillingness to abandon energy cons
 %\cite{rayreview} \cite{kam0} \cite{sno}. 
 \par Throughout the 80's and 90's, a series of experimental results from various collaborations confirmed the mysterious lack of solar neutrinos. Kamiokande II, a 3 kton water Cherenkov detector built in Japan in the 80s, was sensitive to $B^8$ neutrinos above ~6 MeV\footnote{The original KamiokaNDE focused primarily on proton decay. After initial data taking, adjustments were made to the original detector in order to make it sensitive enough to study electron recoils from elastic neutrino scatters in water. One example addition was a surrounding layer of water which was intended to decrease background radiation.  This "new" experiment was called Kamiokande II}. Due to surrounding radioactivity, Kamiokande II was unable to probe the keV energies of the Homestake experiment; however, Kamiokande II was a highly appealing detector due to its real time depiction of events and its ability to reconstruct both the energies and directions of those events. Due to the unique ability of this detector, Kamiokande II was able to for the first time conclude that neutrinos were coming from the sun \cite{kam0}.  In addition to this remarkable discovery, Kamiokande II also observed an apparent lack of solar neutrinos.
 \par Quick to follow suit was the Sudbury Neutrino Observatory (SNO) in 2002.  SNO was a 1 ktonne spherical deuterium Cherenkov detector located 6800ft under ground in the Creighton Mine in Sudbury \cite{sno}. The greatest barrier experiments before SNO had faced in detecting $\nu_\mu$ or $\nu_\tau$ interactions was that the $\mu$ and $\tau$ are heavier (105 MeV and 1777 MeV respectively) than the energy of the solar neutrino spectrum, which only extends to about 30MeV. Deuterium, which replaces the hydrogen in water with a proton and a neutron, has a dissociation energy of ~2 MeV. This fact uniquely equipped SNO to measure the flux of all three neutrino flavors, and their final measured flux matched shockingly well with Bahcall's predictions in his SSM \cite{sno}.  SNO had conclusively solved the solar neutrino problem.  
-\paragraph{The Gallium Anomaly} The Gallium Experiment, or GALLEX, was a radiochemical experiment at Gran Sasso, Italy in the 90's. GALLEX was sensitive to the pp neutrino flux energies with a threshold of 233 keV; this enabled it to probe uncharted regions of the solar flux related to nuclear fusion. After 6 years of running, results showed the neutrino flux at a deficit of 60\% of that predicted by the Standard Solar Model(SSM) \cite{gal0}. This result was reproduced when a \ce{^{51}Cr} source was added to the detector \cite{gal2}. SAGE, another Gallium experiment set in Russia in the 90's observed a deficit comparable to GALLEX's.  A similar test of the SAGE detector's efficiency with a \ce{^{51}Cr} source confirmed it was operating near 100\% on the \ce{^{51}Cr} neutrinos \cite{sage}.  Together, these pieces are examples of the Gallium Anomaly.  
+\paragraph{Gallium Anomaly} The Gallium Experiment, or GALLEX, was a radiochemical experiment at Gran Sasso, Italy in the 90's. GALLEX was sensitive to the pp neutrino flux energies with a threshold of 233 keV; this enabled it to probe uncharted regions of the solar flux related to nuclear fusion. After 6 years of running, results showed the neutrino flux at a deficit of 60\% of that predicted by the Standard Solar Model(SSM) \cite{gal0}. This result was reproduced when a \ce{^{51}Cr} source was added to the detector \cite{gal2}. SAGE, another Gallium experiment set in Russia in the 90's observed a deficit comparable to GALLEX's.  A similar test of the SAGE detector's efficiency with a \ce{^{51}Cr} source confirmed it was operating near 100\% on the \ce{^{51}Cr} neutrinos \cite{sage}.  Together, these pieces are examples of the Gallium Anomaly.  
 
 %\par A quick recap at this point would indicate something a bit unsettling about our story thus far. The Davis experiment began digging into Bahcall's models in the 60s; yet here we were in the 90s with still no verified explanation of what was causing the observed neutrino deficit.  Were neutrinos oscillating? Was something wrong with the sun \cite{Clarke}? 
 
 %\paragraph{SNO : A Conclusion to the Solar Neutrino Problem}
 \paragraph{Reactor Anomaly}
 
-\paragraph{LSND and MiniBooNE}
+\paragraph{Low Energy Excess Anomaly} %LSND and MiniBooNE}
 Finally we arrive at the direct predecessors of MicroBooNE. Liquid Scintillator Neutrino Detector (LSND), a scintillation detector in a stopped pion beam from the 90's, expected the majority of its events to come from $\nu_\mu$ and $\bar{\nu}_\mu$, with a small fraction of $\bar{\nu}_e$ interactions. Their results indicated an excess of low energy $\bar{\nu}_e$ events for $\frac{L}{E} \sim 1 \frac{m}{MeV}$ (Figure \ref{fig:lsnd}), explained at the time with a simple 2-neutrino oscillation model \cite{lsnd}. These unexpected results led to the construction of the Mini Booster Neutrino Experiment (MiniBooNE), a Cherenkov detector in the Booster Neutrino Beam (BNB) at Fermilab with a comparable $\frac{L}{E}$ to LSND. After 10 years of running, MiniBooNE's data revealed an excess of low energy events in both neutrino and anti-neutrino modes at energies below and incorporating LSND's data (Figure \ref{fig:lsnd}).  MiniBooNE also observed different amounts of excess in neutrino and anti-neutrino mode, leading to additional questions about nuclear interactions, cross sections and the relationship between the neutrino and antineutrino \cite{miniboone}.  These results did two important things: first, MiniBooNE's data refuted the previous 2-neutrino oscillation explanation \cite{miniboone}, and second, it called into question the nature of the observed low-energy excess. Identification of the source of the MiniBooNE low energy excess is the main question MicroBooNE was designed to answer, in addition tothe valuable cross section measurements and R\&D it will make. 
 %; R\&D and cross section measurements on Argon are his flagship measurement will be background narrative to the story of this thesis. 
 \begin{figure}[h!]
@@ -148,21 +148,109 @@ Finally we arrive at the direct predecessors of MicroBooNE. Liquid Scintillator 
 \end{figure}
 
 \subsection{Neutrino Oscillation}
-\par Each neutrino flavor ($\nu_e, \nu_\mu, \nu_\tau$) can be written as a linear combination of 3 mass eigenstates with the use of a unitary rotation matrix. It is most convenient to begin by looking at a simplified 2 neutrino oscillation model:
+%($\nu_e, \nu_\mu, \nu_\tau$) 
+\par We are interested to know the probability of oscillation from one neutrino flavor state $\alpha$ into another (or the same) flavor state $\beta$. Each neutrino flavor can be written as a linear combination of mass eigenstates with the use of a unitary rotation matrix. We begin by looking at a simplified 2 neutrino oscillation model:
 \begin{equation} \label{eq:eig}
 |\nu_x> = \sum_{j=1,2} U_{ij} |\nu_j>  
 \end{equation}
-Using the time-dependent Hamiltonian of the system, we can derive a probability of oscillation from flavor $\alpha$ to flavor $\beta$ (see Appendix A for more detail about this derivation).  After propogating these states in time and doing some rearranging, we arrive at 
+where $U_{ij}$ is the 2 dimensional unitary rotation matrix: 
+\begin{equation}
+U = \begin{bmatrix}
+cos(\theta) & sin(\theta)
+\\ -sin(\theta)& cos(\theta)
+\end{bmatrix}
+\end{equation}
+
+\noindent Our goal is to create an equation whose measurable bases (flavors) are uniform on both sides. To start, we apply the time-dependent Hamiltonian (with propagator $\phi = Et - \vec{p}\cdot\vec{x}$) to the mass bases: 
+\begin{equation} \label{eq:prop}
+ \begin{bmatrix}
+ \nu_1(t)
+ \\ \nu_2(t)
+ \end{bmatrix}
+ = \begin{bmatrix}
+e^{-i\phi_1} & 0
+\\ 0 & e^{-i\phi_2}
+\end{bmatrix} 
+ \begin{bmatrix}
+ \nu_1(0)
+ \\ \nu_2(0)
+ \end{bmatrix}
+\end{equation}
+
+\noindent Noting the inverse of equation \ref{eq:eig} at t = 0:
+\begin{equation} \label{eq:osc3}
+ \begin{bmatrix}
+ \nu_1(0)
+ \\ \nu_2(0)
+ \end{bmatrix}
+ = \begin{bmatrix}
+cos(\theta) & -sin(\theta)
+\\ sin(\theta)& cos(\theta)
+\end{bmatrix} 
+ \begin{bmatrix}
+ \nu_\alpha(0)
+ \\ \nu_\beta(0)
+ \end{bmatrix}
+\end{equation},
+we combine equations $\ref{eq:eig}$, $\ref{eq:prop}$ and $\ref{eq:osc3}$ to write the time propogated flavor basis as:
+\begin{equation} \label{eq:osc4}
+ \begin{bmatrix}
+ \nu_\alpha(t)
+ \\ \nu_\beta(t)
+ \end{bmatrix}
+ = \begin{bmatrix}
+cos(\theta) & sin(\theta)
+\\ -sin(\theta)& cos(\theta)
+\end{bmatrix} 
+  \begin{bmatrix}
+ e^{-i\phi_1} & 0
+\\ 0 & e^{-i\phi_2}
+  \end{bmatrix}
+\begin{bmatrix}
+cos(\theta) & -sin(\theta)
+\\ sin(\theta)& cos(\theta)
+\end{bmatrix}
+\begin{bmatrix}
+\nu_\alpha(0)
+\\ \nu_\beta(0) 
+\end{bmatrix}
+\end{equation}
+
+\noindent To simplifiy further, assume a beam is produced in a pure $\nu_\beta$ state at time = 0. To find the probability that at time = t a $\nu_\beta$ in the beam has oscillated into a $\nu_\alpha$, we calculate the square of the probability amplitude:
+\begin{equation} \label{eq:osc5}
+\begin{split}
+ |<\nu_\beta(0)|\nu_\alpha(t)>|^2 &= |<\nu_\beta(0)|cos\theta sin\theta(e^{-i\phi_1}-e^{-i\phi_2})|\nu_\beta(0)>|^2
+\\&= (cos\theta sin\theta)^2(1+1+e^{i(\phi_1-\phi_2)} + e^{-i(\phi_2-\phi_1)})
+\\&= 2(cos\theta sin\theta)^2(1-cos(\phi_1-\phi_2))
+\\&= sin^2 2\theta sin\big(\frac{\phi_1-\phi_2}{2}\big)
+\end{split}
+ \end{equation}
+
+\noindent Finally, we recall from above the phase shift $\phi = E_i t-p_i x$ and make the following assumptions:
+\par 1) At $v\sim c,\ x\sim t\sim L$
+\par 2) Mass eigen states are created with equal energy\\
+\noindent Now $\phi_i$ can be written (E - $p_i$)L, where $p_i$ $\approx$ E(1-$\frac{1}{2}\frac{m_i}{E}^2$). Thus, the phase difference can be written 
+\begin{equation}
+\\ \phi_2-\phi_1 = \frac{1}{2}\frac{L}{E}(\Delta m_2^2 - \Delta m_1^2)
+\end{equation}
+which leads us to the probability of oscillation from $\nu_\beta$ to $\nu_\alpha$:
+%\begin{equation}
+%P(\nu_\beta\rightarrow\nu_\alpha)=sin^2 (2\theta) sin\big(\frac{1}{4}\frac{L}{E}\Delta m_{12}^2\big)
+%\end{equation}
+
+%After propogating these states in time and doing some rearranging, we arrive at 
 \begin{equation} \label{eq:prob}
 P(\nu_\alpha \rightarrow \nu_\beta) = sin^2(2\theta)sin(1.27\Delta m^2  \frac{L}{E})
 \end{equation}
-where $\theta$ is the mixing angle of the oscillation, $\Delta m^2$ is the frequency of neutrino oscillation, L is the length the neutrino traveled and E is the energy of the neutrino at its source.  It is clear then that $\frac{L}{E}$ is the experimentally controllable parameter--an experiment's choice of $\frac{L}{E}$ depends on the ranges $\Delta m^2$ and $sin^2(2\theta)$ it wishes to probe. 
+where $\theta$ is the mixing angle of the oscillation, $\Delta m^2$ is the frequency of neutrino oscillation, L is the length the neutrino traveled and E is the energy of the neutrino at its source.  $\frac{L}{E}$ is the experimentally controllable parameter. an experiment's choice of $\frac{L}{E}$ depends on the ranges $\Delta m^2$ and $sin^2(2\theta)$ it wishes to probe. 
 \par It is useful to look at an example of how the free parameter affects sensitivity.  An experiment is most sensitive to $\Delta m^2$ for $\Delta m^2 \approx E/L$.  In addition, the neutrino beam diverges $\propto \frac{1}{L^2}$.  So an experiment with a short baseline (small L) has the benefit of seeing lots of events (ie, has high sensitivity to $sin^2(2\theta)$), and is sensitive only to large values of $\Delta m^2$ \cite{warwick}. 
 %\par In addition to dependance on L and E as mentioned above, the sensitivity of an experiment to $\Delta m^2$ and $sin^2(2\theta)$ depends also on event rate. We can see this by re-writing equation (\ref{eq:prob}) as
 %\begin{equation} \label{eq:probN}
 %N_\beta = N_\alpha sin^2(2\theta)sin(1.27\Delta m^2  \frac{L}{E})
 %\end{equation}
 %where $N_\beta$ is the number of signal events expected, and $N_\alpha$ is the number of original neutrinos in the absence of oscillations. Sensitivity to $\Delta m^2$ can be shown to be dependent on $L^{-\frac{1}{2}}, E,$ and $N^{-\frac{1}{4}}$ \cite{warwick}; for a given L, we can increase our sensitivity to $\Delta m^2$ by increasing event rate(generally dependent on factors like runtime, which are out of experiment's control), or energy(tricky). 
+
+
 
 
 \subsection{Standard Model}
@@ -181,56 +269,21 @@ The Standard Model (SM) is a theory of fundamental forces and particles that tog
 \par The Standard Model is made up two classes of particles: fermions and bosons. Fermions are particles which have half-integer spin and obey Fermi-Dirac statistics. Leptons (particles that do not experience strong interactions, such as electrons) and baryons (3 quark particles like protons) are both characterized as fermions. Because of their spin properties, fermions must conserve both lepton and baryon numbers, as well as obey the Pauli Exclusion Principle. 
 \par Bosons, on the other hand, have integer spin, obey Bose-Einstein statistics and do not obey the Pauli Exclusion Principle. The 4 gauge bosons (photon, gluon, W, Z) and single scalar boson (Higgs) described by the SM are called elementary bosons. While the Higgs is thought to be the particle that gives other particles mass, the gauge bosons are force carriers and mediate interactions that occur between composite bosons (such as mesons) and fermions.  The gluon mediates the aptly named strong force, strongest of all the forces. The gluon mediates interactions between quarks and other gluons and residually facilitates the nuclear force. This residual force, or interaction between nucleon and mesons, is responsible for holding the nucleus together. A second force mediated by a gauge boson is the electromagnetic force.  This force is 137 times weaker than the strong force at distances of 1 femtometer \cite{bib:forces}, and controlled by photon exchange between charged particles. The final force described by the SM is the weak interaction, a million times weaker than the strong force, and mediated by the W and Z gauge bosons.  The W boson is its own anti-particle and can facilitate neutrino emission and absorption, energy exchange and particle change as shown in Figure \ref{fig:SM}b. The Z boson in neutral and only allows for exchange of energy, momenta and spin between particles; this leaves the original neutrino less energy, but otherwise in tact. Gravitation, though not included in the SM, is the weakest of the forces and $10^{38}$ times weaker than the strong force.
 
-\subsection{Cross Sections}
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{NewFigures/xsec.png}
-\caption{ Diagramatic example of an interaction; the $N_I$ blue dots are the incident particles over some beam area A, the $N_T$ green dots are the targets and the $N_S$ red dots are the number of scatters.}  
-\label{fig:Xsec}
-\end{figure}
-
-%The concept of a cross section is simple.
-Before an experiment is designed and built, experimentalists need to understand the rates at which they can expect different interactions to occur. This process is important; we don't want to design a detector that cannot meet the required sensitivity specifications we hope for our results to attain because we are overwhelmed by background events. In other words, given a beam of $N_I$ particles incident on $N_T$ targets, we want to be able to predict how many scatters, or interactions, we can expect to occur in our detector (Figure \ref{fig:Xsec}). This probability of interaction is called a cross section (Eq \ref{eq:xsec}). 
-
-\begin{equation}
-\sigma = A * \frac{N_S}{N_T * N_I}
-\label{eq:xsec}
-\end{equation}
-
-%The cross section of a single target particle can be thought of as the 2D area it takes up; If we extend that idea of of probabilty of interaction for 1 incident particle to many, we can calculate the total probability of an interaction/or a scatter in our detector.
-
-
-\par We can take this idea of predicting interaction rates further with the differential cross section.  Typically in an experiment we want to know not just the probability that an interaction will occur, but the probability that it will also result in particles with specific properties, most commonly momentum and direction. The differential probability for a particle to scatter into some volume in parameter space is given by Equation \ref{eq:diffxsec}:
-
-\begin{equation}
-\frac{d\sigma}{dX}(X',E_T,E_S) = \frac{\frac{dN_S}{dX}(X')}{N_T*N_I} * A 
-\label{eq:diffxsec}
-\end{equation}
-
-, where $\frac{dN_S}{dX}$ is the number of scatters into some volume of parameter space dX, and $\frac{N_I}{A}$ is the beam flux $\phi$. In its current state, Equation \ref{eq:diffxsec} suggests that the flux is independent of other variables, such as the energy of the incident beam; however this is generally not true. The equation can be rewritten to account for this as follows:
-
-\begin{equation}
-\frac{d\sigma}{dX}(X',E'_\nu) = \frac{1}{N_T*\frac{d\phi}{dE_\nu}(E'_\nu)}\frac{dN_S}{dXdE_\nu}(X',E'_\nu)
-\label{eq:diffxsec_edep}
-\end{equation}
-
-may have noticed, the situation becomes more complex in the case where we dobn’t know the neutrino energy and we can’t calculate it based only on the information we see in our detector.  Because we cannot reconstruct the energy of the incident neutrino in this case, we lose the ability to measure the differential rate as a function of energy.  So what we can do is calculate the flux-averaged cross section over incident neutrino energy.  nd when we do that we see that we have an energy averaged diff cross section which depends only on flux, not differential flux as in the case where we know incident neutrino eneryg. 
-
 
 \subsection{The Charged Current}
 As mentioned earlier, the $W^\pm$ and Z bosons mediate the weak force. When an interaction occurs via the exchange of a $W^\pm$ boson, the interaction is called charged current (CC).  A neutrino can also interact by the exchange of a Z boson; Z exchange is called neutral current (NC) (Figures \ref{fig:CCNC}). For the remainder of this section and thesis we will focus on CC interactions. 
 
+Neutrinos can interact with a nucleon via the charged current to produce a lepton in the final state and any number of other particles depending on the original neutrino energy. The signal definition we adopt here will cover events with a single $\mu$, single $\pi^0$ in the final state, and any number of other mesons and nucleons. This choice
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{NewFigures/ccpi0.png}
 \hspace{3 mm}
 \includegraphics[scale=0.4]{NewFigures/ncpi0.png}
-\caption{a) A CC interaction has a lepton in the final state; b) An NC interaction will lack a final state lepton.} 
+\caption{a) A CC interaction has a charged lepton in the final state; b) An NC interaction will lack a final state charged lepton.} 
 \label{fig:CCNC}
 \end{figure}
 
-Neutrinos can interact with a nucleon via the charged current to produce a lepton in the final state and any number of other particles depending on the original neutrino energy. The signal definition we adopt here will cover events with a single $\mu$, single $\pi^0$ in the final state, and any number of other mesons and nucleons. This choice
 
 \subsection{History of Neutrino-Induced Charged Current $\pi^0$}
  A number of previous measurements of the Charged Current (CC) $\pi^0$ cross section exist, and it is worth understanding where the field is and how we can contribute to it.  
@@ -555,13 +608,14 @@ Neutrino interaction simulation begins with the beamline.  The products of prima
 \end{figure}
 
 \par The current framework in place to handle simulation, reconstruction and analysis in LArTPCs is called LArSoft, and is used by several Liquid Argon experiment.  These systems are discussed in more details below, beginning with the neutrino beam. GEANT4 is employed by LArG4 (G4), a LArSoft module which serves as a foundation for particle simulation and propagation in MicroBooNE. GEANT4 takes a particle along discrete steps determined by particle interaction probabilities in different media; energy in the form of charge and light is deposited at each step.  From here, these electrons are "drifted" \footnote{They are actually teleported, rather than propagated via G4 here.  The number of electons is calculated based on the energy deposition, and the number of electrons remaining at the wire planes are estimated using lifetime and recombination models.  The xyz positions are varied by a gaussian function and assigned to the nearest wire channel. } in groups of 600 to the wire planes.
-\par From here, the detector response must be modeled to best account for the fact that we will not see delta function at the arrival but rather a digitized and shaped signal. We must also account for the fact the field response of each plane is different. These models are implemented in the LArSoft framework caldata module (no idea if this is true). 
+\par From here, the detector response must be modeled to best account for the fact that we will not see delta function at the arrival but rather a digitized and shaped signal. We must also account for the fact the field response of each plane is different. To do this  These models are implemented in the LArSoft framework caldata module (no idea if this is true). 
 
 \subsection{Reconstruction}
 Both TPC and PMT information are now available in a raw form to be used. This information on its own is probably not very useful beyond low level cutting.  In order to extract meaningful quantities for various analyses including this cross section measurement, we must now build more complex objects from our initial simulation (or data) output.
-\subsubsection{Optical Hit and Flash Finding }
-Optical hit finding procedes as follows:
-The current flash finding algorithm performs as follows.  The 23.6 $\mu$s beam gate is divided into 0.1 $\mu$s coincidence windows. We then loop through all the optical hits we've reconstructed and search for hits with greater than 5 PE; the charge deposition and channel information of these hits are stored in the appropriate coincidence window (bin).  From here, we look to combine any late light tails with prompt light by comparing the relative charge in neighboring bins and combining bins i and i + 1 when bin i contains less charge, but more than 0.  In this final configuration, bins with greater than 10 PE are used to create a "SimpleFlash" object.
+\subsubsection{Optical Reconstruction} 
+We also have access to optical information from the array of 32 PMTs and 4 paddle prototypes. The process of optical reconstruction is 4-fold, and describes the process of utilizing information from the PMTs only.  First, output from the high and low gain streams are combined.  The high gain waveforms baseline at 2048 ADC and saturate at 4096 ADC.  With roughly 20 ADC/PE equivalent, this channel will saturate at roughly 100 PE.  In this case, low gain channel information is scaled and passed on with high gain information as waveform information. 
+\par At this point, we search these raw waveforms for charge depositions.  This is done separately for cosmic and beam discriminator channels. In the case of cosmic disciminator, the first ADC sets the pedestal and is propagated through the pulse as the baseline for later area (PE) calculation. Beam discriminator calculates a local pedestal for each time tick, extrapolating through the signal region. Both discriminators use a threshold-based pulse finding algorithm; when a waveform pulse rises some number of sigma above the determined pedestal, the information is recorded and stored as an "optical hit (ophit)".  The area of each ophit is calculated and stored with signal shaping included so as not to underestimate the PE content of the pulse.
+\par To make the greatest use of the optical information, it is beneficial to combine ophits in coincidence with one another across PMTs.  The combination of these hits is called an "optical flash (opflash)".  The current flash finding algorithm performs as follows. The 23.6 $\mu$s beam gate is divided into 0.1 $\mu$s coincidence windows. We then loop through all the optical hits we've reconstructed and search for hits with greater than 5 PE; the charge deposition and channel information of these hits are stored in the appropriate coincidence window (bin).  From here, we look to combine any late light tails with prompt light by comparing the relative charge in neighboring bins and combining bins i and i + 1 when bin i contains less charge, but more than 0.  In this final configuration, bins with greater than 10 PE are used to create a "SimpleFlash" object.
 \subsubsection{Hit Reconstruction}
 \subsubsection{OpenCV Clustering}
 OpenCV is an open source computer vision library with functions to aid in pattern recognition and image processing. More on the framework and OpenCV tools developed previously are discussed in a previous technote \cite{bib:5856}. Here we describe new algorithms developed to improve the selected sample size obtained from Neutrino 2016 efforts\cite{bib:5864}.
@@ -742,6 +796,52 @@ In attempt to improve the separation power of the filter, a second smaller study
 
 \newpage
 \section {Cross Section Calculation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.55]{NewFigures/xsec.png}
+\caption{ Diagramatic example of an interaction; the $N_I$ blue dots are the incident particles over some beam area A, the $N_T$ green dots are the targets and the $N_S$ red dots are the number of scatters.}  
+\label{fig:Xsec}
+\end{figure}
+
+%The concept of a cross section is simple.
+Before an experiment is designed and built, experimentalists need to understand the rates at which they can expect different interactions to occur. This process is important; we don't want to design a detector that cannot meet the required sensitivity specifications we hope for our results to attain because we are overwhelmed by background events. In other words, given a beam of $N_I$ particles incident on $N_T$ targets, we want to be able to predict how many scatters, or interactions, we can expect to occur in our detector (Figure \ref{fig:Xsec}). This probability of interaction is called a cross section (Eq \ref{eq:xsec}). 
+
+\begin{equation}
+\sigma = A * \frac{N_S}{N_T * N_I}
+\label{eq:xsec}
+\end{equation}
+
+%The cross section of a single target particle can be thought of as the 2D area it takes up; If we extend that idea of of probabilty of interaction for 1 incident particle to many, we can calculate the total probability of an interaction/or a scatter in our detector.
+
+\par We can take this idea of predicting interaction rates further with the differential cross section.  Typically in an experiment we want to know not just the probability that an interaction will occur, but the probability that it will also result in particles with specific properties, most commonly momentum and direction. The differential probability for a particle to scatter into some volume in parameter space is given by Equation \ref{eq:diffxsec}:
+
+\begin{equation}
+\frac{d\sigma}{dX}(X',E_T,E_S) = \frac{\frac{dN_S}{dX}(X')}{N_T*N_I} * A 
+\label{eq:diffxsec}
+\end{equation}
+
+, where $\frac{dN_S}{dX}$ is the number of scatters into some volume of parameter space dX, and $\frac{N_I}{A}$ is the beam flux, and more commonly written $\phi$. In its current state, Equation \ref{eq:diffxsec} suggests that the flux is independent of other variables, such as the energy of the incident beam, but this is generally not true. The equation can be rewritten to account for this as follows:
+
+\begin{equation}
+\frac{d\sigma}{dX}(X',E'_\nu) = \frac{1}{N_T*\frac{d\phi}{dE_\nu}(E'_\nu)}\frac{dN_S}{dXdE_\nu}(X',E'_\nu)
+\label{eq:diffxsec_edep}
+\end{equation}
+
+There are occasions on which we won't have access to the initial neutrino energy, either because the neutrino interacted via the neutral current, or the initial energy can't be calculated based only on the information we see in our detector. In this scenario, we can still calculate the flux-averaged cross section and differential cross section over incident neutrino energy. These values reduce in this case to the following equations:
+
+\begin{equation}
+\sigma = \frac{N_S}{N_T * \phi}
+\label{eq:xsec_fluxave}
+\end{equation}
+
+\begin{equation}
+\Big \langle \frac{d\sigma}{dX} \Big \rangle_\phi(X') = \frac{1}{N_T\phi}\frac{dN_S}{dX}(X')
+\label{eq:diffxsec_fluxave}
+\end{equation}
+
+We will use Equations \ref{eq:xsec_fluxave} and \ref{eq:diffxsec_fluxave} later to calcualte the cross section information of our channel of interest.
+
 \subsection{True Cross Section}
 Our first step is to calculate the true flux-averaged cross section on Argon. We do this using 200k events from MCC7 BNB only simulation.  The cross section can be calculated according to the following equation:
 
@@ -882,122 +982,8 @@ The error shown here is purely statistical and calculated using only $N_{tagged}
 %\end{figure}
 
 \newpage
-\appendix
-\section{Appendix}
-In the 2 neutrino oscillation model, we represent a flavor state as the linear combination of mass eigenstates via a unitary matrix
-\begin{equation} \label{eq:osc}
-|\nu_x> = \sum_{j=1,2} U_{ij} |\nu_j>  
-\end{equation}
-\\ A 2 dimensional unitary rotation matrix can be written as 
-\begin{equation}
-U = \begin{bmatrix}
-cos(\theta) & sin(\theta)
-\\ -sin(\theta)& cos(\theta)
-\end{bmatrix}
-\end{equation}
-Using this unitary matrix, we can re-write equation \ref{eq:osc} 
-\begin{equation} \label{eq:osc2}
- \begin{bmatrix}
- \nu_\alpha
- \\ \nu_\beta
- \end{bmatrix}
- = \begin{bmatrix}
-cos(\theta) & sin(\theta)
-\\ -sin(\theta)& cos(\theta)
-\end{bmatrix} 
- \begin{bmatrix}
- \nu_1
- \\ \nu_2
- \end{bmatrix}
-\end{equation}
-
-
-In order to put equation \ref{eq:osc2} into a more meaningful form, it is useful to put both sides into flavor basis. To start this process, we recall that we can use the time propogator to represent evolution in time. For simplicity, we also re-write the $Et - \vec{p}\cdot\vec{x}$
-\begin{equation} \label{eq:prop}
- \begin{bmatrix}
- \nu_1(t)
- \\ \nu_2(t)
- \end{bmatrix}
- = \begin{bmatrix}
-e^{-i\phi_1} & 0
-\\ 0 & e^{-i\phi_2}
-\end{bmatrix} 
- \begin{bmatrix}
- \nu_1(0)
- \\ \nu_2(0)
- \end{bmatrix}
-\end{equation}
-
-Then, using the inverse of equation \ref{eq:osc2}, we can rewrite 
-\begin{equation} \label{eq:osc3}
- \begin{bmatrix}
- \nu_1(0)
- \\ \nu_2(0)
- \end{bmatrix}
- = \begin{bmatrix}
-cos(\theta) & -sin(\theta)
-\\ sin(\theta)& cos(\theta)
-\end{bmatrix} 
- \begin{bmatrix}
- \nu_\alpha(0)
- \\ \nu_\beta(0)
- \end{bmatrix}
-\end{equation}
-Combining equations $\ref{eq:osc2}, \ref{eq:osc3}$, we can represent time propogated flavor basis as
-\begin{equation} \label{eq:osc4}
- \begin{bmatrix}
- \nu_\alpha(t)
- \\ \nu_\beta(t)
- \end{bmatrix}
- = \begin{bmatrix}
-cos(\theta) & sin(\theta)
-\\ -sin(\theta)& cos(\theta)
-\end{bmatrix} 
-  \begin{bmatrix}
- e^{-i\phi_1} & 0
-\\ 0 & e^{-i\phi_2}
-  \end{bmatrix}
-\begin{bmatrix}
-cos(\theta) & -sin(\theta)
-\\ sin(\theta)& cos(\theta)
-\end{bmatrix}
-\begin{bmatrix}
-\nu_\alpha(0)
-\\ \nu_\beta(0) 
-\end{bmatrix}
-\end{equation}
-
-Instead of simplifying this any further, we look at a test case. Assume a beam is produced in a pure $\nu_\beta$ state at t=0. To find the probability that at time t a $\nu_\beta$ in the beam has oscillated into a $\nu_\alpha$, we calculate the square of the probability amplitude:
-\begin{equation} \label{eq:osc5}
-\begin{split}
- |<\nu_\beta(0)|\nu_\alpha(t)>|^2 &= |<\nu_\beta(0)|cos\theta sin\theta(e^{-i\phi_1}-e^{-i\phi_2})|\nu_\beta(0)>|^2
-\\&= (cos\theta sin\theta)^2(1+1+e^{i(\phi_1-\phi_2)} + e^{-i(\phi_2-\phi_1)})
-\\&= 2(cos\theta sin\theta)^2(1-cos(\phi_1-\phi_2))
-\\&= sin^2 2\theta sin\big(\frac{\phi_1-\phi_2}{2}\big)
-\end{split}
- \end{equation}
-
-At this point, our probability formula is almost in its familiar form.  To finalize, we recall from above thatthe phase shift $\phi$ is $E_i t-p_i x$ and make the following assumptions:
-\par 1) At $v\sim c,\ x\sim t\sim L$
-\par 2) Mass eigen states are created with equal energy
-Now $\phi_i$ can be written
-\begin{equation}
-\begin{split}
-\phi_i = (E - p_i)L  
-\\where \ p_i \approx E(1-\frac{1}{2}\frac{m_i}{E}^2)
-\\ \implies \phi_2-\phi_1 = \frac{1}{2}\frac{L}{E}(\Delta m_2^2 - \Delta m_1^2)
-\end{split}
-\end{equation}
-which leads us to the probability of oscillation from $\nu_\beta$ to $\nu_\alpha$:
-\begin{equation}
-P(\nu_\beta\rightarrow\nu_\alpha)=sin^2 (2\theta) sin\big(\frac{1}{4}\frac{L}{E}\Delta m_{12}^2\big)
-\end{equation}
-
-
-\newpage
 \begin{thebibliography}{20} %1 should be replaced with number of citations
 \singlespacing
-
 
 \bibitem{bib:pauli}
 W. Pauli, Phys. Today 31N9 (1978) 27
