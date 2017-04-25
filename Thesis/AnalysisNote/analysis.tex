@@ -1,0 +1,937 @@
+\documentclass[12pt]{article}
+
+\usepackage{fancyhdr}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{hyperref}
+\usepackage{lineno}
+\usepackage{setspace}
+\usepackage{soul}
+\usepackage{multirow}
+\usepackage{authblk}
+\usepackage{verbatim}
+\usepackage{tabu}
+\usepackage[bottom]{footmisc}
+\usepackage[margin=1in]{geometry}
+\usepackage{lineno}
+\usepackage{gensymb}
+
+\usepackage{mathtools} % for multline equations
+\usepackage{wrapfig}
+\usepackage{tabularx,ragged2e,booktabs,caption} % for caption
+
+%\linenumbers
+%\linespread{1.2}
+\doublespacing
+%\newcommand{\ignore}[2]{\hspace{0in}#2}
+
+\title{\vspace{0.2in} Selection of Charged-Current $\pi^0$ Events for a Cross Section Measurement in MicroBooNE}
+
+\author[2]{Ariana Hackenburg}
+\author[1]{David Caratelli}
+\author[1]{Victor Genty}
+
+\affil[1]{Nevis Laboratories, Columbia University, New York, NY}
+\affil[2]{Yale Univerity, New Haven, CT}
+\date{\today}	
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This note details the current state of selection and reconstruction of topological charged-current(CC) $\pi^0$ events in the MicroBooNE detector. The goal of this work is to culminate in a cross section measurement on data.
+\end{abstract}
+
+
+%For adding the header (footer) if so desired
+\pagestyle{fancy}% Change page style to fancy
+\fancyhead[C]{}
+\renewcommand{\headrulewidth}{0.4pt}% Default \headrulewidth is 0.4pt
+
+\newpage
+\pagenumbering{roman}
+%Set Table of contents depth to 3 levels
+\tableofcontents
+\clearpage
+
+%\listoffigures
+\setcounter{tocdepth}{3} 
+\phantomsection
+
+\clearpage
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+
+\newpage
+
+
+
+\section{Introduction}
+\label{sec:intro}
+
+\par Liquid Argon Time Projection Chambers (LArTPCs) such as MicroBooNE provide excellent calorimetric information and image quality resolution. Of particular interest to MicroBooNE are electromagnetic showers, and the origin of the low energy excess (LEE). $\pi^0$'s, which decay into 2 electromagnetic showers ($\gamma$'s), form a fraction of the LEE flagship analysis background and are thus an important topic of study. In this note, we calculate the cross section of charged current (CC) $\pi^0$ on Argon using the unblinded 0.5e20 POT on-beam data. We have chosen interactions with one observable $\mu$, one observable $\pi^0$, and anything else in the final state as our signal definition. 
+
+\subsection{Context: A Brief History}
+A number of previous measurements on the CC $\pi^0$ cross section exist, and it worth first understanding where the field is and how we can contribute to it.  
+\par In the 80's a number of CC $\pi^0$ cross section measurements were made by a variety of different experiments.  Argonne National Laboratory used a 12-ft bubble chamber full of hydrogen and deuterium to investigate single-pion production by the weak charged current \cite{bib:ANL1} \cite{bib:ANL2}. ANL examined a restricted energy range of $E_\nu$ $<$ 1.5GeV in order to restrict multi-$\pi$ backgrounds entering their final sample of 273 events. They measured the cross section as a function of energy. BNL performed similar studies in a 7ft deuterium bubble chamber in a broad band beam with average energy 1.6GeV. Their signal sample was bigger at 853 events, and spanned an energy range up to 3 GeV. A few other experiments made measurements at higher energies, above the range of MicroBooNE \cite{bib:HE_unknown1} \cite{bib:HE_unknown2}.
+\par More recently, several experiments at Fermilab have made this cross section measurement. In 2011, the MiniBooNE experiment, a Cherenkov detector filled with mineral oil that sits in the Booster Neutrino Beam (BNB), made cross section and differential cross section measurements of the CC neutral $\pi^0$ interaction channel. They required their signal events to have an observed single $\mu^-$, single $\pi^0$, any number of additional nucleons, and no additional mesons or leptons. With 5810 signal events in their sample, they measured a flux-integrated cross section of (9.2 $\pm$ 0.3stat. $\pm$ 1.5syst.) x $10^{-39}$ $\frac{cm^2}{CH_2}$ \cite{bib:numucc_miniboone} \cite{bib:miniboone_thesis}.  
+\par From 2007-2008, SciBar Booster Neutrino Experiment at Fermilab (SciBooNE) took data in the Booster Neutrino Beam. The SciBooNE detector consists of a polystyrene interaction volume, an electron calorimeter and muon range detector further upstream.  In 2014, a SciBooNE thesis measured CC $\pi^0$ cross section of (5.6 $\pm$ $1.9_{fit}$ $\pm$ $0.7_{fit}$ $\pm$ $0.5_{int}$ $\pm$ $0.7_{det})$ x $10^{-40}$ $\frac{cm^2}{nucleon}$ with 141 signal data events. The signal definition employed was different than that used by MiniBooNE in that it allowed N additional mesons in its final state.  Nevertheless, when the MiniBooNE result is scaled per nucleon, the results agree with one another \cite{bib:sciboone_thesis}.
+\par Most recently in 2015, the Minerva experiment measured $\overline{\nu}_\mu$ CC $\pi^0$ differential cross sections against a number of variables  on polystyrene \cite{bib:minerva_thesis} \cite{bib:minerva_paper}.  Minerva lies in the Neutrinos at the Main Injector (NuMI) beamline at Fermilab, and probes an energy range of 2-10 GeV.  While MicroBooNE lies in the BNB and will probe a lower energy range, we note that the measurement signal here is the same as MiniBooNE with the requirement of a $\mu^+$ rather than a $\mu^-$ in the final state. 
+\par A final measurement of note is that of inclusive CC $\pi^0$ production cross section by K2K in 2011 \cite{bib:k2k_paper}; this measurement is presented as a ratio measurement to CCQE.  
+\par MicroBooNE, like MiniBooNE and SciBooNE, lives in the BNB at Fermilab. Ideally, we would like to compare our measurement to the high statistics MiniBooNE measurement, however the tools to separate $\mu^-$ and $\pi^-$ in the MicroBooNE detector are still under development. As a result, including the requirement to exclude mesons from the final state artificially damages the purity of this measurement.  For the time being, we choose to compare to the SciBooNE measurement, a signal that has a singal muon, single $\pi^0$ originating from the interaction vertex and anything else in the final state. This will be the first CC $\pi^0$ measurement on Argon.
+
+
+\subsection{True Cross Section}
+Our first step is to calculate a baseline, true, flux-averaged cross section on Argon for comparison to data. The cross section can be calculated according to the following equation:
+
+\begin{equation}
+  \sigma = \frac{N_{tagged} - N_{bkgd}}{\epsilon*N_{targ}*\phi}
+\end{equation}
+
+\noindent where $N_{tagged}$, $N_{bkgd}$ are the number of tagged and background events respectively, $\epsilon$ is the efficiency, $N_{targ}$ the number of targets and $\phi$ the integrated flux. 
+\par  We use 384k MCC8 BNB+Cosmics to perform this initial calculation.  Because we are using MC information to calculate a true value here, we set $\epsilon$ = 1, $N_{bkgd}$=0 and $N_{tagged}$=$N_{signal}$.  To calculate $N_{signal}$, we choose our volume of interest to be the Fiducial Volume (FV) used in SelectionII, with 20cm from the wall in X and Y, and 10cm from the wall in Z. We find $N_{tagged}$ = 6893, for signal interaction vertices inside the FV. Note that while 384k events are simulated, more than half of these interactions occur outside the FV. 
+\par Our next job is to calculate the number of targets in our FV:
+
+\begin{equation} \label{eq:1}
+  N_{targ} = \frac{\rho_{Ar} * V * Avogadro}{m_{mol}} 
+\end{equation}
+\noindent where $\rho_{Ar}$ is the density of Liquid Argon, V is the volume of interest, and $m_{mol}$ is the number of grams per mole of Argon.  Using the FV as our volume of interest, we find: 
+
+\begin{align}
+N_{targ} &= \frac{1.4 [\frac{g}{cm^3}] * 4.25e7 [cm^3] * 6.022e23 [\frac{molec}{mol}]}{39.95 [\frac{g}{mol}]} \\\\
+&= 8.969e29\ molecular\ targets
+\end{align}
+
+
+\par Our final step is to calculate the integrated flux.  We do this by integrating over the $\nu_\mu$ flux histogram (Figure \ref{fig:flux}) provided by the Beam Working Group \cite{bib:flux}, and normalizing by the POT in our sample. The POT is calculated by integrating over the POT of all subruns under consideration; in this case, our POT is 3.88e20.  With these things in mind, we calculate our total integrated flux to be 2.099e11 $cm^{-2}$ with $<E>$ = 982 MeV for $E_\nu > 0.5$ GeV. Note that our selection efficiency below neutrino energy 0.5 GeV is negligible; this is discussed in more detail in a future section. 
+\noindent Putting everything together we find:
+
+
+\begin{align}
+\sigma_{CC\pi^0} &= \frac{6893}{2.099e11 \frac{1}{cm^2} * 8.969e29 Ar } \\\\
+&= (3.66 \pm 0.04) *10^{-38} \frac{cm^2}{Ar}
+\end{align}
+
+%\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{figure}[h!]
+%\begin{center}
+%\vspace{-50pt}
+\centering
+\includegraphics[scale=0.6]{AnaFigures/flux_mcc8.png}
+%\end{center}
+\caption{$\nu_\mu$ Flux from Booster Neutrino Beam (BNB) at 470m }
+\label{fig:flux}
+\end{figure}
+%\end{wrapfigure}
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.4]{GenieTruth.png}
+%\caption{Genie calculated CC $\pi^0$ cross section. The cross sections are calculated at various energies for both Carbon and Argon, and for signal definitions that include mesons in the final state and those that don't. The MiniBooNE measured cross section is displayed along with the MicroBooNE MC calculated cross section. }
+%\label{fig:genietruth}
+%\end{figure}
+
+, where the error presented is purely statistical and dependent only on the number of signal events. This result is in comparison to the SciBooNE result of (5.6 $\pm$ $1.9_{fit}$ $\pm$ $0.7_{fit}$ $\pm$ $0.5_{int}$ $\pm$ $0.7_{det})$ x $10^{-40}$) $\frac{cm^2}{nucleon}$. Note that the SciBooNE interaction medium is polystyrene, in contrast to the Ar in MicroBooNE. Additionally, the SciBooNE result is presented per nucleon.  When the result above is additionally scaled by the 40 nucleon in Ar, the results are comparable:   
+
+\begin{align}
+\sigma_{scaled CC\pi^0} &= (9.15 \pm 0.01) *10^{-40} \frac{cm^2}{Ar}
+\end{align}
+
+At this point, we've generated a baseline. We now want to extract the cross section using data and compare. The automated selection and reconstruction chain is detailed in the following sections.
+
+% MiniBooNE result of $\sigma_{CC\pi^0}$ = (9.2 $\pm$ 0.3stat. $\pm$ 1.5syst.) * $10^{-39}$ $\frac{cm^2}{CH_2}$ at $<E_\nu>_\phi$ = 0.965 GeV \cite{bib:numucc_miniboone}.  Note that the MiniBooNE interaction medium is $CH_2$, in contrast to the Ar in MicroBooNE. 
+%The comparison to Genie model over a variety of energies is shown in Figure \ref{fig:genietruth}.
+\clearpage
+
+\section{$\nu_{\mu}$ CC Candidate Selection (MCC8) }
+\par The first step in our selection is the $\nu_\mu$ CC Selection filter (SelectionII) developed for Neutrino 2016 \cite{bib:numucc} and tuned to MCC8 at the Cincinnati retreat. The current state of the filter is described below. Additional extensive detail about the previous state of the filter is available in external documentation \cite{bib:numucc} \cite{bib:6172}. 
+
+\subsection{Samples}
+The v06\_26\_0(0)(1) samweb definitions for anatree files used to tune the filter are the following: 
+
+\par \textbf{OnBeam}: prod\_anatree\_bnb\_v6\_ddr\_mcc8\_test4
+\par \textbf{OffBeam}: prod\_anatree\_extunbiased\_v6\_ddr\_mcc8\_test4
+%\par \textbf{InTime Corsika}: prodcosmics\_corsika\_cmc\_uboone\_intime\_mcc8\_ana
+\par \textbf{MCBNB + Cosmics}: prodgenie\_bnb\_nu\_cosmic\_uboone\_mcc8\_ana
+
+
+\subsection{Cut Adjustments}
+\noindent \paragraph{Beam Windows} An important first step is to locate sample beam windows. These boundaries are different for each sample and are necessary for checking that a 50 PE flash has occurred in coincidence with the beam. The window is found by plotting the flash times with respect to the trigger for each sample.  Note that the cosmic samples contain an exponential feature near the trigger. This is due to late light from cosmic interactions occurring before the trigger which causes a flash pile up near the beginning of the window. These windows are shown in Figure \ref{fig:windows}.
+
+\begin{figure}[h!]
+%\centering
+\includegraphics[scale=0.35]{AnaFigures/BNBOnly.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/CosmicBNB.png}
+\includegraphics[scale=0.35]{AnaFigures/InTime.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/OpenCosmic.png}
+\includegraphics[scale=0.35]{AnaFigures/OnBeam.png}
+\hspace{10 mm}
+\includegraphics[scale=0.35]{AnaFigures/OffBeam.png}
+\caption{Beam windows for a) MC BNB Only; b) MC BNB Cosmics; c) Corsika in time; d) Corsika open; e) On Beam; f) Off Beam. }
+\label{fig:windows}
+\end{figure}
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.35]{AnaFigures/InTime_and_EXT.png}
+%\hspace{1 mm}
+%\caption{Beam window comparison of InTime Corsika cosmics and BNBEXT data.  The windows line up, as expected. }
+%\label{fig:intime_ext}
+%\end{figure}
+
+
+\paragraph{Flash Cuts}
+Once we've found the beam windows, we can begin to filter down our samples. The first cut in SelectionII requires that there be a flash of 50 PE or greater in the beam window \footnote{An extensive series of MCC8 data-MC flash validations was done during the February retreat and can be found externally \cite{bib:mcc8_val}.} When a flash is found, we next run a simple flash matching. The flash matching considers the weighted-z position of the highest PE flash found in the event as well as the start and end z points of all candidate pandoraNu tracks. For an event to pass the flash match cut, the maximum distance between start to flash or end to flash must be 70 cm. A data-MC comparison of this cut can be seen in Figures \ref{fig:flashmatch}a and b. At this stage, the number of data and MC candidates is fairly comparable.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.55]{AnaFigures/flashmatch.png}
+\caption{a) Data-MC comparison for the flash match cut; b) Zoom in for better view in the region of interest. }
+\label{fig:flashmatch}
+\end{figure}
+
+\paragraph{Track-Vertex Association + dEdx Correction}
+At this point we have a preliminary set of candidate muon tracks. We next want to associate these flash-match candidates with candidate vertices in the event. This is done by comparing the distance between the track start or end and the vertex. If this distance is less than 3 cm, a track-vertex association is built.  The number of tracks associated to each vertex in the end is called the vertex multiplicity.  
+\par Finally, before we can consider each set of individual multiplicity cuts, dEdx correction factors need to be extracted for MC and data. These corrections factors are meant to correct for any variation in dEdx over drift distance.  They are found by fitting a line to the dEdx vs X distribution and shifting the distribution accordingly within the filter. These corrections were previously shown to improve performance of the filter \cite{bib:6172}. Examples of these before and after correction distributions for plane 2 are shown in Figure \ref{fig:mcc8_corr} for the OnBeam sample. Across all 3 planes, the MCC8 distributions have smaller spreads and slopes and require smaller corrections than MCC7.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.25]{AnaFigures/mcc8_plane2_uncorr.png}
+\hspace{1 mm}
+\includegraphics[scale=0.25]{AnaFigures/mcc8_plane2_corr.png}
+\caption{dEdx a) before and b) after correction for plane 2 OnBeam sample. }
+\label{fig:mcc8_corr}
+\end{figure}
+
+\paragraph{Multiplicity = 1 Cuts}
+Now we can begin validation of the individual MCC7 multiplicity cuts on MCC8 samples. We start here with multiplicity 1. The first requirement is that the single track be fully contained in the Fiducial Volume (20,20,10). Next we consider the distribution of track length vs y directional component of the track.  This cut aims to mitigate crossing cosmics from entering the sample. These distributions are similar between MCC7 and MCC8, though the cuts are tightened in order to reduce cosmic contamination (Figure \ref{fig:mcc8_mult1_00}).  Finally, we consider the relationship between the ratio of the dEdx's of the track ends (the larger ratio is considered) and the projected y length of the track (Figure \ref{fig:mcc8_mult1_0}). The latter distribution remains largely the same between MCC7 and MCC8, however the cuts are tightened in an attempt to limit the number of multiplicity 1 events making it through the filter. The motivation for this is discussed externally \cite{bib:sel2_mcc8}. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.35]{AnaFigures/Mult1_length_v_cosy_Cosmic.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/Mult1_length_v_cosy_Nu.png}
+\caption{Multiplicity 1 event cut on track length vs y directional component.  MCC7 cut values are shown in black, while MCC8 are shown in red. }
+\label{fig:mcc8_mult1_00}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.35]{AnaFigures/Mult1_dedxratio_v_projylen_Cosmic.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/Mult1_dedxratio_v_projylen_Nu.png}
+\caption{Multiplicity 1 cut on dedxratio vs track length projection.  MCC7 cut values are shown in black, while MCC8 are shown in red. }
+\label{fig:mcc8_mult1_0}
+\end{figure}
+
+\paragraph{Multiplicity $>$ 1 Cuts}
+Next we consider event multiplicities greater than 1. Often cosmic tracks are broken up during reconstruction; thus, the first cut we consider is the angle between the two longest tracks. If the two tracks are part of the same track, the angle between them should be large. This distribution is similar to that from MCC7, and is shown in Figure \ref{fig:cosineangle}. We additionally consider the length of the second longest track vs the directional y component of the longer track. The distributions for this comparison change a bit from MCC7 to MCC8, and the cuts are adjusted accordingly (Figure \ref{fig:mcc8_multgt2}).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.45]{AnaFigures/cosangle.png}
+\caption{Cosine of the angle between largest 2 tracks associated to vertex. }
+\label{fig:cosineangle}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.35]{AnaFigures/Multgt1_Length_v_cosy_Nu.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/Multgt1_Length_v_cosy_Cosmic.png}
+\caption{Multiplicity $>$ 1 event cut on length of shorter track vs the y directional component of the longer track. MCC7 cut values are shown in black, while MCC8 are shown in red. }
+\label{fig:mcc8_multgt2}
+\includegraphics[scale=0.35]{AnaFigures/Mult2_dedx_v_dedx_Cosmic.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/Mult2_dedx_v_dedx_Nu.png}
+\label{fig:mcc8_mult2}
+\caption{Multiplicity 2 cut on dedx comparison of beginning and end of tracks.  MCC7 cut values are shown in black; no adjustments are made here. }
+\end{figure}
+
+\paragraph{Multiplicity = 2 Cuts}
+Multiplicity 2 events pass first through the previous set of cuts for mult $>$ 1. The additional mult 2 cuts were chosen in MCC7 to mitigate the population of Michel Electron events remaining in the selected samples. These cuts first consider the ratio of dEdx at the start of the track to the end; in the case of a Michel the start dEdx will be larger than the dEdx at the end. To tag a Michel, a number of quantities are considered. First, the tagged track length must be less than 30 cm. Additionally, the start dEdx must be greater than the end, the start dEdx must be greater than 2.5 $\frac{MeV}{cm}$ and the end less than 4 $\frac{MeV}{cm}$ OR the tagged track end point in y must be greater than 96.5 cm. If an event does not contain these Michel characteristics, it is considered to be a neutrino candidate event.  These distributions are reproduced for MCC8 samples in Figure \ref{fig:mcc8_mult2}; no changes in cut value are currently applied.
+
+%\clearpage
+\subsection{Truth + Efficiency Distributions}
+It is important to understand any kinematical biases of our selection algorithms before we proceed. The following section contains the distributions and efficiencies for $E_{\nu_{\mu}}$ energy, $\theta$, $\phi$, muon momentum, and $E_{\nu_e}$. The events considered in these plots are neutrino induced CC events with vertices in the FV. Only statistical errors are considered here.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.35]{AnaFigures/NuEnergy.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/NuEnergyEff.png}
+\caption{a) $E_\nu$ distribution before and after selection; b) Efficiency as a function of $E_\nu$. }
+\includegraphics[scale=0.35]{AnaFigures/MuMom.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/MuMomEff.png}
+\caption{a) Momentum distribution before and after selection; b) Efficiency as a function of momentum }
+\end{figure}
+\begin{figure}[h!]
+\includegraphics[scale=0.35]{AnaFigures/CosTheta.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/CosThetaEff.png}
+\caption{a) Theta distribution before and after selection; b) Efficiency as a function of Theta. }
+\includegraphics[scale=0.35]{AnaFigures/Phi.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/PhiEff.png}
+\caption{a) Phi distribution before and after selection; b) Phi as a function of momentum }
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.35]{AnaFigures/NueE.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{AnaFigures/NueEEff.png}
+\caption{a) $E_{\nu_E}$ distribution before and after selection; b) $E_{\nu_E}$ as a function of momentum }
+\label{fig:mcc8_effs}
+\end{figure}
+
+Additionally, it is informative to examine the efficiency tables both before any cuts are tuned to MCC8 (Table \ref{tab:cceff_mc} and \ref{tab:cceff_onoff}) and after (Table \ref{tab:cceff_mc_adjust} and \ref{tab:cceff_onoff_adjust}).  These tables do not exist for the updated version of Selection II on MCC7. However we do know the previous efficiency (42.3\%), which compares to the current efficiency before MCC8 cut adjustments of 36.9\%. The decrease in efficiency is likely due in part to differences in simulation and reconstruction between MCC7 and MCC8. The composition of the sample compared to MCC7 is shown in Table \ref{tab:pur}.  The notable increase in the cosmics-only portion of the sample composition is mainly due to improvements in the InTime simulation and optical flash reconstruction. This composition will be re-examined when the corrected InTime sample is prepared.
+
+\begin{table*} %{minipage}{\linewidth}
+\centering
+\captionof{table}{Passing rates for MCC8 samples with no cut adjustments  \label{tab:cceff_mc}}
+ \begin{tabular}{| l | l l | l |}
+ \hline
+ MCC8 & BNB + Cosmics & & Cosmics Only \\ [0.1ex] 
+   & All & Signal &  \\ [0.1ex] \hline
+ Generated Events & 101600 & 23058 & 25832 \\ %\hline
+ $\geq$ 1 flash with $\geq$ 50 PE & 77462 (76\%/76\%) & 22078 (95\%/95\%) & 4119 (16\%/16\%)   \\ %\hline
+ Flash Track Matching & 62317 (80\%/61\%) & 21007 (95\%/91\%) & 3530 (86\%/14\%)  \\ \hline
+Track Multiplicity $\geq$ 2 & 7616 (12\%/7.5\%) & 6311 (30\%/27\%) & 135 (3.8\%/0.5\%) \\ %\hline
+Track Multiplicity = 1 & 3170 (5.1\%/3.1\%) & 2204 (10\%/9.6\%) & 77 (2.2\%/0.3\%)   \\ %\hline
+Final  & 10786 (17\%/11\%) & 8515 (40\%/36.9\%) & 212 (6\%/0.8\%)   \\ \hline
+\end{tabular}
+\end{table*}
+
+\begin{table*} %{minipage}{\linewidth}
+\centering
+\captionof{table}{Passing rates for MCC8 OnBeam and OffBeam samples with no cut adjustments \label{tab:cceff_onoff}}
+ \begin{tabular}{| l | l | l |}
+ \hline
+ MCC8 & On Beam & Off Beam \\ [0.1ex] \hline
+ Starting Events & 341100 & 377273 \\ %\hline
+ $\geq$ 1 flash with $\geq$ 50 PE & 83081 (24\%/24\%) & 76522 (20\%/20\%)  \\ %\hline
+ Flash Track Matching & 56081 (67\%/16\%) & 50411 (66\%/13\%)  \\ \hline
+Track Multiplicity $\geq$ 2 & 1817 (3.8\%/0.5\%) & 829 (2.2\%/0.3\%) \\ %\hline
+Track Multiplicity = 1 & 1488 (2.2\%/0.3\%) & 699 (3.8\%/0.5\%)   \\ %\hline
+Final & 3305 (6\%/0.8\%) & 1528 (3\%/0.4\%)  \\ \hline
+\end{tabular}
+\end{table*}
+
+\begin{table*} %{minipage}{\linewidth}
+\centering
+\captionof{table}{Passing rates for MCC8 samples with cut adjustments  \label{tab:cceff_mc_adjust}}
+ \begin{tabular}{| l | l l | l |}
+ \hline
+ MCC8 & BNB + Cosmics & & Cosmics Only \\ [0.1ex] 
+   & All & Signal &  \\ [0.1ex] \hline
+ Generated Events & 101600 & 23058 & 25874 \\ %\hline
+ $\geq$ 1 flash with $\geq$ 50 PE & 77462 (76\%/76\%) & 22078 (95\%/95\%) & 4122 (16\%/16\%)   \\ %\hline
+ Flash Track Matching & 62317 (80\%/61\%) & 21007 (95\%/91\%) & 3533 (86\%/14\%)  \\ \hline
+Track Multiplicity $\geq$ 2 & 7481 (12\%/7.4\%) & 6206 (30\%/27\%) & 126 (3.6\%/0.5\%) \\ %\hline
+Track Multiplicity = 1 & 1710 (2.7\%/1.7\%) & 1297 (6.2\%/5.6\%) & 22 (0.6\%/0.09\%)   \\ %\hline
+Final  & 9191 (44\%/40\%) & 7503 (35.7\%/32.59\%) & 148 (6\%/0.8\%)   \\ \hline
+\end{tabular}
+\end{table*}
+%\end{minipage}
+
+\begin{table*} %{minipage}{\linewidth}
+\centering
+\captionof{table}{Passing rates for MCC8 OnBeam and OffBeam samples with cut adjustments \label{tab:cceff_onoff_adjust}}
+ \begin{tabular}{| l | l | l |}
+ \hline
+ MCC8 & On Beam & Off Beam \\ [0.1ex] \hline
+ Starting Events & 341100 & 377273 \\ %\hline
+ $\geq$ 1 flash with $\geq$ 50 PE & 83081 (24\%/24\%) & 76522 (20\%/20\%)  \\ %\hline
+ Flash Track Matching & 56081 (67\%/16\%) & 50411 (66\%/13\%)  \\ \hline
+Track Multiplicity $\geq$ 2  & 1725 (3.1\%/0.5\%) & 763 (1.5\%/0.2\%) \\ %\hline
+Track Multiplicity = 1 & 691 (1.2\%/0.2\%) & 224 (0.4\%/0.06\%)   \\ %\hline
+Final & 2416 (6\%/0.8\%) & 987 (2.0\%/0.3\%)  \\ \hline
+\end{tabular}
+\end{table*}
+
+\begin{table*}
+\centering
+\captionof{table}{Composition of final sample after all SelectionII cuts \label{tab:pur}}
+ \begin{tabular}{| l | l | l |l|l|l|l|l|}
+ \hline
+Sample & Signal & Cosmic Only & Cosmic in BNB & NC & $\nu_e$ + $\overline{\nu}_e$ & $\overline{\nu}_{\mu}$ & Out FV  \\ [0.1ex] \hline
+MCC7 & 70.4\% & 14.8\% & 4.6\% & 6.5\% & 0.3\% & 0.4\% & 3.0\% \\ \hline
+MCC8 & 49\% & 39\% & 4.0 \% & 3.1\% & 0.2\% & 0.2\% & 4.9\% \\ \hline
+\end{tabular}
+\end{table*}
+
+\clearpage
+
+\subsection{Scaling}
+In order to compare MC and data, there are several scalings we must apply.  These scalings are extensively detailed here \cite{bib:normdatamc}. In brief, the scalings are as follows :
+\par \textbf{InTime to MC BNB Cos} Multiply expected number of spills per neutrino interaction (201.948) by passing rate efficiency (0.0509). This leads to a scaling factor of 10.279.
+
+\par \textbf{OnBeam to OffBeam} We must multiply OffBeam by a factor of 1.23 if the full Neutrino2016 samples are used. If the full samples are not used, we must additionally scale our OffBeam to the OnBeam POT in the sample at hand.
+
+\par \textbf{MC BNB Cos to OnBeam} Scale MC to the data POT.
+
+
+\noindent A table with event rates scaled to 0.49e20 is shown in Figure \ref{fig:sel2_event_rates}.  From this table, we notice a large discrepancy after the multiplicity $>$ 1 cuts. We investigated this discrepancy further by examing all candidates passing flash-matching.  We found that the unbalance between data and MC mult $>$ 1 events exists already from the flash-match stage, and before any multiplicity cuts. Thus, it was concluded that the disagreement is unlikely to be introduced at the level of these multiplicity cuts. A number of additional tests to understand the data-MC discrepancy are detailed externally \cite{bib:datamc}.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.59]{AnaFigures/sel2_event_rates.png}
+\caption{Scaled final event rates for SelectionII tuned to MCC8. The colored blocks correspond to comparisons which can be made between MC and data (yellow: MCBNB+Cosmics : On-OffBeam, blue: InTime : OffBeam) }
+\label{fig:sel2_event_rates}
+\end{figure}
+
+\subsection{SelectionII MCC8 Results}
+Here we summarize the resulting signal and background distributions for a variety of kinematic variables and compare to MCC7 distributions. While the shapes mostly agree (aside from the multiplicity distribution), there are noticeable issues. Setting aside the addition of MEC events to MCC8 which adds a roughly 20 \% effect, the data and MC do not agree very well. A number of possibilities have been investigated, but the source of discrepancy remains unclear at this time \cite{bib:datamc}. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.45]{AnaFigures/mcc7_mult.png}
+\hspace{1 mm}
+\includegraphics[scale=0.38]{AnaFigures/hTrackMult.png}
+\caption{Comparison of MCC7 to MCC8 on track multiplicity }
+\label{fig:compare_mult}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.45]{AnaFigures/mcc7_costheta.png}
+\hspace{1 mm}
+\includegraphics[scale=0.38]{AnaFigures/hTrackTheta.png}
+\caption{Comparison of MCC7 to MCC8 on cos(z) }
+\label{fig:compare_mult}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.45]{AnaFigures/mcc7_phi.png}
+\hspace{1 mm}
+\includegraphics[scale=0.38]{AnaFigures/hTrackPhi.png}
+\caption{Comparison of MCC7 to MCC8 on cos(z) }
+\label{fig:compare_mult}
+\end{figure}
+
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.5]{AnaFigures/Michel.png}
+%\caption{Event from cosmic data displaying candidate Michel electron. The warmer colors indicate higher ADC counts. } 
+%\label{fig:michel}
+%\end{figure}
+
+\clearpage
+\section{Event Selection Beyond CCInclusive}
+At this point, we have a sample of CC $\nu_\mu$ candidate events. We must next narrow this sample further to CC events that also contain a single $\pi^0$. During past efforts, 2D-clustering has been a bottle neck in the reconstruction chain where we lose many events due to the complexity of reconstructing complicated topologies. In an attempt to mitigate this problem here, we have broken this 2D-clustering step into 2 stages: track-shower hit separation and clustering using image recognition tools. These stages are described in the following sections.
+
+\subsection{Samples}
+There are three MCC8 samples used throughout this section. They are 384k MCBNB+Cosmic events, 542k BNB-INCLUSIVE (OnBeam) events and 218k BNB-EXT (OffBeam) events. These samples can be found here:\\
+\textbf{MCBNBCos:}
+/pnfs/uboone/persistent/users/oscillations\_group/GoldenPi0/MC/\\ sel2\_MCC8\_BNB\_COSMIC\_FULL\_LARLITE/\\
+\vspace{1 mm}
+\textbf{OnBeam:}
+/pnfs/uboone/persistent/users/oscillations\_group/GoldenPi0/Data\_MCC8/OnBeam/\\
+\vspace{1 mm}
+\textbf{OffBeam:}
+/pnfs/uboone/persistent/users/oscillations\_group/GoldenPi0/Data\_MCC8/OffBeam/\\
+
+
+\subsection{Track-Shower Hit Separation}
+The first step in the 2-step clustering process is track-shower hit separation.  The goal of this separation is to identify induced charge which originates at the vertex and is associated with a shower-like object in the event. Hit separation is broken into cosmic-induced and neutrino-induced stages.  In cosmic-induced track tagging, we mark hits tagged as cosmic by the pandoraCosmic algorithms as track like.  We mark charge that is poorly aligned with the neutrino vertex similarly, whether or not the charge already has a cosmic tag.  In the second stage of neutrino-induced track tagging, we mark locally linear charge originating from the candidate vertex as track-like. We additionally mark hits associated with the tagged muon candidate from CC selection as track-like at hit separation stage. After these checks, all remaining hits are designated as shower-like (Figure \ref{fig:hitremoval}). 
+
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics[scale=0.4]{AnaFigures/HR_mcc8.png}}
+\caption{ After track hit separation, we can treat shower-like and track-like hits separately. Note in the right plot that the circled low energy, linear shower has been missed by the shower-hit tagging. The effects of energy loss at this stage will be quantified later. } 
+\label{fig:hitremoval}
+\end{figure}
+
+\subsection{N $\pi^0$ Filter}
+Before moving on to the clustering step in our 2D-reconstruction, it is useful to first filter the sample down further.  Do to this, we can use the shower-like hits we identified in the hit-separation stage to identify $\pi^0$ candidate events. We approach this in the following way: first, we define two sample sets. The first set contains all the true signal CC $\pi^0$ events in our SelectionII output and the second contains everything else.  From here, we build circles of various radii around the tagged SelectionII vertex on an event-by-event basis (Figure \ref{fig:circle}). Inside each circle we calculate both 1) the amount of shower-like charge and 2) the amount of total charge. We do this for a variety of radii as shown in Figure \ref{fig:all_radii}; these same plots are shown area-normalized in Figure \ref{fig:all_radii_norm}.  From this series of plots we can see that the ratio of shower-like to total hits is higher for events that contain $\pi^0$ activity.  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{AnaFigures/RatioCut_mcc8.png}
+\caption{ Depiction of the ratio cut at radius r.  }
+\label{fig:circle}
+\end{figure}
+
+\par Next we must choose cut values for this filter. As shown in Figure \ref{fig:all_radii}, lower radii up to roughly 35cm have notable number of $\pi^0$ entries in the 0 bin. Events in this bin have very few or no shower-like hits within the given radius, either due to longer conversion lengths or to hit separation inefficiency. To avoid losing events with longer conversion lengths and potentially creating a biased sample, we look to higher radii. We find that we maximize our efficiency * purity metric between 50 and 60 cm. We conservatively choose 60cm as our radius in order to maximize our metric and to maximize the range of radiation lengths that will make it through this filter.  At 60cm, we found that the product of efficiency and purity is maximized at a ratio cut of 0.225. This cut preserves 72\% of signal events with a final sample purity of 22\%. The distribution for radius 60 is shown individually in Figure \ref{fig:separation}.
+
+\begin{figure}[h!]
+%\centering
+\includegraphics[scale=0.27]{AnaFigures/MCC8BNBCosStudy.png}
+\caption{Ratio plots constructed by taking the ratio of shower-like charge to total charge at various radii. The final cut value is extracted based on the maximum purity * efficiency. }
+\label{fig:all_radii}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h!]
+%\centering
+\includegraphics[scale=0.27]{AnaFigures/MCC8BNBCosStudy_Norm.png}
+\caption{Ratio plots constructed by taking the ratio of shower-like charge to total charge at various radii + area normalized to show shape of signal distribution. }
+\label{fig:all_radii_norm}
+\end{figure}
+
+\clearpage
+\begin{figure}[H]
+\centering
+\fbox{\includegraphics[scale=0.35]{AnaFigures/BackgroundStudy_60cm_w_cut.png}}
+\hspace{1 mm}
+\fbox{\includegraphics[scale=0.35]{AnaFigures/BackgroundStudy_60cm_w_cut_norm.png}}
+\caption{$\pi^0$ ratio plots constructed by taking the ratio of shower-like charge to total charge in radius = 60cm a) Absolute scale with corresponding efficiency, purity and product; b) Same plot area normalized to give a sense of the distribution shapes. }
+\label{fig:separation}
+\end{figure}
+
+%In attempt to improve the separation power of the filter, a second smaller study was performed. This study neglected the charge information associated with the tagged muon from the total charge pool. We hoped that this choice would push the N-$\pi^0$ event ratios further to the right while leaving the 0-$\pi^0$ event ratios relatively unaffected.  The results of this study can be seen in Figure \ref{fig:separation_no_mu}.  We found that while we are able to push the N-$\pi^0$ sample further right, the 0-$\pi^0$ sample also spreads out and thus decreases our separation power. This is likely due to some mis-identification of shower hits in lower energy, shorter tracks.  If some hits are mis-identified as shower-like in 0-$\pi^0$ events, the resulting ratio without the tagged $\mu$ hits gives the false impression of shower activity. 
+%When the new InTime sample has finished processing, a study will be done on MC in-time cosmics and triggered off-beam data events that pass SelectionII to test filter performs similarly enough between data and MC to use in a final analysis on data.
+
+\paragraph{OpenCV Clustering}
+OpenCV is an open source computer vision library with functions to aid in pattern recognition and image processing \cite{bib:opencv}. More on the framework and OpenCV tools developed previously are discussed in a previous technote \cite{bib:5856}. Here we describe new algorithms developed to improve the selected sample size obtained from Neutrino 2016 efforts \cite{bib:5864}.
+\par A number of links in the OpenCV clustering chain have been updated since Neutrino 2016. First, we no longer use Pandora shower reconstruction to find neutrino events containing $\pi^0$. The vertex candidate associated with Selection II is used to build a simple ROI with constant 108cm bounds in every direction (Figure \ref{fig:roi}). 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.35]{AnaFigures/ROI.png}
+\caption{New $\pi^0$ ROI around $\nu_\mu$ CC Selection II tagged pandora vertex. }
+\label{fig:roi}
+\end{figure}
+
+\par Once the ROI has been built and track-like hits removed, clustering begins with a polar clustering algorithm (Figure \ref{fig:polar}) on the remaining hits. This algorithm operates by transforming image information into polar coordinates (with the origin set at the reconstructed vertex location), performing the same image manipulation described in \cite{bib:5856}, and transforming back. This strategy has the advantage over our previous simple image manipulations in that it enforces an image blur in the direction of showering. This prevents lateral over-merging in a number of events. From here we filter OpenCV defined clusters which pierce or lie outside of the previously defined ROI as they are likely not of interest to our reconstruction. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{AnaFigures/polar.png}
+\caption{ Example from OpenCV online manual depicting polar transformation algorithm }
+\label{fig:polar}
+\end{figure}
+
+\par On this reduced set of clusters, we can now run parameter finding algorithms to assign each remaining cluster a start point and direction. Start point calculation is performed in the following way: each OpenCV calculated contour has an associated minimum bounding box that surrounds it (Figure \ref{fig:flashlights}a). The start point finding module segments this bounding box into 2 segments long ways. The algorithm then locates the hit of the cluster that is closest to the ROI vertex.  The segment this hit belongs to is then chosen. Finally, within this chosen segment, we search for the hit furthest from the center of the minimum bounding box. In the adjacent segment, the hit furthest from the center is assigned to be the end point. We assign the cluster's direction to be the direction of the cluster's bounding box.
+\par Now that our clusters have start points and directions we can attempt to combine charge which was not clustered together during polar clustering. We perform the merging on a reduced image, removing all clusters with less than 10 hits. This removal prevents very small clusters from being merged with larger clusters and skewing our matching results later on.  The algorithm we use to do the merging builds flash light shapes around each cluster and combines hits when the flashlights overlap (Figure \ref{fig:flashlights}). The start point of the cluster closest to the ROI vertex is used as the start point for the new cluster, while the end point is reassigned to the new cluster hit furthest from the start point.
+\par Finally, we apply 4 simple filters to reduce the number of bad/uninteresting clusters passing on to matching. First, we remove clusters with fewer than 10 hits.  Next, we remove any clusters which are not aligned well with the vertex; this removes lingering cosmic rays and some misclustered hits. Occasionally when events are complicated (e.g. crossing muon, lot's of information, dead wires, etc.) the flashlight merging algorithm will over-merge.  To prevent extreme overmerges from continuing on to the next stage, we filter clusters whose outer contour contains the vertex. The final filter is intended to prevent matching in planes with many dead wires.  In order to avoid utilizing clusters reconstructed on a plane over a range which contains significant gaps due to ``dead'' or otherwise poorly-functioning wires, we assign a score to each plane's ROI. Dead wires closer to the vertex have a stronger weight than those wires near the ROI boundaries. This score varies event-by-event and describes the percentage of the ROI which is covered by dead or bad wires. This algorithm enforces that Y plane clusters will always pass on to matching; the clusters in the remaining U or V plane with the highest plane score are passed on to matching. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\textwidth]{AnaFigures/startPoint.png}
+\hspace{3 mm}
+\includegraphics[width=0.3\textwidth]{AnaFigures/flashlights.png}
+\caption{a) The start point finding algorithm uses the ROI vertex to determine the which segment the start point lies in   b) Depiction of flashlight merging algorithm. Flashlights (gray) are merged when they overlap. The trunk of the base flashlight is pinched at the start point to prevent over-merging near the vertex. A convex hull (red) is calculated over all final flashlights to form the new cluster boundaries. }
+\label{fig:flashlights}
+\end{figure}
+
+\paragraph{Cluster Matching}
+Before we can reconstruct showers and start looking for $\pi^0$'s, we first need to match cluster pairs across planes. We do this by noting that time is a shared coordinate across planes and assigning scores to cluster pairs based on their agreement in time. We quantify this score using a measure denoted as the \texttt{Intergral over Union}, or \texttt{IoU} for short. This quantity is defined as:
+\begin{equation}
+  {\rm IoU} = \frac{ \Delta t_1 \cap \Delta t_2  }{ \Delta t_1 \cup \Delta t_2 }
+\end{equation}
+
+With $\Delta t$ denoting the time-range associated to the hits in a given cluster.  Clusters which do not overlap are assigned a score of -1, while those that do are assigned a score between 0 and 1, with 1 being perfect overlap. At the end of the consideration of all match permutations, the highest scores are used to create matched pairs until no clusters or viable match pairs remain. We require that there be at minimum a 25\% agreement in time in order for a match to be made. We also require that one of the matched clusters come from the collection plane, as the collection plane is currently the plane used for calorimetry. 
+
+\subsection{Shower Reconstruction}
+Shower reconstruction uses 2D information created during the previous matching stage to create one 3D object. 
+\paragraph{3D Direction}  We rely here on the reconstructed 3D interaction vertex to reconstruct the 2D projections. The 2D direction is computed as the charge--weighted average vector sum of the 2D distance from the vertex to each hit in the cluster.
+\begin{equation}
+  \hat{p}_{\rm 2D} = \sum_{i=0}^{N} \frac{ r_i - r_{\rm vtx} } { q_i }
+\end{equation}
+With N denoting the number of hits in the cluster, $r_i$ the position of the hit, $q_i$ its charge, and $r_{\rm vtx}$ the position of the projected vertex. Given two 2D weighted directions, the 3D direction is calculated using geometric relations between the planes and clusters. 
+
+\paragraph{3D Start Point Reconstruction} We calculate the 3D start point by finding the 3D overlap position of the OpenCV reconstructed 2D start points of the matched pair of clusters. The time tick coordinates from each cluster are averaged to calculate a 3D shared time coordinate. The (Y,Z) coordinates are identified by the intersection between the wires associated with 2D start points.  Wires must intersect inside the TPC for a shower to be reconstructed. 
+
+\begin{figure}[h!] %H]
+\centering
+\includegraphics[width=0.4\textwidth]{AnaFigures/showers.png}
+\caption{3D reconstructed showers are projected back into 2D as a visual sanity check that shower reconstruction is successful.}
+\label{fig:showers}
+\end{figure}
+
+\subsection{Energy Reconstruction}
+\label{sec:ereco}
+
+\par The energy of each EM shower is reconstructed using a calorimetric energy measurement. This procedure is as follows: the integrated ADC charge measured for all the hits associated to an EM shower are converted, using a single, fixed constant value, to MeV accounting for the signal processing, electronics, and detector effects which transform deposited energy in the detector to digitized signals in our readout. For this work, only hits from the collection plane are used to reconstruct a shower's energy. The conversion from raw charge to MeV is calculated as follows:
+\begin{itemize}
+\item {\bf Electronics Gain}: A conversion from ADCs to number of electrons collected on a wire of 198 $e^-$ / ADC is applied. This value is obtained by accounting for the specifications of the MicroBooNE electronics. See ``Noise Characterization and Filtering in the MicroBooNE TPC''~\cite{bib:noise} for more details.
+\item {\bf Lifetime Correction}: No lifetime correction is applied for data, given the exceptional Ar purity and high measured electron lifetime~\cite{bib:purity}. For MC, where a 10 ms lifetime is simulated, we correct the charge associated to each hit with an exponential correction given by $e^{t \,{\rm ms} / 10 \,{\rm ms} }$ where $t$ is the drift-time associated to a hit (which we know thanks to the fact that we are reconstructing beam-induced $\pi^0$s, generated at the trigger-time).
+\item {\bf Argon Ionization}: The work function required to ionize an argon atom by a traversing charged particle is 23.6 eV, which we account for.
+\item {\bf Ion Recombination}: The ionized charge which reaches the TPC wire-planes is a function of the deposited energy and the ion-recombination which quenches a fraction of the original ionization produced. Ion-recombination depends on the local density of positive and negative ions produced (and thus on the dE/dx of the particle), and on the strength of the local electric field. Electrons and photons have a smaller variation in dE/dx over the energy range of interest for MicroBooNE that for muons, pions, and protons. In addition, measuring the local dE/dx associated to an individual hit is challenging for EM showers, which consist of many branches of ionization propagating in different 3D directions. For these reasons, we apply a single, constant recombination correction of 0.423 obtained by assuming a fixed dE/dx of 2.3 MeV/cm and utilizing the Modified Box recombination model, as parametrized by the ArgoNeuT collaboration~\cite{bib:argoneut_recomb}, applied at MicroB\
+ooNE's electric field of 273 V/cm.
+\end{itemize}
+This gives us an energy calibration constant of:
+\begin{equation}
+  200 \frac{e^-}{\rm ADC} \times 23.6 \times 10^{-6} \frac{MeV}{e^-} \times \frac{1}{1-0.423} = 8.18 \times 10^{-2} \frac{\rm MeV}{\rm ADC}
+\end{equation}
+
+
+
+\subsection{$\pi^0$ Reconstruction}
+\label{sec:pi0reco}
+At this point we have some number of events that have made it through the Selection II filter, hit separation, ratio cut filter, OpenCV clustering and shower reconstruction. Now we can start checking events for $\pi^0$'s by examining properties of the reconstructed showers.  Currently a 2-shower pair needs to satisfy several criteria in order to be considered a $\pi^0$ candidate. First, the impact parameter of the 2 showers must be $\leq$ 4cm.  Additionally, the 3D opening angle must be $>$ 20 degrees; $\pi^0$ pairs with angles smaller than this tend to be cross-merged or overlapping. Finally, we require that the radiation length of the showers be $\leq$ 62cm with respect to the reconstructed vertex. If a pair of showers passes these criteria, they are considered to be a $\pi^0$ candidate. We do not currently handle the case where more than one viable candidate pair per event is found; these cases are simply neglected for now. We also do not include an energy or mass peak cut at this time; we hope to include these cuts in the future once we've understood our calibration scale better.
+
+\subsection{Successfully Reconstructed Events}
+The result of our reconstruction + selection chain is 779 CC $\pi^0$ candidate events. The breakdown of these events is described in the next section. Figure \ref{fig:ex2} shows a few examples of candidates in our sample. %As a sanity check, we calculate the mass value of each pair in Figure \ref{fig:mass}. 
+
+\begin{figure}[h!]
+\centering
+\label{fig:ex2}
+\fbox{\includegraphics[scale=0.3]{AnaFigures/ex0_8.png}}
+\hspace{1 mm}
+\fbox{\includegraphics[scale=0.25]{AnaFigures/ex3_8.png}}\\
+\vspace{1 mm}
+%\end{figure}
+%\begin{figure}[h!]
+%\centering
+%\fbox{\includegraphics[scale=0.2]{AnaFigures/ex1_8.png}}
+%\hspace{1 mm}
+\fbox{\includegraphics[scale=0.32]{AnaFigures/ex4_8.png}}
+\hspace{1 mm}
+%\end{figure}
+%\begin{figure}[h!]
+%\centering
+\fbox{\includegraphics[scale=0.2]{AnaFigures/ex5_8.png}}
+\hspace{1 mm}
+\fbox{\includegraphics[scale=0.22]{AnaFigures/ex2_8.png}}
+\caption{True CC$\pi^0$'s selected and successfully reconstructed through the full chain in MCC8 BNB + Cosmics sample. }
+\label{fig:ex2}
+\end{figure}
+
+%\begin{figure}[h!]
+%\centering
+%\fbox{\includegraphics[scale=0.4]{AnaFigures/pi0Mass_585.png}}
+%\caption{Calculated mass peak for the 585 selected CC $\pi^0$ events. }
+%\label{fig:mass}
+%\end{figure}
+
+\clearpage
+\newpage
+\section {Cross Section Calculation}
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.55]{AnaFigures/xsec.png}
+%\caption{ Diagramatic example of an interaction; the $N_I$ blue dots are the incident particles over some beam area A, the $N_T$ green dots are the targets and the $N_S$ red dots are the number of scatters.}  
+%\label{fig:Xsec}
+%\end{figure}
+%
+%%The concept of a cross section is simple.
+%Before an experiment is designed and built, experimentalists need to understand the rates at which they can expect different interactions to occur. This process is important; we don't want to design a detector that cannot meet the required sensitivity specifications we hope for our results to attain because we are overwhelmed by background events. In other words, given a beam of $N_I$ particles incident on $N_T$ targets, we want to be able to predict how many scatters, or interactions, we can expect to occur in our detector (Figure \ref{fig:Xsec}). This probability of interaction is called a cross section (Eq \ref{eq:xsec}). 
+%
+%\begin{equation}
+%\sigma = A * \frac{N_S}{N_T * N_I}
+%\label{eq:xsec}
+%\end{equation}
+%
+%%The cross section of a single target particle can be thought of as the 2D area it takes up; If we extend that idea of of probabilty of interaction for 1 incident particle to many, we can calculate the total probability of an interaction/or a scatter in our detector.
+%
+%\par We can take this idea of predicting interaction rates further with the differential cross section.  Typically in an experiment we want to know not just the probability that an interaction will occur, but the probability that it will also result in particles with specific properties, most commonly momentum and direction. The differential probability for a particle to scatter into some volume in parameter space is given by Equation \ref{eq:diffxsec}:
+%
+%\begin{equation}
+%\frac{d\sigma}{dX}(X',E_T,E_S) = \frac{\frac{dN_S}{dX}(X')}{N_T*N_I} * A 
+%\label{eq:diffxsec}
+%\end{equation}
+%
+%, where $\frac{dN_S}{dX}$ is the number of scatters into some volume of parameter space dX, and $\frac{N_I}{A}$ is the beam flux, and more commonly written $\phi$. In its current state, Equation \ref{eq:diffxsec} suggests that the flux is independent of other variables, such as the energy of the incident beam, but this is generally not true. The equation can be rewritten to account for this as follows:
+%
+%\begin{equation}
+%\frac{d\sigma}{dX}(X',E'_\nu) = \frac{1}{N_T*\frac{d\phi}{dE_\nu}(E'_\nu)}\frac{dN_S}{dXdE_\nu}(X',E'_\nu)
+%\label{eq:diffxsec_edep}
+%\end{equation}
+%
+%There are occasions on which we won't have access to the initial neutrino energy, either because the neutrino interacted via the neutral current, or the initial energy can't be calculated based only on the information we see in our detector. In this scenario, we can still calculate the flux-averaged cross section and differential cross section over incident neutrino energy. These values reduce in this case to the following equations:
+%
+%\begin{equation}
+%\sigma = \frac{N_S}{N_T * \phi}
+%\label{eq:xsec_fluxave}
+%\end{equation}
+%
+%\begin{equation}
+%\Big \langle \frac{d\sigma}{dX} \Big \rangle_\phi(X') = \frac{1}{N_T\phi}\frac{dN_S}{dX}(X')
+%\label{eq:diffxsec_fluxave}
+%\end{equation}
+
+
+\par We regroup at this point by summarizing the state of our candidate sample pool at each stage described so far in Table \ref{tab:eff1}. While our total number of reconstructed $\pi^0$ was 779 as described earlier, the final number of true CC $\pi^0$ events that we select is 409. The final efficiency is also calculated in this table to be 5.9\%; the final purity is 52.5\%.
+
+\vspace{3 mm}
+\noindent
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{Efficiency losses at each stage of selection } 
+\label{tab:eff1} 
+ \begin{tabular}{| l | l | l | l |}
+ \hline
+ Step & Total Events & Signal Events & Efficiency (Rel/Total) \\ \hline %[0.5ex] \hline
+  Full Sample & 384200 & 6893  & -/- \\ \hline 
+  SelectionII & 32411 & 2304 & (33.4\%/33.4\%) \\ \hline
+  Ratio Cut & 8112 & 1665 & (72.3\%/24.2\%) \\ \hline
+  $\pi^0$ Cuts & 779 & 409 & (24.6\%/5.9\%) \\ \hline
+   \end{tabular}
+\end{minipage}\\
+
+\subsection{Truth + Efficiency Distributions}
+It is important to understand any kinematical biases of our selection algorithms before we proceed. The following section contains the distributions and efficiencies for $E_{\nu_{\mu}}$, $\pi^0$ momentum, and $\pi^0$ opening angle. The events considered in these plots are neutrino-induced CC events with vertices in the FV. Note that the $E_{\nu_{\mu}}$ efficiency below 0.5 GeV is negligible; as a result, we restrict our flux energy range accordingly as mentioned in a previous section. Only statistical errors are considered here. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{AnaFigures/Pi0Cuts_NuEnergy.png}
+\hspace{1 mm}
+\includegraphics[scale=0.5]{AnaFigures/Pi0Cuts_NuEnergyEff.png}
+\caption{a) $E_\nu$ distribution before and after selection; b) Efficiency as a function of $E_\nu$; note that the efficiency is negligible below 0.5 GeV.}
+\label{fig:pi0_effs_0}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.39]{AnaFigures/Pi0Mom.png}
+\hspace{1 mm}
+\includegraphics[scale=0.39]{AnaFigures/Pi0MomEff.png}
+\caption{a) $\pi^0$ momentum distribution across all stages of CC $\pi^0$ selection; b) Efficiency as a function of momentum. }
+\label{fig:pi0_effs_1}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[scale=0.39]{AnaFigures/Pi0OAngle.png}
+\hspace{3 mm}
+\includegraphics[scale=0.39]{AnaFigures/Pi0OAngleEff.png}
+\caption{a) $\pi^0$ opening angle distribution across all stages of CC $\pi^0$ selection; b) Efficiency as a function of opening angle. }
+\label{fig:pi0_effs_2}
+\end{figure}
+
+The passing rates are scaled to 0.49E20 OnBeam POT and are shown in Figure \ref{fig:pi0Eff_mcc8} for each stage of the selection. As noted previously, we start with a discrepancy between data and MC after the SelectionII stage.  This discpreancy is maintained throughout selection and reflected in the final results. 
+
+\begin{figure}[h!]
+\includegraphics[scale=0.55]{AnaFigures/pi0Eff_mcc8.png}
+\caption{ Passing rates for various samples scaled to 0.49E20 POT. Note that the InTime sample displayed here contains a bug and is currently being regenerated. }
+\label{fig:pi0Eff_mcc8}
+\end{figure}
+
+\clearpage
+\subsection{Results}
+Here we summarize the resulting signal and background distributions for CC-$\pi^0$ signal over a variety of kinematic variables. Recall that the discrepancy as it stands is currently not understood. 
+\par A comparison between data and MC over reconstructed $\pi^0$ momentum, opening angle, mass, and muon angle are shown in Figures \ref{fig:ccpi0_mom_angle} and \ref{fig:ccpi0_mass_angle}. A breakdown of backgrounds is also shown here. The most dominant backgrounds are ``CC-Other" events.  These are events in which a true $\nu_{\mu}$ induced $\mu^-$ is tagged, but the reconstructed object is not a primary $\pi^0$; for example, secondary $\pi^0$ produced very near to the vertex, and protons near the vertex mistaken for showers. It is worth noting that many of the events with mis-tagged protons could potentially be removed with a dEdx cut once the detector calibration is better understood. The cosmic background could also be mitigated with a modest shower energy cut of 20-30 MeV.  Events in the ``Other" category include $\overline{\nu}_{\mu}$ - induced $\pi^0$, $\nu_{\mu}$ - $\pi^0$ with vertex outside the fiducial volume and N - $\gamma$ events. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.37]{AnaFigures/pi0_mom_bkgd.png}
+\hspace{1 mm}
+\includegraphics[scale=0.37]{AnaFigures/pi0_oangle_bkgd.png}
+\caption{Data-MC comparison of reconstructed a) $\pi^0$ momentum; b) $\pi^0$ opening angle. }
+\label{fig:ccpi0_mom_angle}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.37]{AnaFigures/pi0_mass_bkgd.png}
+\hspace{1 mm}
+\includegraphics[scale=0.37]{AnaFigures/mu_angle_bkgd.png}
+\caption{Data-MC comparison of reconstructed a) $\pi^0$ mass; b) $\mu$ opening angle. }
+\label{fig:ccpi0_mass_angle}
+\end{figure}
+
+%\begin{minipage}{\linewidth}
+%\centering
+%\captionof{table}{Breakdown of background events} \label{tab:bkgd} 
+% \begin{tabular}{| l | l |}
+% \hline
+% Background & Percent of Sample \\ [0.5ex]
+% \hline\hline
+%\hline
+% Clusters unrelated to $\pi^0$ reconstructed as $\pi^0$ & 23\% \\ \hline
+%  CC $\pi^0$ with mesons in final states & 22\% \\ \hline
+%  NC $\pi^0$ & 21\% \\ \hline
+%Mis-reconstructed vertex & 11\% \\ 
+% \hline
+% Multiple $\pi^0$ & 10\% \\ \hline
+% Bad reconstruction (particles merged together) & 4\% \\ \hline
+%Secondary $\pi^0$ & 4\% \\ \hline 
+%N $\gamma$ event & 4\% \\ \hline 
+%Cosmic induced $\pi^0$ & $<$1\% \\ \hline 
+%  \end{tabular}
+%\end{minipage}
+With this information, we can perform a sanity check cross section calcualtion on the final selected MC samples : 
+
+\begin{align}
+\sigma_{MC\_CC\pi^0} &= \frac{779 - 330}{0.059 * 2.099e11 \frac{1}{cm^2} * 8.969e29 Ar} \\\\
+&= (3.66 \pm 0.30) *10^{-38} \frac{cm^2}{Ar}
+\end{align}
+
+The error shown here is purely statistical and calculated using only $N_{tagged}$ and $N_{bkgd}$. This agrees with the previously calculated MC cross section above on the full sample; this makes sense, as the efficiency was extracted from the same sample.  
+\par Finally, we can calculate the cross section using data information:
+\begin{align}
+\sigma_{Data\_CC\pi^0} &= \frac{71 - 71*0.475}{0.059 * 2.649e10 \frac{1}{cm^2} * 8.969e29 Ar} \\\\
+&= (2.64 \pm 0.73) *10^{-38} \frac{cm^2}{Ar}
+\end{align}
+
+This result is almost within 1$\sigma$ of the true calculated cross section above. The disagreement is expected in the context of the MC-data discrepancy discussed earlier.
+
+\clearpage
+%\section{Systematic Errors}
+%The precision and sensitivity of an experimental measurement depends exactly on how well we understand the contributing models and detector limitations. In the case of MicroBooNE, modelling of the beam flux, nominal cross section uncertainties in the GENIE neutrino generator, cuts-based variation and detector systematics all affect the final measured cross section. The total error will then ideally be the combination of independent matrices corresponding to each systematic source, as shown below:
+%\begin{equation}
+%\label{eq:sys_error}
+%E^{syst} = E^{flux} + E^{cross\ section} + E^{detector} + E^{cuts}
+%\end{equation}
+%
+%\noindent In this section, we explore the degree to which each of these sources contributes to the final uncertainty. 
+%\subsection{Error Propagation: Background} 
+%There is a simple perscription to follow when approaching systematic error evaluation. We must first identify contributing parameters and their corresponding degrees of uncertainty.  Then, we vary these parameters randomly across many iterations, each time recalculating the cross section.
+%\par This variation must be approached in one of two ways. If a variation in parameter assignment affects only the rates of event production, a reweighting scheme can be applied to the final distributions rather than re-doing the full simulation for each generated universe.  This re-weighting strategy can be applied to error sources such as beam flux and GENIE cross sections.  For example, if the CC-neutrino interaction rate is halved by a parameter adjustment to the underlying neutrino interaction models, we can simply apply a factor of one-half to our final calcualtions.  On the other hand, if parameter adjuments affect event topology, re-weighting will not be sufficient, and a full generation of detector MC must be performed. One example of such a parameter which must be handled with full simulation is space charge. Space charge refers to the presence of positively charged ions that are formed when the Argon is ionized.  These ions influence the recombination of ionization electrons from new interactions, and can cause distortions in the readout.
+%
+%\par What we end up with after these procedures are followed is a covariance matrix which contains all contributing error parameters and their correlations.  This matrix is given by the following equation:
+%\begin{equation}
+%\label{eq:cov_matrix}
+%E_{ij} = \frac{1}{n} \sum_{m=1}^{n} [N_{CV}^i - N_{m}^i] \times [N_{CV}^j - N_{m}^j] 
+%\end{equation}
+%
+%where $E_{ij}$ is the covariance between the ith and jth variable, $N_{CV}^i$ is the nominal value of entries in the ith bin, $N_{m}^i$ is the value of entries in the $m^{th}$ generated universe.  It can also be useful to consider the correlation matrix, which gives a measure of the error in distribution shape.  This matrix can be written as 
+%
+%\begin{equation}
+%\label{eq:cov_matrix}
+%\rho_{ij} = \frac{E_{ij}}{\sqrt{E_{ii}} \sqrt{E_{jj}}}
+%\end{equation}
+%
+%\noindent and indicates the tendency of bins i and j to increase or decrease together.
+%
+%% plots to include: 
+%% - muon momentum, muon angle, pi0 momentum, pi0 opening angle, pi0 mass?
+%
+%\subsection{Flux Systematics}
+%When considering error due to flux, we are primarily interested in variation of particle production at the target ($\pi^+$, $\pi^-$, $K^+$, $K^-$, $K^0$) and POT.  The error due to POT (roughly 2\%, measured in the beam hall) is considerably smaller than that due to the flux itself (and the statistics in use for the  
+%
+%
+%\paragraph{Cut-Based Variation}
+%The measured cross section is subject to variation based on choice of cuts values. In this section we apply a Gaussian smearing to each cut parameter used in the selection to test the final effects on the final calculation.
+%
+%\section{Conclusions}
+%\label{sec:conclusions}
+%\par In this note we have discussed a fully automated selection chain that can be used to make a final state CC $\pi^0$ interaction cross section measurement in MicroBooNE.  A complete understanding of our energy scale is necessary to gain further insight on the energy resolution we've achieved, and to potentially restrict background candidates for a final analysis. 
+
+\begin{thebibliography}{9}
+
+%\bibitem{bib:5629}
+%David Caratelli, \emph{$\pi^0$ Mass Peak Resolution vs. Shower Reconstruction Resolution}, DocDB 5629,\\
+%\texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=5629}
+
+\bibitem{bib:ANL1}
+  S. B. Barish et al., Phys. Rev. D., 19, 2521 (1979).
+
+\bibitem{bib:ANL2}
+ G. M. Radecky et al., Phys. Rev. D., 25, 1161 (1982)
+ 
+\bibitem{bib:BNL}
+ T. Kitagaki et al., Phys. Rev. D., 34, 2554 (1986)
+ 
+\bibitem{bib:HE_unknown1}
+ D. Allasia et al., Nucl. Phys. B., 343, 285 (1990).
+ \bibitem{bib:HE_unknown2}
+ H. J. Grabosch et al., Zeit. Phys. C., 41, 527 (1989).
+
+\bibitem{bib:HE_unknown2}
+J. Catala-Perez, \emph{Measurement of neutrino induced charged current neutral pion production cross section at SciBooNE.}
+https://inspirehep.net/record/1280829?ln=en
+
+\bibitem{bib:numucc_miniboone}
+  A. A. Aguilar-Arevalo, et al., \emph{Measurement of $\nu_\mu$-induced charged-current neutral pion production cross sections on mineral oil at $E_\nu$ = 0.5-2.0 GeV},\\
+  \texttt{https://arxiv.org/pdf/1010.3264v4.pdf}
+
+\bibitem{bib:miniboone_thesis}
+  Robert H. Nelson, Thesis, \emph{A Measurement of Neutrino-Induced Charged-Current Neutral Pion Production},\\
+  \texttt{https://www-boone.fnal.gov/publications/Papers/rhn\_thesis.pdf}
+  
+\bibitem{bib:sciboone_thesis}
+  Joan Catala Perez, Thesis, \emph{Measurement of neutrino induced charged current neutral pion production cross section at SciBooNE.},\\
+  \texttt{http://lss.fnal.gov/archive/thesis/2000/fermilab-thesis-2014-03.pdf}  
+
+\bibitem{bib:minerva_thesis}
+  Jose Luis Palomino Gallo, Thesis, \emph{First Measurement of $\overline{\nu_\mu}$ of Induced Charged-Current $\pi^0$ Production Cross Sections on Polystyrene at $E_{\overline{\nu_\mu}}$ 2-10 GeV},\\
+  \texttt{http://inspirehep.net/record/1247736/files/fermilab-thesis-2012-56.pdf}  
+  
+\bibitem{bib:minerva_paper}
+   \emph{Single neutral pion production by charged current $\overline{\nu_\mu}$ interactions on hydrocarbon at $< E_\nu >$ =3.6 GeV},\\
+  \texttt{http://www.sciencedirect.com/science/article/pii/S0370269315005493}  
+  
+\bibitem{bib:k2k_paper}
+  C. Mariani, et al., \emph{Measurement of inclusive $\pi^0$ production in the Charged-Current Interactions of Neutrinos in a 1.3-GeV wide band beam},\\
+  \texttt{arXiv:1012.1794}
+
+\bibitem{bib:argoneut_recomb}
+  ArgoNeuT Collaboration, \emph{A study of electron recombination using highly ionizing particles in the ArgoNeuT Liquid Argon TPC},\\
+  Journal of Instrumentation (JINST), Vol 8, P08005, \texttt{http://arxiv.org/abs/1306.1712}
+
+\bibitem{bib:numucc}
+  Run An, et al., \emph{numu CC inclusive - internal note - MICROBOONE-NOTE-1010-INT}, DocDB 5851,\\
+  \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=5851}
+  
+\bibitem{bib:flux}
+  Beam Working Group, \emph{Flux Files}\\
+  \texttt{https://cdcvs.fnal.gov/redmine/projects/ubooneoffline/wiki/Flux\_Histograms}
+
+\bibitem{bib:6172}
+  Tngjun Yang, \emph{Numu CC Inclusive Analysis Highlights and Plans}, DocDB 6172,\\
+  \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=6172}
+
+\bibitem{bib:5864}
+  David Caratelli, et al., \emph{Demonstration of Electro-Magnetic Shower Reconstruction in the MicroBooNE LArTPC}, DocDB 5864,\\
+  \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=5864}
+
+
+
+\bibitem{bib:2441}
+  Andrzej Szelc, \emph{Update on Shower Reconstructon in LArSoft}, DocDB 2441,\\
+  \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=2441}
+
+\bibitem{bib:larliteGeoHelper}
+  LArLite Repository, \\
+  \texttt{https://github.com/larlight/larlite/blob/trunk/core/LArUtil/GeometryHelper.cxx}
+  
+\bibitem{bib:5856}
+   Vic Genty, et al., \emph{Golden $\pi^0$ Clustering }, DocDB 5856,\\
+   \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=5856}
+   
+\bibitem{bib:5864}
+  Rui An, et al., \emph{Reconstruction of $\pi^0 \rightarrow \gamma\gamma$ decays from $\nu_\mu$ charged current interactions in data }, DocDB 5864,\\
+   \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=5864}
+   
+\bibitem{bib:noise}
+  MicroBooNE Collaboration, \emph{Noise Characterization and Filtering in the MicroBooNE TPC},\\
+  \texttt{http://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1016-PUB.pdf}
+
+\bibitem{bib:purity}
+  MicroBooNE Collaboration, \emph{Measurement of the Electronegative Contaminants and Drift Electron Lifetime in the MicroBooNE Experiment},\\
+  \texttt{http://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1003-PUB.pdf}
+
+\bibitem{bib:argoneut_recomb}
+  ArgoNeuT Collaboration, \emph{A study of electron recombination using highly ionizing particles in the ArgoNeuT Liquid Argon TPC},\\
+  Journal of Instrumentation (JINST), Vol 8, P08005, \texttt{http://arxiv.org/abs/1306.1712}
+
+\bibitem{bib:mcc8_val}
+ MicroBooNE Collaboration, \emph{MCC8 Validations},\\
+ \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=7066}
+
+\bibitem{bib:datamc}
+ Ariana Hackenburg, \emph{Selection II + CCpi0 Update},\\
+ \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=7971}
+
+\bibitem{bib:sel2_mcc8}
+ Ariana Hackenburg, et al., \emph{Tuning of Selection II on MCC8 Samples},\\
+ \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=7571}
+
+\bibitem{bib:normdatamc}
+ Anne Schukraft, \emph{How to normalize data and MC},\\
+ \texttt{http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=5640}
+
+\bibitem{bib:opencv}
+  \emph{OpenCV Documentation},\\
+  \texttt{http://opencv.org/documentation.html}
+
+
+
+\end{thebibliography}
+
+\end{document}
+
