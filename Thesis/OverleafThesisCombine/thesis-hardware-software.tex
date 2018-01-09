@@ -1,0 +1,411 @@
+%End preamble, begin document
+%\begin{document}
+
+\clearpage
+\section{Hardware} \label{sec:hardware}
+\subsection{Booster Neutrino Beamline}
+The Booster Neutrino Beamline (BNB) is situated at Fermi National Laboratory in Batavia Illinois.  The BNB delivers a neutrino beam to the MicroBooNE detector 470 m from the target through a series of acceleration, focusing, and collimating. The various stages of the beam are described here.  
+\subsubsection{Proton Acceleration}
+Neutrino beam creation begins with $H^-$ ion production and acceleration to 750 keV in a Cockcroft-Walton DC accelerator \cite{bib:anderson}. The beam of H- ions are subsequently boosted to 400 MeV in a linear accelerator and stripped of their electrons before they enter the Booster.  The Booster operates at a cycle frequency of 15 Hz, while each RF cavity operates at 84x this rate. As the protons move through the various RF cavities, they are bunched into 81 buckets 19 ns apart, where all buckets are 2 ns in width.  One collection of these 81 buckets is called a beam spill, lasts around 1.6 $\mu$s, and typically consists of 1 - 5e12 Protons On Target (POT). Spills are directed into the Booster Neutrino Beamline by a switch magnet, and steered to the target by a series of dipole and focusing-defocusing (FODO) quadrupole magnets.  The configuration of this assembly is shown in Figure \ref{fig:beamline0}a. 
+\subsubsection{Beam Target and Horn}
+\par At this point, the bunched protons are impinged on a Beryllium (Be) Target. The target consists of seven 10 cm long, 1 cm in diameter Be slugs (Figure \ref{fig:beamline0}b), and is embedded at the front end of the Booster Horn. The slugs are suspended in an outer Be tube by three Be fins placed equidistant around the tube.  Air is circulated around the slugs and then passed across a heat exchanger before being recycled, to maintain the slugs at a constant temperature. This temperature is monitored at all times, and the proton beam is shut off if any abnormality in temperature or radioactivity is detected. The location of the beam is calibrated with a multi-wire chambers to ensure that it is interacting with the target itself and not the surrounding material. The beam's intensity and position are also monitored consistently.
+\par The result of proton collision with the Be is a spray of other particles which then pass into the magnetic focusing horn. The horn is made from aluminum alloy and consists of an inner conductor along which current runs in, and an outer conductor along which it returns. This configuration of current flow induces a toroidal magnetic field between the conductors, which enables the removal of charged particles: negative in Neutrino Mode, positive in Anti-Neutrino Mode. During this process, the horn heats up and needs to be cooled.  Ports in the outer conductor allow nozzles to spray water onto the inner conductor, which then drains out the bottom of the horn.
+
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.3\textwidth}
+    \centering
+\includegraphics[scale=0.3]{Hardware/beamline0.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{3mm}
+  \begin{subfigure}[t]{0.6\textwidth}
+    \centering
+\includegraphics[scale=0.6]{Hardware/target0.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ a) Accelerator complex at Fermilab. Protons are accelerated to 8 GeV in the Booster before slamming into a Beryllium target; b) The target assembly used by MicroBooNE, with beam striking the slugs from the left. } 
+\label{fig:beamline0}
+\end{figure}
+
+
+
+\subsubsection{Neutrino Beam}
+\par The singularly charged beam now heads downstream to a collimator.  This 214 cm of concrete sits 214 cm from the front of the target and acts as a dump for particles from secondary interactions which will not contribute to the neutrino flux of interest. The remaining particles then enter the decay pipe.  This 2 m wide pipe is made of corrugated steel, filled with air, and packed into dolomite. In the 50 m length of the decay pipe, $\pi^+$ from the initial proton-Be interaction will decay into $\mu^+$ and $\nu_\mu$.  A concrete and steel beam stop at the end of the decay pipe captures $\mu^+$'s, allowing only neutrinos to pass on.  At this point, the neutrinos travel 470 m through the ground until they reach the MicroBooNE detector. A summary of the neutrino beam line after 1-5e12 POT per spill strike the target is described in Figure \ref{fig:beamline2}.  An aerial view of MicroBooNE and other experiments in the BNB can be seen in Figure \ref{fig:beamline1}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Hardware/beamline_to_uboone.png}
+\caption{ Depiction of neutrino creation and journey at the BNB target. When the horn is in neutrino mode, resulting negative particles (like the $\pi^-$ here) are directed away from the horn.  The remaining positive particles decay into neutrinos and other charged particles in the 50 m decay region.  The charged particle decay products are stopped in the 500 m of dolomite between the decay pipe, while the neutrinos continue on their journey to MicroBooNE  }
+\label{fig:beamline2}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.75]{Hardware/beamline1.png}
+\caption{ The Booster complex at Fermilab as seen from above ground; MicroBooNE is situated at 470 m from the target along the BNB (orange dashed line), with MiniBooNE nearby. }
+\label{fig:beamline1}
+\end{figure}
+
+
+\subsection{The MicroBooNE Detector}
+The Micro Booster Neutrino Experiment (MicroBooNE) is a Liquid Argon Time Projection chamber which sits in the BNB at Fermi National Laboratory.  Its primary goal is to resolve the nature of MiniBooNE's observed low energy excess, in addition to making a suite of cross section measurements and performing R\&D on new technologies for the next generation of LArTPCs. A model and live representation of the full detector are shown in Figure \ref{fig:cryo2}. The various subsystems are described in detail below.
+
+\begin{figure}[H]
+\centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+\includegraphics[scale=0.45]{Hardware/cryo.png}
+  \caption{ }
+  \end{subfigure} 
+  %\hspace{1mm}
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+\includegraphics[scale=0.5]{Hardware/cryo2.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Model of the MicroBooNE cryostat with side transparent to expose the inner Time Projection Chamber; b) A picture of the MicroBooNE detector taken when the TPC was slid into the cryostat in December 2013.  MicroBooNE's cryostat is a type 304 stainless steel tube with inner diameter of 3.81 m, length of 12.2 m, and capacity of 170 tonnes; it is roughly the size of a school bus. }
+\label{fig:cryo2}
+\end{figure}
+
+%When a charged particle travels through a TPC in LAr, it leaves a trail of ionization electrons in its wake that are drifted in a uniform electric field to wire readout planes. 
+
+
+
+
+
+\subsubsection{Time Projection Chamber} 
+\par Liquid Argon Time Projection Chambers (LArTPCs) are ideal detectors for neutrino oscillation experiments with short and long baselines.  There are a number of properties that make Liquid Argon (LAr) well suited for the TPC medium: it is cheap, easy to cool, and transparent to its own scintillation light.  Additional properties are shown in Table \ref{tab:larProp}.  The principle of a TPC is as follows: a neutrino interaction occurs in the detector, and produces charged secondary particles. These particles ionize the surrounding argon and leave a trail of ionization electrons in their wake (Figure \ref{fig:ex_tpc_event_progression}b).  These electrons are then drifted in a uniform electric field to wire readout planes (Figure \ref{fig:ex_tpc_event_progression}c). During the drift, electrons encounter three planes : U (+60 degree tilt from vertical, Figure \ref{fig:ex_tpc_event_progression}d), V (-60 degree tilt from vertical, Figure \ref{fig:ex_tpc_event_progression}e) and Y (0 degree tilt from vertical, Figure \ref{fig:ex_tpc_event_progression}f).  The passing charge leaves induced pulses on the first 2 ``induction" planes, and collects onto the final ``collection" plane.  Once charge is collected, signals from the wires are amplified and sent on to be stored and analyzed. Readout from the wires makes the Y and Z coordinates of an interaction accessible. To access the X coordinate, we need to combine TPC and PMT information. We do this by assuming that the light produced by a neutrino interaction will be seen by the PMTs at roughly the time the interaction occurred, or `$t_0$'.  We then match tracks of electrons in the TPC to their corresponding flashes of light on our PMTs.  The electron arrival time at the anode planes with respect to $t_0$ in conjunction with the electron drift velocity in our electric field tells us where the interaction must have occurred in X. With all three coordinates, we're able to reconstruct 3-dimensional objects from which we can extract valuable interaction information such as $\frac{dE}{dx}$, particle ID, and various kinematic variables. An example of a neutrino interaction in the MicroBooNE detector is shown for all three planes in Figure \ref{fig:ex_tpc_event}
+%, while the drift time acts as the third X coordinate
+\par In conclusion, a LArTPC with 3 (or 2) planes gives us the capability to reconstruct fine-grained, 3 dimensional configurations of events in the detector. Each part of the TPC is described in detail below.
+%, with more detailed descriptions available in the Technical Design Report \cite{bib:tdr}.
+
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{General Properties of Liquid Argon \cite{bib:uboone_proposal} \label{tab:larProp}} 
+ \begin{tabular}{| l | l | l |}
+ \hline
+ Property & Value \\ [0.1ex] \hline \hline 
+ Atomic number & 18 \\ \hline
+ Atomic weight & 39.95 [$\frac{g}{mol}$] \\ \hline
+ Boiling point at 1 atm & 87.3 [K] \\ \hline
+ Density & 1.39 [$\frac{g}{cm^3}$] \\ \hline
+ Radiation length & 14.0 [cm] \\ \hline
+Absorption length & 83.6 [cm] \\ \hline
+ Moliere radius & 10.0 [cm] \\ \hline 
+ Work function to ionizie Ar atom  & 23.6 [$\frac{eV}{pair}$] \\
+\hline
+\end{tabular}
+\end{minipage}
+
+
+%\footnote{It is important to note that the success of a LArTPC does not rely on PMTs to extract ``X"--this extra piece of information establishes $t_0$ in correspondence with the beam gate, while also tagging backgrounds events which occur in the beam window.}
+
+\begin{figure}[H]
+\centering
+  \begin{subfigure}[t]{0.3\textwidth}
+    \centering
+\includegraphics[scale=0.3]{Hardware/tpc_ex_00.png}
+  \caption{ }
+  \end{subfigure} 
+  \begin{subfigure}[t]{0.3\textwidth}
+    \centering
+\includegraphics[scale=0.3]{Hardware/tpc_ex_0.png}
+  \caption{ }
+  \end{subfigure} 
+  \begin{subfigure}[t]{0.3\textwidth}
+    \centering
+\includegraphics[scale=0.3]{Hardware/tpc_ex_1.png}
+  \caption{ }
+  \end{subfigure} 
+    \begin{subfigure}[t]{0.3\textwidth}
+    \centering
+\includegraphics[scale=0.3]{Hardware/tpc_ex_2.png}
+  \caption{ }
+  \end{subfigure} 
+  \begin{subfigure}[t]{0.3\textwidth}
+    \centering
+\includegraphics[scale=0.3]{Hardware/tpc_ex_3.png}
+  \caption{ }
+  \end{subfigure} 
+  \begin{subfigure}[t]{0.25\textwidth}
+    \centering
+\includegraphics[scale=0.25]{Hardware/tpc_ex_4.png}
+  \caption{ }
+  \end{subfigure} 
+
+\caption{ Example of the progression of an interaction in a TPC: a) We begin with a 233cm x 256cm x 1037cm box of Argon, where the beamline points in the positive z direction, x points in the direction of the electric field, and y points upwards.  b) Next, a neutrino interacts and produces charged particles which ionize the argon. c) These ionization particles are drifted in the 273 V/cm electric field. d) The electrons hit the U induction plane first, followed by e) the V induction plane and finally f) the Y collection plane. Figures courtesy of Anne Schukraft.}
+\label{fig:ex_tpc_event_progression}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{Hardware/ex_event_display_0.png}
+
+\caption{ Example of an interaction in the MicroBooNE detector as seen from three separate planar views }
+\label{fig:ex_tpc_event}
+\end{figure}
+
+
+
+\paragraph{Cathode} 
+\par The cathode is composed of 9 type 304 stainless steel sheets which are 2.3 mm thick (Figure \ref{fig:cathodeShine}a).  The sheets are welded together rather than screwed to mitigate any sharpness of features which could impact the electric field. The fully constructed cathode plane was tested with a laser setup for flatness and determined to be parallel to within 0.04 degrees of the anode planes \cite{bib:uboone_JINST} . The cathode is currently held at -70kV.  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Hardware/cathode.png}
+\hspace{3 mm}
+\includegraphics[scale=0.9]{Hardware/tpc0.png}
+\caption{a) Inside the MicroBooNE TPC, the polished cathode appears on the left; b) The fully constructed TPC from the outside is shown on the right. }
+\label{fig:cathodeShine}
+\end{figure}
+
+\paragraph{Field Cage}
+\par The role of the field cage is to create a uniform electric field that steps down from the high voltage applied at the cathode to near 0 V at the anode.  This system is composed of 64 2.54 cm diameter stainless steel field cage tubes which are supported by G10 infrastructure. Most tubes have all 4 corners formed by 2 couplings and a 5.24 cm radius elbow. A number of precautions are taken to avoid rough surfaces and other potential sources of breakdown. The first tube has a wider diameter and serves an extra role as cathode frame and support; the second tube, is also unique in that it has a slightly wider radius (Figure \ref{fig:fieldcage}a). Additionally, the first several tubes near the cathode are welded rather than connected with screws.  The tubes are connected by a resistor-divider chain which enables a constant voltage step down of 1 kV (at current operating voltage) per tube across the 2.56 m width. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Hardware/fieldcage0.png}
+\hspace{4mm}
+\includegraphics[scale=0.75]{Hardware/varistors.png}
+\caption{ a) Example of the rounded elbows of the field cage tubes nearest to the cathode; b) Field cage resistors near the cathode. }
+\label{fig:fieldcage}
+\end{figure}
+
+\par MicroBooNE has also taken precautions in the case a breakdown does occur. The first 16 field cage tubes closest to the cathode are separated by 499 M$\Omega$ Mettalux resistors rated at 48 kV (Figure \ref{fig:fieldcage}b); the remaining tubes are connected via 4 Slim-Mox 150 M$\Omega$ resistors rated to 10kV. Lower rated resistors are used further from the cathode as the impact of a breakdown is attenuated when discharge occurs nearer to the anode. Finally, carefully tested surge protector varistors were applied between the first 32 tubes nearest the cathode.  Varistors are devices whose electrical resistances vary with applied voltage. These resistors exhibit high resistance under normal operation of the detector, thus influencing the circuit negligibly. In the case of breakdown, the varistors short and protect downstream electronics from damage \cite{bib:surge}.
+
+\paragraph{Anode}
+\par The anode plays host to 3 individual wire readout planes. The 2 induction planes (U and V) are at +60 and -60 degrees to the vertical and contain 2400 wires. The collection plane contains 3456 wires all perfectly vertical. The wires are attached to gold pins on wire carrier boards in groups of 16 for U and V and 32 for Y (Figure \ref{fig:wire_stuff}a) and wound to tension using a wire winding machine (Figure \ref{fig:wire_stuff}b). 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{Hardware/wireBoard.png}
+\hspace{3 mm} 
+\includegraphics[scale=0.7]{Hardware/wireWind.png}
+\caption{ a) Complete wire carrier board for the Y plane; b) Wire winding machine used to apply consistent tension to all wires in each plane. }
+\label{fig:wire_stuff}
+\end{figure}
+
+\par The wires themselves are 150 $\mu$m gold-plated copper.  This material shrinks when cooled from room temperature to 87.3 K, and thus must be carefully tension tested before secured into the stainless steel anode frame. 10 minute tension measurement were performed to check wire stability by applying 3 times the normal expected load value of 0.7 kg \cite{bib:uboone_JINST}.  This process was performed again when the boards were completely assembled to verify that the assembly process had no negative effects on the wires. A final tension test which used a laser and spectrum analysis software was performed once the carrier boards were installed in the anode frame. The completely installed wire readout boards are shown on the nearest face in Figure \ref{fig:cathodeShine}b.
+
+\par A number of studies were performed to optimize various wire plane settings and parameters. The planes themselves are held at different voltages with U at -110 V, V at 0 V, and Y at +230 V.  These values and ratios were established by simulations which sought to minimize the amount of charge collected on the U and V induction planes \cite{bib:tdr} \cite{bib:uboone_proposal}.  The tilt angle of the U and V plane wires were also established via simulations.  Those studies attempted to maximize the signal to noise ratio (which scales with $\frac{1}{cos\alpha}$) and minimize the number of necessary feedthroughs and channels, while maintaining the 3D tracking capability of planes at sufficiently differing angles.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.5]{Hardware/hv.png}
+\caption{ MicroBooNE HV feedthrough resting in the receptacle cup attached to the cathode. } 
+\label{fig:hv_cup}
+\end{wrapfigure}
+
+\paragraph{High Voltage}
+\par A negative high voltage (HV) is applied to the cathode using a Glassman LX150N12 power supply that lives outside the detector.  The output from the Glassman passes through a low pass filter to reduce ripple, and passes through a specifically designed port on the cryostat near the cathode.  The HV tube rests in a receptacle pot attached to the cathode as shown in Figure \ref{fig:hv_cup}.
+\noindent Though tested up to -200kV successfully, the high voltage system is currently held at -70kV.
+
+\subsubsection{Light Collection} \label{subsec:lightCollection}
+\par The MicroBooNE light collection system enables us to infer geometric and timing interaction information from light produced in the TPC. MicroBooNE expects only 1 neutrino interaction for every 660 spills and is subject to a high cosmic rate of 5 kHz \cite{bib:first_nus}.  At roughly 40 MB of raw data per 5ms of data, it is thus crucial to be able to limit the amount of neutrino-less readout windows that we store. This rejection of background-only readout windows with little or no light in coincident with the beam gate is one of the primary roles of the light collection system.
+
+\paragraph{Photo Multiplier Tubes (PMTs)}
+
+\par The MicroBooNE light collection system consists of 32 cryogenic Hamamatsu 5912-02MOD PMTs (Figure \ref{fig:pmt}a), each with an effective quantum efficiency of 15.3\% \cite{bib:ben_jones}. The PMTs live in the low bias +230 V field produced at the collection plane behind the anode planes, which are 86\% transparency to light.  The same PMT rack plays host to 4 R\&D light guide paddles (Figure \ref{fig:paddle}), which absorb and guide wavelength-shifted scintillation light to a PMT (or SiPM) at the end. The long flat geometry of the paddle prototypes allow larger surface area coverage with fewer design challenges than traditional bulky PMTs; these characteristics especially benefit larger detectors like DUNE and SBND currently under design.  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.46]{Hardware/single_pmt.png}
+\hspace{3 mm}
+\includegraphics[scale=0.9]{Hardware/pmt1.png}
+\caption{ a) A single PMT installed on the PMT rack in the MicroBooNE cryostat; b) Several installed PMT's with TPB coated plates  } 
+\label{fig:pmt}
+\end{figure}
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+\centering
+\includegraphics[scale=0.5]{Hardware/paddle.png}
+\caption{One of the 4 lightguide prototypes in the MicroBooNE PMT rack}
+\label{fig:paddle}
+\end{wrapfigure}
+
+\paragraph{Scintillation}
+\par Liquid Argon has a high scintillation yield of 24000 $\frac{photons}{MeV}$ at 273 $\frac{V}{cm}$.  Scintillation light has both prompt and late components and is emited at 128nm in Argon (red line in Figure \ref{fig:decay}a), outside the visible range of our PMTs (blue line in Figure \ref{fig:decay}a). Tertaphenyl butadiene (TPB) coated acrylic plates are placed in front of each PMT to wavelength shift the light out of the VUV and into the visible spectrum (green line in Figure \ref{fig:decay}a). 
+
+\paragraph{Recombination and Exciton Luminescence}
+
+\par Argon is ionized when charged particles pass by. Ideally, the resulting electrons will all drift to the readout planes; however, with many positively charged Argon ions floating around from ionization, it's unlikely that all electrons will make it. Recombination occurs when an ionized argon and ground state argon form a combined excited state with an electron called an excimer (Figure \ref{fig:decay}b, top), which then de-excites and emits a scintillation photon. Concretely, minimally ionized charge has a roughly 20\% chance of recombining with an Argon ion rather than drifting to the anode planes \cite{bib:sorel}; more highly ionizing particles are subject to greater recombination losses. This process suggests an anti-correlation between scintillation light and ionization charge.
+
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics[scale=0.45]{Hardware/tpb0.png}}
+\hspace{1 mm}
+\fbox{\includegraphics[scale=0.31]{Hardware/lightExcitement}} %decayTime.png}}
+\caption{ a) Spectra of VUV scintillation photons, visibility of PMT and wavelength shifted photons; b) Process of scintillation photon production for each mode  } 
+\label{fig:decay}
+\end{figure}
+
+
+\par Recombination is not the only way to lose charge deposition information about an interaction. Roughly 17\% of the time a charged particle will excite rather than ionize the Argon \cite{bib:sorel}. From here, the excited Argon can join with a ground state Argon to form an excimer (Figure \ref{fig:decay}b, bottom). This excimer similarly de-excites via a scintillation photon at 128 nm.  A closer look at the shared excimer state of the 2 processes reveals that there are 2 ways for the electron spin state to couple to the argon (Figure \ref{fig:light}a), with 2 different decay times \cite{bib:lumin}. The result is a prompt peak when the interaction occurs followed by a long tail of late light (Figure \ref{fig:light}b).  The long tail can make it difficult to identify delayed coincidences like Michel electrons, however we are generally most interested in the prompt light. 
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics[scale=0.28]{Hardware/lightRatio.png}}
+\hspace{2 mm}
+\fbox{\includegraphics[scale=0.4]{Hardware/decayTime.png}}
+\caption{ a) Excimer decay rates for each state; b) PMT signal over time exhibits prompt light from singlet state of excimer de-excitation and late light from triplet. } 
+\label{fig:light}
+\end{figure}
+
+
+\subsubsection{Cryogenics}
+\par The stability of the detector medium has a large systematic impact on the data taken by MicroBooNE. Temperature, pressure and flow, for example, affect the drift velocity of electrons. The drift time and drift X coordinates only maintain a clear correlation when the drift velocity is well understood, and so it is crucial to control these quantities carefully. To do this, temperature is consistently monitored at various locations in the detector by 12 Resistive Thermal Devices (RTDs), and a layer of insulating foam around the cryostat prevents Liquid Argon from boiling off due to large temperature differences in surrounding materials.
+\par The liquid argon in the detector must also be kept very pure. The presence of too much $O_2$ attenuates ionization charge, while $N_2$ contamination quenches scintillation light. The MicroBooNE purification system consists of 2 condensers (1 used primarily for backup), 2 pumps and 2 filters. In the beginning, gaseous Argon leaves the detector and enters one of the condensers. Each condenser, designed to control the heat load on the detector, contains a liquid nitrogen coil over which the gaseous Argon passes before it's pumped through the filter in liquid form. The LAr is then pumped through 1 of 2 parallel filter skids, where each filter skid contains 2 filters. The first filter is a 4A molecular sieve tasked mainly with removing water from the Argon, while the second filter primarily removes $O_2$ and any remaining water. Finally, the Argon is passed through a stainless steel particulate filter of grate width 10 microns to prevent any materials from the piping entering the detector. 
+\par Directly downstream of the filter is a 50 cm drift double-grid ion chamber which functions as a purity monitor: $Q_C$ charge is generated at the cathode, the charge drifts in an applied electric field, and $Q_A$ charge is detected at the anode. The ratio of these charges is known as the electron lifetime given by the formula below: 
+%since this filter effectively removes water, it is placed after the first filter to avoid saturating the second filter with water contaminant and allowing the remaining $O_2$ to recirculate. 
+\begin{equation}
+  \frac{Q_A}{Q_C} = e^{-\frac{t}{\tau}} 
+\end{equation}
+
+\noindent  2 other monitors live in the detector at different depths and drift locations (one at the cathode, one at the anode). 
+\par The full system is depicted in Figure \ref{fig:cryo0} and described in greater detail externally \cite{bib:purity} \cite{bib:purity2}. The cryostat design limits are expanded on and summarized in Figure \ref{fig:cryo1}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{Hardware/cryo0.png}
+\caption{ 3D model of the MicroBooNE's cryogenics system including pumps, filters, cooling system and monitors.  } 
+\label{fig:cryo0}
+\end{figure}
+  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{Hardware/cryoStandards0.png}
+\caption{ MicroBooNE was designed with contaminant limits listed in this table \cite{bib:uboone_JINST}. }
+\label{fig:cryo1}
+\end{figure}
+
+\subsubsection{Electronics and Readout}
+\paragraph{TPC}
+The induction and collection plane responses to drifted ionization charge are both analog and small.  Thus, before the wire readout data can be stored and analyzed, the pulses must be amplified, shaped, and digitized.  To reduce noise, the boards are kept in the liquid argon and positioned near the ends of the wires \cite{bib:uboone_JINST}. The pre-amplification and shaping electronics live on ASIC chips on cold motherboards. There are both top and side type motherboards in the detector, where the top board connects 48 U, 48 V and 96 Y wires and the side board connects 96 U and 96 V; this design is necessary to account for the shorter U and V wires that connect along the height of the TPC. Once signal has traveled through the boards, cold cables carry the information through additional intermediate amplifiers and out feed throughs in the cryostat to 130 Analog to Digital Converters (ADC) and Front End Modules (FEMs). Here, signals first pass through 12 bit ADC to be digitized at 16 MHz, where baseline for induction plane is set at half the range (2055 ADC) and baseline for collection plane is set lower (450 ADC). The sampling rate is reduced to 2 MHz on the FEM boards.
+\par At this point, a decision must be made about whether or not to send information to DAQ for processing. In the case of a neutrino stream, this decision is made based on trigger information from accelerator division. If a neutrino spill has occurred, 4.8 ms readout from buffer is sent to the DAQ; else, these events are discarded. 
+\paragraph{PMTs}
+In the event of beam event trigger from accelerator division, PMT information must also be stored. PMT signals from the 32 PMTs are amplified and shaped with 60 ns rise time and copied into a low and high gain channel. These shaped waveforms then pass to the Front-End Modules (FEMs) where they are digitized at 64 MHz for both channels. A sampling rate of 64 MHz over a beam window of 23.4 $\mu$s means 1500 consecutive 15.625 ns time slices starting 4 $\mu$s before the BNB or NuMI beam gates (which are 1.6 and 10 $\mu$s wide, respectively). Storing information from such high sampling over the entire readout window of 4.8 ms would be prohibitive; thus, a threshold requirement is imposed on the digitized signal for events occurring outside the beam window. \\
+%\par As mentioned in section \ref{subsec:lightCollection}, it is prohibitive to store all 4.8 ms readout windows from every beam spill, as relatively few of these windows contain a neutrino. To handle this, an additional trigger stores only readout windows in which a required PE threshold in coincidence with 1.6 $\mu$s beam gate is met; this trigger is currently implemented in the software and will be discussed in more detail in Section \ref{sec:software}.
+
+%The MicroBooNE LArTPC electronics readout system consists of both cold and warm systems. 
+
+\subsection{Triggers and Data Streams}
+\par Different triggers are employed by the MicroBooNE detector to examine various streams of data. These triggers are described below.
+\par A natural place to begin is at the hardware trigger.  When beam is on and producing beam spills, accelerator division sends a signal to MicroBooNE to start recording data. This signal is called the BNB trigger (or analogously the NuMI trigger, for the NuMI beamline).  This trigger causes a window to open in PMT readout that lasts for 23.4 $\mu$s, which includes the 1.6 $\mu$s spill, and a front and back readout porch and a 4.8ms in TPC readout.  Both beam triggers come early and veto all other triggers, with BNB taking priority to NuMI.  The beam trigger efficiency is 99.8\%. %DOCDB 5084 
+\par As noted earlier, most beam spills do not include a neutrino interaction. To account for this, there is a requirement that the beam trigger be in coincidence with a second trigger that comes from the PMT system. This trigger is currently implemented in software rather than on the FEM boards.  A software based approach was chosen as it allows a higher level of complexity in the algorithms which decide to send a PMT trigger, in addition to guaranteeing that the algorithm used is the same for data and MC.  The software trigger works as follows: a comparison of ADC values at time tick t and tick t + S are compared.  When the difference exceeds a set value, a first window opens. A similar operation is performed a second time for a second window, and the difference between the original discriminator threshold and max ADC in the full window is recorded. The fraction of events kept for various effective PE thresholds (ADC / 20) are shown in Figure \ref{fig:swtrigger}.  The algorithms in place require 6.5 effective PE of optical activity in the 1.6 $\mu$s beam spill window for the event to be processed and stored by our DAQ; this results in a rejection of $\approx$ 97\% of spills. A random sampling of beam events is stored without the software trigger to study for bias and other potential effects of the algorithm; this trigger is known as BNB UNBIASED. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.75]{Hardware/softwaretrigger.png}
+\caption{ Fraction of events in BNB and NuMI which pass the software trigger for various thresholds. The threshold currently in use is 6.5 effective PE.  } 
+\label{fig:swtrigger}
+\end{figure}
+
+\par There are a number of other triggers employed by MicroBooNE in addition to the BNB and NuMI triggers. The EXT trigger is the length of the BNB window (1.6 $\mu$s) and occurs orthogonally to it at a constant 0.1 Hz. This trigger has a lower efficiency of 85\%; this is expected, due to the veto power of beam triggers in coincidence with EXT.  This trigger is useful for studying pure background. EXT events are similarly passed through the software trigger as there is no shortage of background events at MicroBooNE to study, and it would be prohibitive to store the all EXT readout. Similar to BNB trigger treatment, we also store EXT UNBIASED sample for later random comparison. Similar triggers exist for NuMI.
+%Readout from triggered, DAQ-processed events is stored in a binary file.
+\par Finally, the data acquisition (DAQ) takes the output of all triggers, translates the raw data into readable, ROOT \cite{bib:root} format  and stores them in separate data streams. At the end of this processing, we have N ROOT files, where N is the number of triggers we began with (BNB stream, BNB UNBIASED stream, EXT stream, etc.). 
+
+\clearpage
+
+\section{Software} \label{sec:software}
+Beamline and detector simulations are intended to represent truth level estimations of neutrino creation and interaction processes. These estimations serve as a baseline for comparison with collected data, and are colloquially referred to as Monte Carlo, or MC.  For a beamline experiment of the size and complexity of MicroBooNE, there are a number of systems to model, and details to account for, to ensure the simulation precisely captures the state of the detector. 
+
+
+%These simulations are performed in the LArSoft framework, a suite of tools available to LArTPC experiments. 
+\subsection{Beamline Simulation and Event Generation}
+In order to simulate neutrino interactions in our detector, we first need to understand what kind of neutrinos we'll be receiving from the beamline. The beamline begins when bunches of protons are shot at the beryllium target slugs. The target-horn complex and beamline use a GDML geometrical description \cite{bib:gdml} to simulate the materials beamline particles will encounter and interact with as they travel.  The secondary products of these initial interactions are modeled by the GENIE neutrino generator \cite{bib:genie}, and then propagated along the target horn geometry and beamline using the GEANT4 toolkit for simulating particles through matter \cite{bib:geant4}. The output of this process of simulation and tracking is a `flux file' that contains angular, spatial, and momentum distributions of neutrinos incident on the front of the MicroBooNE detector.  
+\par Next, using the flux file to configure our generator, we model neutrino-argon interaction probabilities inside the MicroBooNE detector with GENIE.  When GENIE completes the interaction simulation, we have a set of final state, truth level particles that have exited the nucleus  
+\par Before we proceed with detector simulation, there is one final step.  MicroBooNE is a surface detector subject to a high cosmic rate of kHz.  We thus also simulate an expected cosmic ray background per readout window. This is done using the COsmic Ray Simulations for KAscade (CORSIKA) MC generator \cite{bib:corsika}. There are a variety of configurable parameters in CORSIKA including primary interaction particle type and low-energy hadronic models that are explored in detail in an external MicroBooNE public note \cite{bib:pubnote_cosmic}.   At this point, our neutrino interaction and cosmic ray backgrounds are ready to be tracked through the detector.
+%, GEANT4 tracks the particle trajectories until they exit the detector, reinteract (in which case, new products will be tracked), stop, or are captured.
+
+
+%\subsection{Reconstruction}
+\subsection{Detector Simulation}
+
+%Both TPC and PMT information are now available in a raw form to be used. This information on its own is probably not very useful beyond low level cutting.  In order to extract meaningful quantities for various analyses including this cross section measurement, we must now build more complex objects from our initial simulation (or data) output.
+\par The goal of detector simulation is to produce a set of MC files that look enough like our data for us to draw concrete physics conclusions based on a later, downstream comparison of that MC to the data. This is a complex process that involves many steps; particles need to be propagated through the detector and drifted to the wire planes, applied to detector responses, and tracked up to higher level objects like tracks, electromagnetic showers, and particles. Light from interactions also needs to be simulated, tracked, and reconstructed into flashes which can be matched to TPC interactions. These higher level objects are then used to perform analyses. 
+\par The framework used to perform detector simulation, reconstruction, and analysis in LArTPCs at Fermilab is called LArSoft. LArSoft is currently used by several Liquid Argon experiments, including ArgoNeuT, MicroBooNE, SBND, DUNE, and LAriAT. 
+\subsubsection{TPC}
+%LArG4
+\par LArSoft's role in detector simulation begins with LArG4. LArG4 is a LArSoft-GEANT4 interface that utilizes probabilities of particle motion and interaction, in conjunction with a GDML geometrical description for MicroBooNE (Figure \ref{fig:gdml}), to propagate information through the detector.  This process begins with the final state particles produced by GENIE described in the previous section. LArG4 takes each particle's information and deposits energy along discrete steps according to that particle's truth level information, GEANT4 interaction probabilities, and detector geometry. Once propagation has completed, electrons from these energy depositions are ``drifted" in groups of 600 to the wire planes. More precisely, these groups are teleported to the wire planes and assigned a remaining number of electrons based on the original energy deposition, the electron lifetime, and a recombination model. The xyz positions of these groups of electrons are varied by a gaussian function at the wire planes and assigned to the nearest wire channel. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{Software/gdml_tpc.png}
+\hspace{2 mm}
+\includegraphics[scale=0.4]{Software/gdml_cryostat0.png}
+\hspace{2 mm}
+\includegraphics[scale=0.4]{Software/gdml_hall0.png}
+\hspace{2 mm}
+\includegraphics[scale=0.55]{Software/gdml_hall1.png}
+\caption{GDML formatted geometry used for simulations of the MicroBooNE (top left) TPC; (top right) Cryostat and surround materials inside Liquid Argon Test Facility (LArTF); (bottom left) LArTF + surrounding world with block missing from side to allow view inside outer materials; (bottom right) LArTF + surrounding world with labels. }
+\label{fig:gdml}
+\end{figure}
+
+
+%DetSim
+\par  At this point, we have a set of unipolar and gaussian energy depositions from our truth level particles at the wire readout planes. Our goal now is to apply expected detector responses as these charges pass the wire planes.  We begin by modeling the electric field response to the presence of charge. To properly model the way this will proceed in data, we must account for the digitization and signal shaping the data waveforms will undergo.  We must also account for the fact that electrons drifted to the anode experience plane-dependent field responses due to different bias voltages (Figure \ref{fig:fieldResponse}). In data, noise is acquired during both processes and others (discussed extensively in an external publication \cite{bib:noise}), and also must be modeled.  All together, the modeling of these effects is called convolution and can be represented according to Equation \ref{eq:conv}:
+\begin{equation}
+\label{eq:conv}
+M(t_0) = \int_{t} R(t - t_0) S(t) dt
+\end{equation}
+where M($t_0$) is the measured signal, R(t) is the combined field and electronics response, and S(t) is the real signal.  Convolution takes the simulation into a state which resembles data TPC waveforms. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{Software/fieldResponse.png}
+\caption{Field response of each plane modeled by data-driven observation. }
+\label{fig:fieldResponse}
+\end{figure}
+
+\subsubsection{Optical}
+As charged particles are ionizing liquid argon, they are also producing scintillation and Cherenkov light. The light can be  tracked to the PMTs via GEANT4 in a similar manner as the charge deposition information described earlier. However, due to the high scintillation yield of neutrino interactions in argon, this process can take hours or days per event. It's thus computationally prohibitive to perform such tracking for the largest truth samples that we use to compare to data.  
+\par To overcome this computational dilemma, MicroBooNE developed a “fast optical simulation” mode to be used in the majority of truth level production.  This fast simulation utilizes a photon look up library. This library is generated by breaking the detector volume into cubes, or ``voxels'', and simulating a photon bomb per voxel.  The light from each photon in each voxel is then tracked via GEANT4 through rayleigh scatterings, reflections and absorptions to the PMTs. The result of this simulation is a library of voxel visibility information for each PMT.  During detector simulation, we consider the location of the neutrino interaction in order to extract visibility information, and combine this with PMT quantum efficiency to produce an optical product that resembles what we see in data.  
+ 
+\subsection{Reconstruction}
+Now that we have the TPC and optical simulations in a state we expect from data, we can begin to develop our reconstruction chains on both TPC and PMT information. 
+\subsubsection{TPC}
+ The first step is to note that the planes have different field responses, and thus different signal shapes and polarities.  We create a comparable set of signals across the planes by performing deconvolution.  Much like it sounds, deconvolution is intended to undo the detector effects we just modeled, and return the readout to a unipolar, near-Gaussian form. This is done to ease the burden on the next level reconstructions, and has the advantage of allowing planes to be treated uniformly beyond this point. The deconvolution begins with an application of a Fast Fourier Transform (FFT) to the measured signal in the time domain, M($t_0$). The result is a system representation in the frequency domain:
+\begin{equation}
+M(\omega) = R(\omega)S(\omega) 
+\end{equation}
+
+\noindent At this point, a frequency-based gaussian filter F($\omega$) is applied in the frequency domain to remove various noises mentioned above. Once filtered, S(t) is obtained by performing an anti-FFT on S($\omega$). 
+
+\paragraph{``Hit" Reconstruction}
+ Once our TPC waveforms are deconvolved, a peak finder looks for bumps in wire data (indicates energy deposition) and fits these peaks with gaussian curves. The quality of the fit is stored in a parameter to be associated with the data product; this allows the user to later on neglect reconstructed peaks with poor fits, such as those due to noisy wires.  Additional parameters such as the peak time and area under the gaussian fit (charge) are also stored. The result of this process on one bump is a single reconstructed ``hit''. 
+
+\par With ``hits'' reconstructed, we can begin to look for patterns and form more complex objects. Particle topology can be track-like (e.g. muons, protons, charged pions, etc.) or shower-like (e.g. electrons and photons), as seen in Figure \ref{fig:trackshower}. The reconstruction of these 2 topologies has involved considerable effort and a variety of different approaches.  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Software/trackshower.png}
+\caption{Candidate CC-$\pi^0$ event in data. This display gives a sense of the different track and shower topologies and necessary challenges to overcome to successfully reconstruct events.} 
+\label{fig:trackshower}
+\end{figure}
+
+\paragraph{Track Reconstruction}
+The track reconstruction used in this analysis is performed by the Pandora reconstruction package \cite{bib:pandora}.  Pandora utilizes reconstruction algorithms that are tuned separately to identify tracks likely to be cosmic rays, and those likely to be from neutrino interactions. Both processes begin similarly.  First, hits are grouped into clusters with preference given to preserving the purity of the cluster with respect to its parent particle rather than the completeness.  In other words, we prefer to miss some of the true initial particle that produced the track and to produce an object with only one true parent particle, rather than to produce a mostly complete, reconstructed object that combines multiple parent particle into one cluster.  From here, the 3 planes are scanned for 3 consistent, highly linear clusters (one cluster per plane) that overlap in the shared time coordinate.  Matching of these clusters proceeds as follows:  for every pair of 2 clusters in 2 planes that overlap in time, a predictive position for the points of the 3rd cluster in the 3rd plane is calculated. The results of all these calculations are then compared to the 3rd candidate cluster and a $\chi^2$ value is calculated to reflect the quality of the fit. From here, neutrino-specific algorithms utilize a number of direction and proximity metrics to assess the likelihood that each reconstructed track originated from a neutrino interaction. 
+%As a result, these first clusters tend to be very small in the case of showers, and very long in the case of tracks. 
+\paragraph{Shower Reconstruction}
+A later section is dedicated to the description of clustering and shower reconstruction due to the amount of work that has gone in to developing its various components.
+
+\paragraph{Vertex Reconstruction}
+3D vertex reconstruction also makes use of the Pandora reconstruction package. The vertex algorithms here use the matched 2D clusters described previously to look for kink positions and candidate vertex points. In the end, only one point is chosen per cluster pair, and is selected among the candidates based on considerations of the surrounding hit proximity and linearity. The result for a normal neutrino event in data will be many candidate neutrino vertex points; the final selection of candidate interaction vertex for this analysis is described in a future section.
+
+\subsubsection{Optical Reconstruction} 
+Optical reconstruction for the 32 PMTs occurs over several stages. First, output from the high and low gain streams are combined.  The high gain waveforms have a baseline at 2048 ADC and saturate at 4096 ADC.  With roughly 20 ADC/PE equivalent, this channel will saturate at roughly 100 PE.  In the case of high gain saturation, low gain channel information is scaled and passed on together with high gain information in a waveform. 
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[scale=0.42]{opticalSim_noLG.png}
+% \hspace{2 mm}
+% \includegraphics[scale=0.45]{opticalSim_LG.png}
+% \caption{a) PE distribution across all stages of optical reconstruction without low gain channel information for single simulation muon; b) PE distribution across all stages with both low and high gain for another simulated muon. The usage of both channels is essential for accurate representation of PE geometrical distributions. }
+% \label{fig:pedistrib}
+% \end{figure}
+
+\par At this point, we search these raw waveforms for charge depositions.  This is done separately for cosmic and beam discriminator channels. In the case of cosmic discriminator, the first ADC sets the pedestal and is propagated through the pulse as the baseline for later area (PE) calculation. The beam discriminator, on the other hand, calculates a local pedestal for each time tick, extrapolating through the signal region. Both discriminators use a threshold-based pulse finding algorithm; when a waveform pulse rises some number of sigma above the determined pedestal, the information is recorded and stored as an ``optical hit (ophit)".  The area of each ophit is calculated and stored with signal shaping included so as not to underestimate the PE content of the pulse.
+\par To make the greatest use of the optical information, it is beneficial to combine ophits in time coincidence with one another across PMTs.  The combination of these hits is called an ``optical flash (opflash)".  The current flash finding algorithm performs as follows. The 23.6 $\mu$s beam gate is divided into 0.1 $\mu$s coincidence windows. We then loop through all the optical hits we've reconstructed and search for hits with greater than 5 PE; the charge deposition and channel information of these hits are stored in the appropriate coincidence window (bin).  From here, we look to combine any late light tails with prompt light by comparing the relative charge in neighboring bins and combining bins i and i + 1 when bin i + 1 contains less charge than bin i, but more charge than 0.  In this final configuration, bins with greater than 10 PE are used to create a our flash objects.  We will later match these flashes to candidate TPC interactions in order to sift through cosmic contamination and identify neutrinos. 
+
