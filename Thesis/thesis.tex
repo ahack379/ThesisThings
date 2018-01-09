@@ -274,6 +274,36 @@ The Standard Model (SM) is a theory of fundamental forces and particles that tog
 \par The Standard Model is made up two classes of particles: fermions and bosons. Fermions are particles which have half-integer spin and obey Fermi-Dirac statistics. Leptons (particles that do not experience strong interactions, such as electrons) and baryons (3 quark particles, like protons) are both characterized as fermions. Because of their spin properties, fermions must conserve both lepton and baryon numbers, as well as obey the Pauli Exclusion Principle. 
 \par Bosons, on the other hand, have integer spin, obey Bose-Einstein statistics and are unaffected by the Pauli Exclusion Principle. The 4 gauge bosons (photon, gluon, W, Z) and single scalar boson (Higgs) described by the SM are called elementary bosons. While the Higgs is thought to be the particle that gives other particles mass, the gauge bosons are force carriers and mediate interactions that occur between composite bosons (such as mesons) and fermions.  The gluon mediates the aptly named strong force, strongest of all the forces, between quarks and other gluons. Additionally, the gluon residually facilitates the nuclear force, or the interactions between nucleons and mesons, which is responsible for holding the nucleus together. A second force mediated by a gauge boson is the electromagnetic force.  This force is 137 times weaker than the strong force at distances of 1 femtometer \cite{bib:forces}, and is controlled by photon exchange between charged particles. The final force described by the SM is the weak interaction, a million times weaker than the strong force, and mediated by the W and Z gauge bosons.  The W boson is its own anti-particle and can facilitate neutrino emission and absorption, energy exchange and particle change as shown in Figure \ref{fig:SM}b. The Z boson in neutral and only allows for exchange of energy, momenta and spin between particles; this leaves the original neutrino less energy, but otherwise in tact. Gravitation, though not included in the SM, is the weakest of the forces and $10^{38}$ times weaker than the strong force.
 
+\subsection{ Modes of Interaction} 
+$\pi^0$'s can be produced through a number of interactions. A break down of dominant modes is shown in Figure \ref{fig:res_and_numodes}a. We will explore each type in this section.
+\paragraph {Resonance Production} The first mode of interaction is resonance (RES).  This occurs when the incident neutrino has enough energy to excite a nucleon into a baryonic resonance state. This resonance (generally a $\Delta$) decays within $10^{-23}$s into a nucleon and a $\pi$. There are a variety of models which take over in this realm and propogate the baryonic resonance from its dexcited products to what comes out of the nucleus. MicroBooNE employs the GENIE event generator \cite{bib:genie} in its simulations, which uses the Rein-Sehgal baryonic resonance model \cite{bib:rein_sehgal} to predict resonance products.  According to the model, the production cross section of resonance with mass M and negligible width is the following:
+
+\begin{equation}
+  \frac{d\sigma}{dq^2dv} = \frac{G}{4\pi^2} (\frac{-q^2}{Q^2}) \kappa (u^2\sigma_L+v^2\sigma_R + 2uv\sigma_s)
+\end{equation}
+
+
+\noindent As an example, when the resonance dexcites in Figure \ref{fig:res_and_numodes}b, it emits a $\pi^+$, but because baryons and mesons interact strongly, this $\pi$ will not necessarilly escape the nucleus. For example, $\pi$'s can be absorbed or destroyed converted during charge exchange($\pi^- p$ $\rightarrow$ $n \pi^0$). Additionally, their kinematics can be altered by elastic scattering off nucleons.  This production mode accounts for the majority of CC$\pi^0$ interactions in MicroBooNE's energy range (0.2 - 2.5GeV).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{NewFigures/NeutrinoModeProduction_Eranges.png}
+\hspace{6 mm}
+\includegraphics[scale=0.5]{NewFigures/Resonance.png}
+\caption{a) Neutrino and anti-neutrino interaction cross sections broken down by mode. Note that QE and RES processes are dominant in MicroBooNE's energy range; b) Example of resonance interaction process in the nucleus. }
+\label{fig:res_and_numodes}
+\end{figure}
+
+
+
+
+  
+Many models treat nucleus as a relativisic fermi gas. If interaction produces nucleon with momentum above pF, it is allowed.  => low Q suppression. In the case of resonance production, the decay nucleon is blocked, not the resonance. inal State interactions: Hadrons produced in neutrino nucleus int have high prob of interacting with other nucleons before they leave the nucleus. Generators (like nuance) track these hadrons (namely pions, nucleons, kaons) from point of production around the nucleus (based on calculated cross sections and models of nucleon density).  [188]->nuc charge distrib in carboFermi gas regular: even at 0K, fermions in the gas still have energy (~3/5Eo) because cannot condense fermions onto one another—pauli exclusion must be obeyed. Occupied states cannot bebothered. Fermi momentum: momentum at the surfase of fermi sphere. Energy is the difference between ground and highest ocucpied level
+
+
+\noindent  Another mode of $\pi^0$ production is deep inelastic scattering (DIS). This higher energy process occurs when an incident neutrino has enough energy to interact with a quark in the hadron. Broken down into its constituent pieces, an inelastic nuclear process is one in which the target absorbs some of the indicident particle's energy.  `Scattering' here refers to the deflection of the resulting lepton.  And finally, `deep' refers to the fact that the high energy of the inident neutrino allows it to probe the nuclear components to the deepest, most fundamental degree (quarks).
+\noindent
+
 
 \subsection{The Charged Current}
 As mentioned earlier, the $W^\pm$ and Z bosons mediate the weak force. When an interaction occurs via the exchange of a $W^\pm$ boson, the interaction is called charged current (CC).  A neutrino can also interact via the exchange of a Z boson through the neutral current (NC) (Figures \ref{fig:CCNC}). For the remainder of this section and body of work we will focus on CC interactions. 
@@ -300,6 +330,8 @@ Neutrinos can interact with a nucleon via the charged current to produce a lepto
 \caption{a) A CC interaction has a charged lepton in the final state; b) An NC interaction will lack a final state charged lepton.} 
 \label{fig:CCNC}
 \end{figure}
+
+\subsection{  $\pi^0$ Production Processes }
 
 
 \subsection{History of Neutrino-Induced Charged Current $\pi^0$}
@@ -1184,6 +1216,10 @@ Kuvshinnikov, L. A., et al. \emph{Precise measurement of the cross section for t
 \bibitem{bib:forces}
 Strassler, Matt. \emph{Of Particular Significance},\\
   \texttt{https://profmattstrassler.com/articles-and-posts/particle-physics-basics/the-known-forces-of-nature/the-strength-of-the-known-forces}
+
+\bibitem{bib:rein_sehgal}
+D. Rein and L. M. Sehgal, \emph{Neutrino-Excitation of Baryon Resonances and Single Pion Production},\\
+\textt{Ann. Phys. (N.Y.) 133, 79 (1981).}
 
 \bibitem{bib:weak_current}
 Halzen, F., Martin, Alan D. \emph{Quarks and Leptons: An Introductory Course in Modern Particle Physics},\\
