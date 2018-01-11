@@ -150,12 +150,11 @@ In this section we describe analysis cuts employed in the CC Inclusive Selection
 \paragraph{Flash Cuts}
 
 The first analysis cut in the CC Inclusive Selection requires that there be a flash of 40 PE or greater in the beam window. The highest PE flash per event is shown per neutrino interaction in MicroBooNE Simulation in Figure \ref{fig:cutjust_sel2_numPE}a. A zoom into the low PE region in Figure \ref{fig:cutjust_sel2_numPE}b shows that this cut has a stronger effect on our background distributions than on signal. This effect is largely due to the FV requirement: interactions tend to have higher reconstructed PE flashes when they occur directly in front of the PMT array (in the FV), rather than in the surrounding regions. However, a known bug in the scintillation modelling in current simulation causes an underestimatation of light production in the MC sample we employ here.  Thus, to minimize the impact of this bug, we have opted for a conservatively loose cut of 40 PE with mind to re-assess when new simulation samples are available.  A data-MC comparison of highest PE flash is shown in Figure \ref{fig:cutjust_sel2_numPE_datamc}.
-\par We next move to matching candidate tracks to the flash we just identified.  Flash matching considers the weighted-PE $z$ position of the highest PE flash found in the event as well as the start and end $z$ points of all candidate tracks. The distance between the weighted PE flash $z$ position and the start or end of the track must be $\leq$ 70 cm in order for the track to pass. If the weighted $z$ position of the flash is between the start and end point of a candidate track, the distance is set to 0 cm. A data-MC comparison for this cut can be seen in Figure \ref{fig:cutjust_sel2_flashtrkdist}a, with background distributions in Figure \ref{fig:cutjust_sel2_flashtrkdist}b.  A zoom in on the lower-distance region can be found in Figures \ref{fig:cutjust_sel2_flashtrkdist_zoom}a and b. 
-% FUTURE ADD: Flash match diagram
 
+% FUTURE ADD: Flash match diagram
 %A more sophisticated flash-matching technique of minimizing the observed flash PE distribution with respect to optical simulation hypothesis for each candidate track is in progress and will be used in future iterations of CC Selection \cite{bib:marco_selection}.
 
-\begin{figure}[t!]
+\begin{figure}[H]
   \centering
   \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -173,7 +172,7 @@ The first analysis cut in the CC Inclusive Selection requires that there be a fl
 \end{figure}
 
 
-\begin{figure}[t!]
+\begin{figure}[H]
   \centering
   \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -189,6 +188,18 @@ The first analysis cut in the CC Inclusive Selection requires that there be a fl
 \caption{ MicroBooNE data to simulation comparison of the a) flash distribution and b) A zoom into the interesting region. }
 \label{fig:cutjust_sel2_numPE_datamc}
 \end{figure}
+
+\par We next move to matching candidate tracks to the flash we just identified.  Flash matching considers the weighted-PE $z$ position of the highest PE flash found in the event as well as the start and end $z$ points of all candidate tracks. As example of weighted-PE $z$ calculated is shown in Figure \ref{fig:flash_graphic}.  The distance between the weighted PE flash $z$ position and the start or end of the track must be $\leq$ 70 cm in order for the track to pass. If the weighted $z$ position of the flash is between the start and end point of a candidate track, the distance is set to 0 cm. A data-MC comparison for this cut can be seen in Figure \ref{fig:cutjust_sel2_flashtrkdist}a, with background distributions in Figure \ref{fig:cutjust_sel2_flashtrkdist}b.  A zoom in on the lower-distance region can be found in Figures \ref{fig:cutjust_sel2_flashtrkdist_zoom}a and b. 
+
+\begin{figure}[h!]
+\centering
+    \centering
+\includegraphics[scale=0.4]{Selection_II_Section/flash_graphic.png}
+\caption{ An array of 32 PMTs (circles) sits behind the anode plane of the MicroBooNE detector. As a cosmic ray (red line) passes through the detector, it produces scintillation light that will be seen by some of the PMTs (yellow circles). To perform flash matching, we first calculate the weighted energy deposition per flash in $z$.  The average location in this event is roughly $z$ = 800 cm, indicated by the purple star.} 
+\label{fig:flash_graphic}
+\end{figure}
+
+
 
 \begin{figure}[h!]
 \centering
@@ -225,8 +236,7 @@ The first analysis cut in the CC Inclusive Selection requires that there be a fl
 \end{figure}
 
 \paragraph{Track-Vertex Association + $\frac{dE}{dx}$ Correction}
-At this point we have a preliminary set of candidate $\mu^-$ tracks that have been matched to a $\geq$ 40 flash in the beam window. We next want to associate these flash-match candidates tracks with candidate vertices in the event. This is done by comparing the distance between the start (or end) of each track with each candidate vertex. If this distance is less than 3 cm, a track-vertex association is built.  The number of tracks associated to each vertex at the end of this procedure is called the ``observed vertex multiplicity''; a data-MC comparison and a break down of backgrounds at this vertex-association stage are shown in Figures \ref{fig:cutjust_sel2_vtxtrackdist}a and b.  The (unstacked) multiplicity distributions after this association are shown in Figures \ref{fig:cutjust_sel2_mult} a (normal) and b (log).  From here, our goal is to reduce the cosmic population in this candidate pool, and select events  that look most like our signal.
-
+At this point we have a preliminary set of candidate $\mu^-$ tracks that have been matched to a $\geq$ 40 flash in the beam window. We next want to associate these flash-match candidates tracks with candidate vertices in the event. This is done by comparing the distance between the start (or end) of each track with each candidate vertex. If this distance is less than 3 cm, a track-vertex association is built.  The number of tracks associated to each vertex at the end of this procedure is called the ``observed vertex multiplicity''; a data-MC comparison and a break down of backgrounds at this vertex-association stage are shown in Figures \ref{fig:cutjust_sel2_vtxtrackdist}a and b.  The (unstacked) multiplicity distributions after this association are shown in Figures \ref{fig:cutjust_sel2_mult} a (normal) and b (log). 
 \begin{figure}[h!]
 \centering
   \begin{subfigure}[t]{0.4\textwidth}
@@ -261,45 +271,34 @@ At this point we have a preliminary set of candidate $\mu^-$ tracks that have be
 \label{fig:cutjust_sel2_mult}
 \end{figure}
 
-\par A variable that can be used to separate cosmic from neutrino backgrounds is the energy deposition over distance.  This quantity is most useful in the case of a stopping cosmic ray muon, which will exhibit a Bragg peak near the decay point of the interaction.  The $\frac{dE}{dx}$ is calculated by applying a lifetime correction with electron lifetime 1 s to the charge deposition per wire pitch, or $\frac{dQ}{dx}$.  A recombination correction derived from the ``Box Model'' at a field of 273 $\frac{V}{cm}$ is also applied \cite{bib:argoneut_recomb}.  The $\frac{dQ}{dx}$ per track-associated-hit, per plane, is calculated by taking the integral of the hit (ADC's) and dividing it by the pitch (wire spacing divided by dot product of the 3D track direction and wire plane direction). Our $\frac{ADC}{cm}$ to $\frac{e^-}{cm}$ conversion constants are calibrated using a sample of stopping muons.
+\par At this stage, we have a rough set of candidate neutrino interactions. Our main goal now is to mitigate the cosmic contribution to this candidate pool, and select events that contain a charged-current neutrino interaction. A variable that can be used to separate cosmic from neutrino backgrounds is the energy deposition over distance.  This quantity is most useful in the case of a stopping cosmic ray muon, which will exhibit a Bragg peak near the decay point of the interaction.  The $\frac{dE}{dx}$ is calculated by applying a lifetime correction with electron lifetime 1 s to the charge deposition per wire pitch, or $\frac{dQ}{dx}$. A recombination correction derived from the ``Box Model'' at a field of 273 $\frac{V}{cm}$ is also applied \cite{bib:argoneut_recomb}. The $\frac{dQ}{dx}$ per track-associated-hit, per plane, is calculated by taking the integral (in ADC's) of each contributing reconstructed hit, and dividing it by the pitch (wire spacing divided by dot product of the 3D track direction and wire plane direction). MicroBooNE's $\frac{ADC}{cm}$ to $\frac{e^-}{cm}$ conversion constants are extracted on a sample of stopping muons by the calibrations team.
 %To convert this $\frac{dQ}{dx}$ from $\frac{ADC}{cm}$ to $\frac{e^-}{cm}$, we apply calibration constants extracted on a sample of stopping muons by the MicroBooNE calibrations team.
-\par Before we examine ways to use this variable, we consider that sometimes charge is missed by reconstruction or lost due to dead or noisy wires in the detector. In orde to utilize the maximum available information about the reconstructed track, we thus only consider the $\frac{dE}{dx}$ in the plane which has the most track-related hit information; we call this the ``best plane''. A breakdown of backgrounds and data-MC comparison for best plane is shown in Figures \ref{fig:cutjust_sel2_bestplane}a and b. Second, we note that our simple 1D calibration to go from $\frac{ADC}{cm}$ to $\frac{e^-}{cm}$ doesn't take into account variations of $\frac{dQ}{dx}$ over distance. We thus perform an intermediate calibration to correct the $\frac{dE}{dx}$ in the selected plane for any variation over drift distance. We choose to shift to a value that already aligns fairly well with the current distributions to avoid distorting our results more than necessary.  These corrections are found by first considering the MC $\frac{dE}{dx}$ vs x distributions of all candidate tracks in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}. In particular, we look at the collection plane. We empirically determine the peak value of the uncorrected, but mostly-flat-over-x, collection plane view to be 1.63 $\frac{MeV}{cm}$.  With our chosen baseline in hand, we proceed by fitting a line to the $\frac{dE}{dx}$ vs $x$ distributions and shifting the distributions using the baseline in conjunction with this fit. These correction equations as a function of x are summarized for all three samples in Table \ref{tab:dedx_corr}. Examples of these before- and after-correction distributions for all three planes of the MCBNBCos sample are shown in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}, OnBeam in Figure \ref{fig:cutjust_sel2_onbeam_dedx_v_x}, and OffBeam in Figure \ref{fig:cutjust_sel2_offbeam_dedx_v_x}. The corresponding corrected 1D distributions are shown in Figure \ref{fig:cutjust_sel2_1d_dedx_v_x}.  
-
-
-%These corrections were previously shown to improve the performance of CC Inclusive Selection discussed \cite{bib:6172}. 
-\begin{table} 
- \centering
- \captionof{table}{$\frac{dE}{dx}$ correction equations as a function of $x$.  Note that the corrections for On and OffBeam are the same per plane. \label{tab:dedx_corr}}
- \begin{tabular}{| l | l | l |}
-  \hline
-  & OnBeam and OffBeam & MCBNB+Cosmics \\ [0.1ex] \hline
-Plane 0 & $\frac{1.63}{-0.0003125x + 1.53}$ & $\frac{1.63}{0.0009766x + 1.70}$ \\ \hline
-Plane 1 & $\frac{1.63}{0.0027344x + 2.50}$ & $\frac{1.63}{0.0009766x + 1.70}$ \\ \hline 
-Plane 2 & $\frac{1.63}{0.0001953x + 1.40}$ & $\frac{1.63}{0.0007812x + 1.60}$ \\  \hline
-\end{tabular}
-\end{table}
-
-
-\begin{figure}[t!]
+\par Before we examine ways to use the $\frac{dE}{dx}$, we consider two additional points. First, sometimes charge is missed by reconstruction or lost due to dead or noisy wires in the detector. Thus, to ensure we utilize the maximum available information about each reconstructed track, we only consider the $\frac{dE}{dx}$ in the plane which has the most track-related hit information; we call this the ``best plane''. A breakdown of signal and background distributions for best plane is shown in Figure \ref{fig:cutjust_sel2_bestplane}. There we see that plane 2 tends to be the best plane for all neutrino interactions, while planes 0 or 1 tend to be best for cosmics.  This is due to the fact that the collection plane (plane 2) wires are vertical.  Because neutrino interactions are forward going, they tend to spread out over the most wires in plane 2, causing the most hits to be identified at the reconstruction stage. Cosmics, on the other hand, are downard going and on average spread energy over more wires in planes 0 or 1 (+-60 degrees tilts to the vertical), than in plane 2.
+\begin{figure}[H]
 \centering
-  \begin{subfigure}[t]{0.3\textwidth}
-    \centering
-\includegraphics[scale=0.3]
+%  \begin{subfigure}[t]{0.3\textwidth}
+%    \centering
+\includegraphics[scale=0.5]
 {Selection_II_Section/CutJustify_sel2_bestplane.png}
-    \caption{ }
-  \end{subfigure} 
-  \hspace{15mm}
-  \begin{subfigure}[t]{0.35\textwidth}
-    \centering
-\includegraphics[scale=0.35]
-{Selection_II_Section/CutJustify_sel2_datamc_bestplane.png}
-    \caption{ }
-  \end{subfigure} 
-\caption{Best selected plane shown for a) signal and all backgrounds and b) MC-data comparison }
+%    \caption{ }
+%  \end{subfigure} 
+%  \hspace{15mm}
+%  \begin{subfigure}[t]{0.35\textwidth}
+%    \centering
+%%\includegraphics[scale=0.35]
+%{Selection_II_Section/CutJustify_sel2_datamc_bestplane.png}
+%    \caption{ }
+%  \end{subfigure} 
+\caption{Best selected plane shown for signal and all backgrounds in MicroBooNE simulation }
 \label{fig:cutjust_sel2_bestplane}
 \end{figure}
 
-\begin{figure}[h!]
+\par Second, we note that our simple 1D calibration to go from $\frac{ADC}{cm}$ to $\frac{e^-}{cm}$ doesn't take into account variations of $\frac{dQ}{dx}$ over drift distance. We thus perform an intermediate calibration to correct the $\frac{dE}{dx}$ in the selected plane for any location in drift. We choose to shift to a value that already aligns fairly well with the current distributions to avoid distorting our results more than necessary.  These corrections are found by first considering the MC $\frac{dE}{dx}$ vs x distributions of all candidate tracks in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}. In particular, we look at the collection plane. We empirically determine the peak value of the uncorrected, but mostly-flat-over-x, collection plane view to be 1.63 $\frac{MeV}{cm}$.  With our chosen baseline in hand, we proceed by fitting a line to the $\frac{dE}{dx}$ vs $x$ distributions and shifting the distributions using the baseline in conjunction with this fit. These correction equations as a function of x are summarized for all three samples in Table \ref{tab:dedx_corr}. Examples of these before- and after-correction distributions for all three planes of MicroBooNE simulation are shown in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}, OnBeam in Figure \ref{fig:cutjust_sel2_onbeam_dedx_v_x}, and OffBeam in Figure \ref{fig:cutjust_sel2_offbeam_dedx_v_x}. The corresponding corrected 1D distributions are shown in Figure \ref{fig:cutjust_sel2_1d_dedx_v_x}.  
+
+
+
+
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsX_2_0_0.png}
 \hspace{1 mm}
@@ -317,6 +316,19 @@ Plane 2 & $\frac{1.63}{0.0001953x + 1.40}$ & $\frac{1.63}{0.0007812x + 1.60}$ \\
 \caption{MC candidate tracks' $\frac{dE}{dx}$ at each point along track before (top row) and after (bottom row) $\frac{dE}{dx}$ correction for planes 0, 1, 2 (left to right).  The empirical line extracted to do this intermediate calibration is shown in the top row. }
 \label{fig:cutjust_sel2_mc_dedx_v_x}
 \end{figure}
+
+%These corrections were previously shown to improve the performance of CC Inclusive Selection discussed \cite{bib:6172}. 
+\begin{table} 
+ \centering
+ \captionof{table}{$\frac{dE}{dx}$ correction equations as a function of $x$.  Note that the corrections for On and OffBeam are the same per plane. \label{tab:dedx_corr}}
+ \begin{tabular}{| l | l | l |}
+  \hline
+  & OnBeam and OffBeam & Simulation\\ [0.1ex] \hline
+Plane 0 & $\frac{1.63}{-0.0003125x + 1.53}$ & $\frac{1.63}{0.0009766x + 1.70}$ \\ \hline
+Plane 1 & $\frac{1.63}{0.0027344x + 2.50}$ & $\frac{1.63}{0.0009766x + 1.70}$ \\ \hline 
+Plane 2 & $\frac{1.63}{0.0001953x + 1.40}$ & $\frac{1.63}{0.0007812x + 1.60}$ \\  \hline
+\end{tabular}
+\end{table}
 
 
 \begin{figure}[h!]
@@ -338,7 +350,7 @@ Plane 2 & $\frac{1.63}{0.0001953x + 1.40}$ & $\frac{1.63}{0.0007812x + 1.60}$ \\
 \label{fig:cutjust_sel2_onbeam_dedx_v_x}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsX_1_0_0.png}
 \hspace{1 mm}
@@ -379,23 +391,12 @@ Plane 2 & $\frac{1.63}{0.0001953x + 1.40}$ & $\frac{1.63}{0.0007812x + 1.60}$ \\
 
 
 At this point, we have a set of candidate interactions with different multiplicities and energy deposition information.  We now subject these interactions to a series of cuts determined by multiplicity, in order to take advantage of multiplicity-specific features. Analysis cuts at this stage are determined empirically to maximize CC single $\pi^0$ selection while also minimizing cosmic contamination. These cuts are described in detail below.
-
+\clearpage
 \paragraph{Multiplicity 1 Cuts}
 % Why so many single track cosmics passing the FV cut? Are they mainly broken/ mis-reconstructed?
-Multiplicity 1 events are most affected by the cosmic background because they often topologically resemble crossing or stopping cosmic ray muons. To account for this, we require that the candidate track be fully contained in the FV; this cut removes most exiting and entering cosmics that are well reconstructed. The FV used here is 20 cm from the boundaries in X and Y, and 10 cm from the boundaries in Z. To further limit cosmic contamination from tracks broken during reconstruction, tracks that pass dead regions of the detector, and mis-reconstructed tracks, we consider that most crossing muons will have a long projection in the vertical direction.  To handle these interactions, we first cut all candidate tracks with a cos($\theta$) of $>$ 0.4 and a length of candidate track $<$ 15cm. 1D distributions of these cut are shown in Figures \ref{fig:cutjust_sel2_mult1_cosy}a, b and Figures \ref{fig:cutjust_sel2_mult1_len}a, b. Note that these cuts, particularly that on cos($\theta$), remove a significant fraction of cosmic contamination, and shift the dominant background in the multiplicity 1 category to CC-0$\pi^0$. 2D distributions showing the effect of these cuts for CC 1$\pi^0$ signal and various backgrounds are shown in Figure \ref{fig:cutjust_sel2_mult1_len_v_cosy}. On and OffBeam distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_mult1_len_v_cosy}. 
-\par The majority of the remaining cosmic contamination at this point consists of muons that stop or decay inside the FV.  These tracks deposit more energy near the $\mu$'s end (the Bragg peak) than along the rest of the length of the track (Figure \ref{fig:cut_ex_0}). Thus, we can use the projected length and the ratio of start to end $\frac{dE}{dx}$ as handles to identify cosmics. The start $\frac{dE}{dx}$ is calculated by averaging over the first 10 hits of the track in the best plane. A similar calculation is performed to calculate end $<\frac{dE}{dx}>$. We remove candidates with either a) a ratio $>$ 1.5 or b) a ratio $<=$ 1.5 and a projected track length less than 25cm.  This cut is illustrated in Fig. 31.
+Multiplicity 1 events are most affected by the cosmic background because they topologically resemble crossing or stopping cosmic ray muons. To account for this, we require that the candidate track be fully contained in the FV; this cut removes most exiting and entering cosmics that are well reconstructed. The FV used here is 20 cm from the boundaries in X and Y, and 10 cm from the boundaries in Z. To further limit cosmic contamination from tracks broken during reconstruction, tracks that pass dead regions of the detector, and mis-reconstructed tracks, we consider that most crossing muons will have a long projection in the vertical direction.  To handle these interactions, we first cut all candidate tracks with a cos($\theta$) of $>$ 0.4 and a length of candidate track $<$ 15cm. 1D distributions of these cut are shown in Figures \ref{fig:cutjust_sel2_mult1_cosy}a, b and Figures \ref{fig:cutjust_sel2_mult1_len}a, b. Note that these cuts, particularly that on cos($\theta$), remove a significant fraction of cosmic contamination, and shift the dominant background in the multiplicity 1 category to CC-0$\pi^0$. 2D distributions showing the effect of these cuts for CC 1$\pi^0$ signal and various backgrounds are shown in Figure \ref{fig:cutjust_sel2_mult1_len_v_cosy}. On and OffBeam distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_mult1_len_v_cosy}. 
 
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.9]{Selection_II_Section/cut_ex_0.png}
-\caption{An example of the motivating event topology for the ratio cut on the start $<\frac{dE}{dx}>$ to end $<\frac{dE}{dx}>$.  The goal of this cut is to remove cosmic events with crossing muons that stop and decay in the detector. If the Michel electron is not reconstructed, the stopping muon’s candidate vertex will have multiplicity 1, and the Bragg peak will sit at the vertex. }
-\label{fig:cut_ex_0}
-\end{figure}
-
-These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratiodedx}-\ref{fig:cutjust_sel2_mult1_projylen}; note that as expected, CC-0$\pi^0$ dominates at this cut stage. 2D distributions of all backgrounds are shown in Figure \ref{fig:cutjust_sel2_mult1_dedxratio_v_leny}, and of On and OffBeam in Figure \ref{fig:cutjust_sel2_onbeam_mult1_dedxratio_v_leny}.
-
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -412,7 +413,7 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
 \label{fig:cutjust_sel2_mult1_cosy}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -429,7 +430,7 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
 \label{fig:cutjust_sel2_mult1_len}
 \end{figure}
 
-\begin{figure}[t!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.25\textwidth}
     \centering
@@ -476,7 +477,6 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
 \caption{Multiplicity 1 track length vs y directional component distribution with cut shown in pink for a) All candidates; b) Cosmics; c) CC 1$\pi^0$; d) CC 0$\pi^0$; e) NC $\pi^0$; f) NC 0$\pi^0$; g) Other }
 \label{fig:cutjust_sel2_mult1_len_v_cosy}
 \end{figure}
-
 \begin{figure}[h!]
 \centering
   \begin{subfigure}[t]{0.25\textwidth}
@@ -490,13 +490,23 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
     \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_OffBeam.png}
     \caption{ }
   \end{subfigure} 
-
 \caption{Multiplicity 1 track length vs y directional component distribution with cut shown in pink for a) OnBeam and b) OffBeam }
 \label{fig:cutjust_sel2_onbeam_mult1_len_v_cosy}
 \end{figure}
 
+\par The majority of the remaining cosmic contamination at this point consists of muons that stop or decay inside the FV.  These tracks deposit more energy near the $\mu$'s end (the Bragg peak) than along the rest of the length of the track (Figure \ref{fig:cut_ex_0}). Thus, we can use the projected length and the ratio of start to end $\frac{dE}{dx}$ as handles to identify cosmics. The start $\frac{dE}{dx}$ is calculated by averaging over the first 10 hits of the track in the best plane. A similar calculation is performed to calculate end $<\frac{dE}{dx}>$. We remove candidates with either a) a ratio $>$ 1.5 or b) a ratio $<=$ 1.5 and a projected track length less than 25cm.  1D distributions over these variation are shown in Figures \ref{fig:cutjust_sel2_mult1_ratiodedx}-\ref{fig:cutjust_sel2_mult1_projylen}.  In these distributions we observe (as expected) that CC-0$\pi^0$ interactions dominate the sample at this cut stage. 2D distributions of all backgrounds are shown in Figure \ref{fig:cutjust_sel2_mult1_dedxratio_v_leny}, and of On and OffBeam in Figure \ref{fig:cutjust_sel2_onbeam_mult1_dedxratio_v_leny}.
 
-\begin{figure}[h!]
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.9]{Selection_II_Section/cut_ex_0.png}
+\caption{An example of the motivating event topology for the ratio cut on the start $<\frac{dE}{dx}>$ to end $<\frac{dE}{dx}>$. In this graphic, a cosmic muon (red triangle) enters the detector and decays into a Michel electron (gray triangle). When it does so, it deposits more energy near the decay point than while it travelled.  Assuming the Michel electron is not mis-reconstructed as a track, the stopping muon’s candidate vertex will have multiplicity 1, and the Bragg peak will sit at the vertex. This contrasts with a neutrino-induced muon coming to rest in the detector (green triangle).  In this case, the higher energy deposition will be at the end of the muon track, away from the candidate vertex. }
+\label{fig:cut_ex_0}
+\end{figure}
+
+
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -513,7 +523,7 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
 \label{fig:cutjust_sel2_mult1_ratiodedx}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -530,7 +540,7 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
 \label{fig:cutjust_sel2_mult1_ratiodedx_log}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -547,7 +557,7 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
 \label{fig:cutjust_sel2_mult1_projylen}
 \end{figure}
 
-\begin{figure}[t!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.25\textwidth}
     \centering
@@ -595,7 +605,7 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
 \label{fig:cutjust_sel2_mult1_dedxratio_v_leny}
 \end{figure}
 
-\begin{figure}[t!]
+\begin{figure}[H]
 \centering
 \begin{subfigure}[t]{0.25\textwidth}
   \centering
@@ -615,16 +625,9 @@ These 1D distributions are shown in Figures \ref{fig:cutjust_sel2_mult1_ratioded
 
 \clearpage
 \paragraph{Multiplicity $>$ 1 Cuts}
-Cosmic tracks can be mistakenly reconstructed as higher multiplicity events when they are ``broken''. To minimize the contribution of these events to our sample, the first cut we consider is on the angle between the two longest neutrino candidate tracks.  This distribution is shown in Figure \ref{fig:cutjust_sel2_cosangle}; we cut candidates with a cos($\theta$) $>$ 0.9.  After this cut is employed, the largest remaining cosmic contribution comes from topologies shown in Figure \ref{fig:cut_ex_2}.  To handle this case, we consider instances in which the candidate $\mu$ track end point is higher in Y than the second longest track end point in Y (such as Figure \ref{fig:cut_ex_2}).  In this case, we cut candidates with a second longest track length $<$ 30 cm and a directional y component of the candidate track of $>$ 0.65. The 1D distributions of each variable are shown in Figures \ref{fig:cutjust_sel2_multgt1_tracklen1} and \ref{fig:cutjust_sel2_multgt1_dcosy}.  2D distributions of signal and background are shown in Figure \ref{fig:cutjust_sel2_multgt1_len_v_cosy}; corresponding data distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_multgt1_len_v_cosy}. 
+Cosmic tracks can be mistakenly reconstructed as higher multiplicity events when they are ``broken''. To minimize the contribution of these events to our sample, the first cut we consider is on the angle between the two longest neutrino candidate tracks.  This distribution is shown in Figure \ref{fig:cutjust_sel2_cosangle}; we cut candidates with a cos($\theta$) $>$ 0.9.  After this cut is employed, the largest remaining cosmic contribution comes from crossing muons that interact in the detector and produce several secondary charged particles. An example of this topology is shown in Figure \ref{fig:cut_ex_2}.  To mitigate the contribution of these interactions to our sample, we consider instances in which the candidate $\mu$ track end point is higher in Y than the second longest track end point in Y (such as the example in Figure \ref{fig:cut_ex_2}).  In such instances, we cut candidates with a second longest track length $<$ 30 cm and a cos($\theta_y$) component of the candidate track of $>$ 0.65. The 1D distributions of each variable are shown in Figures \ref{fig:cutjust_sel2_multgt1_tracklen1} and \ref{fig:cutjust_sel2_multgt1_dcosy}.  2D distributions of signal and background are shown in Figure \ref{fig:cutjust_sel2_multgt1_len_v_cosy}; corresponding data distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_multgt1_len_v_cosy}. 
 
-\begin{figure}[t!]
-  \centering
-  \includegraphics[scale=0.8]{Selection_II_Section/cut_ex_2.png}
-  \caption{ Example topology targeted by multiplicity $>$ 1 cuts contingent on candidate end point in Y. }
-\label{fig:cut_ex_2}
-\end{figure}
-
-\begin{figure}[t!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -641,7 +644,16 @@ Cosmic tracks can be mistakenly reconstructed as higher multiplicity events when
 \label{fig:cutjust_sel2_cosangle}
 \end{figure}
 
-\begin{figure}[t!]
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.8]{Selection_II_Section/cut_ex_2.png}
+  \caption{ Example topology targeted by multiplicity $>$ 1 cuts contingent on candidate end point in Y. }
+\label{fig:cut_ex_2}
+\end{figure}
+
+
+\begin{figure}[H]
 \centering
  \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -658,7 +670,7 @@ Cosmic tracks can be mistakenly reconstructed as higher multiplicity events when
 \label{fig:cutjust_sel2_multgt1_tracklen1}
 \end{figure}
 
-\begin{figure}[t!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.4\textwidth}
     \centering
@@ -675,7 +687,7 @@ Cosmic tracks can be mistakenly reconstructed as higher multiplicity events when
 \label{fig:cutjust_sel2_multgt1_dcosy}
 \end{figure}
 
-\begin{figure}[t!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.25\textwidth}
     \centering
@@ -721,7 +733,7 @@ Cosmic tracks can be mistakenly reconstructed as higher multiplicity events when
 \label{fig:cutjust_sel2_multgt1_len_v_cosy}
 \end{figure}
 
-\begin{figure}[t!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.25\textwidth}
     \centering
@@ -740,7 +752,7 @@ Cosmic tracks can be mistakenly reconstructed as higher multiplicity events when
 
 \clearpage
 \paragraph{Multiplicity 2 Cuts}
-Multiplicity 2 events pass first through the previous set of cuts for mult $>$ 1, and are thus already a reduced sample. We now apply an additional set of cuts to mitigate the remaining population of multiplicity 2 candidates formed by stopping cosmic muons and their Michel electrons. Michel electron reconstruction-as-a-track occurs sometimes because these low energy showers tend to be fairly linear.  Thus our current algorithms sometimes mistake them for track activity.  In these background events, the vertex candidate is at the stopping point of the muon, and is assumed to be the start point of a neutrino interaction. We require one of two conditions be met: in the first condition, we check that the smaller of the two tracks be greater than 30 cm (Figure \ref{fig:cutjust_sel2_mult2_secondtrklen}). If the smaller track satisfies this condition, the event passes the multiplicity 2 cuts. If the event does not pass the track length cut, we consider an additional set of conditions before filtering the event.  The second set of conditions considers the $<\frac{dE}{dx}>$ at the assumed start of the track (Figure \ref{fig:cutjust_sel2_mult2_dedxst}), $<\frac{dE}{dx}>$ at the assumed end (Figure \ref{fig:cutjust_sel2_mult2_dedxend}), and the end point of the candidate $\mu$ (Figure \ref{fig:cutjust_sel2_mult2_endy}).  In the case of a stopping muon, the start $<\frac{dE}{dx}>$ will be larger than the end $<\frac{dE}{dx}>$, and the end point of the candidate track will be high in Y in the TPC (Figure \ref{fig:cut_ex_1}).  Thus, in the second set of conditions we require that the end point of the candidate $\mu$ track is $<=$ 96.5 cm in Y and that either 1) the start $<\frac{dE}{dx}>$ of the candidate track is less than the end, 2) the start $<\frac{dE}{dx}>$ is $<=$ 2.5 $\frac{MeV}{cm}$ or 3) the end $<\frac{dE}{dx}>$ is $>=$ 4 $\frac{MeV}{cm}$. The corresponding 2D distributions are shown in Figures \ref{fig:cutjust_sel2_mult2_dedx_v_dedx} and \ref{fig:cutjust_sel2_onbeam_mult2_dedx_v_dedx}.
+Multiplicity 2 events pass first through the previous set of cuts for interactions with multiplicity $>$ 1, and are thus already a reduced sample. We now apply an additional set of cuts to mitigate the remaining population of multiplicity 2 candidates formed by stopping cosmic muons and their Michel electrons. Michel electron reconstruction-as-a-track occurs sometimes because these low energy showers tend to be fairly linear.  Thus our current algorithms sometimes mistake them for track activity.  In these background events, the vertex candidate is at the stopping point of the muon, and is assumed to be the start point of a neutrino interaction. We require one of two conditions be met: in the first condition, we check that the smaller of the two tracks be greater than 30 cm (Figure \ref{fig:cutjust_sel2_mult2_secondtrklen}). If the smaller track satisfies this condition, the event passes the multiplicity 2 cuts. If the event does not pass the track length cut, we consider an additional set of conditions before filtering the event.  The second set of conditions considers the $<\frac{dE}{dx}>$ at the assumed start of the track (Figure \ref{fig:cutjust_sel2_mult2_dedxst}), $<\frac{dE}{dx}>$ at the assumed end (Figure \ref{fig:cutjust_sel2_mult2_dedxend}), and the end point of the candidate $\mu$ (Figure \ref{fig:cutjust_sel2_mult2_endy}).  In the case of a stopping muon, the start $<\frac{dE}{dx}>$ will be larger than the end $<\frac{dE}{dx}>$, and the end point of the candidate track will be high in Y in the TPC (Figure \ref{fig:cut_ex_1}).  Thus, in the second set of conditions we require that the end point of the candidate $\mu$ track is $<=$ 96.5 cm in Y and that either 1) the start $<\frac{dE}{dx}>$ of the candidate track is less than the end, 2) the start $<\frac{dE}{dx}>$ is $<=$ 2.5 $\frac{MeV}{cm}$ or 3) the end $<\frac{dE}{dx}>$ is $>=$ 4 $\frac{MeV}{cm}$. The corresponding 2D distributions are shown in Figures \ref{fig:cutjust_sel2_mult2_dedx_v_dedx} and \ref{fig:cutjust_sel2_onbeam_mult2_dedx_v_dedx}.
 
 \begin{figure}[h!]
   \centering
@@ -1201,7 +1213,7 @@ At this point, it's worth taking a look at the state of our sample by considerin
 \includegraphics[scale=0.26]{Selection_II_Section/LL_sel2_vtxz_vtxy_2Dmcbnbcos.png}
     \caption{ }
   \end{subfigure} 
-\caption{ Vertex distributions in MCBNB+Cosmics for a) XY, b) XZ and c) YZ views. }
+\caption{ Vertex distributions in MicroBooNE Simulation after CC Inslusive Selection for a) XY, b) XZ and c) YZ views. }
 \label{fig:ll_sel2_vertices_mc}
 \end{figure}
 
@@ -1925,7 +1937,7 @@ Now that we've incorporated reconstructed shower information into our background
 \includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_IP.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Impact parameter of reconstructed showers in events with 2 or more reconstructed showers for a) Unscaled MCBNB + Cosmics; b) Data to simulation comparison }
+\caption{ Impact parameter of reconstructed showers in events with 2 or more reconstructed showers for a) Unscaled MicroBooNE simulation; b) Data to simulation comparison }
 \label{fig:cutjust_pi0_IP}
 \end{figure}
 
@@ -1961,7 +1973,7 @@ Now that we've incorporated reconstructed shower information into our background
     \includegraphics[scale=0.6]{Pi0_Cut_Section/ex_oangle_bad_signal.png}
     \caption{ }
   \end{subfigure} 
-  \caption{ a) Opening angle distribution of signal CC single $\pi^0$ events in a 420k sample of MCBNB + Cosmics; b) Example signal event where both reconstructed candidate showers originate from the same true shower. }
+  \caption{ a) Opening angle distribution of signal CC single $\pi^0$ events in a 4.232e20 POT of MicroBooNE simulation; b) Example signal event where both reconstructed candidate showers originate from the same true shower. }
 \label{fig:mcvar_pi0_onlyoangle}
 \end{figure}
 
@@ -1995,7 +2007,7 @@ Now that we've incorporated reconstructed shower information into our background
     \includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_oangle.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Opening angle of reconstructed showers in events with 2 or more reconstructed showers for a) Unscaled MCBNB + Cosmics; b) Data to simulation comparison }
+\caption{ Opening angle of reconstructed showers in events with 2 or more reconstructed showers for a) Unscaled MicroBooNE simulation; b) Data to simulation comparison }
 \label{fig:cutjust_pi0_OA}
 \end{figure}
 
@@ -2365,45 +2377,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 
 \clearpage
 \subsubsection{A Closer Look at Sample Composition for $\pi^0\rightarrow\geq 2 \gamma$}
-A detailed breakdown of the final selected sample is described in Table \ref{tab:pi0_obnox_breakdown}.  These categories assign all cosmic-origin showers to the cosmic category.  However, thus far we have not otherwise understood the origin of the `showers' in our candidate pool.  We further examine the shower origin content of each non-Cosmic sample in the `Sample Composition Categories' in Figure \ref{fig:physics_showerOriginBreakdown_mass}.  In Figure \ref{fig:physics_showerOriginBreakdown_mass}a, we can see that 93\% of our signal sample peak is composed of events with 2 neutrino-induced $\pi^0$ showers. We see a similar trend in our set of $\pi^0$ backgrounds ($\nu_\mu$ CC CEx, $\nu_\mu$ Mult $\pi^0$, $\nu_\mu$ NC $\pi^0$) in Figures \ref{fig:physics_showerOriginBreakdown_mass}c-e.  In Figure \ref{fig:physics_showerOriginBreakdown_mass}b, we get a mix of shower origins-- the 2-$\nu$ showers shown in green are caused by $\eta$ decays from our `Final State EM' category, while the 2 $\pi^0$ shower events are due to CC 1$\pi^0$ out of FV, NC Charge exchange, and Kaon decay. Finally, the other category shows a mix.  The 2-$\pi^0$ shower contribution here is due to $\nu_e$ and $\overline{\nu_\mu}$, while the the remaining yellow background is due to tracks mis-reconstructed as showers in CC events.
-
-% From here, we see that 93\% of our sample has 2 selected candidate showers that backtrack to true $\nu$-induced $\pi^0$'s, while nearly all of the remaining 7\% have at least 1 candidate shower that tracks to a true $\nu$-induced $\pi^0$. 
-
-\begin{table}[H]
-\centering
-\captionof{table}{Detailed breakdown of sample composition at final $\pi^0$ selection stage \label{tab:pi0_obnox_breakdown}}
- \begin{tabular}{|l|l|l|}
- \hline
-Sample Composition Category & Interaction & Sample Composition \\ [0.1ex] \hline
-$\nu_\mu$ Signal & $\nu_\mu$ CC 1$\pi^0$ in FV & 0.671 \\ \hline
-$\nu_\mu$ CC pion charge exchange & $\nu_\mu$ CC pion charge exchange & 0.039 \\ \hline
-$\nu_\mu$ Multiple $\pi^0$ & $\nu_\mu$ Multiple $\pi^0$ & 0.068 \\ \hline
-$\nu_\mu$ NC $\pi^0$ & $\nu_\mu$ NC $\pi^0$ & 0.041 \\ \hline
-$\nu_\mu$ FSEM & $\nu_\mu$ CC 1$\pi^0$ out of FV & 0.022 \\
-& $\nu_\mu$ $N-\gamma$ & 0.028 \\
-& $\nu_\mu$ Kaon Decay & 0.005 \\
-& $\nu_\mu$ NC pion charge exchange & 0.005 \\ 
-&$\nu_\mu$ Brem + $\mu$ capture at rest & 0.046 \\ \hline
-Other & $\nu_e$ &0.005 \\
-&$\overline{\nu_\mu}$ & 0.002 \\
-& Misreconstruction & 0.005 \\ \hline
-Cosmic & Cosmic + Neutrino& 0.063 \\
-& Cosmic (Data) & 0.000 \\ \hline
-\end{tabular}
-\end{table}
-
-%\begin{table}[H]
-%\centering
-%\captionof{table}{Detailed background breakdown of the CC 1$\pi^0$ sample \label{tab:pi0cuts_cc1pi0_obnox_breakdown}}
-% \begin{tabular}{|l|l|l|}
-% \hline
-%Candidate $\pi^0$ `Shower' 1 Description & Candidate $\pi^0$ `Shower' 2 Description & CC 1$\pi^0$ Composition \\ [0.1ex] \hline
-%$\nu$-Induced $\pi^0$ shower & $\nu$-Induced $\pi^0$ shower & 0.93 \\ 
-%& $\nu$-Induced non-$\pi^0$ shower & 0.02 \\ 
-%& $\nu$-Induced track & 0.05 \\ 
-%$\nu$-Induced track & $\nu$-Induced track & 0.002 \\ \hline
-%\end{tabular}
-%\end{table}
+A detailed breakdown of the final selected sample is described in Table \ref{tab:pi0_obnox_breakdown}.  As discussed earlier, we assign all interaction types with cosmic-origin showers to the cosmic category.  However, thus far we have not otherwise investigated the origin of the `showers' in our candidate pool.  We examine the shower origin content of each non-Cosmic `Sample Composition Category' in Figure \ref{fig:physics_showerOriginBreakdown_mass}.  In Figure \ref{fig:physics_showerOriginBreakdown_mass}a, we see that 93\% of our signal is composed of events with 2 neutrino-induced $\pi^0$ showers (salmon). There is a similar trend in our $\pi^0$-dominated backgrounds ($\nu_\mu$ CC CEx, $\nu_\mu$ Mult $\pi^0$, $\nu_\mu$ NC $\pi^0$) in Figures \ref{fig:physics_showerOriginBreakdown_mass}c-e.  In Figure \ref{fig:physics_showerOriginBreakdown_mass}b, we get a mix of shower origins--the 2 $\nu$-induced showers shown in green are caused by $\eta$ decays, while the 2 neutrino-induced $\pi^0$ shower events are due to CC 1$\pi^0$ out of FV, NC Charge exchange, and Kaon decay. Finally, the `Other' category shows a mix.  The 2 $\pi^0$ shower contribution here is due to $\nu_e$ and $\overline{\nu_\mu}$, while the the remaining yellow background is due to tracks mis-reconstructed as showers in CC events.
 
 \begin{figure}[H]
 \centering
@@ -2448,10 +2422,49 @@ Cosmic & Cosmic + Neutrino& 0.063 \\
 \end{figure}
 
 
+
+\begin{table}[H]
+\centering
+\captionof{table}{Detailed breakdown of sample composition at final $\pi^0$ selection stage \label{tab:pi0_obnox_breakdown}}
+ \begin{tabular}{|l|l|l|}
+ \hline
+Sample Composition Category & Interaction & Sample Composition \\ [0.1ex] \hline
+$\nu_\mu$ Signal & $\nu_\mu$ CC 1$\pi^0$ in FV & 0.671 \\ \hline
+$\nu_\mu$ CC pion charge exchange & $\nu_\mu$ CC pion charge exchange & 0.039 \\ \hline
+$\nu_\mu$ Multiple $\pi^0$ & $\nu_\mu$ Multiple $\pi^0$ & 0.068 \\ \hline
+$\nu_\mu$ NC $\pi^0$ & $\nu_\mu$ NC $\pi^0$ & 0.041 \\ \hline
+$\nu_\mu$ FSEM & $\nu_\mu$ CC 1$\pi^0$ out of FV & 0.022 \\
+& $\nu_\mu$ $N-\gamma$ & 0.028 \\
+& $\nu_\mu$ Kaon Decay & 0.005 \\
+& $\nu_\mu$ NC pion charge exchange & 0.005 \\ 
+&$\nu_\mu$ Brem + $\mu$ capture at rest & 0.046 \\ \hline
+Other & $\nu_e$ &0.005 \\
+&$\overline{\nu_\mu}$ & 0.002 \\
+& Misreconstruction & 0.005 \\ \hline
+Cosmic & Cosmic + Neutrino& 0.063 \\
+& Cosmic (Data) & 0.000 \\ \hline
+\end{tabular}
+\end{table}
+
+%\begin{table}[H]
+%\centering
+%\captionof{table}{Detailed background breakdown of the CC 1$\pi^0$ sample \label{tab:pi0cuts_cc1pi0_obnox_breakdown}}
+% \begin{tabular}{|l|l|l|}
+% \hline
+%Candidate $\pi^0$ `Shower' 1 Description & Candidate $\pi^0$ `Shower' 2 Description & CC 1$\pi^0$ Composition \\ [0.1ex] \hline
+%$\nu$-Induced $\pi^0$ shower & $\nu$-Induced $\pi^0$ shower & 0.93 \\ 
+%& $\nu$-Induced non-$\pi^0$ shower & 0.02 \\ 
+%& $\nu$-Induced track & 0.05 \\ 
+%$\nu$-Induced track & $\nu$-Induced track & 0.002 \\ \hline
+%\end{tabular}
+%\end{table}
+
+
 \clearpage
-\subsection{Candidates With At Least One Showers}
+\subsection{Candidates With At Least One Shower}
 In this section, we consider the hypothesis that any neutrino-induced photon originating from the vertex indicates the presence of a $\pi^0$.  This strategy will allow us access to the single-reconstructed shower events, and give us a chance to regain a significant chunk of events. More detail on the one-shower hypothesis exists externally \cite{bib:timb_singleshower}.
-\par As mentioned in an earlier section, by requiring at least 2 showers we reduce our sample size by 95\%.  However, this 95\% reduction includes roughly 50\% of the remaining signal after the CC Inclusive Selection filter has completed. This chunk of signals with only one reconstructed shower is largely the result of our shower reconstruction efficiency, shown earlier in Figure \ref{fig:shower_reco_efficiency}. Below 100 MeV of deposited shower energy, the shower reconstruction efficiency drop below 50\%, which results in a number of signal events with only 1 reconstructed shower. When we include these events by only requiring 1 shower be reconstructed in an event, we see the pass rates and sample compositions change.  These values are shown Tables \ref{tab:pi0_1shower_eventrates} and \ref{tab:pi0_1shower_composition}. We see from these tables that, before any additional checks or cuts, our signal efficiency and purity are 26\% and 40\% respectively; this is in contrast to 11\% and 62\% efficiency and purity we saw in the corresponding two-shower Tables \ref{tab:pi0_2showers_eventrates} and \ref{tab:pi0_2showers_composition}. 
+\par As mentioned in an earlier section, by requiring at least 2 showers we reduce our sample size by 95\%.  However, this 95\% reduction includes roughly 50\% of the remaining signal after the CC Inclusive Selection filter has completed. This chunk of signals with only one reconstructed shower is largely the result of our low shower reconstruction efficiency for sub-leading photons, shown earlier in Figure \ref{fig:shower_reco_efficiency}. Below 100 MeV of deposited shower energy, the shower reconstruction efficiency drops below 50\%, which results in a number of signal events with only 1 reconstructed shower. 
+\par When we only require 1 shower be reconstructed in an event, we see the pass rate and sample composition change.  These values are shown Tables \ref{tab:pi0_1shower_eventrates} and \ref{tab:pi0_1shower_composition}. We see from these tables that, before any additional checks or cuts, our signal efficiency and purity are 26\% and 40\% respectively; this is in contrast to 11\% and 62\% efficiency and purity we saw in the corresponding two-shower Tables \ref{tab:pi0_2showers_eventrates} and \ref{tab:pi0_2showers_composition}. 
 
 \begin{table}[H]
 \centering
@@ -2459,7 +2472,7 @@ In this section, we consider the hypothesis that any neutrino-induced photon ori
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Total \\ [0.1ex] \hline
-CC Inclusive Selection & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.087 \\
+CC Inclusive & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.087 \\
 $\geq$ 1 Shower & 0.257 & 0.006 & 0.005 & 0.001 & 0.015 & 0.010 \\ \hline
 \end{tabular}
 \end{table}
@@ -2469,8 +2482,8 @@ $\geq$ 1 Shower & 0.257 & 0.006 & 0.005 & 0.001 & 0.015 & 0.010 \\ \hline
 \captionof{table}{ Sample composition after 1 shower requirement scaled to OnBeam POT \label{tab:pi0_1shower_composition}}
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
- & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Cosmic (MC) & Cosmic (Data) \\ [0.1ex] \hline
-CC Inclusive Selection & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\
+ & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Cosmic+Neutrino & Cosmic (Data) \\ [0.1ex] \hline
+CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\
 $\geq$ 1 Shower & 0.402 & 0.335 & 0.021 & 0.016 & 0.061 & 0.031 & 0.135\\ \hline
 \end{tabular}
 \end{table}
@@ -2478,11 +2491,9 @@ $\geq$ 1 Shower & 0.402 & 0.335 & 0.021 & 0.016 & 0.061 & 0.031 & 0.135\\ \hline
 %\subsection{Signal and Backgrounds for $\pi^0$ \rightarrow $\geq$ 2$\gamma$}
 \subsubsection{Tuning Selection for Events with Single Shower}
 
-Similar to how we proceeded to tune our 2-shower cuts, we begin here by breaking events into signal and background samples.  The sample definitions and background breakdowns are the same as described in the 2-shower selection section.
+Similar to how we tuned our 2-shower cuts, we begin here by breaking events into signal and background samples.  The sample definitions and background breakdowns are the same as described in the 2-shower selection section.  We next examine potential variables to use in the selection.  First, we consider the impact parameter of all showers with the vertex.  This is shown in Figure \ref{fig:cutjust_pi0_1shower_IP}a for the cut-tuning backgrounds, and with data-MC comparison in Figure \ref{fig:cutjust_pi0_1shower_IP}b. As noted earlier, we expect small impact parameters, as the vertex is used to reconstruct 3D direction. However, due to the effect on shower direction noted in the two-shower section, we choose to impose an impact parameter cut to improve the angular resolution of our candidate shower sample. To be conservative, we choose here an impact parameter $\leq$ 4cm. Next, we consider the conversion distance of the shower from the reconstructed vertex (Figure \ref{fig:cutjust_pi0_1shower_RL}a and b). Because there is some separation power in this variable, we employ a conversion distance cut of 62 cm.  Finally, if more than one reconstructed shower passes both previous cut, we select the higher energy shower as our shower candidate.  Recall that this is in contrast to the 2-shower path in which multiple-candidate-pair events were removed.
 
-\par We now examine potential variables to use in the selection.  First, we consider the impact parameter of all showers with the vertex.  This is shown in Figure \ref{fig:cutjust_pi0_1shower_IP}a for the cut-tuning backgrounds, and with data-MC comparison in Figure \ref{fig:cutjust_pi0_1shower_IP}b. As noted earlier, we expect small impact parameters, as the vertex is used to reconstruct 3D direction. However, due to exception noted in the two-shower section, we choose to impose an impact parameter cut to improve the angular resolution of our candidate shower sample. To be conservative, we choose here an impact parameter $\leq$ 4cm. Next, we consider the conversion distance of the shower from the reconstructed vertex (Figure \ref{fig:cutjust_pi0_1shower_RL}a and b). Because there is some separation power in this variable, we employ a conversion distance cut of 62 cm in the single shower filter. Finally, if more than one candidate shower passes both previous cut, we select the higher energy shower to be our candidate.  Recall that this is in contrast to the 2-shower path in which multiple-candidate-pair events were removed.
-
-\begin{figure}[t!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.35\textwidth}
     \centering
@@ -2495,11 +2506,11 @@ Similar to how we proceeded to tune our 2-shower cuts, we begin here by breaking
 \includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_vtx_IP.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Impact parameter of shower axis with vertex for a) Unscaled MCBNBC + Cosmics; b) Data to simulation comparison }
+\caption{ Impact parameter of shower axis with vertex for a) Unscaled MicroBooNE simulation; b) Data to simulation comparison }
 \label{fig:cutjust_pi0_1shower_IP}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
   \begin{subfigure}[t]{0.35\textwidth}
     \centering
@@ -2512,21 +2523,23 @@ Similar to how we proceeded to tune our 2-shower cuts, we begin here by breaking
 \includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_RL.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Conversion distance of shower candidate from vertex for a) Unscaled MCBNBC + Cosmics; b) Data to simulation comparison }
+\caption{ Conversion distance of shower candidate from vertex for a) Unscaled MicroBooNE simulation; b) Data to simulation comparison }
 \label{fig:cutjust_pi0_1shower_RL}
 \end{figure}
 
+
+
 \subsubsection{Results for $\pi^0\rightarrow \geq 1\gamma$}
-\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and MCBNBCosmic in Table \ref{tab:pi0_event_rates}. This can be compared to the two shower selection results summarized in Table \ref{tab:2shpi0_event_rates}.  We additionally note that the MEC contribution to the final sample for single shower cuts is $<$ 1\%; this is similar to what we observed for two shower cuts (Figure \ref{fig:physics_singleshower_inttype}). %This may  suggest a correlation between MC-excess over data and MEC events. 
+\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and Simulation in Table \ref{tab:pi0_event_rates}. This can be compared to the two shower selection results summarized in Table \ref{tab:2shpi0_event_rates}.  
 
 \begin{table}[H] 
  \centering
  \captionof{table}{Event counts at each selection stage for the Single Shower-CC$\pi^0$ selection chain with MCC8.3 samples scaled to OnBeam POT.  Uncertainties shown are statistical. \label{tab:pi0_event_rates}}
  \begin{tabular}{| l | l | l | l | l |}
   \hline
-   & OnBeam & OffBeam & On - OffBeam & MCBNBCos \\ [0.1ex] \hline
+   & OnBeam & OffBeam & On - OffBeam & Simulation \\ [0.1ex] \hline
 No Cuts & 544751 $\pm$ 738 & 462076 $\pm$ 1001 & 82675 $\pm$ 1244 & 48949 $\pm$ 76 \\ 
-CC Inclusive Selection & 3753 $\pm$ 61 & 564 $\pm$ 35  & 3189 $\pm$ 71 & 4268 $\pm$ 22  \\ 
+CC Inclusive & 3753 $\pm$ 61 & 564 $\pm$ 35  & 3189 $\pm$ 71 & 4268 $\pm$ 22  \\ 
 Single Shower Cuts & 257 $\pm$ 16 & 15 $\pm$ 6 & 242 $\pm$ 17 & 252 $\pm$ 5  \\ \hline
 \end{tabular}
  \end{table}
@@ -2540,7 +2553,8 @@ Single Shower Cuts & 257 $\pm$ 16 & 15 $\pm$ 6 & 242 $\pm$ 17 & 252 $\pm$ 5  \\ 
 \end{figure}
 
 
-\par A summary of the passing rates for signal and all backgrounds is shown in Table \ref{tab:pi0_passrates}.  Note that we have maintained a relatively high efficiency for the signal with respect to other listed backgrounds. Sample composition is shown in Table \ref{tab:pi0_purity}. 
+\par A summary of the passing rates for signal and all backgrounds is shown in Table \ref{tab:pi0_passrates}.  Note that the signal efficiency is significantly higher here in the one shower approach than in the two. This suggests that the one shower approach is a valuable handle on this additional pool of untapped events for extracting physics information. While the purity of the sample does take a hit for this selection, it is still competetive with measurements made by previous experiments (Table \ref{tab:history_ccpi0_results}). Sample composition is shown in Table \ref{tab:pi0_purity}.  Signal and background distributions are shown for a variety of kinematic variables in Figures \ref{fig:physics_singleshower_mulen} - \ref{fig:physics_singleshower_ip}.
+
 
 \begin{table}[H]
 \centering
@@ -2549,7 +2563,7 @@ Single Shower Cuts & 257 $\pm$ 16 & 15 $\pm$ 6 & 242 $\pm$ 17 & 252 $\pm$ 5  \\ 
  \hline
  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & All \\ [0.1ex] \hline
 No Cuts & - & - & - & - & - & -\\
-SelectionII & 0.331 & 0.105 & 0.008 & 0.010 & 0.030 & 0.087 \\ 
+CC Inclusive & 0.331 & 0.105 & 0.008 & 0.010 & 0.030 & 0.087 \\ 
 Single Shower Cuts & 0.170 & 0.002 & 0.003 & 0.0003 & 0.009 & 0.005 \\ \hline
 \end{tabular}
 \end{table}
@@ -2561,12 +2575,10 @@ Single Shower Cuts & 0.170 & 0.002 & 0.003 & 0.0003 & 0.009 & 0.005 \\ \hline
  \hline
   & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other& Cosmic (MC) & Cosmic (Data) \\ [0.1ex] \hline
 No Cuts  & 0.018 &  0.695 & 0.046 & 0.194  & 0.047 & -&-\\
-SelectionII & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\ 
+CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\ 
 Single Shower Cuts & 0.561 & 0.205 & 0.025 & 0.012 & 0.080 & 0.060 & 0.057 \\ \hline
 \end{tabular}
 \end{table}
-
-Signal and background distributions are shown more explicitly for a variety of kinematic variables in Figure \ref{fig:physics_singleshower_mulen} - Figure \ref{fig:physics_singleshower_ip}.
 
 \begin{figure}[H]
 \centering
@@ -2689,7 +2701,45 @@ Signal and background distributions are shown more explicitly for a variety of k
 \end{figure}
 
 \subsubsection{A Closer Look at Sample Composition for $\pi^0\rightarrow\geq 1 \gamma$} 
-We again consider a detailed breakdown of the final selected sample of the single shower sample.  This breakdown is described in Table \ref{tab:singleshower_obnox_breakdown} and corresponds to the data-MC comparisons in this section. We see from this table that our sample is 56\% pure with our $\nu_\mu$ CC 1$\pi^0$ signal; this contrasts to the 67\% purity we observed previously along the 2-shower selection path.  We further examine the quality of this 56\% by considering the origin of each candidate shower in the signal sample in Table \ref{tab:singleshower_obnox_ccoth_breakdown}.  From row 3 in this table, we see that 97\% of our sample has a selected candidate shower that backtracks to a true $\nu$-induced $\pi^0$, with the majority of remaining tags due to tracks mis-reconstructed as showers. This indicates that we have selected a set of signal events with high quality, automated shower reconstruction.  Plots of signal and background as described in the `Sample Composition Category' in Table \ref{tab:singleshower_obnox_ccoth_breakdown} are shown in Figure \ref{fig:physics_showerOriginBreakdown_E}a-f. Examples event displays of reconstructed showers that backtrack to $\nu$-induced showers and $\nu$-induced tracks are shown in Figure \ref{fig:ccoth_bkgd_nu_cos}.  We additionally include an example of a `noise'-originating shower in Figure \ref{fig:ccoth_bkgd_noise}, and finally a $\nu$-induced $\pi^0$ shower in Figure \ref{fig:cc1pi0_pi0}.
+We again consider a detailed breakdown of the final selected sample of the single shower sample.  This breakdown is described in Table \ref{tab:singleshower_obnox_breakdown} and corresponds to the data-MC comparisons in this section. We see from this table that our sample is 56\% pure with our $\nu_\mu$ CC 1$\pi^0$ signal; this contrasts to the 67\% purity we observed previously along the 2-shower selection path.  We further examine the quality of this 56\% by considering the origin of each candidate shower in the signal sample in Table \ref{tab:singleshower_obnox_ccoth_breakdown}.  From row 3 in this table, we see that 97\% of our sample has a selected candidate shower that backtracks to a true $\nu$-induced $\pi^0$, with the majority of remaining tags due to tracks mis-reconstructed as showers. This indicates that we have selected a set of signal events with high quality, automated shower reconstruction.  Plots of signal and background as described in the `Sample Composition Category' in Table \ref{tab:singleshower_obnox_ccoth_breakdown} are shown in Figure \ref{fig:physics_showerOriginBreakdown_E}a-f. Example event displays of reconstructed showers that backtrack to $\nu$-induced showers and $\nu$-induced tracks are shown in Figure \ref{fig:ccoth_bkgd_nu_cos}.  We additionally include an example of a `noise'-originating shower in Figure \ref{fig:ccoth_bkgd_noise}, and finally a $\nu$-induced $\pi^0$ shower in Figure \ref{fig:cc1pi0_pi0}.
+
+
+\begin{table}[H]
+\centering
+\captionof{table}{Detailed breakdown of sample composition at final one shower selection stage \label{tab:singleshower_obnox_breakdown}}
+ \begin{tabular}{|l|l|l|}
+ \hline
+Sample Composition Category & Interaction & Sample Composition \\ [0.1ex] \hline
+$\nu_\mu$ Signal & $\nu_\mu$ CC 1$\pi^0$ in FV & 0.561 \\ \hline
+$\nu_\mu$ CC pion charge exchange & $\nu_\mu$ CC pion charge exchange & 0.036 \\ \hline
+$\nu_\mu$ Multiple $\pi^0$ & $\nu_\mu$ Multiple $\pi^0$ & 0.047 \\ \hline
+$\nu_\mu$ NC $\pi^0$ & $\nu_\mu$ NC $\pi^0$ & 0.025 \\ \hline
+$\nu_\mu$ FSEM & $\nu_\mu$ CC 1$\pi^0$ out of FV & 0.022 \\
+& $\nu_\mu$ $N-\gamma$ & 0.022 \\
+& $\nu_\mu$ Kaon Decay & 0.004 \\
+& $\nu_\mu$ NC pion charge exchange & 0.005 \\ 
+&$\nu_\mu$ Brem + $\mu$ capture at rest & 0.075 \\ \hline
+Other & $\nu_e$ &0.007 \\
+&$\overline{\nu_\mu}$ & 0.003 \\
+& Misreconstruction & 0.075 \\ \hline
+Cosmic & Cosmic + Neutrino & 0.060 \\
+& Cosmic (Data) & 0.057 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\captionof{table}{Detailed background breakdown of the CC 1$\pi^0$ sample from the single shower sample \label{tab:singleshower_obnox_ccoth_breakdown}}
+ \begin{tabular}{|l|l|l|}
+ \hline
+Candidate $\pi^0$ `Shower' Description & CC 1$\pi^0$ \\ [0.1ex] \hline
+$\nu$-Induced Track & 0.023 \\ 
+$\nu$-Induced Shower (non-$\pi^0$) & 0.007 \\ 
+$\nu$-Induced Shower ($\pi^0$) & 0.970 \\ 
+Noise & 0.031  \\ \hline
+\end{tabular}
+\end{table}
+
 \clearpage
 \begin{figure}[H]
 \centering
@@ -2732,43 +2782,7 @@ We again consider a detailed breakdown of the final selected sample of the singl
 \label{fig:physics_showerOriginBreakdown_E}
 \end{figure}
 
-\begin{table}[H]
-\centering
-\captionof{table}{Detailed breakdown of sample composition at final one shower selection stage \label{tab:singleshower_obnox_breakdown}}
- \begin{tabular}{|l|l|l|}
- \hline
-Sample Composition Category & Interaction & Sample Composition \\ [0.1ex] \hline
-$\nu_\mu$ Signal & $\nu_\mu$ CC 1$\pi^0$ in FV & 0.561 \\ \hline
-$\nu_\mu$ CC pion charge exchange & $\nu_\mu$ CC pion charge exchange & 0.036 \\ \hline
-$\nu_\mu$ Multiple $\pi^0$ & $\nu_\mu$ Multiple $\pi^0$ & 0.047 \\ \hline
-$\nu_\mu$ NC $\pi^0$ & $\nu_\mu$ NC $\pi^0$ & 0.025 \\ \hline
-$\nu_\mu$ FSEM & $\nu_\mu$ CC 1$\pi^0$ out of FV & 0.022 \\
-& $\nu_\mu$ $N-\gamma$ & 0.022 \\
-& $\nu_\mu$ Kaon Decay & 0.004 \\
-& $\nu_\mu$ NC pion charge exchange & 0.005 \\ 
-&$\nu_\mu$ Brem + $\mu$ capture at rest & 0.075 \\ \hline
-Other & $\nu_e$ &0.007 \\
-&$\overline{\nu_\mu}$ & 0.003 \\
-& Misreconstruction & 0.075 \\ \hline
-Cosmic & Cosmic + Neutrino & 0.060 \\
-& Cosmic (Data) & 0.057 \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\captionof{table}{Detailed background breakdown of the CC 1$\pi^0$ sample from the single shower sample \label{tab:singleshower_obnox_ccoth_breakdown}}
- \begin{tabular}{|l|l|l|}
- \hline
-Candidate $\pi^0$ `Shower' Description & CC 1$\pi^0$ \\ [0.1ex] \hline
-$\nu$-Induced Track & 0.023 \\ 
-$\nu$-Induced Shower (non-$\pi^0$) & 0.007 \\ 
-$\nu$-Induced Shower ($\pi^0$) & 0.970 \\ 
-Noise & 0.031  \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{Pi0_Cut_Section/CCOther_nu_cos.png}
 \hspace{1 mm}
@@ -2776,7 +2790,7 @@ Noise & 0.031  \\ \hline
 \label{fig:ccoth_bkgd_nu_cos}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.9]{Pi0_Cut_Section/CCOther_noise.png}
 \caption{ Example of a `Noise' CCOther background. MCClusters are energy depositions built into clusters based on the deposition’s true origin particle. Each mccluster color represents a new particle (though the event display color wheel is finite, so there is some cycling of colors).  Gaushits are reconstructed from waveforms into individual points (or `hits') with time and wire coordinates, and an associated charge. MCClusters are shown on the left, while reconstructed gaushits and the candidate reconstructed shower is shown on the right.
@@ -2784,14 +2798,14 @@ Noise & 0.031  \\ \hline
 \label{fig:ccoth_bkgd_noise}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{Pi0_Cut_Section/CC1pi0_nu_cos.png}
 \caption{ Example of $\nu$ and cosmic-induced CC 1-$\pi^0$ backgrounds. The cyan circle is the reconstructed vertex, the green triangle is the candidate $\pi^0$ shower, and the solid red line is the $\mu$ candidate. Track-like hits are shown in black, and shower-like hits are shown in faint red. }
 \label{fig:cc1pi0_nu_cos}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{Pi0_Cut_Section/CC1pi0_pi0.png}
 \caption{ Example of a true CC 1-$\pi^0$ event. The cyan circle is the reconstructed vertex, the green triangle is the candidate $\pi^0$ shower, and the solid red line is the $\mu$ candidate. Track-like hits are shown in black, and shower-like hits are shown in faint red. }
@@ -2800,12 +2814,14 @@ Noise & 0.031  \\ \hline
 
 
 
+
+
 \clearpage
 \section{Cross Section Analysis}
-\par At this point we are in a position to calculate the cross section of CC 1-$\pi^0$ on argon.  Before we do so, it is important to understand whether we have introduced kinematical bias into the analysis at any stage.  In the following sections we will examine the analysis efficiencies across all stages and a variety of variables, as well as gathering all the pieces we need and calculating the final cross section.
+\par At this point we are in a position to calculate the cross section of $\nu_\mu$-induced CC 1-$\pi^0$ on argon.  Before we do so, it is important to understand whether we have introduced kinematical bias into the analysis at any stage.  In the following sections we will examine the analysis efficiencies across all stages and a variety of variables, as well as gathering all the pieces we need to calculating the final cross section.
 
 \subsection{Truth and Efficiency Distributions}
-This section considers the distributions and selection efficiencies across a variety of kinematic variables across the selection process.  The events considered in these plots are CC events with a single neutrino-induced $\pi^0$ originating from a true vertex contained in the FV. The efficiency is defined here to be the number of this kind of events at some stage (CC Inclusive Selection or $\pi^0$ cuts) divided by the number of this kind of event before any cuts have been applied.  Figures \ref{fig:pi0_effs_0} - \ref{fig:pi0_effs_6} show various kinematic distributions and their corresponding efficiencies at each stage of our CC$\pi^0$ selection up through the 2-shower set of cuts.  We show a similar set of plots for the single shower set of cuts.  These results are shown in Figures \ref{fig:pi0_effs_7} - \ref{fig:pi0_effs_13}. Given the flatness of our efficiencies we conclude that we will not be kinematically biasing an absolute cross section measurement. Only statistical uncertainties are considered here. 
+This section considers the distributions and selection efficiencies across a variety of kinematic variables across the selection process.  The events considered in these plots are CC events with a single neutrino-induced $\pi^0$ originating from a true vertex contained in the FV. The efficiency is defined here to be the number of this kind of events at some stage (e.g. CC Inclusive Selection) divided by the number of this kind of event before any cuts have been applied.  Figures \ref{fig:pi0_effs_0} - \ref{fig:pi0_effs_6} show kinematic distributions and their corresponding efficiencies at each stage of our CC$\pi^0$ selection up through the 2-shower set of cuts.  We show a similar set of plots for the single shower set of cuts in Figures \ref{fig:pi0_effs_7} - \ref{fig:pi0_effs_13}. Given the flatness within statistical variation of the efficiency distributions described here, we conclude that we will not be kinematically biasing an absolute cross section measurement given the state of our current reconstruction and selection procedures. Only statistical uncertainties are considered here. 
 
 \begin{figure}[h!]
 \centering
@@ -2964,7 +2980,7 @@ Our first step is to calculate the GENIE flux-averaged cross section on argon fo
 \end{equation}
 
 \noindent where $N_{tagged}$, $N_{bkgd}$ are the number of tagged events and background events respectively, $\epsilon$ is the efficiency, $N_{targ}$ the number of Argon nuclei targets and $\phi$ the flux. 
-\par We use the previously described 420k MC BNB + Cosmics sample to perform this initial calculation.  Because we are using MC information to calculate a true value here, we use $\epsilon$ = 1, $N_{bkgd}$=0 and $N_{tagged}$=$N_{signal}$.  To calculate $N_{signal}$, we choose our volume of interest to be the Fiducial Volume (FV) used by CC Inclusive Selection, with 20cm from the wall in X and Y, and 10cm from the wall in Z. We find $N_{tagged}$ = 7567, for signal interaction vertices inside the FV. Note that while 420k events are simulated, more than half of these interactions occur outside the FV. 
+\par We use the previously the simulation sample used throughout this work to perform this initial calculation.  Because we are using MC information to calculate a true value here, we use $\epsilon$ = 1, $N_{bkgd}$=0 and $N_{tagged}$=$N_{signal}$.  To calculate $N_{signal}$, we choose our volume of interest to be the Fiducial Volume (FV) used by CC Inclusive Selection, with 20cm from the wall in X and Y, and 10cm from the wall in Z. We find $N_{tagged}$ = 7567, for signal interaction vertices inside the FV. 
 \par Our next job is to calculate the number of targets in our FV:
 
 \begin{equation} \label{eq:1}
@@ -2977,7 +2993,7 @@ N_{targ} &= \frac{1.3836 [\frac{g}{cm^3}] * 4.246e7 [cm^3] * 6.022e23 [\frac{mol
 &= 8.855\times10^{29}~\text{molecular targets}
 \end{align}
 
-\par Our final step is to calculate the integrated flux.  We do this by integrating over the $\nu_\mu$ flux histogram (Figure \ref{fig:flux}a) provided by the Beam Working Group \cite{bib:flux}, and normalizing by the POT in our sample. The POT is calculated by integrating over the POT of all subruns under consideration; in this case, our MC POT is 4.232e20.  We calculate a total integrated flux of 3.02e11 $cm^{-2}$ over the full energy range of the flux histograms with $<E>$ = 824 MeV. 
+\par Our final step is to calculate the integrated flux.  We do this by integrating over the $\nu_\mu$ flux histogram (Figure \ref{fig:flux}a) provided by the Beam Working Group \cite{bib:flux}, and normalizing by the Protons On Target (POT) in our simulated sample; in this case, our POT is 4.232e20.  Using this POT, we calculate a total integrated flux of 3.02e11 $cm^{-2}$ over the full energy range of the flux histograms with $<E>$ = 824 MeV. 
 \noindent Putting it all together we find:
 
 
@@ -2991,7 +3007,7 @@ N_{targ} &= \frac{1.3836 [\frac{g}{cm^3}] * 4.246e7 [cm^3] * 6.022e23 [\frac{mol
 \includegraphics[scale=0.4]{XSection_Calc_Section/Misc_numu_MC_flux.png}
 \includegraphics[scale=0.4]{XSection_Calc_Section/Misc_numu_flux.png}
 
-\caption{$\nu_\mu$ Flux from Booster Neutrino Beam (BNB) at 470m scaled to a) MCBNB+Cosmics sample 4.23e20 POT; b) OnBeam 5e19 POT}
+\caption{$\nu_\mu$ Flux from Booster Neutrino Beam (BNB) at 470m scaled to a) MicroBooNE simulation of 4.23e20 POT; b) OnBeam 5e19 POT}
 \label{fig:flux}
 \end{figure}
 
@@ -3025,7 +3041,7 @@ This result is within statistical uncertainties of the true calculated cross sec
 &= (2.64 \pm 0.33) *10^{-38} \frac{cm^2}{Ar}
 \end{align}
 
-This result is also within statistical uncertainties of the true calculated cross section above. These results are plotted in Figure \ref{fig:genie_uboone_xsec} on the GENIE extracted cross section plot along with MiniBooNE and SciBooNE measured cross sections for comparison.  Only statistical uncertainties are shown for now.
+This result is also within statistical uncertainties of the true calculated cross section above. These results are plotted in Figure \ref{fig:genie_uboone_xsec} on the GENIE extracted cross section plot.  Only statistical uncertainties are shown for now.
 
 \begin{figure}[h!]
 \centering
@@ -3045,16 +3061,16 @@ M^{syst} =  M^{genie} + M^{flux} + M^{detector}
 \end{equation}
 
 \noindent In this section, we explore the degree to which each of these sources contributes to the final uncertainty. 
-\subsection{Uncertainty Propagation - Context} 
+\subsection{Uncertainty Propagation} 
 There is a simple prescription to follow when approaching systematic uncertainty evaluation. We must first identify contributing parameters and their corresponding degrees of uncertainty.  Then, we vary these parameters randomly across many iterations, each time recalculating the cross section.
-\par To assess these variations as a 1$\sigma$ uncertainty we can approach this in two ways. If a variation in parameter assignment affects only the rates of event production, a reweighing scheme can be applied to the final distributions rather than re-doing the full simulation for each generated universe.  This re-weighting strategy can be applied to uncertainty sources such as beam flux and GENIE cross sections.  For example, if the CC-neutrino interaction rate is halved by a parameter adjustment to the underlying neutrino interaction models, we can simply apply a factor of one-half to our final calculations.  On the other hand, if parameter adjustments affect event topology, re-weighting will not be sufficient, and a full generation of detector MC must be performed. One example of such a parameter is space charge. Space charge refers to the presence of positively charged ions that are formed when the argon is ionized.  These ions influence the recombination of ionization electrons from new interactions, and can cause distortions in the readout. To handle space charge and other detector effects, we must generate samples for each effect and study the impact on our selection. A framework exists to do these variations, and studies here are on going. For now, we limit our systematic evaluations to the flux and GENIE cross sections.
+\par There are two approaches to take in assesing the 1$\sigma$ uncertainties on our variations. If a variation in parameter assignment affects only the rates of event production, a reweighing scheme can be applied to the final distributions rather than re-doing the full simulation for each generated universe.  This re-weighting strategy can be applied to uncertainty sources such as beam flux and GENIE cross sections.  For example, if the CC-neutrino interaction rate is halved by a parameter adjustment to the underlying neutrino interaction models, we can simply apply a factor of one-half to our final calculations.  On the other hand, if parameter adjustments affect event topology, re-weighting will not be sufficient, and a full generation of detector MC must be performed. One example of such a parameter is space charge. Space charge refers to the presence of positively charged ions that are formed when the argon is ionized.  These ions influence the recombination of ionization electrons from new interactions, and can cause distortions in the readout. To handle space charge and other detector effects, we must generate samples for each effect and study the impact on our selection. A framework exists to do these variations, and studies here are on going. For now, we limit our systematic evaluations of the flux and GENIE cross sections.
 
 \subsection{GENIE Cross Sections}
-The impact of each GENIE parameter variation can be tested by reweighing event distributions using the built-in GENIE event reweighting framework. Here, each physical parameter P is varied by $\pm$1$\sigma$. The output of this variation is a set of event weights per parameter that represent the output had you run with the varied parameter from the beginning. A summary of parameters utilized for this study is summarized in Table \ref{tab:genie_parameters}. We note the absence of MEC parameter variation in the reweighting framework used here, though a method to assess the uncertainty has been introduced externally \cite{bib:jaz_datamc_agreement}.  This uncertainty will contribute negligibly due to the small contribution of MEC events at the final stage of both selection paths.
+The impact of each GENIE parameter variation can be tested by reweighing event distributions using the built-in GENIE event reweighting framework. Here, each physical parameter P is varied by $\pm$1$\sigma$. The output of this variation is a set of event weights per parameter that represent the output had you run with the varied parameter from the beginning. A summary of parameters utilized for this study is summarized in Table \ref{tab:genie_parameters}. We note the absence of MEC parameter variation in the reweighting framework used here, however, this uncertainty will contribute negligibly due to the small portion of MEC events at the final stage of both selection paths.
 
 \begin{table*}
 \centering
-\captionof{table}{Table of GENIE parameters reproduced for convenience from the GENIE manual and CC Inclusive Internal Note \cite{bib:genie} \cite{bib:numucc} \label{tab:genie_parameters}}
+\captionof{table}{Table of GENIE parameters reproduced for convenience from the GENIE manual \cite{bib:genie} \label{tab:genie_parameters}}
 \begin{tabular}{| l | l | l | l |}
 \hline
    Parameter P & Description of P & Central Value  & $\delta$P/P \\ [0.1ex] \hline
@@ -3074,8 +3090,6 @@ $C_{V1u}^{BY}$  & $C_{V1u}$ u valence GRV98 PDF correction param & 0.291 & $\pm$
 $C_{V2u}^{BY}$  & $C_{V2u}$ u valence GRV98 PDF correction param & 0.189 & $\pm$40\% \\ \hline
 
 FormZone  & Hadron formation zone & 0.342 fm & $\pm$50\% \\
-%FZ ($\pi$)  & Hadron formation zone & 0.342 fm & $\pm$50\% \\
-%FZ (nucleon)  & Hadron formation zone & 2.300 fm & $\pm$50\% \\
 BR ($\gamma$)  & Branch ratio for radiative resonance decays & - & $\pm$50\% \\
 BR ($\eta$)  & Branch ratio for single-$\eta$ resonance decays & - & $\pm$50\% \\ \hline
 
@@ -3103,12 +3117,7 @@ $x_{\pi}^{\pi}$ & $\pi$ $\pi$-production probability & - & $\pm$20\% \\ \hline
 \end{tabular}
 \end{table*}
 
-\par Once we have obtained our event re-weighting results, we calculate the cross section variation by considering the variation to the background B and to the efficiency $\epsilon$, as shown in Equation \ref{eq:genie_xsec_var}. We do not consider variation to total tagged events N, as this quantity will be measured directly from data.  To calculate the cross section percentile difference due to a single parameter variation, we then compare $\sigma^\pm$ to nominal $\sigma$ calculated in earlier $\pi^0$ Cuts section as shown in Equation \ref{eq:genie_xsec_percentdiff}.
-
-\par Event re-weighting as described was run over the 420k MCBNB+Cosmic events described in Table \ref{tab:nevents}. The results of this reweighting scheme is shown in Table \ref{tab:genie_results} for the higher variation (i.e., +$\sigma$ or -$\sigma$). In summary, the CC 1-$\pi^0$ analysis chain is most affected by the axial mass for CC resonance production;  this result is supported by Figure \ref{fig:physics_pi0_inttype}, in which resonant processes dominate the neutrino interaction modes of selected events. The final sample is also sensitive to the form zone parameter, nucleon elastic reaction probability, and the nucleon mean free path.   Finally, we see a significant contribution from the $\pi$ absorption probability. We also expect this; variation in the probability for $\pi$ absorption in the nucleus is correlated with the resulting number of $\pi^0$'s originating from the nucleus and entering our signal sample.  
-
-\par Finally, we consider the contribution of each parameter weighting to individual signal and backgrounds.  We do this by applying reweighting ONLY to the signal or to the individual  background we're focusing on, and then comparing to the nominal as in Equation \ref{eq:genie_xsec_percentdiff}. These results are shown in Table \ref{tab:genie_bkgd_2shower_var_results} for the 2-shower sample and in Table \ref{tab:genie_bkgd_2shower_var_results} for the 1-shower sample. To interpret the information in this table, we consider the example of $M_A^{CCRES}$ in Table \ref{tab:genie_bkgd_2shower_var_results}. We expect variation of this parameter to dominantly affect CC Resonant processes.  What we see is that variations to this individual parameter have no impact on the NC backgrounds (0.00\%) and a maximum impact on FSEM, which contains all $\nu_\mu$ CC events with electromagnetic activity in the final state. 
-Note that while the breakdowns Tables \ref{tab:genie_bkgd_2shower_var_results} and \ref{tab:genie_bkgd_2shower_var_results} gives us an idea of the contribution of each background to the overall uncertainty, we can not quadratically sum these breakdowns to estimate the final uncertainty. 
+\par Once we have obtained our event re-weighting results, we calculate the cross section variation by considering the variation to the background B and to the efficiency $\epsilon$, as shown in Equation \ref{eq:genie_xsec_var}. We do not consider variation to total tagged events N, as this quantity will be measured directly from data.  To calculate the cross section percentile difference due to a single parameter variation, we then compare $\sigma^\pm$ to nominal $\sigma$ calculated in earlier for each selection as shown in Equation \ref{eq:genie_xsec_percentdiff}.
 
 \begin{equation} \label{eq:genie_xsec_var}
   \sigma^\pm \propto \frac{N - B^\pm}{\epsilon^\pm} 
@@ -3117,6 +3126,11 @@ Note that while the breakdowns Tables \ref{tab:genie_bkgd_2shower_var_results} a
 \begin{equation} \label{eq:genie_xsec_percentdiff}
   Percentile\ Difference = \frac{| \sigma - \sigma^\pm |}{\sigma} 
 \end{equation}
+
+\par Event re-weighting as described was run over the full 4.232e20 POT simulation events used throughout the note. The results of this reweighting scheme are shown in Table \ref{tab:genie_results} for the higher variation (i.e., +$\sigma$ or -$\sigma$). In summary, the CC 1-$\pi^0$ analysis chain is most affected by the axial mass for CC resonance production;  this result is supported by Figure \ref{fig:physics_2shower_inttype}, in which resonant processes dominate the neutrino interaction modes of selected events. The final sample is also sensitive to the form zone parameter, nucleon elastic reaction probability, and the nucleon mean free path.   Finally, we see a significant contribution from the $\pi$ absorption probability. We also expect this; variation in the probability for $\pi$ absorption in the nucleus is correlated with the resulting number of $\pi^0$'s originating from the nucleus and entering our signal sample.  
+%\par Finally, we consider the contribution of each parameter weighting to individual signal and backgrounds.  We do this by applying reweighting ONLY to the signal or to the individual  background we're focusing on, and then comparing to the nominal as in Equation \ref{eq:genie_xsec_percentdiff}. These results are shown in Table \ref{tab:genie_bkgd_2shower_var_results} for the 2-shower sample and in Table \ref{tab:genie_bkgd_2shower_var_results} for the 1-shower sample. To interpret the information in this table, we consider the example of $M_A^{CCRES}$ in Table \ref{tab:genie_bkgd_2shower_var_results}. We expect variation of this parameter to dominantly affect CC Resonant processes.  What we see is that variations to this individual parameter have no impact on the NC backgrounds (0.00\%) and a maximum impact on FSEM, which contains all $\nu_\mu$ CC events with electromagnetic activity in the final state. 
+%Note that while the breakdowns Tables \ref{tab:genie_bkgd_2shower_var_results} and \ref{tab:genie_bkgd_2shower_var_results} gives us an idea of the contribution of each background to the overall uncertainty, we can not quadratically sum these breakdowns to estimate the final uncertainty. 
+
 
 \begin{table*}
 \centering
@@ -3169,107 +3183,107 @@ Total Combined Uncertainty & 12.08\% & 13.80\% \\ \hline
 \end{tabular}
 \end{table*}
 
-\begin{table*}
-\centering
-\captionof{table}{Results from event reweighting each individual background alone on CC-$\pi^0$ analysis with 2-shower selection chain. Recall that the Cosmic ($\nu$) background contains candidate $\mu$ tracks that are cosmic in origin; these cosmic events are neutrino-coincident.  \label{tab:genie_bkgd_2shower_var_results}}
- \begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | }
- \hline
-  Param P &Signal& FSEM & CCCex & CC$>$1$\pi^0$ & NC$\pi^0$& Other & Cosmics \\ [0.1ex] \hline
-$M_A^{NCEL}$ & 0.00\% &  0.40\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\%   \\
-$\eta^{NCEL}$  &0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\%  \\
-$M_A^{CCQE}$  & 0.21\% &  2.32\% &  0.64\% &  0.97\% &  0.00\% &  0.20\% &  1.13\% \\
-$M_V^{CCQE}$  & 0.01\% &  0.03\% &  0.00\% &  0.00\% &  0.00\% &  0.02\% &  0.06\% \\
-$M_A^{CCRES}$  & 0.21\% &  2.32\% &  0.64\% &  0.97\% &  0.00\% &  0.20\% &  1.13\% \\
-$M_V^{CCRES}$ & 0.04\% &  1.51\% &  0.38\% &  0.55\% &  0.00\% &  0.09\% &  0.67\% \\
-$M_A^{NCRES}$ & 0.00\% &  0.43\% &  0.00\% &  0.00\% &  1.35\% &  0.00\% &  0.00\%  \\
-$M_V^{NCRES}$ &0.00\% &  0.13\% &  0.00\% &  0.00\% &  0.41\% &  0.00\% &  0.00\%\\
-$M_A^{COH}\pi$ & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\
-$R_0^{COH}\pi$ & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\
-
-AGKYpT & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
-AGKYxF & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
-DISAth & 0.04\% &  0.03\% &  0.02\% &  0.05\% &  0.02\% &  0.02\% &  0.00\% \\ %
-DISBth & 0.05\% &  0.05\% &  0.04\% &  0.07\% &  0.03\% &  0.02\% &  0.00\%  \\ %
-DISC$\nu$1u & 0.01\% &  0.05\% &  0.01\% &  0.06\% &  0.01\% &  0.03\% &  0.00\%\\ %
-DISC$\nu$2u & 0.01\% &  0.04\% &  0.01\% &  0.05\% &  0.01\% &  0.02\% &  0.00\% \\ \hline
-
-FormZone  & 1.30\% &  0.29\% &  0.38\% &  1.36\% &  1.18\% &  0.21\% &  0.36\% \\
-BR ($\gamma$) &0.01\% &  0.01\% &  0.00\% &  0.01\% &  0.01\% &  0.00\% &  0.01\%\\
-BR ($\eta$) &0.31\% &  2.26\% &  0.02\% &  0.82\% &  0.00\% &  0.00\% &  0.21\% \\
-BR ($\theta$) & 1.56\% &  0.66\% &  0.01\% &  0.22\% &  0.12\% &  0.00\% &  0.11\% \\ \hline
-
-$RR_{\nu p}^{CC1\pi}$ & 0.00\% &  0.13\% &  0.26\% &  0.13\% &  0.13\% &  0.00\% &  0.00\%\\ 
-$RR_{\nu p}^{CC2\pi}$ & 0.09\% &  0.13\% &  0.13\% &  0.13\% &  0.39\% &  0.13\% &  0.00\% \\
-$RR_{\nu n}^{CC1\pi}$ & 0.85\% &  0.39\% &  0.52\% &  0.13\% &  0.13\% &  0.13\% &  0.78\%\\ 
-$RR_{\nu n}^{CC2\pi}$ & 0.65\% &  0.13\% &  0.26\% &  0.78\% &  0.13\% &  0.26\% &  0.13\%  \\ \hline
-
-$x_{abs}^{N}$ & 0.72\% &  0.01\% &  0.00\% &  0.28\% &  0.20\% &  0.02\% &  0.23\%\\
-$x_{cex}^{N}$ &1.08\% &  0.03\% &  0.08\% &  0.11\% &  0.08\% &  0.04\% &  0.23\%\\
-$x_{el}^{N}$ & 1.91\% &  0.09\% &  0.15\% &  0.17\% &  0.14\% &  0.06\% &  0.47\% \\
-$x_{inel}^{N}$ & 0.49\% &  0.10\% &  0.12\% &  0.08\% &  0.13\% &  0.07\% &  0.15\% \\
-$x_{mfp}^{N}$ & 1.84\% &  0.77\% &  0.43\% &  0.31\% &  0.18\% &  0.10\% &  0.14\%  \\
-$x_{\pi}^{N}$ &0.07\% &  0.07\% &  0.03\% &  0.17\% &  0.07\% &  0.03\% &  0.03\%  \\
-$x_{abs}^{\pi}$ &0.65\% &  0.54\% &  0.46\% &  1.17\% &  0.41\% &  0.13\% &  0.93\% \\
-$x_{cex}^{\pi}$ & 0.48\% &  0.01\% &  0.12\% &  0.85\% &  0.09\% &  0.12\% &  0.22\% \\
-$x_{el}^{\pi}$ &0.55\% &  0.01\% &  0.18\% &  0.17\% &  0.04\% &  0.03\% &  0.14\%\\
-$x_{inel}^{\pi}$ & 0.91\% &  0.60\% &  0.46\% &  0.45\% &  0.66\% &  0.23\% &  0.60\%  \\
-$x_{mfp}^{\pi}$ & 1.41\% &  0.25\% &  0.27\% &  0.09\% &  0.54\% &  0.16\% &  0.14\%  \\
-$x_{\pi}^{\pi}$ &0.13\% &  0.08\% &  0.03\% &  0.07\% &  0.04\% &  0.03\% &  0.02\%\\
-\hline
-%Total Combined Uncertainty & 10.44\% & 13.40\% \\ \hline
-\end{tabular}
-\end{table*}
-
-%%%%%%%% Here we're adding background + signal variation specifically
-\begin{table*}
-\centering
-\captionof{table}{Results from event reweighting each individual background alone on CC-$\pi^0$ analysis with 1-shower selection chain. Recall that the Cosmic ($\nu$) background contains candidate $\mu$ tracks that are cosmic in origin; these cosmic events are neutrino-coincident. \label{tab:genie_bkgd_1shower_var_results}}
- \begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | }
- \hline
-  Param P &Signal& FSEM & CCCex & CC$>$1$\pi^0$ & NC$\pi^0$& Other & Cosmics \\ [0.1ex] \hline
-$M_A^{NCEL}$ & 0.00\% &  0.13\% &  0.00\% &  0.00\% &  0.06\% &  0.00\% &  0.16\%  \\
-$\eta^{NCEL}$  & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.01\% \\
-$M_A^{CCQE}$  & 0.17\% &  0.84\% &  0.05\% &  0.00\% &  0.00\% &  0.60\% &  1.01\% \\
-$M_V^{CCQE}$  & 0.02\% &  0.07\% &  0.01\% &  0.00\% &  0.00\% &  0.06\% &  0.01\% \\
-$M_A^{CCRES}$  & 0.63\% &  3.03\% &  0.87\% &  1.02\% &  0.00\% &  2.15\% &  0.56\% \\
-$M_V^{CCRES}$ & 0.41\% &  1.80\% &  0.48\% &  0.63\% &  0.00\% &  1.29\% &  0.29\% \\
-$M_A^{NCRES}$ & 0.00\% &  0.40\% &  0.00\% &  0.00\% &  0.60\% &  0.12\% &  0.12\% \\
-$M_V^{NCRES}$ & 0.00\% &  0.13\% &  0.00\% &  0.00\% &  0.18\% &  0.01\% &  0.00\%\\
-$M_A^{COH}\pi$ & 0.00\% &  0.08\% &  0.24\% &  0.00\% &  0.00\% &  0.08\% &  0.08\%  \\
-$R_0^{COH}\pi$ & 0.00\% &  0.08\% &  0.24\% &  0.00\% &  0.00\% &  0.08\% &  0.08\%  \\
-
-AGKYpT & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
-AGKYxF & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
-DISAth & 0.01\% &  0.06\% &  0.01\% &  0.04\% &  0.01\% &  0.01\% &  0.00\% \\ %
-DISBth & 0.00\% &  0.08\% &  0.02\% &  0.06\% &  0.02\% &  0.02\% &  0.00\% \\ %
-DISC$\nu$1u & 0.02\% &  0.03\% &  0.02\% &  0.02\% &  0.02\% &  0.02\% &  0.00\%  \\ %
-DISC$\nu$2u & 0.01\% &  0.03\% &  0.02\% &  0.02\% &  0.02\% &  0.02\% &  0.00\%  \\ \hline
-
-FormZone  & 3.21\% &  0.81\% &  0.36\% &  0.86\% &  0.45\% &  0.58\% &  0.21\% \\
-BR ($\gamma$) & 0.01\% &  0.28\% &  0.00\% &  0.01\% &  0.00\% &  0.00\% &  0.00\% \\
-BR ($\eta$) &0.03\% &  1.52\% &  0.11\% &  1.08\% &  0.04\% &  0.26\% &  0.01\% \\
-BR ($\theta$) & 0.56\% &  0.26\% &  0.23\% &  0.27\% &  0.09\% &  0.46\% &  0.12\% \\ \hline
-
-$RR_{\nu p}^{CC1\pi}$ & 0.15\% &  0.12\% &  0.08\% &  0.04\% &  0.04\% &  0.08\% &  0.08\% \\ 
-$RR_{\nu p}^{CC2\pi}$ & 0.46\% &  0.54\% &  0.04\% &  0.12\% &  0.33\% &  0.33\% &  0.17\% \\
-$RR_{\nu n}^{CC1\pi}$ & 0.53\% &  0.92\% &  0.42\% &  0.04\% &  0.17\% &  0.75\% &  0.42\% \\ 
-$RR_{\nu n}^{CC2\pi}$ & 0.24\% &  0.00\% &  0.17\% &  0.42\% &  0.29\% &  0.21\% &  0.08\% \\ \hline
-
-$x_{abs}^{N}$ & 1.15\% &  0.25\% &  0.03\% &  0.11\% &  0.09\% &  0.01\% &  0.08\%\\
-$x_{cex}^{N}$ & 0.88\% &  0.15\% &  0.02\% &  0.09\% &  0.07\% &  0.20\% &  0.03\% \\
-$x_{el}^{N}$ & 2.01\% &  0.74\% &  0.01\% &  0.18\% &  0.01\% &  0.38\% &  0.12\% \\
-$x_{inel}^{N}$ & 0.61\% &  0.36\% &  0.03\% &  0.13\% &  0.03\% &  0.26\% &  0.05\% \\
-$x_{mfp}^{N}$ & 1.16\% &  0.98\% &  0.22\% &  0.28\% &  0.11\% &  0.45\% &  0.45\% \\
-$x_{\pi}^{N}$ & 0.06\% &  0.09\% &  0.06\% &  0.16\% &  0.06\% &  0.14\% &  0.00\%  \\
-$x_{abs}^{\pi}$ & 0.21\% &  1.02\% &  0.39\% &  1.01\% &  0.56\% &  0.70\% &  0.05\% \\
-$x_{cex}^{\pi}$ & 0.15\% &  0.07\% &  0.11\% &  0.36\% &  0.04\% &  0.11\% &  0.08\% \\
-$x_{el}^{\pi}$ &0.10\% &  0.15\% &  0.16\% &  0.03\% &  0.01\% &  0.06\% &  0.11\%\\
-$x_{inel}^{\pi}$ & 0.53\% &  1.48\% &  0.40\% &  0.52\% &  0.68\% &  1.14\% &  0.03\%  \\
-$x_{mfp}^{\pi}$ & 0.87\% &  0.24\% &  0.20\% &  0.37\% &  0.17\% &  0.23\% &  0.11\% \\
-$x_{\pi}^{\pi}$ & 0.10\% &  0.02\% &  0.04\% &  0.14\% &  0.01\% &  0.02\% &  0.00\% \\
-\hline
-\end{tabular}
-\end{table*}
+%\begin{table*}
+%\centering
+%\captionof{table}{Results from event reweighting each individual background alone on CC-$\pi^0$ analysis with 2-shower selection chain. Recall that the Cosmic ($\nu$) background contains candidate $\mu$ tracks that are cosmic in origin; these cosmic events are neutrino-coincident.  \label{tab:genie_bkgd_2shower_var_results}}
+% \begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | }
+% \hline
+%  Param P &Signal& FSEM & CCCex & CC$>$1$\pi^0$ & NC$\pi^0$& Other & Cosmics \\ [0.1ex] \hline
+%$M_A^{NCEL}$ & 0.00\% &  0.40\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\%   \\
+%$\eta^{NCEL}$  &0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\%  \\
+%$M_A^{CCQE}$  & 0.21\% &  2.32\% &  0.64\% &  0.97\% &  0.00\% &  0.20\% &  1.13\% \\
+%$M_V^{CCQE}$  & 0.01\% &  0.03\% &  0.00\% &  0.00\% &  0.00\% &  0.02\% &  0.06\% \\
+%$M_A^{CCRES}$  & 0.21\% &  2.32\% &  0.64\% &  0.97\% &  0.00\% &  0.20\% &  1.13\% \\
+%$M_V^{CCRES}$ & 0.04\% &  1.51\% &  0.38\% &  0.55\% &  0.00\% &  0.09\% &  0.67\% \\
+%$M_A^{NCRES}$ & 0.00\% &  0.43\% &  0.00\% &  0.00\% &  1.35\% &  0.00\% &  0.00\%  \\
+%$M_V^{NCRES}$ &0.00\% &  0.13\% &  0.00\% &  0.00\% &  0.41\% &  0.00\% &  0.00\%\\
+%$M_A^{COH}\pi$ & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\
+%$R_0^{COH}\pi$ & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\
+%
+%AGKYpT & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
+%AGKYxF & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
+%DISAth & 0.04\% &  0.03\% &  0.02\% &  0.05\% &  0.02\% &  0.02\% &  0.00\% \\ %
+%DISBth & 0.05\% &  0.05\% &  0.04\% &  0.07\% &  0.03\% &  0.02\% &  0.00\%  \\ %
+%DISC$\nu$1u & 0.01\% &  0.05\% &  0.01\% &  0.06\% &  0.01\% &  0.03\% &  0.00\%\\ %
+%DISC$\nu$2u & 0.01\% &  0.04\% &  0.01\% &  0.05\% &  0.01\% &  0.02\% &  0.00\% \\ \hline
+%
+%FormZone  & 1.30\% &  0.29\% &  0.38\% &  1.36\% &  1.18\% &  0.21\% &  0.36\% \\
+%BR ($\gamma$) &0.01\% &  0.01\% &  0.00\% &  0.01\% &  0.01\% &  0.00\% &  0.01\%\\
+%BR ($\eta$) &0.31\% &  2.26\% &  0.02\% &  0.82\% &  0.00\% &  0.00\% &  0.21\% \\
+%BR ($\theta$) & 1.56\% &  0.66\% &  0.01\% &  0.22\% &  0.12\% &  0.00\% &  0.11\% \\ \hline
+%
+%$RR_{\nu p}^{CC1\pi}$ & 0.00\% &  0.13\% &  0.26\% &  0.13\% &  0.13\% &  0.00\% &  0.00\%\\ 
+%$RR_{\nu p}^{CC2\pi}$ & 0.09\% &  0.13\% &  0.13\% &  0.13\% &  0.39\% &  0.13\% &  0.00\% \\
+%$RR_{\nu n}^{CC1\pi}$ & 0.85\% &  0.39\% &  0.52\% &  0.13\% &  0.13\% &  0.13\% &  0.78\%\\ 
+%$RR_{\nu n}^{CC2\pi}$ & 0.65\% &  0.13\% &  0.26\% &  0.78\% &  0.13\% &  0.26\% &  0.13\%  \\ \hline
+%
+%$x_{abs}^{N}$ & 0.72\% &  0.01\% &  0.00\% &  0.28\% &  0.20\% &  0.02\% &  0.23\%\\
+%$x_{cex}^{N}$ &1.08\% &  0.03\% &  0.08\% &  0.11\% &  0.08\% &  0.04\% &  0.23\%\\
+%$x_{el}^{N}$ & 1.91\% &  0.09\% &  0.15\% &  0.17\% &  0.14\% &  0.06\% &  0.47\% \\
+%$x_{inel}^{N}$ & 0.49\% &  0.10\% &  0.12\% &  0.08\% &  0.13\% &  0.07\% &  0.15\% \\
+%$x_{mfp}^{N}$ & 1.84\% &  0.77\% &  0.43\% &  0.31\% &  0.18\% &  0.10\% &  0.14\%  \\
+%$x_{\pi}^{N}$ &0.07\% &  0.07\% &  0.03\% &  0.17\% &  0.07\% &  0.03\% &  0.03\%  \\
+%$x_{abs}^{\pi}$ &0.65\% &  0.54\% &  0.46\% &  1.17\% &  0.41\% &  0.13\% &  0.93\% \\
+%$x_{cex}^{\pi}$ & 0.48\% &  0.01\% &  0.12\% &  0.85\% &  0.09\% &  0.12\% &  0.22\% \\
+%$x_{el}^{\pi}$ &0.55\% &  0.01\% &  0.18\% &  0.17\% &  0.04\% &  0.03\% &  0.14\%\\
+%$x_{inel}^{\pi}$ & 0.91\% &  0.60\% &  0.46\% &  0.45\% &  0.66\% &  0.23\% &  0.60\%  \\
+%$x_{mfp}^{\pi}$ & 1.41\% &  0.25\% &  0.27\% &  0.09\% &  0.54\% &  0.16\% &  0.14\%  \\
+%$x_{\pi}^{\pi}$ &0.13\% &  0.08\% &  0.03\% &  0.07\% &  0.04\% &  0.03\% &  0.02\%\\
+%\hline
+%%Total Combined Uncertainty & 10.44\% & 13.40\% \\ \hline
+%\end{tabular}
+%\end{table*}
+%
+%%%%%%%%% Here we're adding background + signal variation specifically
+%\begin{table*}
+%\centering
+%\captionof{table}{Results from event reweighting each individual background alone on CC-$\pi^0$ analysis with 1-shower selection chain. Recall that the Cosmic ($\nu$) background contains candidate $\mu$ tracks that are cosmic in origin; these cosmic events are neutrino-coincident. \label{tab:genie_bkgd_1shower_var_results}}
+% \begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | }
+% \hline
+%  Param P &Signal& FSEM & CCCex & CC$>$1$\pi^0$ & NC$\pi^0$& Other & Cosmics \\ [0.1ex] \hline
+%$M_A^{NCEL}$ & 0.00\% &  0.13\% &  0.00\% &  0.00\% &  0.06\% &  0.00\% &  0.16\%  \\
+%$\eta^{NCEL}$  & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.01\% \\
+%$M_A^{CCQE}$  & 0.17\% &  0.84\% &  0.05\% &  0.00\% &  0.00\% &  0.60\% &  1.01\% \\
+%$M_V^{CCQE}$  & 0.02\% &  0.07\% &  0.01\% &  0.00\% &  0.00\% &  0.06\% &  0.01\% \\
+%$M_A^{CCRES}$  & 0.63\% &  3.03\% &  0.87\% &  1.02\% &  0.00\% &  2.15\% &  0.56\% \\
+%$M_V^{CCRES}$ & 0.41\% &  1.80\% &  0.48\% &  0.63\% &  0.00\% &  1.29\% &  0.29\% \\
+%$M_A^{NCRES}$ & 0.00\% &  0.40\% &  0.00\% &  0.00\% &  0.60\% &  0.12\% &  0.12\% \\
+%$M_V^{NCRES}$ & 0.00\% &  0.13\% &  0.00\% &  0.00\% &  0.18\% &  0.01\% &  0.00\%\\
+%$M_A^{COH}\pi$ & 0.00\% &  0.08\% &  0.24\% &  0.00\% &  0.00\% &  0.08\% &  0.08\%  \\
+%$R_0^{COH}\pi$ & 0.00\% &  0.08\% &  0.24\% &  0.00\% &  0.00\% &  0.08\% &  0.08\%  \\
+%
+%AGKYpT & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
+%AGKYxF & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
+%DISAth & 0.01\% &  0.06\% &  0.01\% &  0.04\% &  0.01\% &  0.01\% &  0.00\% \\ %
+%DISBth & 0.00\% &  0.08\% &  0.02\% &  0.06\% &  0.02\% &  0.02\% &  0.00\% \\ %
+%DISC$\nu$1u & 0.02\% &  0.03\% &  0.02\% &  0.02\% &  0.02\% &  0.02\% &  0.00\%  \\ %
+%DISC$\nu$2u & 0.01\% &  0.03\% &  0.02\% &  0.02\% &  0.02\% &  0.02\% &  0.00\%  \\ \hline
+%
+%FormZone  & 3.21\% &  0.81\% &  0.36\% &  0.86\% &  0.45\% &  0.58\% &  0.21\% \\
+%BR ($\gamma$) & 0.01\% &  0.28\% &  0.00\% &  0.01\% &  0.00\% &  0.00\% &  0.00\% \\
+%BR ($\eta$) &0.03\% &  1.52\% &  0.11\% &  1.08\% &  0.04\% &  0.26\% &  0.01\% \\
+%BR ($\theta$) & 0.56\% &  0.26\% &  0.23\% &  0.27\% &  0.09\% &  0.46\% &  0.12\% \\ \hline
+%
+%$RR_{\nu p}^{CC1\pi}$ & 0.15\% &  0.12\% &  0.08\% &  0.04\% &  0.04\% &  0.08\% &  0.08\% \\ 
+%$RR_{\nu p}^{CC2\pi}$ & 0.46\% &  0.54\% &  0.04\% &  0.12\% &  0.33\% &  0.33\% &  0.17\% \\
+%$RR_{\nu n}^{CC1\pi}$ & 0.53\% &  0.92\% &  0.42\% &  0.04\% &  0.17\% &  0.75\% &  0.42\% \\ 
+%$RR_{\nu n}^{CC2\pi}$ & 0.24\% &  0.00\% &  0.17\% &  0.42\% &  0.29\% &  0.21\% &  0.08\% \\ \hline
+%
+%$x_{abs}^{N}$ & 1.15\% &  0.25\% &  0.03\% &  0.11\% &  0.09\% &  0.01\% &  0.08\%\\
+%$x_{cex}^{N}$ & 0.88\% &  0.15\% &  0.02\% &  0.09\% &  0.07\% &  0.20\% &  0.03\% \\
+%$x_{el}^{N}$ & 2.01\% &  0.74\% &  0.01\% &  0.18\% &  0.01\% &  0.38\% &  0.12\% \\
+%$x_{inel}^{N}$ & 0.61\% &  0.36\% &  0.03\% &  0.13\% &  0.03\% &  0.26\% &  0.05\% \\
+%$x_{mfp}^{N}$ & 1.16\% &  0.98\% &  0.22\% &  0.28\% &  0.11\% &  0.45\% &  0.45\% \\
+%$x_{\pi}^{N}$ & 0.06\% &  0.09\% &  0.06\% &  0.16\% &  0.06\% &  0.14\% &  0.00\%  \\
+%$x_{abs}^{\pi}$ & 0.21\% &  1.02\% &  0.39\% &  1.01\% &  0.56\% &  0.70\% &  0.05\% \\
+%$x_{cex}^{\pi}$ & 0.15\% &  0.07\% &  0.11\% &  0.36\% &  0.04\% &  0.11\% &  0.08\% \\
+%$x_{el}^{\pi}$ &0.10\% &  0.15\% &  0.16\% &  0.03\% &  0.01\% &  0.06\% &  0.11\%\\
+%$x_{inel}^{\pi}$ & 0.53\% &  1.48\% &  0.40\% &  0.52\% &  0.68\% &  1.14\% &  0.03\%  \\
+%$x_{mfp}^{\pi}$ & 0.87\% &  0.24\% &  0.20\% &  0.37\% &  0.17\% &  0.23\% &  0.11\% \\
+%$x_{\pi}^{\pi}$ & 0.10\% &  0.02\% &  0.04\% &  0.14\% &  0.01\% &  0.02\% &  0.00\% \\
+%\hline
+%\end{tabular}
+%\end{table*}
 
 
 We conclude here by combining the uncertainties in quadrature and calculating a 12.08\% uncertainty for the 2-shower path and a 13.80\% uncertainty for the 1-shower path from the GENIE model.  The higher uncertainty on the 1-shower sample is due to the lower purity of the single shower selection path.
@@ -3284,7 +3298,9 @@ When considering uncertainty due to flux, we are primarily interested in variati
   \sigma_i \propto \frac{N - B_i}{\epsilon_i \phi_i} 
 \end{equation}
 
-Where `N' is the On - OffBeam value from the final stage of each selection path, $B_i$ is the weighted background contribution in the i'th universe, $\epsilon_i$ is the i'th universe efficiency, and $\phi_i$ is the flux renormalization factor for the i'th universe. To create the variations in the flux renormalization we take the beam group produced gsimple files and convert them into art events by filling the MCFlux data product. The resulting artroot files are then passed through EventWeight and with the same random number seeds as was used to produce the event weights. This leads to a one-to-one mapping of the universes of the event weight to the reweighted flux. Using these modified fluxes we integrate from 0 to 3 GeV to determine the flux through the detector. This integration across the full energy range increases our overall systematic uncertainty due to the behavior of spline fits to the HARP $\pi^{+}$ production data in regions where there is no HARP data~\cite{bib:flux_uncertainty_tn}. This uncertainty could be reduced by utilizing a physically driven constraint on the pion production in these regions.   
+Where `N' is the On - OffBeam value from the final stage of each selection path, $B_i$ is the weighted background contribution in the i'th universe, $\epsilon_i$ is the i'th universe efficiency, and $\phi_i$ is the flux renormalization factor for the i'th universe.  We use the modified fluxes to integrate from 0 to 3 GeV and determine the flux through the detector in the i'th universe. This integration across the full energy range increases our overall systematic uncertainty due to the behavior of spline fits to the HARP $\pi^{+}$ production data in regions where there is no HARP data~\cite{bib:flux_uncertainty_tn}. 
+
+%This uncertainty could be reduced by utilizing a physical constraint on the pion production in these regions.   
 
 Once 1000 cross sections are calculated, we calculate 1000 corresponding percentile differences with respect to the nominal according to Equation \ref{eq:genie_xsec_percentdiff}. We then use the percentile variations to extract a 1 $\sigma$ uncertainty from the nominal value at 0 for each varied flux parameter.  These distributions are shown for the 2 shower sample in Figures \ref{fig:flux_2shower_unc_plots_0}-\ref{fig:flux_2shower_unc_plots_2} and for the 1 shower sample in Figures \ref{fig:flux_1shower_unc_plots_0}-\ref{fig:flux_1shower_unc_plots_2}. The uncertainty extracted from each sample is displayed on these plots and additionally summarized in Table \ref{tab:flux_results}.  
 
@@ -3356,58 +3372,61 @@ Once 1000 cross sections are calculated, we calculate 1000 corresponding percent
 \end{figure}
 
 \clearpage
-\subsection{Detector Simulation Systematic Uncertainties}
+\subsection{Detector Simulation Systematics}
 
-There are three classes of detector simulation based systematic uncertainties that we are taking into account in this section of the note. Those due to the overall simulation of detector effects (known colloquially as ``detector systematics''), those due to the modeling of the CORSIKA cosmic simulation, and finally those associated with the number of targets that are contained in the fiducial volume.    
-
-\subsubsection{Detector Simulation Unisims}
-To assess systematic uncertainties on our modeling of various detector effects we will generate a complementary set of MC with variations to a given parameter. By using the same set of base events we can minimize the statistical variation in the sample and hone in directly on the systematic due to the model change. One caveat to this method is that it is currently not a functionality within LArSoft to fix the GEANT random number seeds. Therefore, if one of our variations requires us to rerun GEANT, this may lead to a different behavior of the particles traversing our detector. This could enhance the estimated effect of varying the underlaying parameter. Using these varied simulations, unisims, we will assess the uncertainty by remeasuring the cross section given a central value (CV) sample with an high statistics CC1$\pi^{0}$ MC and a sample of BNB+cosmic events. We will then remeasure the cross section for each unisim under the assumption that each unisim represents a 1$\sigma$ shift in a gaussian distributed uncertainty. Since this is not in principle true, we will create conservative variations in the underlaying parameters that will produce a conservative estimate of these uncertainties. 
-
-Currently we are producing the following unisims through production and will process them in the near future:
-\begin{itemize}
-\item Shut off space-charge
-\item Turn on a simulation of the dynamic induced charge effect 
-\item Fix a bug in the scintillation light generated by different particles
-\item Stretch the reconstruction response function by 20\% in time 
-\item Mask out misconfigured channels
-\item Mask out channels that are prone to having their ASICs saturate
-\item Turn off the PMT single PE noise
-\item Turn off the data-drive signal response (effectively a perfect calibration)
-\item Switch to using a white-noise model for the electronics noise simulation
-\item Increase the visibility of the region outside the active TPC volume by 50\%
-\item Set the electron lifetime to 10ms 
-\item Turn off lateral diffusion 
-\item Turn off transverse diffusion 
-\item Switch to using a simulation of the recombination based on the Birk’s model 
-\end{itemize}
-
-\noindent Additionally, we are studying the effect of adjusting the following GEANT parameters:
-\begin{itemize}
-\item Turn off delta ray production 
-\item Turn off hadronic interactions in the bulk
-\end{itemize}
+There are three types of systematics we need to account for when considering the uncertainty on our detector simulation.  There are the uncertainties due to the CORSIKA cosmic models employed in the simulation, the number of targets in the analysis fiducial volume, and finally the overall simulation of various detector effects. 
 
 \subsubsection{MC-based Cosmic Simulation}\label{sec:cosuncert}
-The ``cosmic+neutrino'' background makes up 6\% and 6\% of the two- and one-shower selected events, respectively. This background is simulated by the CORSIKA simulation of the cosmics flux through our detector. Currently to assess an uncertainty on these events we are taking an overall 100\% normalization uncertainty on these events. The showers that are selected typically originate from cosmic muons, either delta-rays or bremsstrahlung or Michel electrons, we know that our simulation of the overall cosmic muon flux is not more than 100\% off based on past external measurements inside the MicroBooNE hall. Using scintillator counters it was measured that the muon flux was $141\pm21~\text{Hz~m}^2$~\cite{datacosflux}, while the CORSIKA simulation generates a flux of $160.9\pm0.3~\text{Hz~m}^2$  through the detector~\cite{mccosflux}. Given this variation we find a resulting systematic uncertainty on the final cross section of 10\% and 11\% for the two- and one-shower selection, respectively. 
+ The cosmic ray muon flux has previously been measured to be $141\pm21~\text{Hz~m}^2$ in the MicroBooNE detector hall~\cite{datacosflux}.  This value compares to the CORSIKA-generated flux of $160.9\pm0.3~\text{Hz~m}^2$~\cite{mccosflux} in a comparable location.  Due to the proximity of these values, and the fact that the cosmic showers we select typically originate from cosmic muons (delta-rays, bremsstrahlung, Michel electrons), we know that our simulation of the overall cosmic muon flux is not more than 100\% off.
+\par The ``Cosmic + Neutrino'' background makes up 6\% of both the two- and one-shower selected events. To conservatively assess a preliminary uncertainty on the simulation, we calculate an overall 100\% uncertainty for both selections. Given this variation we find a resulting systematic on the final cross section of 10\% and 11\% for the two- and one-shower selection, respectively. 
+\par Future assessments of CORSIKA uncertainty contribution will be avoided by using OffBeam EXT data overlaid with GENIE simulations. These efforts are currently under way.
  
-\subsubsection{Uncertainty on the Number of Targets}\label{sec:ntarguncert}
+\subsubsection{Number of Targets}\label{sec:ntarguncert}
 
-When we want to assess and uncertainty on the number of targets that we have inside our fiducial volume there are two main aspects that can lead to variations. First, the density of the argon and second the fiducial volume. For the first we can rely on the sensors that we have oriented throughout the detector and the cryogenic system to estimate the central value and expected variation in the temperature and pressure of the cryostat. Using slow controls and discussing the accuracy of the various devices with the cryogenic experts we find that throughout Run 1 during stable periods the temperature and pressure inside the cryostat are $89.2  \pm 0.3$~K and $1.241 \pm 0.004$~bar, respectively. These uncertainties are taken outside the RMS spread of these variables to create a conservative estimate. Using these variations we find that the uncertainty on the density of the liquid argon is $1.3836^{+0.0019}_{-0.0002}~\frac{\text{g}}{\text{cm}^3}$, which is a 0.1\% effect. This is safely a negligible effect considering the size of the other uncertainties we are taking into account.
+The two contributors to potential variation on our calculated number of targets are argon density and fiducial volume. To understand the uncertainty on the density, we must also understand the temperature and pressure of the detector during the time our data was taken. These values are extracted from sensors in the detector and cryogenics system. During our period of data taking, temperature and pressure are measured to be $89.2 \pm 0.3$~K and $1.241 \pm 0.004$~bar respectively. Using these variations, the uncertainty on the liquid argon density is $1.3836^{+0.0019}_{-0.0002}~\frac{\text{g}}{\text{cm}^3}$, a 0.1\% effect. This effect is safely negligible considering the size of the other uncertainties we are taking into account.
+\par Second, we must understand how our fiducial volume is affected by space charge. Electric field distortions in the detector (due mainly to passing cosmic ray muons) cause regions of the detector to appear to be within our fiducial volume and vice-versa. To assess an uncertainty on this we take the TPC volume and divide it into $0.0619~\text{cm}^3$ voxels. We then utilize simulated space charge displacement maps to compute the voxels that moved in and out of our defined fiducial volume. This leads to a change in the fiducial volume of 6.3\%. Treating this as the 1$\sigma$ variation we find a fractional change in the cross section measurement of 6.3\% for both selections. 
 
-The second uncertainty we are taking into account is the fact that the fiducial volume that we have defined is affected by the presence of the space charge effect. The electric field distortions has the effect making regions of the detector appear to be within our fiducial volume and vice-versa. To assess an uncertainty on this we take the entire active volume of the detector and divide it into $0.0619~\text{cm}^3$ voxels. We then utilize the simulated space charge displacement maps and compute the voxels that moved into and out of our defined fiducial volume. We find that this leads to a change in the fiducial volume of 6.3\%. Taking this as the 1$\sigma$ variation we find a fractional change in the cross section measurement to be 6.3\% for both selections. 
 
+%There are three classes of detector simulation based systematic uncertainties that we are taking into account in this section of the note. Those due to the overall simulation of detector effects (known colloquially as ``detector systematics''), those due to the modeling of the CORSIKA cosmic simulation, and finally those associated with the number of targets that are contained in the fiducial volume.    
+
+\subsubsection{Detector Simulation Unisims}
+Detector simulation variations contribute the type of uncertainties we can't model easily by applying a reweight scheme. To assess these uncertainties, we must generate complementary, full detector simulations per systematic effect, and pass them all through our selection chain. By using the same set of base events we will minimize the statistical variation in the sample and hone in directly on the systematic due to the model change.  This is particularly important because our efficiency is relatively low, and will require a large number of statistics to be able to resolve systematic from statistical effects.  Using these varied simulations, we will assess the uncertainty by remeasuring the cross section given a central value (CV) sample.  We will then remeasure the cross section for each variation under the assumption that each unisim represents a 1$\sigma$ shift. Since this is not in principle true, we will create conservative variations in the underlaying parameters that will produce a conservative estimate of these uncertainties. This work is on-going, and will conclude in the near future. 
+
+%Currently we are producing the following unisims through production and will process them in the near future:
+%\begin{itemize}
+%\item Shut off space-charge
+%\item Turn on a simulation of the dynamic induced charge effect 
+%\item Fix a bug in the scintillation light generated by different particles
+%\item Stretch the reconstruction response function by 20\% in time 
+%\item Mask out misconfigured channels
+%\item Mask out channels that are prone to having their ASICs saturate
+%\item Turn off the PMT single PE noise
+%\item Turn off the data-drive signal response (effectively a perfect calibration)
+%\item Switch to using a white-noise model for the electronics noise simulation
+%\item Increase the visibility of the region outside the active TPC volume by 50\%
+%\item Set the electron lifetime to 10ms 
+%\item Turn off lateral diffusion 
+%\item Turn off transverse diffusion 
+%\item Switch to using a simulation of the recombination based on the Birk’s model 
+%\end{itemize}
+%
+%\noindent Additionally, we are studying the effect of adjusting the following GEANT parameters:
+%\begin{itemize}
+%\item Turn off delta ray production 
+%\item Turn off hadronic interactions in the bulk
+%\end{itemize}
 
 \subsubsection{Total Detector Simulation Uncertainty}
 	
-We assess the overall effect on the final cross section by taking the quadratic sum of the each total of each of the systematic effects. Currently we are only integrating the values from Sec.~\ref{sec:cosuncert} and~\ref{sec:ntarguncert} which leads to an overall uncertainty on the final cross section of 12\% and 13\% for the two- and one-shower selection respectively. 
+We assess the overall detector systematic effect by taking the quadratic sum of each of these effects. Currently we are only integrating the values from Sec.~\ref{sec:cosuncert} and~\ref{sec:ntarguncert}.  This assessment leads to an overall uncertainty on the final cross section of 12\% and 13\% for the two- and one-shower selection respectively. 
 
 \clearpage 
  \section{Conclusion}
-In this note, we described a procedure that culminated in a total integrated charged current single $\pi^0$ cross section on argon. We began by defining our signal as neutrino-induced charged current interactions with a single $\pi^0$ in the final state originating from a FV-contained vertex.  We began by implementing a series of cuts which mitigated the high cosmic background, and identifying events with a $\nu$-induced $\mu$ candidate.  We next identified electromagnetic activity in each plane and used this information to reconstruct 3D shower candidates. Finally, we considered a variety of spatial correlations and shower parameters to create two distinct final samples: a single-shower selected sample, and a two shower selected sample.  With these final selected events, we were able to calculate the uncertainties due to the neutrino flux production, GENIE interaction modeling, and the detector simulation contributions to the final result.  These results are summarized below:\\
+In this note, we described a procedure that culminated in a total integrated charged current single $\pi^0$ cross section on argon. We began by defining our signal as neutrino-induced charged current interactions with a single $\pi^0$ in the final state originating from a FV-contained vertex.  We then implemented a series of cuts which mitigated the high cosmic background, and identified events with a $\nu$-induced $\mu$ candidate.  We next identified electromagnetic activity in each plane and used this information to reconstruct 3D shower candidates. Finally, we considered a variety of spatial correlations and shower parameters to create two distinct final samples: a two shower and a one shower selected sample.  With these final selected events, we were able to calculate the uncertainties due to the neutrino flux production, GENIE interaction modeling, and the detector simulation contributions to the final result.  These results are summarized below, and plotted with the flux and GENIE prediction in Figure \ref{fig:genie_uboone_xsec2} :\\
 
-\noindent $\sigma\left(\nu_{\mu} + \text{Ar} \rightarrow \mu + 1 \pi^{0} + X\right)_{\geq 2 \text{showers}}=$ (2.56 $\pm$ $0.50_{stat}$ $\pm$ $0.31_{genie}$ $\pm$ $0.37_{flux}$ $\pm$ $0.31_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$ \\
+\noindent $\langle \sigma\rangle_{\phi,\geq 2 \text{showers}}=$ (2.56 $\pm$ $0.50_{stat}$ $\pm$ $0.31_{genie}$ $\pm$ $0.37_{flux}$ $\pm$ $0.31_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$ \\
 
-\noindent $\sigma\left(\nu_{\mu} + \text{Ar} \rightarrow \mu + 1 \pi^{0} + X\right)_{\geq 1 \text{shower}}=$ (2.64 $\pm$ $0.33_{stat}$ $\pm$ $0.36_{genie}$ $\pm$ $0.38_{flux}$ $\pm$ $0.35_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$ \\
+\noindent $\langle \sigma\rangle_{\phi,\geq 1 \text{shower}}=$ (2.64 $\pm$ $0.33_{stat}$ $\pm$ $0.36_{genie}$ $\pm$ $0.38_{flux}$ $\pm$ $0.35_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$ \\
 
 \noindent This is the first charged current single $\pi^0$ cross section measured on argon.
 
