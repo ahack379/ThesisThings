@@ -1,5 +1,6 @@
 %In preamble
 \documentclass[12pt]{article}
+%\usepackage[left=1.5cm, right=1cm, top=1cm, bottom=1cm]{geometry} 
 
 \usepackage{color}
 \usepackage{hyperref}
@@ -16,7 +17,7 @@
 \usepackage{float}        %for end page after figure [H]
 \usepackage{textcomp}     %for copyright symbol
 \usepackage[font=scriptsize]{caption}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1in,left=1.5in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{subcaption} % for subfigures
 \usepackage{flafter}  % for keeping tables floating up the page
@@ -36,14 +37,20 @@
 \usepackage{ragged2e,booktabs,caption} % for caption
 
 \doublespacing
-\addtolength{\evensidemargin}{-1.5in}
+%\addtolength{\evensidemargin}{-1.5in}
 
 %End preamble, begin document
 \begin{document}
 
-%\input{thesis-introduction.tex}
-%\input{thesis-hardware-software.tex}
-\input{thesis-analysis.tex}
+\input{thesis-introduction.tex}
+\input{thesis-hardware-software.tex}
+\input{thesis-ccinclusive-selection.tex}
+\input{thesis-showerreco.tex}
+\input{thesis-pi0-selection.tex}
+\input{thesis-xsec-analysis.tex}
 \input{bib.tex}
+
+
+%\input{thesis-analysis.tex}
 
 \end{document}

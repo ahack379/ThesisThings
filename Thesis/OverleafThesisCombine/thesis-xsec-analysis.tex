@@ -1,0 +1,728 @@
+\clearpage
+\section{Cross Section Analysis}
+\par We are now in a position to calculate the cross section of $\nu_\mu$-induced CC 1-$\pi^0$ on argon.  Before we do so, it is important to understand whether we have introduced kinematical bias into the analysis at any stage.  
+
+\subsection{Truth and Efficiency Distributions}
+This section considers the distributions and selection efficiencies across a variety of kinematic variables across the selection process.  The events considered in these plots are CC events with a single neutrino-induced $\pi^0$ originating from a true vertex contained in the FV. The efficiency is defined here to be the number of this kind of events at some stage (e.g. CC Inclusive Selection) divided by the number of this kind of event before any cuts have been applied.  Figures \ref{fig:pi0_effs_0} - \ref{fig:pi0_effs_6} show kinematic distributions and their corresponding efficiencies at each stage of our CC$\pi^0$ selection up through the 2-shower set of cuts.  We show a similar set of plots for the single shower set of cuts in Figures \ref{fig:pi0_effs_7} - \ref{fig:pi0_effs_13}. Given the flatness within statistical variation of the efficiency distributions described here, we conclude that we will not be kinematically biasing an absolute cross section measurement given the state of our current reconstruction and selection procedures. Only statistical uncertainties are considered here. 
+
+\begin{figure}[h!]
+
+ \begin{subfigure}[t]{0.39\textwidth}
+    \includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_pi0_true_nu_e.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_pi0_true_nu_e.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) $E_\nu$ distribution before and after selection; b) Efficiency as a function of $E_\nu$. }
+\label{fig:pi0_effs_0}
+\end{figure}
+%; note that the efficiency is negligible below 0.275 GeV
+
+\begin{figure}[t!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_pi0_true_pi0_mom.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_pi0_true_pi0_mom.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) $\pi^0$ momentum distribution across all stages of CC $\pi^0$ selection; b) Efficiency as a function of momentum. }
+\label{fig:pi0_effs_1}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_pi0_true_gamma_e_min.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_pi0_true_gamma_e_min.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Lower energy shower distribution across all stages of CC-$\pi^0$ selection; b) Efficiency as a function of energy. }
+\label{fig:pi0_effs_2}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_pi0_true_gamma_e_max.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_pi0_true_gamma_e_max.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Higher energy shower distribution across all stages of CC-$\pi^0$ selection; b) Efficiency as a function of energy. }
+\label{fig:pi0_effs_3}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_pi0_true_RL_minE.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_pi0_true_RL_minE.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Lower energy shower conversion distances across all stages of CC-$\pi^0$ selection; b) Efficiency as a function of conversion distance. }
+\label{fig:pi0_effs_4}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_pi0_true_RL_maxE.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_pi0_true_RL_maxE.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Higher energy shower conversion distances across all stages of CC-$\pi^0$ selection; b) Efficiency as a function of energy. }
+\label{fig:pi0_effs_5}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_pi0_true_angle.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_pi0_true_angle.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) $\pi^0$ opening angle distribution across all stages of CC $\pi^0$ selection; b) Efficiency as a function of opening angle. }
+\label{fig:pi0_effs_6}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_singleshower_true_nu_e.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_singleshower_true_nu_e.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) $E_\nu$ distribution before and after selection with single shower selection at final stage; b) Efficiency as a function of $E_\nu$. }
+\label{fig:pi0_effs_7}
+\end{figure}
+%; note that the efficiency is negligible below 0.275 GeV
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_singleshower_true_pi0_mom.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_singleshower_true_pi0_mom.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) $\pi^0$ momentum distribution across all stages of CC $\pi^0$ selection with single shower selection at final stage; b) Efficiency as a function of momentum. }
+\label{fig:pi0_effs_8}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_singleshower_true_gamma_e_min.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_singleshower_true_gamma_e_min.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Lower energy shower distribution across all stages of CC-$\pi^0$ selection with single shower selection at final stage; b) Efficiency as a function of energy. }
+\label{fig:pi0_effs_9}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_singleshower_true_gamma_e_max.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_singleshower_true_gamma_e_max.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Higher energy shower distribution across all stages of CC-$\pi^0$ selection with single shower selection at final stage; b) Efficiency as a function of energy. }
+\label{fig:pi0_effs_10}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_singleshower_true_RL_minE.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_singleshower_true_RL_minE.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Lower energy shower conversion distances across all stages of CC-$\pi^0$ selection with single shower selection at final stage; b) Efficiency as a function of conversion distance. }
+\label{fig:pi0_effs_11}
+\end{figure}
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_singleshower_true_RL_maxE.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_singleshower_true_RL_maxE.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Higher energy shower conversion distances across all stages of CC-$\pi^0$ selection with single shower selection at final stage; b) Efficiency as a function of energy. }
+\label{fig:pi0_effs_12}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_singleshower_true_angle.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.39\textwidth}
+\includegraphics[scale=0.39]{XSection_Calc_Section/MCVar_eff_singleshower_true_angle.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) $\pi^0$ opening angle distribution across all stages of CC $\pi^0$ selection with single shower selection at final stage; b) Efficiency as a function of opening angle. }
+\label{fig:pi0_effs_13}
+\end{figure}
+
+\clearpage
+\subsection{Cross Section}
+
+Our first step is to calculate the GENIE flux-averaged cross section on argon for our simulation. The cross section can be calculated according to the following equation:
+
+\begin{equation}
+  \sigma = \frac{N_{tagged} - N_{bkgd}}{\epsilon*N_{targ}*\phi}
+\end{equation}
+
+\noindent where $N_{tagged}$, $N_{bkgd}$ are the number of tagged events and background events respectively, $\epsilon$ is the efficiency, $N_{targ}$ the number of Argon nuclei targets and $\phi$ the flux. 
+\par We use the same MicroBooNE Simulation used throughout this note to perform this initial calculation.  Because we are using MC information to calculate a true value here, we use $\epsilon$ = 1, $N_{bkgd}$=0 and $N_{tagged}$=$N_{signal}$.  To calculate $N_{signal}$, we choose our volume of interest to be the Fiducial Volume (FV) used by CC Inclusive Selection, with 20cm from the wall in X and Y, and 10cm from the wall in Z. We find $N_{tagged}$ = 7567, for signal interaction vertices inside the FV. 
+\par Our next job is to calculate the number of targets in our FV:
+
+\begin{equation} \label{eq:1}
+  N_{targ} = \frac{\rho_{Ar} * V * Avogadro}{m_{mol}} 
+\end{equation}
+\noindent where $\rho_{Ar}$ is the density of Liquid argon, V is the volume of interest, and $m_{mol}$ is the number of grams per mole of argon.  Using the NIST database at our temperature and pressure for the density of liquid Argon, and the FV as our volume of interest, we find: 
+
+\begin{align}
+N_{targ} &= \frac{1.3836 [\frac{g}{cm^3}] * 4.246e7 [cm^3] * 6.022e23 [\frac{molec}{mol}]}{39.95 [\frac{g}{mol}]} \\\\
+&= 8.855\times10^{29}~\text{molecular targets}
+\end{align}
+
+\par Our final step is to calculate the integrated flux.  We do this by integrating over the $\nu_\mu$ flux histogram (Figure \ref{fig:flux}a) provided by the Beam Working Group \cite{bib:flux}, and normalizing by the Protons On Target (POT) in our simulated sample; in this case, our POT is 4.232e20.  Using this POT, we calculate a total integrated flux of 3.02e11 $cm^{-2}$ over the full energy range of the flux histograms with $<E>$ = 824 MeV. 
+\begin{figure}[H]
+\includegraphics[scale=0.36]{XSection_Calc_Section/Misc_numu_MC_flux.png}
+\includegraphics[scale=0.36]{XSection_Calc_Section/Misc_numu_flux.png}
+
+\caption{$\nu_\mu$ Flux from Booster Neutrino Beam (BNB) at 470m scaled to a) MicroBooNE simulation of 4.23e20 POT; b) OnBeam 5e19 POT}
+\label{fig:flux}
+\end{figure}
+
+\noindent Putting it all together we find:
+
+
+\begin{align}
+\sigma^{\text{MC}}_{CC\pi^0} &= \frac{7567}{3.02e11 \frac{1}{cm^2} * 8.855e29 Ar } \\\\
+&= (2.83 \pm 0.03) *10^{-38} \frac{cm^2}{Ar}
+\end{align}
+
+
+\noindent where the uncertainty presented is purely statistical and dependent only on the number of signal events.  
+
+\par We perform a similar integration over the $\nu_\mu$ flux histogram (Figure \ref{fig:flux}b) in order to calculate the flux we'll need to measure a cross section on data. This integrated flux is 3.51e10 $cm^{-2}$ over the full energy range of the flux histograms with $<E>$ = 824 MeV. 
+
+\begin{table}[H]
+\centering
+\captionof{table}{Summary of $N_{OnBeam}$, $N_{OffBeam}$, $N_{MCBkgd}$, and $\epsilon$ pieces that feed into the cross section calculation.  The corresponding Table number that each piece of information can be found in is included in parenthesis next to the entry.  Note that the parameters reported here are not rounded as they are in earlier Tables, in order to give the reader all info needed to reproduce the calculations.  \label{tab:summary_of_xsec_params}}
+ \begin{tabular}{|l|l|l|l|l|}
+ \hline
+ & $N_{OnBeam}$ & $N_{OffBeam}$ & $N_{MCBkgd}$ & $\epsilon~[\%]$ \\ [0.1ex] \hline
+2 Shower & 69 $\pm$ 9 (\ref{tab:2shpi0_event_rates}) & 0.00 $\pm$ 2.17 (\ref{tab:2shpi0_event_rates}) & 24.18 $\pm$ 1.68 (\ref{tab:2shpi0_event_rates}, \ref{tab:pi0_2showers_composition}) & 5.6 $\pm$ 0.3 (\ref{tab:pi0_2showers_eventrates})\\ \hline
+1 Shower & 257 $\pm$ 16(\ref{tab:pi0_event_rates}) & 15.18 $\pm$ 5.74 (\ref{tab:pi0_event_rates}) & 102.07 $\pm$ 3.44(\ref{tab:pi0_event_rates}, \ref{tab:pi0_1shower_composition} ) & 17.0 $\pm$ 0.5 (\ref{tab:pi0_1shower_eventrates}) \\ \hline
+
+\end{tabular}
+\end{table}
+
+\par At this point, we summarize the information we'll need to calculate the cross section from data via both selection paths in Table \ref{tab:summary_of_xsec_params}. We can calculate the cross section using the 2-shower results described in the previous section where $N_{tag}$ is the number of OnBeam events at the final stage, and $N_{bkgd}$ is the number of scaled OffBeam and MC backgrounds :
+\begin{align}
+\sigma^{\text{Data}}_{CC\pi^0_{2\gamma}} &= \frac{69_{OnBeam} - 0_{OffBeam} - 24.18_{MCBkgd}}{0.056 * 3.51e10 \frac{1}{cm^2} * 8.855e29 Ar} \\\\
+&= (2.56 \pm 0.50) *10^{-38} \frac{cm^2}{Ar}
+\end{align}
+
+\noindent This result is within statistical uncertainties of the true calculated cross section above. 
+
+\par Finally, we can calculate the cross section using 1 shower-selection results on data:
+\begin{align}
+\sigma^{\text{Data}}_{CC\pi^0_{1\gamma}} &= \frac{257_{OnBeam} - 15.18_{OffBeam} - 102.07_{MCBkgd}}{0.17 * 3.51e10 \frac{1}{cm^2} * 8.855e29 Ar} \\\\
+&= (2.64 \pm 0.33) *10^{-38} \frac{cm^2}{Ar}
+\end{align}
+
+\noindent This result is also within statistical uncertainties of the true calculated cross section above. These results are plotted in Figure \ref{fig:genie_uboone_xsec} on the GENIE extracted cross section plot, along with the flux (arbitrarily normalized).  Only statistical uncertainties are shown for now.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{FinalCrossSectionPlots/Final_stat.png}
+%\includegraphics[scale=0.35]{XSection_Calc_Section/GenieTruth_stat_sys.png}
+\caption{ $\nu_{\mu}+\text{Ar}$ charged current single pion production cross section extracted from GENIE with the MicroBooNE measured cross section using the two- and one-shower paths shown with statistical uncertainties only. }
+\label{fig:genie_uboone_xsec}
+\end{figure}
+
+\clearpage
+\section{Systematic Uncertainties}
+The precision and sensitivity of an experimental measurement depends exactly on how well we understand the contributing models and detector limitations. In the case of MicroBooNE, the nominal cross section uncertainties in the GENIE neutrino generator, modeling of the beam flux, and detector systematics all affect the final measured cross section. The total uncertainty will then ideally be the combination of independent matrices corresponding to each systematic source, as shown below:
+% cuts-based variation
+\begin{equation}
+\label{eq:sys_error}
+M^{syst} =  M^{genie} + M^{flux} + M^{detector}
+\end{equation}
+
+\noindent In this section, we explore the degree to which each of these sources contributes to the final uncertainty. 
+\subsection{Uncertainty Propagation} 
+There is a simple prescription to follow when approaching systematic uncertainty evaluation. We must first identify contributing parameters and their corresponding degrees of uncertainty.  Then, we vary these parameters randomly across many iterations, each time recalculating the cross section.
+\par There are two approaches to take in assessing the 1$\sigma$ uncertainties on our variations. If a variation in parameter assignment affects only the rates of event production, a reweighing scheme can be applied to the final distributions rather than re-doing the full simulation for each generated universe.  This re-weighting strategy can be applied to uncertainty sources such as beam flux and GENIE cross sections.  For example, if the CC-neutrino interaction rate is halved by a parameter adjustment to the underlying neutrino interaction models, we can simply apply a factor of one-half to our final calculations.  On the other hand, if parameter adjustments affect event topology, re-weighting will not be sufficient, and a full generation of detector MC must be performed. One example of such a parameter is space charge. Space charge refers to the presence of positively charged ions that are formed when the argon is ionized.  These ions influence the recombination of ionization electrons from new interactions, and can cause distortions in the readout. To handle space charge and other detector effects, we must generate samples for each effect and study the impact on our selection. A framework exists to do these variations, and studies here are on going. %For now, we limit our systematic evaluations of the flux, GENIE cross sections.
+
+\subsection{GENIE Cross Sections}
+The impact of each GENIE parameter variation can be tested by reweighing event distributions using the built-in GENIE event re-weighting framework. Here, each physical parameter P is varied by $\pm$1$\sigma$. The output of this variation is a set of event weights per parameter that represent the output had you run with the varied parameter from the beginning. A summary of parameters utilized for this study is summarized in Table \ref{tab:genie_parameters}. We note the absence of MEC parameter variation in the re-weighting framework used here, however, this uncertainty will contribute negligibly due to the small portion of MEC events at the final stage of both selection paths.
+
+\begin{table*}
+\centering
+\captionof{table}{Table of GENIE parameters reproduced for convenience from the GENIE manual \cite{bib:genie} \label{tab:genie_parameters}}
+\begin{tabular}{| l | l | l | l |}
+\hline
+   Param P & Description of P & Value  & $\delta$P/P \\ [0.1ex] \hline
+ $M_A^{NCEL}$  & Axial mass for NC elastic & 0.990 GeV & $\pm$25\% \\
+ $\eta^{NCEL}$  & Strange axial form factor $\eta$ for NC elastic & 0.120 GeV & $\pm$30\% \\
+$M_A^{CCQE}$  & Axial mass for CC quasi-elastic & 0.990 GeV & -15\% +25\% \\
+$M_A^{CCRES}$  & Axial mass for CC res $\nu$ production & 1.120 GeV & $\pm$20\% \\
+$M_V^{CCRES}$  & Vector mass for CC res $\nu$ production & 0.840 GeV & $\pm$10\% \\
+$M_A^{NCRES}$  & Axial mass for NC res $\nu$ production & 1.120 GeV & $\pm$20\% \\
+$M_V^{NCRES}$  & Vector mass for NC res $\nu$ production & 0.840 GeV & $\pm$10\% \\
+$M_A^{COH}\pi$  & Axial mass for CC,NC coherent $\pi$ production & 1.000 GeV & $\pm$50\% \\
+$R_0^{COH}\pi$  & Nuc param. controlling $\pi$ absorption in RS model & 1.000 fm & $\pm$10\% \\ \hline
+
+$A_{HT}^{BY}$  & $A_{HT}$ twist param in scaling variable $\xi_\omega$ & 0.5380 & $\pm$25\% \\
+$B_{HT}^{BY}$  & $B_{HT}$ twist param in scaling variable $\xi_\omega$ & 0.305 & $\pm$25\% \\
+$C_{V1u}^{BY}$  & $C_{V1u}$ u valence GRV98 PDF correction param & 0.291 & $\pm$30\% \\
+$C_{V2u}^{BY}$  & $C_{V2u}$ u valence GRV98 PDF correction param & 0.189 & $\pm$40\% \\ \hline
+
+FormZone  & Hadron formation zone & 0.342 fm & $\pm$50\% \\
+BR ($\gamma$)  & Branch ratio for radiative resonance decays & - & $\pm$50\% \\
+BR ($\eta$)  & Branch ratio for single-$\eta$ resonance decays & - & $\pm$50\% \\ \hline
+
+$RR_{\nu p}^{CC1\pi}$ & Non-resonance bkg in $\nu$p CC1$\pi$ reactions & - & $\pm$50\% \\ 
+$RR_{\nu p}^{CC2\pi}$ & Non-resonance bkg in $\nu$p CC2$\pi$ reactions & - & $\pm$50\% \\ 
+$RR_{\nu n}^{CC1\pi}$ & Non-resonance bkg in $\nu$n CC1$\pi$ reactions & - & $\pm$50\% \\ 
+$RR_{\nu n}^{CC2\pi}$ & Non-resonance bkg in $\nu$n CC2$\pi$ reactions & - & $\pm$50\% \\ 
+$RR_{\nu p}^{NC1\pi}$ & Non-resonance bkg in $\nu$p NC1$\pi$ reactions & - & $\pm$50\% \\ 
+$RR_{\nu p}^{NC2\pi}$ & Non-resonance bkg in $\nu$p NC2$\pi$ reactions & - & $\pm$50\% \\ 
+$RR_{\nu n}^{NC1\pi}$ & Non-resonance bkg in $\nu$n NC1$\pi$ reactions & - & $\pm$50\% \\ 
+$RR_{\nu n}^{NC2\pi}$ & Non-resonance bkg in $\nu$n NC2$\pi$ reactions & - & $\pm$50\% \\  \hline
+
+$x_{abs}^{N}$ & Nucleon absorption probability & - & $\pm$20\% \\ 
+$x_{cex}^{N}$ & Nucleon charge exchange probability & - & $\pm$50\% \\ 
+$x_{el}^{N}$ & Nucleon elastic reaction probability & - & $\pm$30\% \\ 
+$x_{inel}^{N}$ & Nucleon inelastic reaction probability & - & $\pm$40\% \\ 
+$x_{mfp}^{N}$ & Nucleon mean free path & - & $\pm$20\% \\
+$x_{\pi}^{N}$ & Nucleon $\pi$-production probability & - & $\pm$20\% \\
+$x_{abs}^{\pi}$ & $\pi$ absorption probability & - & $\pm$20\% \\
+$x_{cex}^{\pi}$ & $\pi$ charge exchange probability & - & $\pm$50\% \\
+$x_{el}^{\pi}$ & $\pi$ elastic reaction probability & - & $\pm$10\% \\
+$x_{inel}^{\pi}$ & $\pi$ inelastic reaction probability & - & $\pm$40\% \\
+$x_{mfp}^{\pi}$ & $\pi$ mean free path & - & $\pm$20\% \\
+$x_{\pi}^{\pi}$ & $\pi$ $\pi$-production probability & - & $\pm$20\% \\ \hline
+\end{tabular}
+\end{table*}
+
+\par Once we have obtained our event re-weighting results, we calculate the cross section variation by considering the variation to the background B and to the efficiency $\epsilon$, as shown in Equation \ref{eq:genie_xsec_var}. We do not consider variation to total tagged events N, as this quantity will be measured directly from data.  To calculate the cross section percentile difference due to a single parameter variation, we then compare $\sigma^\pm$ to nominal $\sigma$ calculated in earlier for each selection as shown in Equation \ref{eq:genie_xsec_percentdiff}.
+
+\begin{equation} \label{eq:genie_xsec_var}
+  \sigma^\pm \propto \frac{N - B^\pm}{\epsilon^\pm} 
+\end{equation}
+
+\begin{equation} \label{eq:genie_xsec_percentdiff}
+  Percentile\ Difference = \frac{| \sigma - \sigma^\pm |}{\sigma} 
+\end{equation}
+
+\par Event re-weighting as described was run over the full 4.232e20 POT MC sample used throughout the note. The results of this re-weighting scheme are shown in Table \ref{tab:genie_results} for the higher variation (i.e., +$\sigma$ or -$\sigma$). In summary, the CC 1-$\pi^0$ analysis chain is most affected by the axial mass for CC resonance production;  this result is supported by Figure \ref{fig:physics_2shower_inttype}, in which resonant processes dominate the neutrino interaction modes of selected events. The final sample is also sensitive to the form zone parameter, nucleon elastic reaction probability, and the nucleon mean free path.   Finally, we see a significant contribution from the $\pi$ absorption probability. We also expect this; variation in the probability for $\pi$ absorption in the nucleus is correlated with the resulting number of $\pi^0$'s originating from the nucleus and entering our signal sample.  
+%\par Finally, we consider the contribution of each parameter weighting to individual signal and backgrounds.  We do this by applying reweighting ONLY to the signal or to the individual  background we're focusing on, and then comparing to the nominal as in Equation \ref{eq:genie_xsec_percentdiff}. These results are shown in Table \ref{tab:genie_bkgd_2shower_var_results} for the 2-shower sample and in Table \ref{tab:genie_bkgd_2shower_var_results} for the 1-shower sample. To interpret the information in this table, we consider the example of $M_A^{CCRES}$ in Table \ref{tab:genie_bkgd_2shower_var_results}. We expect variation of this parameter to dominantly affect CC Resonant processes.  What we see is that variations to this individual parameter have no impact on the NC backgrounds (0.00\%) and a maximum impact on FSEM, which contains all $\nu_\mu$ CC events with electromagnetic activity in the final state. 
+%Note that while the breakdowns Tables \ref{tab:genie_bkgd_2shower_var_results} and \ref{tab:genie_bkgd_2shower_var_results} gives us an idea of the contribution of each background to the overall uncertainty, we can not quadratically sum these breakdowns to estimate the final uncertainty. 
+
+
+\begin{table*}
+\centering
+\captionof{table}{Percetile Variation from the central value for each parameter variation employed in GENIE. Results for both 2- and 1-shower selection chains are shown. \label{tab:genie_results}}
+ \begin{tabular}{| l | l | l |}
+ \hline
+  Parameter P & Perc Var - 2 Shower & Perc Var - 1 Shower  \\ [0.1ex] \hline
+$M_A^{NCEL}$ &  0.40\% & 0.35\% \\
+$\eta^{NCEL}$  & 0.00\% & 0.01\% \\
+$M_A^{CCQE}$  & 1.13\% & 2.66\% \\
+$M_V^{CCQE}$  & 0.12\% & 0.16\% \\
+$M_A^{CCRES}$  & 5.25\% & 7.00\% \\
+$M_V^{CCRES}$  & 3.22\% & 4.19\% \\
+$M_A^{NCRES}$  & 1.78\% & 1.24\% \\
+$M_V^{NCRES}$  & 0.54\% & 0.31\%\\
+$M_A^{COH}\pi$  & 0.00\% & 0.49\% \\
+$R_0^{COH}\pi$  & 0.00\% & 0.49\%\\
+
+AGKYpT & 0.00\% & 0.00\% \\
+AGKYxF & 0.00\% & 0.00\% \\
+DISAth & 0.18\% & 0.14\% \\
+DISBth & 0.27\% & 0.21\% \\
+DISC$\nu$1u & 0.16\% & 0.09\% \\
+DISC$\nu$2u & 0.14\% & 0.08\% \\ \hline
+
+FormZone  & 5.05\% & 4.92\% \\
+BR ($\gamma$)  & 0.02\% & 0.27\% \\
+BR ($\eta$)  & 3.17\% & 2.24\% \\
+BR ($\theta$)  & 2.44\% & 2.00\% \\ \hline
+
+$RR_{\nu p}^{CC1\pi}$ & 0.65\% & 0.30\% \\ 
+$RR_{\nu p}^{CC2\pi}$ & 1.00\% & 2.00\% \\
+$RR_{\nu n}^{CC1\pi}$ & 2.94\% & 3.24\% \\ 
+$RR_{\nu n}^{CC2\pi}$ & 1.06\% & 1.41\% \\ \hline
+
+$x_{abs}^{N}$ & 1.41\% & 1.72\% \\
+$x_{cex}^{N}$ & 1.49\% & 1.22\%\\
+$x_{el}^{N}$ & 2.52\% & 3.36\% \\
+$x_{inel}^{N}$ & 0.79\% & 0.20\% \\
+$x_{mfp}^{N}$ & 3.79\% & 3.59\% \\
+$x_{\pi}^{N}$ & 0.22\% & 0.46\% \\
+$x_{abs}^{\pi}$ & 3.96\% & 3.89\% \\
+$x_{cex}^{\pi}$ & 1.49\% & 0.03\% \\
+$x_{el}^{\pi}$ & 0.15\% & 0.08\% \\
+$x_{inel}^{\pi}$ & 2.57\% & 4.48\% \\
+$x_{mfp}^{\pi}$ & 0.40\% & 0.44\% \\
+$x_{\pi}^{\pi}$ & 0.21\% & 0.33\% \\
+\hline
+Total Combined Uncertainty & 12.08\% & 13.80\% \\ \hline
+\end{tabular}
+\end{table*}
+
+%\begin{table*}
+%\centering
+%\captionof{table}{Results from event reweighting each individual background alone on CC-$\pi^0$ analysis with 2-shower selection chain. Recall that the Cosmic ($\nu$) background contains candidate $\mu$ tracks that are cosmic in origin; these cosmic events are neutrino-coincident.  \label{tab:genie_bkgd_2shower_var_results}}
+% \begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | }
+% \hline
+%  Param P &Signal& FSEM & CCCex & CC$>$1$\pi^0$ & NC$\pi^0$& Other & Cosmics \\ [0.1ex] \hline
+%$M_A^{NCEL}$ & 0.00\% &  0.40\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\%   \\
+%$\eta^{NCEL}$  &0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\%  \\
+%$M_A^{CCQE}$  & 0.21\% &  2.32\% &  0.64\% &  0.97\% &  0.00\% &  0.20\% &  1.13\% \\
+%$M_V^{CCQE}$  & 0.01\% &  0.03\% &  0.00\% &  0.00\% &  0.00\% &  0.02\% &  0.06\% \\
+%$M_A^{CCRES}$  & 0.21\% &  2.32\% &  0.64\% &  0.97\% &  0.00\% &  0.20\% &  1.13\% \\
+%$M_V^{CCRES}$ & 0.04\% &  1.51\% &  0.38\% &  0.55\% &  0.00\% &  0.09\% &  0.67\% \\
+%$M_A^{NCRES}$ & 0.00\% &  0.43\% &  0.00\% &  0.00\% &  1.35\% &  0.00\% &  0.00\%  \\
+%$M_V^{NCRES}$ &0.00\% &  0.13\% &  0.00\% &  0.00\% &  0.41\% &  0.00\% &  0.00\%\\
+%$M_A^{COH}\pi$ & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\
+%$R_0^{COH}\pi$ & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\
+%
+%AGKYpT & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
+%AGKYxF & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
+%DISAth & 0.04\% &  0.03\% &  0.02\% &  0.05\% &  0.02\% &  0.02\% &  0.00\% \\ %
+%DISBth & 0.05\% &  0.05\% &  0.04\% &  0.07\% &  0.03\% &  0.02\% &  0.00\%  \\ %
+%DISC$\nu$1u & 0.01\% &  0.05\% &  0.01\% &  0.06\% &  0.01\% &  0.03\% &  0.00\%\\ %
+%DISC$\nu$2u & 0.01\% &  0.04\% &  0.01\% &  0.05\% &  0.01\% &  0.02\% &  0.00\% \\ \hline
+%
+%FormZone  & 1.30\% &  0.29\% &  0.38\% &  1.36\% &  1.18\% &  0.21\% &  0.36\% \\
+%BR ($\gamma$) &0.01\% &  0.01\% &  0.00\% &  0.01\% &  0.01\% &  0.00\% &  0.01\%\\
+%BR ($\eta$) &0.31\% &  2.26\% &  0.02\% &  0.82\% &  0.00\% &  0.00\% &  0.21\% \\
+%BR ($\theta$) & 1.56\% &  0.66\% &  0.01\% &  0.22\% &  0.12\% &  0.00\% &  0.11\% \\ \hline
+%
+%$RR_{\nu p}^{CC1\pi}$ & 0.00\% &  0.13\% &  0.26\% &  0.13\% &  0.13\% &  0.00\% &  0.00\%\\ 
+%$RR_{\nu p}^{CC2\pi}$ & 0.09\% &  0.13\% &  0.13\% &  0.13\% &  0.39\% &  0.13\% &  0.00\% \\
+%$RR_{\nu n}^{CC1\pi}$ & 0.85\% &  0.39\% &  0.52\% &  0.13\% &  0.13\% &  0.13\% &  0.78\%\\ 
+%$RR_{\nu n}^{CC2\pi}$ & 0.65\% &  0.13\% &  0.26\% &  0.78\% &  0.13\% &  0.26\% &  0.13\%  \\ \hline
+%
+%$x_{abs}^{N}$ & 0.72\% &  0.01\% &  0.00\% &  0.28\% &  0.20\% &  0.02\% &  0.23\%\\
+%$x_{cex}^{N}$ &1.08\% &  0.03\% &  0.08\% &  0.11\% &  0.08\% &  0.04\% &  0.23\%\\
+%$x_{el}^{N}$ & 1.91\% &  0.09\% &  0.15\% &  0.17\% &  0.14\% &  0.06\% &  0.47\% \\
+%$x_{inel}^{N}$ & 0.49\% &  0.10\% &  0.12\% &  0.08\% &  0.13\% &  0.07\% &  0.15\% \\
+%$x_{mfp}^{N}$ & 1.84\% &  0.77\% &  0.43\% &  0.31\% &  0.18\% &  0.10\% &  0.14\%  \\
+%$x_{\pi}^{N}$ &0.07\% &  0.07\% &  0.03\% &  0.17\% &  0.07\% &  0.03\% &  0.03\%  \\
+%$x_{abs}^{\pi}$ &0.65\% &  0.54\% &  0.46\% &  1.17\% &  0.41\% &  0.13\% &  0.93\% \\
+%$x_{cex}^{\pi}$ & 0.48\% &  0.01\% &  0.12\% &  0.85\% &  0.09\% &  0.12\% &  0.22\% \\
+%$x_{el}^{\pi}$ &0.55\% &  0.01\% &  0.18\% &  0.17\% &  0.04\% &  0.03\% &  0.14\%\\
+%$x_{inel}^{\pi}$ & 0.91\% &  0.60\% &  0.46\% &  0.45\% &  0.66\% &  0.23\% &  0.60\%  \\
+%$x_{mfp}^{\pi}$ & 1.41\% &  0.25\% &  0.27\% &  0.09\% &  0.54\% &  0.16\% &  0.14\%  \\
+%$x_{\pi}^{\pi}$ &0.13\% &  0.08\% &  0.03\% &  0.07\% &  0.04\% &  0.03\% &  0.02\%\\
+%\hline
+%%Total Combined Uncertainty & 10.44\% & 13.40\% \\ \hline
+%\end{tabular}
+%\end{table*}
+%
+%%%%%%%%% Here we're adding background + signal variation specifically
+%\begin{table*}
+%\centering
+%\captionof{table}{Results from event reweighting each individual background alone on CC-$\pi^0$ analysis with 1-shower selection chain. Recall that the Cosmic ($\nu$) background contains candidate $\mu$ tracks that are cosmic in origin; these cosmic events are neutrino-coincident. \label{tab:genie_bkgd_1shower_var_results}}
+% \begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | }
+% \hline
+%  Param P &Signal& FSEM & CCCex & CC$>$1$\pi^0$ & NC$\pi^0$& Other & Cosmics \\ [0.1ex] \hline
+%$M_A^{NCEL}$ & 0.00\% &  0.13\% &  0.00\% &  0.00\% &  0.06\% &  0.00\% &  0.16\%  \\
+%$\eta^{NCEL}$  & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.01\% \\
+%$M_A^{CCQE}$  & 0.17\% &  0.84\% &  0.05\% &  0.00\% &  0.00\% &  0.60\% &  1.01\% \\
+%$M_V^{CCQE}$  & 0.02\% &  0.07\% &  0.01\% &  0.00\% &  0.00\% &  0.06\% &  0.01\% \\
+%$M_A^{CCRES}$  & 0.63\% &  3.03\% &  0.87\% &  1.02\% &  0.00\% &  2.15\% &  0.56\% \\
+%$M_V^{CCRES}$ & 0.41\% &  1.80\% &  0.48\% &  0.63\% &  0.00\% &  1.29\% &  0.29\% \\
+%$M_A^{NCRES}$ & 0.00\% &  0.40\% &  0.00\% &  0.00\% &  0.60\% &  0.12\% &  0.12\% \\
+%$M_V^{NCRES}$ & 0.00\% &  0.13\% &  0.00\% &  0.00\% &  0.18\% &  0.01\% &  0.00\%\\
+%$M_A^{COH}\pi$ & 0.00\% &  0.08\% &  0.24\% &  0.00\% &  0.00\% &  0.08\% &  0.08\%  \\
+%$R_0^{COH}\pi$ & 0.00\% &  0.08\% &  0.24\% &  0.00\% &  0.00\% &  0.08\% &  0.08\%  \\
+%
+%AGKYpT & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
+%AGKYxF & 0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% &  0.00\% \\ %
+%DISAth & 0.01\% &  0.06\% &  0.01\% &  0.04\% &  0.01\% &  0.01\% &  0.00\% \\ %
+%DISBth & 0.00\% &  0.08\% &  0.02\% &  0.06\% &  0.02\% &  0.02\% &  0.00\% \\ %
+%DISC$\nu$1u & 0.02\% &  0.03\% &  0.02\% &  0.02\% &  0.02\% &  0.02\% &  0.00\%  \\ %
+%DISC$\nu$2u & 0.01\% &  0.03\% &  0.02\% &  0.02\% &  0.02\% &  0.02\% &  0.00\%  \\ \hline
+%
+%FormZone  & 3.21\% &  0.81\% &  0.36\% &  0.86\% &  0.45\% &  0.58\% &  0.21\% \\
+%BR ($\gamma$) & 0.01\% &  0.28\% &  0.00\% &  0.01\% &  0.00\% &  0.00\% &  0.00\% \\
+%BR ($\eta$) &0.03\% &  1.52\% &  0.11\% &  1.08\% &  0.04\% &  0.26\% &  0.01\% \\
+%BR ($\theta$) & 0.56\% &  0.26\% &  0.23\% &  0.27\% &  0.09\% &  0.46\% &  0.12\% \\ \hline
+%
+%$RR_{\nu p}^{CC1\pi}$ & 0.15\% &  0.12\% &  0.08\% &  0.04\% &  0.04\% &  0.08\% &  0.08\% \\ 
+%$RR_{\nu p}^{CC2\pi}$ & 0.46\% &  0.54\% &  0.04\% &  0.12\% &  0.33\% &  0.33\% &  0.17\% \\
+%$RR_{\nu n}^{CC1\pi}$ & 0.53\% &  0.92\% &  0.42\% &  0.04\% &  0.17\% &  0.75\% &  0.42\% \\ 
+%$RR_{\nu n}^{CC2\pi}$ & 0.24\% &  0.00\% &  0.17\% &  0.42\% &  0.29\% &  0.21\% &  0.08\% \\ \hline
+%
+%$x_{abs}^{N}$ & 1.15\% &  0.25\% &  0.03\% &  0.11\% &  0.09\% &  0.01\% &  0.08\%\\
+%$x_{cex}^{N}$ & 0.88\% &  0.15\% &  0.02\% &  0.09\% &  0.07\% &  0.20\% &  0.03\% \\
+%$x_{el}^{N}$ & 2.01\% &  0.74\% &  0.01\% &  0.18\% &  0.01\% &  0.38\% &  0.12\% \\
+%$x_{inel}^{N}$ & 0.61\% &  0.36\% &  0.03\% &  0.13\% &  0.03\% &  0.26\% &  0.05\% \\
+%$x_{mfp}^{N}$ & 1.16\% &  0.98\% &  0.22\% &  0.28\% &  0.11\% &  0.45\% &  0.45\% \\
+%$x_{\pi}^{N}$ & 0.06\% &  0.09\% &  0.06\% &  0.16\% &  0.06\% &  0.14\% &  0.00\%  \\
+%$x_{abs}^{\pi}$ & 0.21\% &  1.02\% &  0.39\% &  1.01\% &  0.56\% &  0.70\% &  0.05\% \\
+%$x_{cex}^{\pi}$ & 0.15\% &  0.07\% &  0.11\% &  0.36\% &  0.04\% &  0.11\% &  0.08\% \\
+%$x_{el}^{\pi}$ &0.10\% &  0.15\% &  0.16\% &  0.03\% &  0.01\% &  0.06\% &  0.11\%\\
+%$x_{inel}^{\pi}$ & 0.53\% &  1.48\% &  0.40\% &  0.52\% &  0.68\% &  1.14\% &  0.03\%  \\
+%$x_{mfp}^{\pi}$ & 0.87\% &  0.24\% &  0.20\% &  0.37\% &  0.17\% &  0.23\% &  0.11\% \\
+%$x_{\pi}^{\pi}$ & 0.10\% &  0.02\% &  0.04\% &  0.14\% &  0.01\% &  0.02\% &  0.00\% \\
+%\hline
+%\end{tabular}
+%\end{table*}
+
+
+We conclude here by combining the uncertainties in quadrature and calculating a 12.08\% uncertainty for the 2-shower path and a 13.80\% uncertainty for the 1-shower path from the GENIE model.  The higher uncertainty on the 1-shower sample is due to the lower purity of the single shower selection path.
+
+\clearpage
+\subsection{Flux Systematics}
+When considering uncertainty due to flux, we are primarily interested in variations of particle production at the target ($\pi^+$, $\pi^-$, $K^+$, $K^-$, $K^0$) and POT.  The uncertainty due to POT counting (roughly 2\%, measured in the beam hall) is considerably smaller than that due to the flux itself. 
+\par To evaluate the flux systematic contribution, we consider variations on a series of parameters.  These parameter variations cover uncertainty on the depth by which the current penetrates into the horn conductor (the ‘skin effect’), the current that the horn is pulsed with, pion and nucleon cross sections
+(total, inelastic, and quasi-elastic) on aluminum and beryllium and hadron production. To report our results, we combine all non-hadron production uncertainty contributions into one reported value called `FluxUnisim', while keeping the hadronic parameters separated. With these parameter variations in mind, the EventWeight calculator produces 1000 multisims using a unique random number generator seed for each flux systematic uncertainty. Per event, we then proceed to calculate 1000 cross sections using the information stored in these 1000 universes.  We do this using the Equation \ref{eq:flux_xsec_var_0} for i in 0 - 1000 universes:
+
+\begin{equation} \label{eq:flux_xsec_var_0}
+  \sigma_i \propto \frac{N - B_i}{\epsilon_i \phi_i} 
+\end{equation}
+
+\noindent where `N' is the On - OffBeam value from the final stage of each selection path, $B_i$ is the weighted background contribution in the i'th universe, $\epsilon_i$ is the i'th universe efficiency, and $\phi_i$ is the flux renormalization factor for the i'th universe.  We use the modified fluxes to integrate from 0 to 3 GeV and determine the flux through the detector in the i'th universe. This integration across the full energy range increases our overall systematic uncertainty due to the behavior of spline fits to the HARP $\pi^{+}$ production data in regions where there is no HARP data~\cite{bib:flux_uncertainty_tn}. 
+
+%This uncertainty could be reduced by utilizing a physical constraint on the pion production in these regions.   
+
+Once 1000 cross sections are calculated, we calculate 1000 corresponding percentile differences with respect to the nominal according to Equation \ref{eq:genie_xsec_percentdiff}. We then use the percentile variations to extract a 1$\sigma$ uncertainty from the nominal value at 0 for each varied flux parameter.  These distributions are shown for the 2 shower sample in Figures \ref{fig:flux_2shower_unc_plots_0}-\ref{fig:flux_2shower_unc_plots_2} and for the 1 shower sample in Figures \ref{fig:flux_1shower_unc_plots_0}-\ref{fig:flux_1shower_unc_plots_2}. The uncertainty extracted from each sample is displayed on these plots and additionally summarized in Table \ref{tab:flux_results}.  
+
+%\noindent More details on the event weight framework and these parameters can be found externally \cite{bib:flux_uncertainty_tn}.  
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_pi0_FluxUnisim.png}
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_pi0_K0.png}
+\caption{ Uncertainty contributions broken down by function for the two shower sample. On the left is the uncertainty contribution from all the non-hadronic processes; on the right are variations due to $K^0$ production. }
+\label{fig:flux_2shower_unc_plots_0}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_pi0_K+.png}
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_pi0_K-.png}
+\caption{ Uncertainty contributions broken down by function for the 2 shower sample. On the left is the uncertainty contribution from variations on $K^+$ production; on the right is the uncertainty due to $K^-$ production. }
+\label{fig:flux_2shower_unc_plots_1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_pi0_pi+.png}
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_pi0_pi-.png}
+\caption{ Uncertainty contributions broken down by function for the 2 shower sample. On the left is the uncertainty contribution from variations on $\pi^+$ production; on the right is the uncertainty due to $\pi^-$ production. }
+\label{fig:flux_2shower_unc_plots_2}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_singleshower_FluxUnisim.png}
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_singleshower_K0.png}
+\caption{ Uncertainty contributions broken down by function for 1 shower sample. On the left is the uncertainty contribution from all the non-hadronic processes; on the right are variations due to $K^0$ production. }
+\label{fig:flux_1shower_unc_plots_0}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_singleshower_K+.png}
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_singleshower_K-.png}
+\caption{ Uncertainty contributions broken down by function for the 1 shower sample. On the left is the uncertainty contribution from variations on $K^+$ production; on the right is the uncertainty due to $K^-$ production. }
+\label{fig:flux_1shower_unc_plots_1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_singleshower_pi+.png}
+\includegraphics[scale=0.35]{XSection_Calc_Section/Flux_perc_var_singleshower_pi-.png}
+\caption{ Uncertainty contributions broken down by function for the 1 shower sample. On the left is the uncertainty contribution from variations on $\pi^+$ production; on the right is the uncertainty due to $\pi^-$ production. }
+\label{fig:flux_1shower_unc_plots_2}
+\end{figure}
+
+ \begin{table}[H]
+ \centering
+ \captionof{table}{ \label{tab:flux_results} Summary of percentile variations to the central value of flux parameters for both 2 and 1 shower paths. }
+  \begin{tabular}{| l | l | l |}
+  \hline
+   Parameter & Perc Var - 2 Shower & Perc Var - 1 Shower  \\ [0.1ex] \hline
+ FluxUnisim & 8.3 \% & 9.16 \%  \\
+ $K^-$ Production & 0.03\% & 0.34\%\\
+ $K^+$ Production &  1.01 \% & 1.07\% \\
+ $K^0$ Production & 0.14\% & 0.33\% \\
+ $\pi^-$ Production & 0.05\% & 0.22\%\\
+ $\pi^+$ Production &  11.75\% & 11.16 \% \\ \hline
+ Total Combined Uncertainty & 14.42\% & 14.49\%\\ \hline
+\end{tabular}
+\end{table}
+
+
+\clearpage
+\subsection{Detector Simulation Systematics}
+
+There are three types of systematics we need to account for when considering the uncertainty on our detector simulation.  There are the uncertainties due to the CORSIKA cosmic models employed in the simulation, the number of targets in the analysis fiducial volume, and finally the overall simulation of various detector effects. 
+
+\subsubsection{MC-based Cosmic Simulation}\label{sec:cosuncert}
+ The cosmic ray muon flux has previously been measured to be $141\pm21~\text{Hz~m}^2$ in the MicroBooNE detector hall~\cite{datacosflux}.  This value compares to the CORSIKA-generated flux of $160.9\pm0.3~\text{Hz~m}^2$~\cite{mccosflux} in a comparable location.  Due to the proximity of these values, and the fact that the cosmic showers we select typically originate from cosmic muons (delta-rays, bremsstrahlung, Michel electrons), we know that our simulation of the overall cosmic muon flux is not more than 100\% off.
+\par The ``Cosmic + Neutrino'' background makes up 6\% of both the two- and one-shower selected events. To conservatively assess a preliminary uncertainty on the simulation, we calculate an overall 100\% uncertainty for both selections. Given this variation we find a resulting systematic on the final cross section of 10\% and 11\% for the two- and one-shower selection, respectively. 
+%\par Future assessments of CORSIKA uncertainty contribution will be avoided by using OffBeam EXT data overlaid with GENIE simulations. These efforts are currently under way.
+ 
+\subsubsection{Number of Targets}\label{sec:ntarguncert}
+
+The two contributors to potential variation on our calculated number of targets are argon density and fiducial volume. To understand the uncertainty on the density, we must also understand the temperature and pressure of the detector during the time our data was taken. These values are extracted from sensors in the detector and cryogenics system. During our period of data taking, temperature and pressure are measured to be $89.2 \pm 0.3$~K and $1.241 \pm 0.004$~bar respectively. Using these variations, the uncertainty on the liquid argon density is $1.3836^{+0.0019}_{-0.0002}~\frac{\text{g}}{\text{cm}^3}$, a 0.1\% effect. This effect is safely negligible considering the size of the other uncertainties we are taking into account.
+\par Second, we must understand how our fiducial volume is affected by space charge. Electric field distortions in the detector (due mainly to passing cosmic ray muons) cause regions of the detector to appear to be within our fiducial volume and vice-versa. To assess an uncertainty on this we take the TPC volume and divide it into $0.0619~\text{cm}^3$ voxels. We then utilize simulated space charge displacement maps to compute the voxels that moved in and out of our defined fiducial volume. This leads to a change in the fiducial volume of 6.3\%. Treating this as the 1$\sigma$ variation we find a fractional change in the cross section measurement of 6.3\% for both selections. 
+
+
+%There are three classes of detector simulation based systematic uncertainties that we are taking into account in this section of the note. Those due to the overall simulation of detector effects (known colloquially as ``detector systematics''), those due to the modeling of the CORSIKA cosmic simulation, and finally those associated with the number of targets that are contained in the fiducial volume.    
+
+\subsubsection{Detector Simulation Unisims}
+Detector simulation variations contribute the type of uncertainties we can't model easily by applying a re-weight scheme. To assess these uncertainties, we must generate complementary, full detector simulations per systematic effect, and pass them all through our selection chain. By using the same set of base events we will minimize the statistical variation in the sample and hone in directly on the systematic due to the model change.  This is particularly important because our efficiency is relatively low, and will require a large number of statistics to be able to resolve systematic from statistical effects.  Using these varied simulations, we will assess the uncertainty by remeasuring the cross section given a central value (CV) sample.  We will then remeasure the cross section for each variation under the assumption that each unisim represents a 1$\sigma$ shift. Since this is not in principle true, we will create conservative variations in the underlaying parameters that will produce a conservative estimate of these uncertainties. This work is on-going, and will conclude in the near future. 
+
+%Currently we are producing the following unisims through production and will process them in the near future:
+%\begin{itemize}
+%\item Shut off space-charge
+%\item Turn on a simulation of the dynamic induced charge effect 
+%\item Fix a bug in the scintillation light generated by different particles
+%\item Stretch the reconstruction response function by 20\% in time 
+%\item Mask out misconfigured channels
+%\item Mask out channels that are prone to having their ASICs saturate
+%\item Turn off the PMT single PE noise
+%\item Turn off the data-drive signal response (effectively a perfect calibration)
+%\item Switch to using a white-noise model for the electronics noise simulation
+%\item Increase the visibility of the region outside the active TPC volume by 50\%
+%\item Set the electron lifetime to 10ms 
+%\item Turn off lateral diffusion 
+%\item Turn off transverse diffusion 
+%\item Switch to using a simulation of the recombination based on the Birk’s model 
+%\end{itemize}
+%
+%\noindent Additionally, we are studying the effect of adjusting the following GEANT parameters:
+%\begin{itemize}
+%\item Turn off delta ray production 
+%\item Turn off hadronic interactions in the bulk
+%\end{itemize}
+
+\subsubsection{Total Detector Simulation Uncertainty}
+	
+We assess the overall detector systematic effect by taking the quadratic sum of each of these effects. Currently we are only integrating the values from Sec.~\ref{sec:cosuncert} and~\ref{sec:ntarguncert}.  This assessment leads to an overall uncertainty on the final cross section of 12\% and 13\% for the two- and one-shower selection respectively. 
+
+\clearpage 
+ \section{Conclusion}
+In this thesis, we described a procedure that culminated in a total integrated charged current single $\pi^0$ cross section on argon. We began by defining our signal as neutrino-induced charged current interactions with a single $\pi^0$ in the final state originating from a FV-contained vertex.  We then implemented a series of cuts which mitigated the high cosmic background, and identified events with a $\nu$-induced $\mu$ candidate.  We next identified electromagnetic activity in each plane and used this information to reconstruct 3D shower candidates. We then considered a variety of spatial correlations and shower parameters to create two distinct final samples and extract a cross section from each.  Finally, we calculated the uncertainties due to the neutrino flux production, GENIE interaction modeling, and preliminary detector systematics contributions to the final result.  These results are summarized below, and plotted with the flux and GENIE prediction (with both statistical and systematic error) in Figure \ref{fig:genie_uboone_xsec2} :\\
+
+\noindent $\langle \sigma\rangle_{\phi,\geq 2 \text{showers}}=$ (2.56 $\pm$ $0.50_{stat}$ $\pm$ $0.31_{genie}$ $\pm$ $0.37_{flux}$ $\pm$ $0.31_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$ \\
+
+\noindent $\langle \sigma\rangle_{\phi,\geq 1 \text{shower}}=$ (2.64 $\pm$ $0.33_{stat}$ $\pm$ $0.36_{genie}$ $\pm$ $0.38_{flux}$ $\pm$ $0.35_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$ \\
+
+\noindent This is the first charged current single $\pi^0$ cross section measured on argon.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{FinalCrossSectionPlots/Final_statsyst.png}
+%\includegraphics[scale=0.35]{XSection_Calc_Section/GenieTruth_stat_sys.png}
+\caption{ $\nu_{\mu}+\text{Ar}$ charged current single pion production cross section extracted from GENIE with the MicroBooNE measured cross section using the two- and one-shower paths. The uncertainty bars on the MicroBooNE measurements are inner statistical only and the outer are the quadratic sum of the statistical, flux, detector simulation, and GENIE uncertainties.}
+\label{fig:genie_uboone_xsec2}
+\end{figure}
+
+
+\clearpage
+\appendix
+\clearpage
+
+\section{0 Reconstructed Showers}
+\label{sec:AppC}
+Here we consider the distributions of events which have 0 showers reconstructed. Signal and background distributions are shown for a variety of kinematic variables in Figures \ref{fig:physics_sel2_0shower_mulen} - \ref{fig:physics_sel2_0shower_z} (uncertainties are purely statistical at this point). 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.25]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mult.png}
+\hspace{1 mm}
+\includegraphics[scale=0.25]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_len.png}
+\caption{ Data to simulation comparison of a) multiplicity and b) $\mu$ length after CC Inclusive Selection filter }
+\label{fig:physics_sel2_0shower_mulen}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_angle.png}
+\hspace{2 mm}
+\includegraphics[scale=0.3]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_phi.png}
+\caption{ Data to simulation comparison of $\mu$ a) $\theta$  and b) $\phi$ after CC Inclusive Selection filter }
+\label{fig:physics_sel2_0shower_muphi}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[scale=0.25]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_startx.png}
+\includegraphics[scale=0.25]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_endx.png}
+\caption{ Data to simulation comparison of $\mu$ a) start and b) end in x after CC Inclusive Selection filter }
+\label{fig:physics_sel2_0shower_x}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.25]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_starty.png}
+\includegraphics[scale=0.25]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_endy.png}
+\caption{ Data to simulation comparison of $\mu$ a) start and b) end in y after CC Inclusive Selection filter }
+\label{fig:physics_sel2_0shower_y}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.25]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_startz.png}
+\includegraphics[scale=0.25]{Appendix_0Showers/Physics_sel2_0showers_onoffseparate_mu_endz.png}
+\caption{ Data to simulation comparison of $\mu$ a) start and b) end in z after CC Inclusive Selection filter }
+\label{fig:physics_sel2_0shower_z}
+\end{figure}

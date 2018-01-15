@@ -20,7 +20,7 @@ Neutrino beam creation begins with $H^-$ ion production and acceleration to 750 
   \hspace{3mm}
   \begin{subfigure}[t]{0.6\textwidth}
     \centering
-\includegraphics[scale=0.6]{Hardware/target0.png}
+\includegraphics[scale=0.55]{Hardware/target0.png}
   \caption{ }
   \end{subfigure} 
 \caption{ a) Accelerator complex at Fermilab. Protons are accelerated to 8 GeV in the Booster before slamming into a Beryllium target; b) The target assembly used by MicroBooNE, with beam striking the slugs from the left. } 
@@ -34,7 +34,7 @@ Neutrino beam creation begins with $H^-$ ion production and acceleration to 750 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.6]{Hardware/beamline_to_uboone.png}
+\includegraphics[scale=0.5]{Hardware/beamline_to_uboone.png}
 \caption{ Depiction of neutrino creation and journey at the BNB target. When the horn is in neutrino mode, resulting negative particles (like the $\pi^-$ here) are directed away from the horn.  The remaining positive particles decay into neutrinos and other charged particles in the 50 m decay region.  The charged particle decay products are stopped in the 500 m of dolomite between the decay pipe, while the neutrinos continue on their journey to MicroBooNE  }
 \label{fig:beamline2}
 \end{figure}
@@ -52,27 +52,15 @@ Neutrino beam creation begins with $H^-$ ion production and acceleration to 750 
 The Micro Booster Neutrino Experiment (MicroBooNE) is a Liquid Argon Time Projection chamber which sits in the BNB at Fermi National Laboratory.  Its primary goal is to resolve the nature of MiniBooNE's observed low energy excess, in addition to making a suite of cross section measurements and performing R\&D on new technologies for the next generation of LArTPCs. A model and live representation of the full detector are shown in Figure \ref{fig:cryo2}. The various subsystems are described in detail below.
 
 \begin{figure}[H]
-\centering
-  \begin{subfigure}[t]{0.45\textwidth}
     \centering
-\includegraphics[scale=0.45]{Hardware/cryo.png}
-  \caption{ }
-  \end{subfigure} 
-  %\hspace{1mm}
-  \begin{subfigure}[t]{0.5\textwidth}
-    \centering
-\includegraphics[scale=0.5]{Hardware/cryo2.png}
-  \caption{ }
-  \end{subfigure} 
+\includegraphics[scale=0.4]{Hardware/cryo.png}
+  \hspace{1mm}
+\includegraphics[scale=0.45]{Hardware/cryo2.png}
 \caption{a) Model of the MicroBooNE cryostat with side transparent to expose the inner Time Projection Chamber; b) A picture of the MicroBooNE detector taken when the TPC was slid into the cryostat in December 2013.  MicroBooNE's cryostat is a type 304 stainless steel tube with inner diameter of 3.81 m, length of 12.2 m, and capacity of 170 tonnes; it is roughly the size of a school bus. }
 \label{fig:cryo2}
 \end{figure}
 
 %When a charged particle travels through a TPC in LAr, it leaves a trail of ionization electrons in its wake that are drifted in a uniform electric field to wire readout planes. 
-
-
-
-
 
 \subsubsection{Time Projection Chamber} 
 \par Liquid Argon Time Projection Chambers (LArTPCs) are ideal detectors for neutrino oscillation experiments with short and long baselines.  There are a number of properties that make Liquid Argon (LAr) well suited for the TPC medium: it is cheap, easy to cool, and transparent to its own scintillation light.  Additional properties are shown in Table \ref{tab:larProp}.  The principle of a TPC is as follows: a neutrino interaction occurs in the detector, and produces charged secondary particles. These particles ionize the surrounding argon and leave a trail of ionization electrons in their wake (Figure \ref{fig:ex_tpc_event_progression}b).  These electrons are then drifted in a uniform electric field to wire readout planes (Figure \ref{fig:ex_tpc_event_progression}c). During the drift, electrons encounter three planes : U (+60 degree tilt from vertical, Figure \ref{fig:ex_tpc_event_progression}d), V (-60 degree tilt from vertical, Figure \ref{fig:ex_tpc_event_progression}e) and Y (0 degree tilt from vertical, Figure \ref{fig:ex_tpc_event_progression}f).  The passing charge leaves induced pulses on the first 2 ``induction" planes, and collects onto the final ``collection" plane.  Once charge is collected, signals from the wires are amplified and sent on to be stored and analyzed. Readout from the wires makes the Y and Z coordinates of an interaction accessible. To access the X coordinate, we need to combine TPC and PMT information. We do this by assuming that the light produced by a neutrino interaction will be seen by the PMTs at roughly the time the interaction occurred, or `$t_0$'.  We then match tracks of electrons in the TPC to their corresponding flashes of light on our PMTs.  The electron arrival time at the anode planes with respect to $t_0$ in conjunction with the electron drift velocity in our electric field tells us where the interaction must have occurred in X. With all three coordinates, we're able to reconstruct 3-dimensional objects from which we can extract valuable interaction information such as $\frac{dE}{dx}$, particle ID, and various kinematic variables. An example of a neutrino interaction in the MicroBooNE detector is shown for all three planes in Figure \ref{fig:ex_tpc_event}
@@ -234,9 +222,9 @@ Absorption length & 83.6 [cm] \\ \hline
 
 \begin{figure}[h!]
 \centering
-\fbox{\includegraphics[scale=0.45]{Hardware/tpb0.png}}
+\includegraphics[scale=0.42]{Hardware/tpb0.png}
 \hspace{1 mm}
-\fbox{\includegraphics[scale=0.31]{Hardware/lightExcitement}} %decayTime.png}}
+\includegraphics[scale=0.28]{Hardware/lightExcitement} %decayTime.png}}
 \caption{ a) Spectra of VUV scintillation photons, visibility of PMT and wavelength shifted photons; b) Process of scintillation photon production for each mode  } 
 \label{fig:decay}
 \end{figure}
@@ -245,9 +233,9 @@ Absorption length & 83.6 [cm] \\ \hline
 \par Recombination is not the only way to lose charge deposition information about an interaction. Roughly 17\% of the time a charged particle will excite rather than ionize the Argon \cite{bib:sorel}. From here, the excited Argon can join with a ground state Argon to form an excimer (Figure \ref{fig:decay}b, bottom). This excimer similarly de-excites via a scintillation photon at 128 nm.  A closer look at the shared excimer state of the 2 processes reveals that there are 2 ways for the electron spin state to couple to the argon (Figure \ref{fig:light}a), with 2 different decay times \cite{bib:lumin}. The result is a prompt peak when the interaction occurs followed by a long tail of late light (Figure \ref{fig:light}b).  The long tail can make it difficult to identify delayed coincidences like Michel electrons, however we are generally most interested in the prompt light. 
 \begin{figure}[h!]
 \centering
-\fbox{\includegraphics[scale=0.28]{Hardware/lightRatio.png}}
+\fbox{\includegraphics[scale=0.25]{Hardware/lightRatio.png}}
 \hspace{2 mm}
-\fbox{\includegraphics[scale=0.4]{Hardware/decayTime.png}}
+\includegraphics[scale=0.38]{Hardware/decayTime.png}
 \caption{ a) Excimer decay rates for each state; b) PMT signal over time exhibits prompt light from singlet state of excimer de-excitation and late light from triplet. } 
 \label{fig:light}
 \end{figure}

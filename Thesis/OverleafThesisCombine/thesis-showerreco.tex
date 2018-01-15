@@ -1,0 +1,406 @@
+\clearpage
+%\section{Track-like Hit Removal}
+\section{Shower Reconstruction}
+During past efforts, 2D-clustering has been a bottle neck in the reconstruction chain where we lose many events due to the complexity of reconstructing complicated topologies. To mitigate this problem, we have broken 2D-clustering into 2 stages: track-like hit removal and clustering. We discuss both stages in this section.
+
+\subsection{Identifying Electromagnetic Activity}
+Hit Removal is a suite of algorithms developed by a MicroBooNE collaborator to identify electromagnetic activity at the hit level and store this information for use by downstream algorithms. While the package is called ``Hit Removal", no hits are ever actually removed from the event; rather, a track or shower-like designation is stored per hit in the hit's ``GoodnessOfFit'' class variable. Thus, at the end of all Hit Removal algorithms, both the identified electromagnetic hits and all original hits can be accessed. A brief overview is discussed in this section. %; extensive detail on all algorithms is provided externally \cite{bib:davidc_hitremoval}.
+
+\par The goal of these algorithms is to identify charge which is both neutrino-induced and shower-like. This hit-identification is broken into cosmic-induced and neutrino-induced stages.  In both stages, only hits within a 1~m Region Of Interest (ROI) of the reconstructed vertex are considered. An example ROI is depicted in Figure \ref{fig:roi}. The cosmic-induced hit identification algorithms are run first.  Here, the hits associated with Pandora cosmic-tagged tracks are `removed'.  Similarly, we remove groups of hits that are poorly aligned with the neutrino vertex, whether or not that charge already has a Pandora cosmic tag. Finally, we search for remaining electromagnetic hits near in 2D space to already-removed cosmic clusters. If the detected activity resembles a delta ray, these hits are also removed. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.35]{Cluster_Shower/Misc_ROI.png}
+\caption{$\pi^0$ Region Of Interest (ROI) around $\nu_\mu$ CC CC Inclusive Selection tagged  vertex. The bounds extend 1m away from the vertex in each direction. }
+\label{fig:roi}
+\end{figure}
+
+\par We follow these cosmic-targeted algorithms with a suite of algorithms aimed at neutrino-induced activity. First, Pandora cosmic clusters that have associated hits within 3.5 cm of the vertex are required to satisfy an aggressive linearity requirement. The goal of this tight cut on linearity is to preserve the population of photons that convert very near the vertex, while also removing some vertex-related track activity. Following this requirement, we consider number of cluster hits, cluster 2D slope, and the a looser linearity cut with aim to remove $\mu$ and charged $\pi$ activity. Finally, we remove all charge within 3.5 cm of the vertex. Hits are generally crowded near the vertex, which leads to potential over-merging at the clustering stage. In this context, this step cleans the area around the vertex, and prepares us for downstream clustering. Once these algorithms have completed, the remaining electromagnetic hit candidates are passed onto clustering. The remaining hits after this hit removal pass are shown in red in Figure \ref{fig:hitremoval} for two separate example events. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{Cluster_Shower/HR_mcc8.png}
+\caption{ Example display after Hit Removal. Candidate electromagnetic activity is shown in red for two separate events. Note in the interaction on the right that the relatively linear shower (circled) has been removed. The effects of energy loss at all stages are quantified externally \cite{bib:davidc_missingE}.} 
+\label{fig:hitremoval}
+\end{figure}
+
+\subsection{OpenCV Software Package}
+OpenCV is an open source computer vision library with functionality to aid in pattern recognition and image processing \cite{bib:opencv}. These functions have been developed by a world-wide community and are designed to be both efficient and fast. OpenCV has Python, C++, and Java interfaces, and is easy to use. We utilize a number of OpenCV image-manipulation algorithms here to reconstruct our $\pi^0$ shower candidates.  %Here we describe algorithms developed to identify $\pi^0$ candidate showers in MicroBooNE data. 
+
+\subsection{LArOpenCV Framework}
+LArOpenCV is a C++ framework with an interface to the OpenCV API. The LArOpenCV framework allows for event-by-event image creation, application of image manipulation algorithms, two dimensional contour matching between three physical wire planes, and cluster creation and output. The input into LArOpenCV is either a full readout or region of interest (ROI) reconstructed hit object. Input data products are first translated into an ``event image'' and then handed over to a separate manager class for image processing. In this work, we consider reconstructed information inside the same 1m ROI around the CC Inclusive Selection candidate vertex.  
+
+\subsection{Event Image}
+\par In order to process hit objects as input with our LArOpenCV framework, we first need to translate our data products into a data format compatible with OpenCV. To do this, the LArOpenCV framework creates a single channel image for each plane determined by the wire and time tick ranges. Each row pixel represents a single wire and each column pixel a single time tick. The integral charge of each hit is scaled to 8 bits (integer 0 to 255) and assigned to that hit's peak time and wire. The result is a single channel grey-scale image. Note that this scaling is solely for the purposes of identifying clusters at the OpenCV stage. All analysis post-clustering (including energy reconstruction) is entirely independent of OpenCV and the LArOpenCV framework. 
+\par Finally, we ``pool" the image. In MicroBooNE, a single time tick corresponds to 0.05 cm and a single wire spacing to 0.3 cm (or roughly 6 time ticks).  In ``pooling'', we combine 6 ticks into 1 tick pixel with the summed pixel value at that location. We do this because the image manipulation kernels we will describe in the coming sections perform better for our purposes if they can act uniformly in both directions. Now that the image is prepared, we can proceed with clustering.
+\subsection{Clustering with LArOpenCV }
+
+\par The job of the first algorithm in the clustering chain (``PolarCluster") is to identify candidate clusters for eventual particle identification. The algorithm first transforms image information into polar coordinates using the OpenCV linearPolar function \cite{bib:linearPolar}, with the origin at the reconstructed vertex location and the radius set to the ROI width.  Any pixels outside this region (for example, if the radius extends outside the TPC) are set to 0. This polar strategy has the advantage over Cartesian algorithms in that it enforces an image blur in the direction of showering which prevents lateral over-merging. Examples of the polar transformation are shown in Figure \ref{fig:polar} and \ref{fig:pi0_polar}). Following translation, we perform a series of OpenCV image manipulations as depicted in Figure \ref{fig:sbc}. First, we dilate the image \cite{bib:dilate}. We do this using an elliptic structuring element \cite{bib:structuringElement} 5 pixels in radius as our kernel. During dilation, pixels surrounding each hit within the dilation radius acquire the grey scale value of the hit; the fundamental pixel dimensions, however, remain the same. In this way, we begin to connect hits without changing the size of the image. We then apply a blur function \cite{bib:blur} with kernel width 10 and height 5. Blurring smears these dilated hits together with a Gaussian filter and smooths image edges. This process, similar to dilation, only changes the grey scale values of various pixels, not the size of the original pixels. Finally, we run contour finding \cite{bib:contourFinding} on the blurred image, and initialize our cluster definitions based on these contours' spatial locations and geometric properties.  Once contours are found, we translate back into Cartesian coordinates and assign hits to the contours that they fall inside of \cite{bib:pointPolygon}.  We require clusters to have at least 10 hits to pass to the next algorithm. The motivation for this cut is discussed in the following Cluster Matching subsection.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Cluster_Shower/Misc_opencv_polar.png}
+\caption{ Example from OpenCV manual depicting polar transformation algorithm \cite{bib:linearPolar}}
+\label{fig:polar}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.83]{Cluster_Shower/Misc_opencv_cluster_linear.png}
+\includegraphics[scale=0.83]{Cluster_Shower/Misc_opencv_cluster_polar.png}
+\caption{ Example of a single particle $\pi^0$ event in linear (left) and polar (right)}
+\label{fig:pi0_polar}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Cluster_Shower/Misc_image_manipulation.png}
+\caption{ a) Original hits that make up a single cluster; b) Dilate pixels to ``connect" nearby hits; c) Blur image to smooth edges and smear charge; d) OpenCV contour finding on blurred image produces a polygon which now encloses the original hits.}
+\label{fig:sbc}
+\end{figure}
+
+%This corresponds to five radiation lengths beyond the first conversion length which means that little energy will pierce this boundary (Figure \ref{fig:davidc_conversion_distance}). Thus, reconstructed clusters extending outside the ROI are unlikely candidates for our $\gamma$ search. We only consider information in this ROI around the CC Inclusive Selection candidate vertex throughout the remainder of the clustering chain.
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.4]{Cluster_Shower/conversion_distance.png}
+%\caption{ Mean free path of photons as a function of energy, courtesy of David Caratelli. }
+%\label{fig:davidc_conversion_distance}
+%\end{figure}
+
+\par Next, we assign a start point and direction to each cluster. Start point calculation is performed in the following way: each OpenCV-calculated contour has an associated minimum bounding box \cite{bib:minAreaRect} that surrounds it (outer red rectangle in Figure \ref{fig:misc_opencv_startpoint}a). The start point finding module segments this bounding box into 2 equal segments long ways (red center line in Figure \ref{fig:misc_opencv_startpoint}a). The algorithm then locates the hit of the cluster that is closest to the ROI vertex (green circle).  Next, we take the segment this hit belongs to (green box in Figure \ref{fig:misc_opencv_startpoint}b) and search for the hit furthest from the center (yellow dot) of the minimum bounding box to assign a start point (purple star in Figure \ref{fig:misc_opencv_startpoint}c). Finally, the hit furthest from the center in the adjacent segment is assigned to be the end point (orange star in Figure \ref{fig:misc_opencv_startpoint}c). We assign the cluster's direction to be the direction of the cluster's minimum bounding box.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.95\textwidth]{Cluster_Shower/Misc_opencv_startpoint_explanation.png}
+\caption{ a) The start point finding algorithm uses the ROI vertex (green circle) to determine the
+cluster’s nearest hit to the vertex; b) The segment containing this hit (green) is then selected; c) The
+start point (purple star) is assigned to the hit furthest from the center of the bounding box (yellow
+dot), and likewise the end point in the other segment (orange star). }
+\label{fig:misc_opencv_startpoint}
+\end{figure}
+
+\par Now that our clusters have start points and directions we can attempt to combine charge which was not clustered together during polar clustering. The algorithm we use to do the merging proceeds in a series of steps.  First, we consider all remaining clusters per plane (Figure \ref{fig:misc_flashlights}a) and again calculate the minimum bounding rectangles. The bounding points farthest from the reconstructed vertex are considered to be the `end' of this rectangle, where as the points closest are the `start'.  We then build a trapezoid of height 13 cm (h) that fans out 20 degrees ($\theta$) away from the direction of the box, and stick it on the end of the original bounding box (Figure \ref{fig:misc_flashlights}b); these values were chosen empirically to maximize first, the purity and second, the completeness on a sample of CC $\pi^0$ interactions.  The results of this operation are objects that resemble flash lights around each cluster per plane (Figure \ref{fig:misc_flashlights}c). We next sort the clusters based on their proximity to the vertex and loop over the sorted clusters. Per cluster in this outer loop, we then consider the overlap between it and all other thus-unassociated clusters in an inner loop.  We do this by looking for overlaps between the flash piece (segments 2-3-4-5 from Figure \ref{fig:misc_flashlights}b) of the closer-to-vertex cluster with the base (segments 5-0-1-2 from Figure \ref{fig:misc_flashlights}b) of the further cluster. Care is taken to keep neighbor associations unique, and not double count cluster merges. Once all overlaps have been considered, the convex hull \cite{bib:convexHull} of all newly-associated cluster hits is calculated and stored (Figures \ref{fig:misc_flashlights}d and e). The start point of the old cluster closest to the ROI vertex is used as the start point for the new combined cluster, while the end point is reassigned to the new cluster hit furthest from the start point.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{Cluster_Shower/flashlights.png}
+\caption{ a) The flashlight merging algorithm is fed the vertex (cyan) and a set of clusters identified in the polar clustering stage; b) A trapezoid of angle $\theta$ and height h is attached to the end of the cluster, with the end being the side furthest from the vertex.  The new contour bounding box points are labeled for convenience; c) Flashlights are constructed only for identified clusters in the plane; d) Associations are built between flashlights based on overlap of their segments; e) The final bounding contour is the minimum contour that encloses all points.  }
+\label{fig:misc_flashlights}
+\end{figure}
+
+\par Finally, we apply 2 simple filters to reduce the number of bad/uninteresting clusters passing on to matching. First, we remove any clusters which are not aligned well with the vertex.  We do this by considering the dot product of the cluster's direction with the direction vector from the vertex to the cluster's start point.  If this dot product is $>$ 0.71 or if the cluster start point is closer than 12 pixels to the vertex, the cluster is kept, where these values were determined empirically to minimize the removal of visually well-aligned clusters.  The latter condition prevents removing clusters that appear to have very misaligned directions by function of being near the vertex. This algorithm additionally removes lingering cosmic rays and some mis-clustered hits. Second, we filter clusters whose surrounding contour contains the CC Inclusive Selection vertex (Figure \ref{fig:vertex_in_hull}). Occasionally when events are busy (e.g. a crossing cosmic muon through the interaction, a large amount of charge deposited, etc.) the flashlight algorithm will over-merge. A contained vertex is nearly always a good sign that over-merging has occurred.  
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.35\textwidth]{Cluster_Shower/vertex_in_hull.png}
+\caption{Example event targeted by the second simple filter we apply after merging. The selected vertex is shown as a yellow star, and the convex hull formed after merging is shown in red. Here, merging has joined two short tracks at the vertex, which has resulted in a vertex-contained-hull. }
+\label{fig:vertex_in_hull}
+\end{figure}
+
+
+\subsection{Cluster Matching}
+Before we can reconstruct showers and search for $\pi^{0}$'s, we must match clusters across planes.  In order to reconstruct showers, we need matched 2D clusters from at least two different planes. Here we require only two rather than three planes for matched pairs to be saved, where one of those planes must be the collection plane. This decision is based on the fact that clustering generally only goes well consistently in two of the three planes; dead wires, events with extra activity (noise), and poor reconstruction are often present in at least one plane. We require that one of the matched clusters come from the collection plane as it is the plane where the energy scale is currently best understood.  In order to choose the second plane (U or V), we assign an event-by-event score to the U and V plane correlated with the percentage of the ROI which is covered by ``dead'' or poorly-functioning wires.  
+ To do this, we take the width of the ROI as the denominator and the sum of all dead wire ranges within the ROI as the numerator. The score is computed by subtracting this percentage-of-dead-wires-in-ROI ratio from 1; thus ROI's with few dead wires will have high scores, while ROI's with many will have low scores.  The clusters in the U or V plane with the highest plane score are passed on to matching. 
+
+\par Matching utilizes the fact that time is a shared coordinate across planes and assigns scores to cluster pairs based on their agreement in time. We quantify this score using a measure denoted as the \texttt{Intersection over Union}, \texttt{IoU}. This quantity is defined as:
+\begin{equation}
+  {\rm IoU} = \frac{ \Delta t_1 \cap \Delta t_2  }{ \Delta t_1 \cup \Delta t_2 }
+\end{equation}
+
+\noindent where $\Delta t$ denotes the time-range associated to the peak time of each hit in a given cluster.  Clusters which do not overlap are assigned a score of -1, while those that do are assigned a score between 0 and 1, with 1 being perfect overlap. At the end of the consideration of all match permutations, the highest scores are used to create matched pairs until no clusters or viable matches remain. We require that there be at minimum a 25\% agreement in time, and a 20\% agreement in number of cluster hits in order for a match to be made. 
+\par As noted earlier, we applied an early cut on clusters with less than 10 hits before the flashlight merge. An example of the situation we're trying to avoid in applying this cut is shown in Figures \ref{fig:matching_ex_0} and \ref{fig:matching_ex_1}.  We want to prevent the scenario in which a cluster in one plane merges with a small, distant blob of charge, its true partner-cluster from the other plane does not merge with that same small blob of charge, and as a result the clusters are mismatched with some other cluster with which they now share a better time overlap (Figure \ref{fig:matching_ex_1}). Losing some charge and correcting for the energy loss later is better than dealing with mis-matched pairs.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Cluster_Shower/matching_ex_0.png}
+\caption{Example event targeted by the cut on small clusters. Here we are considering planes 0 and 2 right after polar clustering (before any merging algorithms are run).  There is 1 shower, with the majority of the shower (green triangle) separated in space from the remaining bit of the shower (blue triangle).  Time is a shared coordinate across the planes, so while the angle may be different in different views, time will always line up (demonstrated below with t0 and t1 on the green cluster).  Now, because the green cluster has a steeper angle in plane 2 than in plane 0, the blue cluster appears closer to the green in plane 2.  These two clusters will likely be combined during flashlight merging.  However, the blue and green clusters in plane 0 are unlikely to be merged,  because they appear further apart. }
+\label{fig:matching_ex_0}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Cluster_Shower/matching_ex_1.png}
+\caption{After merging completes, plane 0’s green cluster goes from t0 $\rightarrow$ t1, and plane 2’s green cluster goes from t0 $\rightarrow$ t2. Now it appears that plane 2’s cluster has a larger time overlap with the middle track than with the green plane 0 cluster.  Thus, if this track has not been removed during hit removal, matching will likely go awry unless the tiny cluster is prevented from entered the pool of clusters to-be-merged.
+ }
+\label{fig:matching_ex_1}
+\end{figure}
+
+
+\subsection{3D Shower Reconstruction}
+Shower reconstruction uses 2D information created during the previous matching stage to create one 3D object. 
+\paragraph{3D Direction}  We rely here on the reconstructed 3D interaction vertex to reconstruct the 2D projections. The 2D direction is computed as the charge-weighted average vector sum of the 2D distance from the vertex to each hit in the cluster.
+\begin{equation}
+  \hat{p}_{\rm 2D} = \frac{1}{Q_{tot}} \sum_{i=0}^{N} (r_i - r_{\rm vtx}) \times q_i 
+\end{equation}
+With N denoting the number of hits in the cluster, $r_i$ the position of the hit, $q_i$ its charge, and $r_{\rm vtx}$ the position of the projected vertex. Given two 2D weighted directions, the 3D direction is calculated using geometric relations between the planes and clusters \cite{bib:larliteGeoHelper}. 
+
+\paragraph{3D Start Point Reconstruction} We calculate the 3D start point by finding the 3D overlap position of the OpenCV reconstructed 2D start points of the matched pair of clusters. The time tick coordinates from each cluster are averaged to calculate a 3D shared time coordinate. The (Y,Z) coordinates are identified by the intersection between the wires associated with 2D start points.  Wires must intersect inside the TPC for a shower to be reconstructed.  An example of successful 3D shower reconstruction (projected back into 2D) is shown in Figure \ref{fig:showers}.
+
+\begin{figure}[h!] %H]
+\centering
+\fbox{\includegraphics[width=0.4\textwidth]{Cluster_Shower/Misc_opencv_showerreco.png}}
+\caption{3D reconstructed showers are projected back into 2D as a visualization tool to indicate whether or not shower reconstruction is successful. }
+\label{fig:showers}
+\end{figure}
+
+\subsection{Shower Energy Reconstruction}
+\label{sec:ereco}
+\par In this section we will briefly describe the series of correction factors and constants applied to the raw charge to account for physical processes, detector, and electronics effects. All correction factors are derived using information only from the collection plane.  More detail on the motivation for these constants can be found externally \cite{bib:davidc_energycalibration}\cite{bib:davidc_recomb}.
+
+%\begin{itemize}
+\paragraph{Electronics Gain} 
+We begin by considering all collection plane hits associated to the shower.  Each hit's area represents the integrated ADC charge deposited on that wire at that point in time.  We convert that integrated charge from ADC to $e^-$'s by applying an electronics gain factor of 198 $e^-$ / ADC. More detail on the calculation of this constant can be found externally in MicroBooNE's noise paper ~\cite{bib:noise}.  
+\noindent The gain calibration values are different for data. In this case, we convert to $e^-$s by applying a value of 243 $e^-$ / ADC.  This factor is extracted from a sample of stopping muons and applied for both data samples.   
+%Here we utilize David C’s extracted constants from a sample of stopping muons.  The gain factor is 198 $\frac{e}{ADC}$ in MC and 243 $\frac{e}{ADC}$ in data. See Ref.~\cite{bib:davidc_energycalibration_gain} for more detail on the extraction of this factor.
+\paragraph{ Lifetime Correction} No lifetime correction is applied due to the high measured argon purity and electron lifetime in MicroBooNE data ~\cite{bib:purity}. 
+\paragraph{Argon Ionization Work Function} We next convert our deposited electrons into an energy scale. To do this, we multiply our deposited electrons by the 23.6 $\frac{eV}{e}$ it takes to ionize a single electron in argon \cite{bib:ionization_per_electron}. 
+\paragraph{Ion Recombination} Finally, we consider recombination.  A charged particle that traverses the liquid argon medium leaves a trail of ionized electrons and argon ions in its wake.  Some number of these electrons will recombine with argon ions rather than making it to the wire planes. This number depends on the local electric field and on $\frac{dE}{dx}$ of the ionizing particle. Here we apply a single, constant recombination correction of 0.423. This factor was obtained by assuming a fixed $\frac{dE}{dx}$ of 2.3 MeV/cm  and utilizing the Modified Box recombination model as parametrized by the ArgoNeuT collaboration ~\cite{bib:argoneut_recomb}, applied at MicroBooNE's electric field of 273 V/cm.  
+%More detail on the extraction of this constant can be found externally \cite{bib:davidc_recomb}.
+%\end{itemize}
+\paragraph{Summary - Calibration Constants}
+The calibration constants used in shower energy reconstruction for the rest of the note are summarized below:
+\begin{equation}
+  C_{MC} = 198 \frac{e^-}{\rm ADC} \times 23.6 \times 10^{-6} \frac{MeV}{e^-} \times \frac{1}{1-0.423} = 8.10 \times 10^{-2} \frac{\rm MeV}{\rm ADC}
+\end{equation}
+
+\begin{equation}
+  C_{Data} = 243 \frac{e^-}{\rm ADC} \times 23.6 \times 10^{-6} \frac{MeV}{e^-} \times \frac{1}{1-0.423} = 9.94 \times 10^{-2} \frac{\rm MeV}{\rm ADC}
+\end{equation}
+
+
+\subsection{Shower Quality and Energy Correction}
+%We begin by studying the reconstructed shower energy (via the shower's associated collection plane cluster).
+We next consider the quality of the post-CC Inclusive Selection shower reconstruction discussed above.  Specifically, we first study the reconstructed energy of the shower via its associated collection-plane hits. To do this, we combine hits into 2D `mcclusters' in each plane using truth information.  An example of the resulting mcclusters in the collection plane is shown in Figure \ref{fig:mcclusters}. For the rest of this section we will only focus on mcclusters produced by $\pi^0$'s. Cluster `purity' is defined to be the number of hits in the reconstructed cluster associated to the mccluster with the largest overlap in hits over the total hits of the reconstructed cluster. Cluster `completeness' is defined to be the number of hits in the reconstructed cluster associated to the mccluster with the largest overlap in hits over the total hits of the mccluster. A pictorial example is shown in Figure \ref{fig:showerquality_purcompex}. In this example, each reconstructed cluster has both a purity and a completeness.  The purity of the purple reconstructed cluster is 100\% because the reconstruction has only included hits from one truth cluster (green). On the other hand, the red reconstructed cluster was over-merged, and ended up with hits from both the green and blue truth clusters.  Thus, the purity of the red cluster is less than 1. We likewise consider the completeness of each reconstructed cluster. The completeness tells us how much of the truth cluster the reconstruction has captured.  In both the case of the purple and the red reconstructed clusters, hits were missed during reconstruction. Thus the completeness for both is less than 1.  The purity and completeness of our sample of reconstructed showers are shown in Figure \ref{fig:showerquality_purcomp}. Note that a purity of zero indicates that a reconstructed shower shares no hits with any neutrino-induced $\pi^0$ cluster in the event. 
+
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics[scale=0.3]{Cluster_Shower/mcclusters.png}}
+\caption{ Example of `mcclusters'. Here we have zoomed in on the neutrino interaction in the collection plane. Each color ideally represents an individual truth level particle in cluster form. Note however that some of the colors repeat in this example, as the event display has a finite color wheel. }
+\label{fig:mcclusters}
+\end{figure}
+
+\begin{figure}[t!]
+\centering
+  \begin{subfigure}[t]{0.4\textwidth}
+    \centering
+\includegraphics[scale=0.4]{Cluster_Shower/ShowerQuality_purComp.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{5mm}
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+\includegraphics[scale=0.45]{Cluster_Shower/ShowerQuality_purComp_bothex.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Example $\pi^0$ event with both the mcclusters and reconstructed clusters pictured; b) Purity and completeness results for both reconstructed showers }
+\label{fig:showerquality_purcompex}
+\end{figure}
+
+
+\begin{figure}[t!]
+\centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+\includegraphics[scale=0.45]{Cluster_Shower/ShowerQuality_purity.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{3mm}
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+\includegraphics[scale=0.45]{Cluster_Shower/ShowerQuality_complete.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{Collection plane a) purity and b) completeness of reconstructed showers. }
+\label{fig:showerquality_purcomp}
+\end{figure}
+
+\par  Finally, each reconstructed shower is matched to the mccluster it shares the greatest overlap with in hits. We are now in a position to compare reconstructed shower energy to truth. This is an important step towards understanding both our resolution and bias. With an understanding of the bias, we can correct our energies to get a sense of scale in the downstream analysis. The results of this comparison are shown in Figure \ref{fig:showerquality_eres} with an empirical fit. We will use this empirical fit to correct our reconstructed shower energies in data and MC for the remainder of this analysis; these corrected energies will be calculated according to the equation
+\begin{equation}
+\label{eq:ecorr}
+E_{corr} = \frac{E_{reco}}{0.77} .
+\end{equation}
+
+\noindent We note that the corrected shower energy plays no role in the calculation of the cross section and only affects the kinematic distributions that are shown in later sections. Corrected plots will always be shown next to their uncorrected counterparts as a guide. 
+\par The x = y line is included for reference and emphasizes the reconstructed energy bias away from truth. The contributions to this bias are (mainly) twofold. For one, roughly 10\% of the reconstructed energy is lost to hit thresholding and containment effects. An additional 15\% loss is due to both the hit removal stage, where pieces of showers are sometimes excluded from clustering consideration, and clustering, where we sometimes miss hits. These bias are considered in detail externally \cite{bib:davidc_hitthresholding} \cite{bib:davidc_missingE}. Most events lie below the x = y line. The population of events above the line are instances of over-merging. This occurs when a reconstructed cluster is made up of two or more mcclusters and thus appears to have a higher energy than its associated truth cluster. We perform the same check in 1D in Figures \ref{fig:showerquality_eres_corr}a and b, with and without the corrected energy as described by Equation \ref{eq:ecorr}. The energy resolution observed here has two populations.  We explore the secondary bump away from 0 by considering single particle $\pi^0$ samples without and with cosmics.  When we do this, we see in the left of Figure \ref{fig:showerquality_eres_series} that the bump is absent from the resolution curve for single particle $\pi^0$ without cosmics.  The bump appears when we add cosmics in with the single particles (middle) and is accentuated further when we integrate neutrino-related track activity (right). This tells us that the bump is related to the presence of track-related activity.  During hit removal, hits associated with showers may be removed if they overlap with tracks.  The more track activity present in the event the more often this will happen, which is seen when we look at the CC $\pi^0$ + cosmics sample.  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{Cluster_Shower/ShowerQuality_eres2d.png}
+\caption{True energy vs reconstructed energy for each reco-MC matched pair}
+\label{fig:showerquality_eres}
+\end{figure}
+
+\begin{figure}[t!]
+  \begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[scale=0.4]{Cluster_Shower/ShowerQuality_eres.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[scale=0.4]{Cluster_Shower/ShowerQuality_eres_corr.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{a) Energy resolution in 1D, where $E_{MC}$ is the true shower energy; b) Corrected energy resolution in 1D using the extracted correction factor. The quoted mean and sigma related to the fitted Gaussian.}
+\label{fig:showerquality_eres_corr}
+\end{figure}
+
+\begin{figure}[t!]
+\centering
+ \includegraphics[scale=0.7]{Cluster_Shower/ShowerQuality_eres_progression.png}
+ \caption{Energy resolution of reconstructed showers in single particle $\pi^0$ samples without cosmics (left), with cosmics (middle), and CC $\pi^0$ + cosmics (right). Note that $E_{MC}$ is the true shower energy; }
+\label{fig:showerquality_eres_series}
+\end{figure}
+
+
+To finish up our discussion of shower quality, we additionally consider shower start point resolution using the same MC-reco shower matches described above. We consider the MC shower start point to be the point of first energy deposition in the detector. The resulting resolutions are shown in Figure \ref{fig:showerquality_xyzres}. Note that start point resolution by itself is an imperfect metric for assessing the quality of shower reconstruction. Sometimes the trunk of the shower is very linear and removed during hit removal; in this case, the result is often a poor start point resolution, despite the shower being usable to identify the presence of a $\pi^0$. An example of this type of event is shown in Figure \ref{fig:showerquality_startpointoff}.  Note that this effect also contributes to the worse resolution seen in the Z coordinate in Figure \ref{fig:showerquality_xyzres}. As showers are generally forward going in z, but uniformly distributed in x and y, a removed trunk will most affect the z coordinate..
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{Cluster_Shower/ShowerQuality_startpointoff.png}
+\caption{Example of an event in which the beginning of the shower has been removed during hit removal, but which still may be used to identify the presence of a $\pi^0$ }
+\label{fig:showerquality_startpointoff}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+\includegraphics[scale=0.45]{Cluster_Shower/ShowerQuality_diff_x.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{5mm}
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+\includegraphics[scale=0.45]{Cluster_Shower/ShowerQuality_diff_y.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{5mm}
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+\includegraphics[scale=0.45]{Cluster_Shower/ShowerQuality_diff_z.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{5mm}
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+\includegraphics[scale=0.45]{Cluster_Shower/ShowerQuality_tot.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Matched showers resolution in a) X, b) Y, c) Z, and d) total 3D. The values displayed in the text box are the mean and standard deviation of the distribution. }
+\label{fig:showerquality_xyzres}
+\end{figure}
+
+\clearpage
+\subsection{Shower Reconstruction Efficiency}
+Finally, we consider our shower reconstruction efficiency. This information will give us a sense of what kind of overall efficiency to expect at the final stage of selection. To do this, we consider all signal CC 1$\pi^0$ events that passed the CC Inclusive Selection + MIP consistency cuts. Of this sample, 3\% of the photons that originate from the $\pi^0$ decay convert outside the active TPC volume. Of the remaining showers that convert inside the TPC, we look at the shower energy dependent reconstruction efficiency. We define this efficiency to be the number of reconstructed showers that are matched to a true signal shower divided by the number of true signal showers. The results are shown in Figure \ref{fig:shower_reco_efficiency}.  The majority of the subleading shower population is below 100 MeV, where shower reconstruction efficiency drops below 50\%.  This is the main reason for the large number of signal events that have only one signal shower reconstructed, as we will see in the next subsection. In the past, we explored methods to perform a second pass reconstruction to increase our efficiency for subleading photons, but there was limited success \cite{bib:jz_catch_subleading}.  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{Cluster_Shower/shower_reco_efficiency.png}
+\caption{Shower reconstruction efficiency after CC Inclusive Selection, with the subleading and leading energy distributions normalized to fit in the same plot.  }
+\label{fig:shower_reco_efficiency}
+\end{figure}
+
+
+\subsection{Data - MC Shower Comparison}
+
+In this section, we compare absolutely normalized shower reconstruction parameters between data and simulation. An important first step is to consider the number of showers reconstructed per event.  In Figure \ref{fig:physics_sel2_nshrs}, we see a large discrepancy in the 0 reconstructed showers bin, and better agreement for higher numbers of showers. It is difficult to draw a strong conclusion on the 0-bin disagreement due to the data-MC discrepancy observed at the CC Inclusive preselection stage, however, we note that we will only be focusing on events with at least 1 shower to tag $\pi^0$ candidates for the remainder of this note where the agreement is considerably better. Kinematic distributions related specifically to events with 0-showers reconstructed can be found in Appendix \ref{sec:AppC}.  An event mode breakdown for events with at least 1 reconstructed shower is shown in Figure \ref{fig:physics_gt0shower_eventtype}.
+ 
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Selection_II_Section/Physics_sel2_onoffseparate_nshrs.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{30 mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Selection_II_Section/Physics_sel2_onoffseparate_nshrs_log.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Data to simulation comparison of number of reconstructed showers per event in a) linear scale and b) log scale. }
+\label{fig:physics_sel2_nshrs}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{Cluster_Shower/Misc_gt0shower_EventType_vs_NeutrinoMode_w_Numbers.png}
+\caption{ Event type breakdown for all events with at least 1 reconstructed shower. }
+\label{fig:physics_gt0shower_eventtype}
+\end{figure}
+
+
+\par Finally, we consider reconstructed shower variables over data and simulation. Because this comparison naturally excludes events falling into the 0-shower bin in Figure \ref{fig:physics_sel2_nshrs}, we expect better data-MC agreement in these comparisons than at the CC Inclusive stage. We find the rates and shapes of reconstructed showers agree relatively well in start point and direction (Figures \ref{fig:physics_sel2_shr_x} - \ref{fig:physics_sel2_shr_z}), opening angle of the shower, the distance from the vertex to the shower start point (Figures \ref{fig:physics_sel2_shr_rl}a, b), energy and corrected energy (Figures \ref{fig:physics_sel2_shr_e}a, b).  Note that the conversion distance distribution in Figure \ref{fig:physics_sel2_shr_rl}b drops off at the ROI boundary of 1 m.  Because the ROI is a rectangle rather than a circle, we also get some spill over 1 m where showers have converted in the corners of the ROI. 
+
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Cluster_Shower/Physics_sel2_onoffseparate_shr_startx.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{30mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Cluster_Shower/Physics_sel2_onoffseparate_shr_dirx.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Data to simulation comparisons of shower a) start point and b) direction in x.}
+\label{fig:physics_sel2_shr_x}
+\end{figure}
+
+
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Cluster_Shower/Physics_sel2_onoffseparate_shr_starty.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{30mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Cluster_Shower/Physics_sel2_onoffseparate_shr_diry.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Data to simulation comparisons of shower a) start point and b) direction in y.}
+\label{fig:physics_sel2_shr_y}
+\end{figure}
+
+
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Cluster_Shower/Physics_sel2_onoffseparate_shr_startz.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{30mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Cluster_Shower/Physics_sel2_onoffseparate_shr_dirz.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Data to simulation comparisons of shower a) start point and b) direction in z.}
+\label{fig:physics_sel2_shr_z}
+\end{figure}
+
+
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Cluster_Shower/Physics_sel2_onoffseparate_shr_oangle.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{20mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Cluster_Shower/Physics_sel2_onoffseparate_shr_vtx_dist.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Data to simulation comparison of shower in a) opening angle and b) start point to vertex distance. The cutoff at around 100~cm is due the ROI bound and the requirement that a shower cannot pierce or lay outside this bound, the tail beyond 1~m is due to the ROI being rectangular.}
+\label{fig:physics_sel2_shr_rl}
+\end{figure}
+
+
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[scale=0.4]{Cluster_Shower/Physics_sel2_onoffseparate_shr_energy.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{20mm}
+  \begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[scale=0.4]{Cluster_Shower/Physics_sel2_onoffseparate_shr_energy_corr.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Data to simulation comparison of shower in a) energy and b) corrected energy.  }
+\label{fig:physics_sel2_shr_e}
+\end{figure}
