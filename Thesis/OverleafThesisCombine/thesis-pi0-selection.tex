@@ -1,17 +1,17 @@
 \clearpage
 \section{$\pi^0$ Selection} 
 
-In this section we will use the reconstructed shower information we just created to identify events that contain a $\pi^0$ candidate. This is broken into two separate but complementary paths: one that considers all events with at least two reconstructed showers and another that considers all events with at least one reconstructed shower. There is a large overlap between these two final samples, but one is not a subset of the other. We discuss first the two shower selection.  
+In this chapter, reconstructed shower information is used to identify events that contain a $\pi^0$ candidate. This is broken into two separate but complementary paths: one that considers all events with at least two reconstructed showers and another that considers all events with at least one reconstructed shower. There is a large overlap between these two final samples, but one is not a subset of the other. The two shower selection is discussed first.  
 
 \subsection{Candidates With At Least Two Showers}
-We begin by considering the breakdown of events with at least two reconstructed showers (Figure \ref{fig:physics_pi0_nshrs}).  We see that by requiring at least two showers, we reduce our sample size by 95\%, while also creating a highly signal-enriched selection. Pass rate and composition breakdowns after this at-least-two-showers requirement are shown in Tables \ref{tab:pi0_2showers_eventrates} and \ref{tab:pi0_2showers_composition}. 
+A breakdown of events with at least two reconstructed showers is considered in Figure \ref{fig:physics_pi0_nshrs}.  By requiring at least two showers, the remaining set after CC Inclusive selection is reduced by 95\%, and a highly signal-enriched sample is created. Pass rate and composition breakdowns after this at-least-two-showers requirement are shown in Tables \ref{tab:pi0_2showers_eventrates} and \ref{tab:pi0_2showers_composition}. 
 
 \begin{figure}[H]
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_sel2gt1shower_onoffseparate_nshrs.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{30mm}
+  \hspace{35mm}
   \begin{subfigure}[t]{0.3\textwidth}
     \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_sel2gt1shower_onoffseparate_nshrs_log.png}
   \caption{ }
@@ -22,11 +22,11 @@ We begin by considering the breakdown of events with at least two reconstructed 
 
 \begin{table}[H]
 \centering
-\captionof{table}{ Pass rate breakdown after 2 shower requirement scaled to OnBeam POT 
+\captionof{table}{ Pass rate breakdown after two shower requirement scaled to OnBeam POT 
 \label{tab:pi0_2showers_eventrates}}
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
- & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Total \\ [0.1ex] \hline
+ & CC1$\pi^0$ & CC0$\pi^0$ & NC$\pi^0$ & NC0$\pi^0$ & Other & Total \\ [0.1ex] \hline
 CC Inclusive & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.087 \\
 $\geq$2 Showers & 0.106 & 0.001 & 0.002 & 0.0002 & 0.008 & 0.003 \\ \hline
 \end{tabular}
@@ -34,67 +34,83 @@ $\geq$2 Showers & 0.106 & 0.001 & 0.002 & 0.0002 & 0.008 & 0.003 \\ \hline
 
 \begin{table}[H]
 \centering
-\captionof{table}{ Sample composition after 2 shower requirement scaled to OnBeam POT 
+\captionof{table}{ Sample composition after two shower requirement scaled to OnBeam POT 
 \label{tab:pi0_2showers_composition}}
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
- & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other &Cosmic+$\nu$& Cosmic (Data) \\ [0.1ex] \hline
+ & CC1$\pi^0$ & CC0$\pi^0$ & NC$\pi^0$ & NC0$\pi^0$ & Other &Cosmic+$\nu$& Cosmic\\ [0.1ex] \hline
 CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\
 $\geq$2 Showers & 0.624 & 0.179 & 0.037 & 0.010 & 0.120 & 0.016 & 0.014\\ \hline
 \end{tabular}
 \end{table}
 
-Before using this sample to extract a cross section, we consider two additional items. First, because we now have access to reconstructed shower information in addition to the information we had at the CC Inclusive stage, we re-classify background interaction types to be used in data-simulation comparison histograms. Second, we apply a series of checks and quality cuts to ensure that our selected sample maintains a low cosmic background and is well-reconstructed.
+Before using this sample to extract a cross section, two additional items are considered. First, because the remaining sample now contains both a candidate $\mu$ AND candidate showers, background breakdowns are reclassified to include shower information. Second, a series of quality cuts are applied to ensure that the selected sample maintains a low cosmic background and is well-reconstructed.
 
 \subsubsection{Signal and Backgrounds for $\pi^0\rightarrow\geq 2 \gamma$}
-The background breakdowns discussed throughout the note thus far were defined based on the truth-origin of the reconstructed candidate $\mu$ in conjunction with GENIE truth information. At this point, we have access to both the candidate $\mu$ and to our candidate showers.  Because of this new information, it's important that we re-classify all interactions in which at least 1 of the showers is of cosmic origin into a `cosmic' category to maintain a pure sample of signals. We describe these new backgrounds below and use them in the following data-MC comparison plots. However, for continuity with the previous discussion at the CC Inclusive stage, we will continue to present pass rate and composition tables using the backgrounds described at the beginning of the note. 
+The background breakdowns discussed throughout the note thus far were defined based on the truth-origin of the reconstructed candidate $\mu$ in conjunction with GENIE truth information. At this point, the candidate showers provide a richer profile of the reconstruction quality of each interaction. Because of this new information, all interactions in which a final candidate shower (after quality cuts) is of cosmic origin is sorted into a `cosmic' category. These new backgrounds are described below and used in all following data-MC comparison plots. However, for continuity with the previous discussion at the CC Inclusive stage, pass rate and composition tables will be presented using the backgrounds described at the beginning of the note. 
 
 \paragraph{ Cosmics}
 This category remains un-changed from the previously described background breakdowns.  It represents the OffBeam data contribution to the stack. 
 
 \paragraph{ Cosmic + Neutrino}
-Events previously tagged as ``Cosmic + Neutrino" enter this category automatically.  We next consider the truth origin of each candidate shower in our remaining sample.  If either candidate shower is of cosmic origin, we add the event to this category. %An example of this type of event is shown in Figure \ref{fig:backgrounds_cosmic_nuflash}.
-
-\paragraph{ $\nu_\mu$ CC 1 $\pi^0$ } Our signal event classification in these plots is the same as before with one additional requirement: both reconstructed showers must be neutrino-induced.  All signals with cosmic-origin showers are reclassified as ``Cosmic + Neutrino" under this scheme.
-
-\paragraph{$\nu_\mu$ CC Charge Exchange}
-This background contains all instances of $\nu_\mu$-induced CC charge exchange outside of the initial neutrino interaction point in which both showers are of $\nu$-origin. An example of this interaction type in our final sample is shown in Figure \ref{fig:backgrounds_cc}a. 
-
-\paragraph{$\nu_\mu$ CC Multiple $\pi^0$}
-This background contains all instances of $\nu_\mu$-induced CC multiple $\pi^0$ production in which both candidate showers are of $\nu$-origin.  An example of this interaction type in our final sample is shown in Figure \ref{fig:backgrounds_other}b.
-
-\paragraph{$\nu_\mu$ NC $\pi^0$}
-This background contains all instances of $\nu_\mu$-induced NC $\pi^0$ production in which both candidate showers are of $\nu$-origin. Note that NC multiple $\pi^0$ events are included in this category.  An example of this interaction type in our final sample is shown in Figure \ref{fig:backgrounds_nc}d. 
-
-\paragraph{ $\nu_\mu$ Final State Electro-Magnetic Activity ($\nu_\mu$ FSEM)}
-Here we attempt to separate the remaining events into classifications of with and without electromagnetic activity in the final state.  Final State EM events are $\nu_\mu$ events in which both reconstructed showers are of $\nu$-origin, and at least one of these reconstructed showers is due to a $\nu$-induced true shower. This category contains, for example, proton and neutron inelastic scatters which produce EM showers (Figures \ref{fig:backgrounds_cc}b, c and Figures \ref{fig:backgrounds_nc}a, b), kaon decays (Figure \ref{fig:backgrounds_cc}d)),  interactions with 1 or more photons in the final state (Figure \ref{fig:backgrounds_cc}e), mis-reconstructed events where at least one reconstructed candidate is from a $\nu$-induced shower (Figure \ref{fig:backgrounds_cc}f), NC Charge Exchange (Figure \ref{fig:backgrounds_nc}a) and $\nu_\mu$ CC 1$\pi^0$ out of the FV (Figure \ref{fig:backgrounds_other}a).
-
-\paragraph{Other}
-This background contains all of what's left over after all other backgrounds have been assigned.  This includes $\nu_e$'s (Figure \ref{fig:backgrounds_other}c), $\overline{\nu_\mu}$'s, and all $\nu_\mu$ CC events with no EM activity in the final state.
+Events previously tagged as ``Cosmic + Neutrino" enter this category automatically. Additionally, if either candidate shower is of cosmic origin, the event is added to this category. Two examples of this type of event are shown in Figure \ref{fig:backgrounds_cos}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.65]{Pi0_Cut_Section/backgrounds_cc.png}
-\caption{ Examples of various CC background events in our final selected sample; tagged track is shown in solid red, tagged vertex is shown in cyan, 3d-projected candidate $\pi^0$ showers are shown in blue and green triangles, track-like hits are shown in black, shower-like hits are shown in red. }
+\includegraphics[scale=0.5]{Pi0_Cut_Section/backgrounds_cosmic.png}
+\caption{ Examples of Cosmic+Neutrino backgrounds at final stage; tagged track is shown in solid red, tagged vertex is shown in cyan, 3d-projected candidate $\pi^0$ showers are shown in blue and green triangles, track-like hits are shown in black, shower-like hits are shown in red. In both examples, the candidate track is neutrino-induced. However, in a) both showers are brem radiation from a cosmic, and in b) one shower is from a $\pi^0$, while the other is a delta ray brem photon.}
+\label{fig:backgrounds_cos}
+\end{figure}
+
+\paragraph{ $\nu_\mu$ CC 1 $\pi^0$ } Signal classification is the same as before with one additional requirement: both reconstructed showers must be neutrino-induced.  All signals with cosmic-origin showers are reclassified as ``Cosmic + Neutrino" under this scheme.  Two examples of signal topology at this stage are shown in Figure \ref{fig:backgrounds_signal}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{Pi0_Cut_Section/signal.png}
+\caption{ Examples of signal events at final stage; tagged track is shown in solid red, tagged vertex is shown in cyan, 3d-projected candidate $\pi^0$ showers are shown in blue and green triangles, track-like hits are shown in black, shower-like hits are shown in red.}
+\label{fig:backgrounds_signal}
+\end{figure}
+
+\paragraph{$\nu_\mu$ CC Charge Exchange}
+This background contains all instances of $\nu_\mu$-induced CC charge exchange outside of the initial neutrino interaction point in which both showers are of $\nu$-origin. An example of this interaction type in the final sample is shown in Figure \ref{fig:backgrounds_cc}a. 
+
+\paragraph{$\nu_\mu$ CC Multiple $\pi^0$}
+This background contains all instances of $\nu_\mu$-induced CC multiple $\pi^0$ production in which both candidate showers are of $\nu$-origin.  An example of this interaction type in the final sample is shown in Figure \ref{fig:backgrounds_cc}b.
+
+\paragraph{$\nu_\mu$ NC $\pi^0$}
+This background contains all instances of $\nu_\mu$-induced NC $\pi^0$ production in which both candidate showers are of $\nu$-origin. Note that NC multiple $\pi^0$ events are included in this category.  An example of this interaction type in the final sample is shown in Figure \ref{fig:backgrounds_cc}c. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.93]{Pi0_Cut_Section/backgrounds_cc_v1.png}
+\caption{ Examples of backgrounds in the final selected sample; tagged track is shown in solid red, tagged vertex is shown in cyan, 3d-projected candidate $\pi^0$ showers are shown in blue and green triangles, track-like hits are shown in black, shower-like hits are shown in red. a) CC charge exchange; b) CC Multiple $\pi^0$; c) NC $\pi^0$ }
 \label{fig:backgrounds_cc}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.65]{Pi0_Cut_Section/backgrounds_nc.png}
-\caption{ Examples of various NC backgrounds selected in final stage; tagged track is shown in solid red, tagged vertex is shown in cyan, 3d-projected candidate $\pi^0$ showers are shown in blue and green triangles, track-like hits are shown in black, shower-like hits are shown in red. }
-\label{fig:backgrounds_nc}
-\end{figure}
+\paragraph{ $\nu_\mu$ Final State Electro-Magnetic Activity ($\nu_\mu$ FSEM)}
+Remaining events are sorted into classifications of interactions with and without electromagnetic activity in the final state.  Final State EM events are $\nu_\mu$ events in which both reconstructed showers are of $\nu$-origin, but don't fit in to any of the previous categories. This set contains proton and neutron inelastic scatters that produce EM showers (Figures \ref{fig:backgrounds_nc}a,b), kaon decays (Figure \ref{fig:backgrounds_nc}d),  interactions with 1 or more photons in the final state such as $\eta$ decay (Figure \ref{fig:backgrounds_nc}e), $\nu_\mu$ CC 1$\pi^0$ out of the FV (Figure \ref{fig:backgrounds_nc}f).
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.65]{Pi0_Cut_Section/backgrounds_other.png}
+\includegraphics[scale=0.54]{Pi0_Cut_Section/backgrounds_fem.png}
+\caption{ Examples of FSEM backgrounds selected in final stage; tagged track is shown in solid red, tagged vertex is shown in cyan, 3d-projected candidate $\pi^0$ showers are shown in blue and green triangles, track-like hits are shown in black, shower-like hits are shown in red. Interactions here are shown only for CC, however NC interactions also populate this category. }
+\label{fig:backgrounds_nc}
+\end{figure}
+
+
+\paragraph{Other}
+This background contains everything that is left over after all other backgrounds have been assigned.  This includes $\nu_e$'s (Figure \ref{fig:backgrounds_other}a), $\overline{\nu_\mu}$'s (Figure \ref{fig:backgrounds_other}b), and $\nu_\mu$ interactions in which tracks are mis-reconstructed as showers (Figure \ref{fig:backgrounds_other}c).
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Pi0_Cut_Section/backgrounds_other_v2.png}
 \caption{ Examples of various additional backgrounds selected in final stage; tagged track is shown in solid red, tagged vertex is shown in cyan, 3d-projected candidate $\pi^0$ showers are shown in blue and green triangles, track-like hits are shown in black, shower-like hits are shown in red. }
 \label{fig:backgrounds_other}
 \end{figure}
 
+
 \subsubsection{Tuning Selection for Events with Two Showers}
-Now that we've incorporated reconstructed shower information into our background assignments, we clean up the sample with a few additional checks before calculating the cross section.  First, we consider the impact parameter of every 2 shower permutation.  We expect small impact parameters between most shower pairs, as the candidate vertex is used to reconstruct 3D direction. However, sometimes mis-matches are made, mis-reconstruction occurs, or clusters are under-merged resulting in an incorrect reconstructed direction. The effect of IP on angular resolution of our reconstructed showers can be seen in Figure \ref{fig:ex_cutjust_IP}a. The effect seems small at first glance, but when we propagate the effect through to the reconstructed 2-shower mass peak, we see that the poorer angular resolution of high IP events smears the mass plot towards lower energies (Figure \ref{fig:ex_cutjust_IP}b). Thus, a cut on impact parameter between showers is important to ensure both spatial correlation between showers, and higher quality angular resolution.  To be conservative, we require here that the shower-to-shower impact parameter be $\leq$ 4cm.  A data-MC comparison of IP is shown in Figure \ref{fig:cutjust_pi0_IP}a. 
+A few additional checks are applied before calculating the cross section.  First, the impact parameter of every two shower permutation is considered.  Small impact parameters between most shower pairs are expected because the candidate vertex is used to reconstruct 3D direction. However, sometimes mis-matches are made, mis-reconstruction occurs, or clusters are under-merged resulting in an incorrect reconstructed direction. The effect of IP on shower angular resolution can be seen in Figure \ref{fig:ex_cutjust_IP}a. The effect seems small at first glance, but when propagated through to the reconstructed two shower mass peak, it becomes clear that poorer angular resolution of high IP events smears the mass plot towards lower energies (Figure \ref{fig:ex_cutjust_IP}b). Thus, a cut on impact parameter between showers is important to ensure both spatial correlation between showers, and higher quality angular resolution.  To be conservative, shower-to-shower impact parameter must be $\leq$ 4cm.  A data-MC comparison of IP is shown in Figure \ref{fig:cutjust_pi0_IP}a. 
 
 %We do this for the backgrounds described in the previous paragraph, and additionally for a simplified breakdown.  In this additional background, the signal sample is defined the same.  The remaining non-signal events are broken into 2 kinds of backgrounds.  The first defined as events that are not signal, but have any number of $\pi^0$'s in the final state induced by the neutrino interaction. The second no neutrino-induced $\pi^0$'s. 
 \begin{figure}[H]
@@ -120,17 +136,17 @@ Now that we've incorporated reconstructed shower information into our background
 \includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_IP.png}
   \caption{ }
   \end{subfigure} 
-\hspace{20mm}
+\hspace{10mm}
  \begin{subfigure}[t]{0.35\textwidth}
     \includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_oangle.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Impact parameter of reconstructed showers in events with 2 or more reconstructed showers for a) Unscaled MicroBooNE simulation; b) Data to simulation comparison }
+\caption{ Impact parameter of reconstructed showers in events with two or more reconstructed showers for a) Unscaled MicroBooNE simulation; b) Data to simulation comparison }
 \label{fig:cutjust_pi0_IP}
 \end{figure}
 
 
-\par We next consider the opening angle between reconstructed showers. Figure \ref{fig:mcvar_pi0_onlyoangle}a shows the true opening angle between showers of signal events from our full Simulation (black), and after CC Inclusive Selection (red). This distribution suggests that we expect few events to have a small true opening angle. Additionally, $\pi^0$ candidate pairs that have small reconstructed opening angles tend to be separately reconstructed showers from the same original true shower (Figure \ref{fig:mcvar_pi0_onlyoangle}b). This point is emphasized in Figure \ref{fig:comp_cutjust_pi0_OA} where we consider the completeness of leading and subleading shower candidate pairs as a function of opening angle. Low opening angle has a high correlation with low subleading shower completeness (middle plot), and with lower-than-average leading shower completeness (right plot). Thus, we choose a lower bound of 0.35 rad (20 degrees) to maximize the quality of our event sample without significantly damaging the efficiency. A data-MC comparison is shown in Figure \ref{fig:cutjust_pi0_IP}b. % Finally, we consider conversion distances of both showers (Figures \ref{fig:cutjust_pi0_RL} \ref{fig:cutjust_pi0_low_RL}). We note the that there is very little separation power in this variable and also no reconstruction-related justification for a conversion distance cut. We thus do not employ a conversion distance cut at this time. We also do not include an energy or mass peak cut.
+\par Opening angle between reconstructed showers is also considered. Figure \ref{fig:mcvar_pi0_onlyoangle}a shows the true opening angle between showers of signal events from the full Simulation (black), and after CC Inclusive selection (red). This distribution suggests that few events will have a small true opening angle. Additionally, $\pi^0$ candidate pairs that have small reconstructed opening angles tend to be separately reconstructed showers from the same original true shower (Figure \ref{fig:mcvar_pi0_onlyoangle}b). This point is emphasized in Figure \ref{fig:comp_cutjust_pi0_OA} where completeness of leading and subleading shower candidate pairs as a function of opening angle is plotted. Low opening angle has a high correlation with low subleading shower completeness (right plot), and with lower-than-average leading shower completeness (left plot). Thus, a lower bound on opening angle of 0.35 rad (20 degrees) is chosen to maximize the quality of the event sample without significantly damaging the efficiency. A data-MC comparison is shown in Figure \ref{fig:cutjust_pi0_IP}b. % Finally, we consider conversion distances of both showers (Figures \ref{fig:cutjust_pi0_RL} \ref{fig:cutjust_pi0_low_RL}). We note the that there is very little separation power in this variable and also no reconstruction-related justification for a conversion distance cut. We thus do not employ a conversion distance cut at this time. We also do not include an energy or mass peak cut.
 
 
 \begin{figure}[H]
@@ -162,28 +178,12 @@ Now that we've incorporated reconstructed shower information into our background
     \includegraphics[scale=0.35]{Pi0_Cut_Section/comp_gamma_oangle_signal_Subleading.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Completeness of a) leading and b) subleading showers against opening angle. Here we see clearly that at low opening angle, the subleading completeness is very low. }
+\caption{ Completeness of a) leading and b) subleading showers against opening angle. }
 \label{fig:comp_cutjust_pi0_OA}
 \end{figure}
 
-%\begin{figure}[H]
-%  \begin{subfigure}[t]{0.35\textwidth}
-%\includegraphics[scale=0.35]{Pi0_Cut_Section/CutJustify_pi0v2_eff_gamma_oangle.png}
-%  \caption{ }
-%  \end{subfigure} 
-%  \hspace{20mm}
-%  \begin{subfigure}[t]{0.35\textwidth}
-%\centering
-%    \includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_oangle.png}
-%  \caption{ }
-%  \end{subfigure} 
-%\caption{Data to simulation comparison of opening angle between reconstructed showers in events with 2 or more showers. }
-%\label{fig:cutjust_pi0_OA}
-%\end{figure}
+Finally, the ``Cosmic + Neutrino" background contribution is considered. This contribution is 11\% of the sample after both IP and opening angle quality cuts are applied. Because the cosmic contribution is modeled via MC simulation, it is important to mitigate this background to avoid accruing a large uncertainty on the final cross section.  To begin, the raw reconstructed energy of both candidate showers for signal and Cosmic + Neutrino background is plotted; there is separation power between the two samples when both reconstructed candidate shower energies are $<$ 40 MeV, where a cut is imposed (Figure \ref{fig:cutjust_pi0_e}a).  Additionally, the conversion distance is relatively flat across the cosmic sample's candidate shower; thus, events where either the leading shower conversion distance is $>$ 80cm, or the subleading shower distance is $>$ 100cm (Figure \ref{fig:cutjust_pi0_e}b) are also cut. With these additional checks, the cosmic contribution to the two shower sample reduces to 6\%. This is a 50\% reduction is cosmic background, at the smaller cost of 6\% of signal. This reduction builds confidence at this stage that assessing a conservative 100\% uncertainty on this background will not overwhelm the final cross sectional uncertainties. A before and after of this cut is shown for shower conversion distance in Figure \ref{fig:physics_radl_before_after}a, b.
 
-
-Finally, we consider the ``Cosmic + Neutrino" background contribution. This contribution is 11\% of our current sample. Because the cosmic contribution is modeled via MC systematics, we believe it is important to mitigate this background to avoid accruing a large uncertainty on the final cross section.  We begin by considering the raw reconstructed energy of both candidate showers for signal and Cosmic + Neutrino background. We find that there is separation power between the two samples when both reconstructed candidate shower energies are $<$ 40 MeV (Figure \ref{fig:cutjust_pi0_e}a).  We also observe that the conversion distance is relatively flat across the cosmic sample's candidate shower; thus, we additionally cut events where either the leading shower conversion distance is $>$ 80cm, or the subleading shower distance is $>$ 100cm (Figure \ref{fig:cutjust_pi0_e}b). When we implement these cuts, we find that the cosmic contribution to the 2-shower sample reduces to 6\%. This is a 50\% reduction is cosmic background, at the smaller cost of 6\% of signal. We are more confident at this stage that assessing a conservative 100\% uncertainty on this background will not overwhelm our final cross sectional uncertainties. A before and after of this cut is shown for shower conversion distance in Figure \ref{fig:physics_radl_before_after}a, b.
- 
 
 \begin{figure}[H]
 \centering
@@ -198,20 +198,17 @@ Finally, we consider the ``Cosmic + Neutrino" background contribution. This cont
 \includegraphics[scale=0.4]{Pi0_Cut_Section/CutJust_pi0_RL.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Here we attempt to mitigate the cosmic contribution to our final two shower sample. We do this by considering: a) Energy of subleading and leading candidate showers; b) Conversion distances of subleading and leading candidate showers. }
+\caption{ Here we attempt to mitigate the cosmic contribution to the final two shower sample. We do this by considering: a) Energy of subleading and leading candidate showers; b) Conversion distances of subleading and leading candidate showers. }
 \label{fig:cutjust_pi0_e}
 \end{figure}
 
 \begin{figure}[H]
-\centering
   \begin{subfigure}[t]{0.4\textwidth}
-    \centering
 \includegraphics[scale=0.4]{Pi0_Cut_Section/Paper_pi0_onoffseparate_pi0_low_radL.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{20mm}
+  \hspace{10mm}
   \begin{subfigure}[t]{0.4\textwidth}
-    \centering
 \includegraphics[scale=0.4]{Pi0_Cut_Section/Paper_pi0_onoffseparate_pi0_radL_w_cut.png}
   \caption{ }
   \end{subfigure} 
@@ -222,8 +219,8 @@ Finally, we consider the ``Cosmic + Neutrino" background contribution. This cont
 \par If a pair of showers passes all the criteria described thus far, they are considered to be a $\pi^0$ candidate. If more than one candidate pair is found per event, the event is neglected.  Ten candidate events selected from data are shown in Figure \ref{fig:physics_pi0_onbeam_eventdisplays}.
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.6]{Pi0_Cut_Section/OnBeam_Data_pi0_0.png}
-\includegraphics[scale=0.6]{Pi0_Cut_Section/OnBeam_Data_pi0_1.png}
+\includegraphics[scale=0.54]{Pi0_Cut_Section/OnBeam_Data_pi0_0.png}
+\includegraphics[scale=0.54]{Pi0_Cut_Section/OnBeam_Data_pi0_1.png}
 \caption{ Examples of selected events from 4.92e19 BNB OnBeam Data in the collection plane. The vertical axis in all displays is time, while the horizontal axis is wires. All points on the display represent hits reconstructed, the red line is the 2D projection of the 3D track that is the CC Inclusive muon candidate, and the triangles are the 2D projections of the 3D reconstructed shower, the cyan circle is the CC Inclusive candidate vertex. }
 \label{fig:physics_pi0_onbeam_eventdisplays}
 \end{figure}
@@ -231,11 +228,11 @@ Finally, we consider the ``Cosmic + Neutrino" background contribution. This cont
 %%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \subsubsection{Results for $\pi^0\rightarrow \geq 2 \gamma$}
-\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and Simulation in Table \ref{tab:2shpi0_event_rates}. Neutrino interaction production modes in the final simulation sample are shown in Figure \ref{fig:physics_2shower_inttype}. 
+\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and Simulation in Table \ref{tab:2shpi0_event_rates}. Neutrino interaction production modes in the final simulation sample are shown in Figure \ref{fig:physics_2shower_inttype}. Note the data-MC agreement at the final stage of the selection, in addition to the negligible presence of MEC induced interactions. 
 
 \begin{table}[H] 
  \centering
- \captionof{table}{Event counts at each stage of the full 2-shower CC $\pi^0$ selection with samples scaled to OnBeam POT. Note that all OffBeam events in our current sample are removed by the two-shower chain.  For now, we assess an uncertainty for this sample on 1 event. \label{tab:2shpi0_event_rates}}
+ \captionof{table}{Event counts at each stage of the full two shower CC $\pi^0$ selection with samples scaled to OnBeam POT. Note that all OffBeam events in the current sample are removed by the two-shower chain.  For now, an uncertainty for this sample is assessed on one event. \label{tab:2shpi0_event_rates}}
  \begin{tabular}{| l | l | l | l | l |}
   \hline
    & OnBeam & OffBeam & On - OffBeam & Simulation \\ [0.1ex] \hline
@@ -254,14 +251,14 @@ CC Inclusive & 3753 $\pm$ 61 & 564 $\pm$ 35 & 3189 $\pm$ 71 & 4268 $\pm$ 22 \\
 \label{fig:physics_2shower_inttype}
 \end{figure}
 
-\par A summary of the passing rates for signal and all backgrounds is shown in Table \ref{tab:2shpi0_passrates}.  Note that we have maintained a relatively high efficiency for the signal with respect to other listed backgrounds. Sample composition is shown in Table \ref{tab:2shpi0_purity}. Our final two shower sample efficiency (5.6\%) and purity (67.1\%) are competitive with the results obtained by other experiments as shown in Table \ref{tab:history_ccpi0_results}.   Finally, signal and background distributions are shown for a variety of kinematic variables in Figures \ref{fig:physics_pi0_mu_len} - \ref{fig:physics_pi0signalonly_mass}. 
+\par A summary of the passing rates and composition for signal and all backgrounds are shown in Tables \ref{tab:2shpi0_passrates} and \ref{tab:2shpi0_purity}. The final two shower sample efficiency (5.6\%) and purity (67.1\%) are competitive with the results obtained by other experiments as shown in Table \ref{tab:history_ccpi0_results}. Signal and background distributions are shown for a variety of kinematic variables in Figures \ref{fig:physics_pi0_mu_len} - \ref{fig:physics_pi0signalonly_mass}. 
 
 \begin{table}[H]
 \centering
 \captionof{table}{Evolution of passing rates through full analysis chain \label{tab:2shpi0_passrates}}
  \begin{tabular}{| l | l | l |l|l|l|l|}
  \hline
- & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & All \\ [0.1ex] \hline
+ & CC1$\pi^0$ & CC0$\pi^0$ & NC$\pi^0$ & NC0$\pi^0$ & Other & All \\ [0.1ex] \hline
 No Cuts & - & - & - & - & - & -\\
 CC Inclusive & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.099 \\ 
 2 Shower Cuts & 0.056 & 0.0003 & 0.001 & 0.0001 & 0.003 & 0.001 \\ \hline
@@ -273,7 +270,7 @@ CC Inclusive & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.099 \\
 \captionof{table}{Evolution of sample composition through full analysis chain \label{tab:2shpi0_purity}}
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
-  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other& Cosmic+$\nu$& Cosmic (Data) \\ [0.1ex] \hline
+  & CC1$\pi^0$ & CC0$\pi^0$ & NC$\pi^0$ & NC0$\pi^0$ & Other& Cosmic+$\nu$& Cosmic \\ [0.1ex] \hline
 No Cuts  & 0.018 &  0.695 & 0.046 & 0.194  & 0.047 & -&-\\
 CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\ 
 2 Shower Cuts  & 0.671 & 0.117 & 0.041 & 0.011 & 0.096 & 0.000 & 0.063 \\ \hline
@@ -281,13 +278,13 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \end{table}
 
 \begin{figure}[H]
-  \begin{subfigure}[t]{0.4\textwidth}
-\includegraphics[scale=0.4]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mult.png}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mult.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{20mm}
-  \begin{subfigure}[t]{0.4\textwidth}
-    \includegraphics[scale=0.4]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_len.png}
+  \hspace{34mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+    \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_len.png}
   \caption{ }
   \end{subfigure} 
   \caption{ Data to simulation comparison of a) multiplicity and b) $\mu$ length after two shower filter }
@@ -296,15 +293,15 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 
 \begin{figure}[H]
   \begin{subfigure}[t]{0.3\textwidth}
-\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_angle.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{15mm}
-  \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_phi.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Data to simulation comparison of $\mu$ a) $\theta$ and b) $\phi$ after two shower filter }
+  \hspace{34mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_angle.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Data to simulation comparison of $\mu$ a) $\phi$ and b) $\theta$ after two shower filter }
 
 \label{fig:physics_pi0_mu_phi}
 \end{figure}
@@ -314,7 +311,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_startx.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{32mm}
+  \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_endx.png}
   \caption{ }
@@ -328,7 +325,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_starty.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{32mm}
+  \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_endy.png}
   \caption{ }
@@ -342,7 +339,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_startz.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{32mm}
+  \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_mu_endz.png}
   \caption{ }
@@ -353,16 +350,16 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 
 \begin{figure}[H]
   \begin{subfigure}[t]{0.3\textwidth}
-\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_mom.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{30mm}
-  \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_oangle.png} 
   \caption{ }
   \end{subfigure} 
+  \hspace{34mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_mom.png}
+  \caption{ }
+  \end{subfigure} 
 \label{fig:physics_pi0_pi0_oangle}
-\caption{ Data to simulation comparison of $\pi^0$ a) momentum and b) opening angle after two shower filter }
+\caption{ Data to simulation comparison of $\pi^0$ a) opening angle and b) momentum after two shower selection }
 \end{figure}
 
 \begin{figure}[H]
@@ -370,7 +367,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_low_radL.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{30mm}
+  \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_high_radL.png}
   \caption{ }
@@ -379,35 +376,18 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \caption{ Data to simulation comparison of a) low and b) high energy shower candidate conversion distances after two shower filter }
 \end{figure}
 
-%\begin{figure}[H]
-%\centering
-%  \begin{subfigure}[t]{0.3\textwidth}
-%    \centering
-%\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_low_IP_w_vtx.png}
-%  \caption{ }
-%  \end{subfigure} 
-%  \hspace{30mm}
-%  \begin{subfigure}[t]{0.3\textwidth}
-%    \centering
-%\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_high_IP_w_vtx.png}
-%  \caption{ }
-%  \end{subfigure} 
-%\label{fig:physics_pi0_pi0_IP_w_vtx}
-%\caption{ Data to simulation comparison of a) low and b) high energy shower candidate impact parameters with vertex after $\pi^0$ filter }
-%\end{figure}
-
 \begin{figure}[H]
-  \begin{subfigure}[t]{0.3\textwidth}
-\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_IP.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{30mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_Easym.png}
   \caption{ }
   \end{subfigure} 
+  \hspace{34mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_IP.png}
+  \caption{ }
+  \end{subfigure} 
 \label{fig:physics_pi0_pi0_IP}
-\caption{ Data to simulation comparison of a) impact parameter and b) energy asymmetry of the selected showers. This is defined to be the difference between the higher and lower energy showers' reconstructed energies divided by the sum of these energies. }
+\caption{ Data to simulation comparison of a) energy asymmetry of the selected showers. This is defined to be the difference between the higher and lower energy showers' reconstructed energies divided by the sum of these energies. b) impact parameter between showers.  }
 \end{figure}
 
 \begin{figure}[H]
@@ -415,7 +395,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_low_shrE.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{30mm}
+  \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_low_shrE_corr.png}
   \caption{ }
@@ -429,7 +409,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_high_shrE.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{30mm}
+  \hspace{28mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_high_shrE_corr.png}
   \caption{ }
@@ -444,7 +424,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_mass.png}
  \caption{ }
  \end{subfigure} 
- \hspace{30mm}
+ \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_pi0_onoffseparate_pi0_mass_corr.png}
   \caption{ }
@@ -455,20 +435,19 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \end{figure}
 
 
-\par It is worth noting that the reconstructed $\pi^0$ mass peak is displaced from the expected 135 MeV in Figure \ref{fig:physics_pi0_mass}. This bias is well understood to be the result of the multiple ways that we can lose energy during shower reconstruction. For one, some energy depositions at the wire planes are not large enough to be detected during hit reconstruction. This (in conjunction with containment) has a roughly 10\% effect on biasing the mass peak \cite{bib:davidc_hitthresholding}. Additionally, some amount of charge is lost during the hit removal and clustering stages of the chain.  This has been investigated externally to have a roughly 15\% effect \cite{bib:davidc_missingE}. When these effects are combined, we expect an energy bias of 25\%, and for the mass peak to sit around 100 MeV, which is in fact what we observe. 
-\par The energy resolution is affected non-uniformly by each of these sources of energy loss. This can be seen in Figure \ref{fig:showerquality_eres_corr}b, where it is clear that a simple linear energy scale correction is not sufficient to recover most of the lost charge. For that reason we propose to not correct the shower energy in the culmination of this work into an eventual paper. One consequence of this is that we will not be able to produce a $M_{\pi^0}$ distribution, which naturally raises the question: how do we know the showers we are reconstructing are both photons and originating from a $\pi^0$ decay? We can address the first element of this question by considering the conversion distance in Figure \ref{fig:physics_pi0signalonly_mass}a.  Here we see that a fit to the data returns a conversion distance of 24 $\pm$ 12 cm; this is in agreement with the expected value of 25 cm for photons at our energies, suggesting that we are in fact selecting photons. We can confirm these photons are originating from $\pi^0$'s by considering the reconstructed two shower mass peak (Figure \ref{fig:physics_pi0signalonly_mass}b).  As noted earlier, the mass peak is offset due to the multiple sources of energy loss in our current reconstruction chain. Thus, to verify that the two-shower “mass” distribution follows our expectation we consider the result of reconstructing a sample of single-particle $\pi^0$’s with and without cosmics. For an apples to apples comparison, we additionally smear the vertex location of the single particle samples according to the vertex resolution after the CC Inclusive Selection.  The peak location and shape of the single particle and data samples agree within statistical uncertainty; additionally, agreement improves as we move from the sample without to the sample with cosmics. We believe this is a sufficient indication that we are selecting $\pi^0$'s from our data. 
+\par It is worth noting that the reconstructed $\pi^0$ mass peak is displaced from the expected 135 MeV in Figure \ref{fig:physics_pi0_mass}a. The sources of this bias were discussed in the previous chapter. When those effects are combined, a bias of 25\% on the energy is expected, along with a mass peak around 100 MeV, which is the case in Figure \ref{fig:physics_pi0_mass}a. The corrected peaks sits at the expected 135 MeV. 
+\par As noted earlier, the energy resolution is affected non-uniformly by each source of energy loss.  Thus, the fact that the `corrected' peak sits at the expected $\pi^0$ location is not necessarily sufficient at this stage to indicate that the final sample contains $\pi^0$'s. This naturally raises the question: how do we know these reconstructed showers are both photons and originating from a $\pi^0$ decay? The first element of this question is addressed by considering the conversion distance in Figure \ref{fig:physics_pi0signalonly_mass}a. A fit to the data returns a conversion distance of 24 $\pm$ 12 cm, which is in agreement with the expected value of 25 cm for photons at MicroBooNE energies. This suggests that these candidate showers are in fact photons. To confirm these photons are originating from $\pi^0$'s, the uncorrected two shower mass peak is considered (Figure \ref{fig:physics_pi0signalonly_mass}b). To verify that the two-shower “mass” distribution follows expectation, a sample of single-particle $\pi^0$’s with and without cosmics is reconstructed and passed through the selection chain. The peak location and shape of the single particle and data samples agree within statistical uncertainty; additionally, agreement improves from the sample without to the sample with cosmics. Together, these pieces indicate that we are selecting $\pi^0$'s from data. 
 
-\begin{figure}[h!]
-\centering
-  \begin{subfigure}[t]{0.3\textwidth}
-    \centering
-\includegraphics[scale=0.3]{Pi0_Cut_Section/Paper_pi0signalonly_onoffseparate_pi0_low_radL.png}
+
+
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[scale=0.4]{Pi0_Cut_Section/Paper_pi0signalonly_onoffseparate_pi0_low_radL.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{30mm}
-  \begin{subfigure}[t]{0.3\textwidth}
-    \centering
-\includegraphics[scale=0.3]{Pi0_Cut_Section/Paper_pi0signalonly_onoffseparate_pi0_mass.png}
+  \hspace{14mm}
+  \begin{subfigure}[t]{0.4\textwidth}
+\includegraphics[scale=0.4]{Pi0_Cut_Section/Paper_pi0signalonly_onoffseparate_pi0_mass.png}
   \caption{ }
   \end{subfigure} 
 
@@ -479,7 +458,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 
 \clearpage
 \subsubsection{A Closer Look at Sample Composition for $\pi^0\rightarrow\geq 2 \gamma$}
-A detailed breakdown of the final selected sample is described in Table \ref{tab:pi0_obnox_breakdown}.  As discussed earlier, we assign all interaction types with cosmic-origin showers to the cosmic category.  However, thus far we have not otherwise investigated the origin of the `showers' in our candidate pool.  We examine the shower origin content of each non-Cosmic `Sample Composition Category' in Figure \ref{fig:physics_showerOriginBreakdown_mass}.  In Figure \ref{fig:physics_showerOriginBreakdown_mass}a, we see that 93\% of our signal is composed of events with 2 neutrino-induced $\pi^0$ showers (salmon). There is a similar trend in our $\pi^0$-dominated backgrounds ($\nu_\mu$ CC CEx, $\nu_\mu$ Mult $\pi^0$, $\nu_\mu$ NC $\pi^0$) in Figures \ref{fig:physics_showerOriginBreakdown_mass}c-e.  In Figure \ref{fig:physics_showerOriginBreakdown_mass}b, we get a mix of shower origins. For example, the 2 $\nu$-induced showers shown in green are caused by $\eta$ decays, while the 2 neutrino-induced $\pi^0$ shower events are due to CC 1$\pi^0$ out of FV, NC Charge exchange, and Kaon decay. Finally, the `Other' category shows a mix.  The 2 $\pi^0$ shower contribution here is due to $\nu_e$ and $\overline{\nu_\mu}$, while the the remaining yellow background is due to tracks mis-reconstructed as showers in CC events.
+A detailed breakdown of the final selected sample is described in Table \ref{tab:pi0_obnox_breakdown}.  As discussed earlier, all interaction types with cosmic-origin showers are assigned to the cosmic category.  However, thus far we have not otherwise investigated the origin of the `showers' in the candidate pool. The shower origin content of each non-Cosmic `Sample Composition Category' is considered in Figure \ref{fig:physics_showerOriginBreakdown_mass}.  In Figure \ref{fig:physics_showerOriginBreakdown_mass}a, 93\% of the signal is composed of events with two neutrino-induced $\pi^0$ showers (salmon). There is a similar trend in the $\pi^0$-dominated backgrounds ($\nu_\mu$ CC CEx, $\nu_\mu$ Mult $\pi^0$, $\nu_\mu$ NC $\pi^0$) in Figures \ref{fig:physics_showerOriginBreakdown_mass}c-e.  In Figure \ref{fig:physics_showerOriginBreakdown_mass}b, there is a mix of shower origins. For example, the two $\nu$-induced showers shown in green are caused by $\eta$ decays, while the two neutrino-induced $\pi^0$ shower events are due to CC 1$\pi^0$ out of FV, NC Charge exchange, and Kaon decay. Finally, the `Other' category shows a mix.  The two $\pi^0$ shower contribution here is due to $\nu_e$ and $\overline{\nu_\mu}$, while the the remaining yellow background is due to tracks mis-reconstructed as showers in CC events.
 
 \begin{figure}[H]
 \centering
@@ -518,7 +497,7 @@ A detailed breakdown of the final selected sample is described in Table \ref{tab
 \includegraphics[scale=0.25]{Pi0_Cut_Section/Physics_showerOriginBreakdown_Other_pi0_mass.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Breakdown of origin of both showers after 2 shower selection for each sample.  From left to right, and then top to bottom: a) $\nu_{\mu}$ CC 1 $\pi^0$; b) $\nu_\mu$ CC and NC Final State Electromagnetic Activity; c) $\nu_{\mu}$ CC Charge Exchange; d) $\nu_\mu$ CC Multiple $\pi^0$; e) NC $\pi^0$; f) Other.  }
+\caption{ Breakdown of origin of both showers after two shower selection for each sample.  From left to right, and then top to bottom: a) $\nu_{\mu}$ CC 1 $\pi^0$; b) $\nu_\mu$ CC and NC Final State Electromagnetic Activity; c) $\nu_{\mu}$ CC Charge Exchange; d) $\nu_\mu$ CC Multiple $\pi^0$; e) NC $\pi^0$; f) Other.  }
 
 \label{fig:physics_showerOriginBreakdown_mass}
 \end{figure}
@@ -530,7 +509,7 @@ A detailed breakdown of the final selected sample is described in Table \ref{tab
 \captionof{table}{Detailed breakdown of sample composition at final $\pi^0$ selection stage \label{tab:pi0_obnox_breakdown}}
  \begin{tabular}{|l|l|l|}
  \hline
-Sample Composition Category & Interaction & Sample Composition \\ [0.1ex] \hline
+Category & Interaction & Composition \\ [0.1ex] \hline
 $\nu_\mu$ Signal & $\nu_\mu$ CC 1$\pi^0$ in FV & 0.671 \\ \hline
 $\nu_\mu$ CC Cex & $\nu_\mu$ CC pion charge exchange & 0.039 \\ \hline
 $\nu_\mu$ Multiple $\pi^0$ & $\nu_\mu$ Multiple $\pi^0$ & 0.068 \\ \hline
@@ -544,38 +523,26 @@ Other & $\nu_e$ &0.005 \\
 &$\overline{\nu_\mu}$ & 0.002 \\
 & Misreconstruction & 0.005 \\ \hline
 Cosmic & Cosmic + Neutrino& 0.063 \\
-& Cosmic (Data) & 0.000 \\ \hline
+& Cosmic & 0.000 \\ \hline
 \end{tabular}
 \end{table}
 
-%\begin{table}[H]
-%\centering
-%\captionof{table}{Detailed background breakdown of the CC 1$\pi^0$ sample \label{tab:pi0cuts_cc1pi0_obnox_breakdown}}
-% \begin{tabular}{|l|l|l|}
-% \hline
-%Candidate $\pi^0$ `Shower' 1 Description & Candidate $\pi^0$ `Shower' 2 Description & CC 1$\pi^0$ Composition \\ [0.1ex] \hline
-%$\nu$-Induced $\pi^0$ shower & $\nu$-Induced $\pi^0$ shower & 0.93 \\ 
-%& $\nu$-Induced non-$\pi^0$ shower & 0.02 \\ 
-%& $\nu$-Induced track & 0.05 \\ 
-%$\nu$-Induced track & $\nu$-Induced track & 0.002 \\ \hline
-%\end{tabular}
-%\end{table}
-
-\par We are now ready to calculate a cross section on the two shower sample.  Before we do, we first prepare a complimentary sample of events with at least on reconstructed shower. We discuss this selection in detail in the next chapter.
+\par The two shower sample is now complete and ready to be analyzed for a cross section measurement. First, a complimentary sample of events with at least on reconstructed shower is prepared. This selection is discussed in the next section.
 
 
 \clearpage
 \subsection{Candidates With At Least One Shower}
-In this chapter, we consider the hypothesis that any neutrino-induced photon originating from the vertex indicates the presence of a $\pi^0$.  This strategy will allow us access to the single-reconstructed shower events, and give us a chance to regain a significant chunk of events. More detail on the one-shower hypothesis exists externally \cite{bib:timb_singleshower}.
-\par As mentioned in an earlier section, by requiring at least 2 showers we reduce our sample size by 95\%.  However, this 95\% reduction includes roughly 50\% of the remaining signal after the CC Inclusive Selection filter has completed. This chunk of signals with only one reconstructed shower is largely the result of our low shower reconstruction efficiency for sub-leading photons, shown earlier in Figure \ref{fig:shower_reco_efficiency}. Below 100 MeV of deposited shower energy, the shower reconstruction efficiency drops below 50\%, which results in a number of signal events with only 1 reconstructed shower. 
-\par When we only require 1 shower be reconstructed in an event, we see the pass rate and sample composition change.  These values are shown Tables \ref{tab:pi0_1shower_eventrates} and \ref{tab:pi0_1shower_composition}. We see from these tables that, before any additional checks or cuts, our signal efficiency and purity are 26\% and 40\% respectively; this is in contrast to 11\% and 62\% efficiency and purity we saw in the corresponding two-shower Tables \ref{tab:pi0_2showers_eventrates} and \ref{tab:pi0_2showers_composition}. This expected trade off is the result of the additional population of events we're now considering in the one shower bin.  
+In this section, we consider the hypothesis that any neutrino-induced photon originating from the vertex indicates the presence of a $\pi^0$.  This strategy will allow us access to the single-reconstructed shower events, and give us a chance to regain a significant chunk of events. More detail on the one-shower hypothesis exists in internal Ref. \cite{bib:timb_singleshower}.
+\par As mentioned in an earlier section, requiring at least two showers reduces the sample size by 95\%.  However, this 95\% reduction includes roughly 50\% of the remaining signal after the CC Inclusive Selection filter has completed. This chunk of signals with only one reconstructed shower is largely the result of the low shower reconstruction efficiency for sub-leading photons, shown earlier in Figure \ref{fig:shower_reco_efficiency}. Below 100 MeV of deposited shower energy, the shower reconstruction efficiency drops below 50\%, which results in a number of signal events with only one reconstructed shower. 
+\par When only one shower is required to be reconstructed in an event, the pass rate and sample compositions change.  These values are shown Tables \ref{tab:pi0_1shower_eventrates} and \ref{tab:pi0_1shower_composition}. From these tables, and before any additional checks or cuts, the one shower sample signal efficiency and purity are 26\% and 40\% respectively; this is in contrast to 11\% and 62\% efficiency and purity in the corresponding two-shower Tables \ref{tab:pi0_2showers_eventrates} and \ref{tab:pi0_2showers_composition}. This expected trade off is the result of the additional population of events now considered in the one shower bin.  
+
 
 \begin{table}[H]
 \centering
-\captionof{table}{ Pass rate breakdown after 1 shower requirement scaled to OnBeam POT \label{tab:pi0_1shower_eventrates}}
+\captionof{table}{ Pass rate breakdown after one shower requirement scaled to OnBeam POT \label{tab:pi0_1shower_eventrates}}
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
- & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Total \\ [0.1ex] \hline
+ & CC1$\pi^0$ & CC0$\pi^0$ & NC$\pi^0$ & NC0$\pi^0$ & Other & Total \\ [0.1ex] \hline
 CC Inclusive & 0.331 & 0.106 & 0.008 & 0.010 & 0.030 & 0.087 \\
 $\geq$ 1 Shower & 0.257 & 0.006 & 0.005 & 0.001 & 0.015 & 0.010 \\ \hline
 \end{tabular}
@@ -583,10 +550,10 @@ $\geq$ 1 Shower & 0.257 & 0.006 & 0.005 & 0.001 & 0.015 & 0.010 \\ \hline
 
 \begin{table}[H]
 \centering
-\captionof{table}{ Sample composition after 1 shower requirement scaled to OnBeam POT \label{tab:pi0_1shower_composition}}
+\captionof{table}{ Sample composition after one shower requirement scaled to OnBeam POT \label{tab:pi0_1shower_composition}}
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
- & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & Cosmic+$\nu$& Cosmic (Data) \\ [0.1ex] \hline
+ & CC1$\pi^0$ & CC0$\pi^0$ & NC$\pi^0$ & NC0$\pi^0$ & Other & Cosmic+$\nu$& Cosmic\\ [0.1ex] \hline
 CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\
 $\geq$ 1 Shower & 0.402 & 0.335 & 0.021 & 0.016 & 0.061 & 0.031 & 0.135\\ \hline
 \end{tabular}
@@ -595,7 +562,7 @@ $\geq$ 1 Shower & 0.402 & 0.335 & 0.021 & 0.016 & 0.061 & 0.031 & 0.135\\ \hline
 %\subsection{Signal and Backgrounds for $\pi^0$ \rightarrow $\geq$ 2$\gamma$}
 \subsubsection{Tuning Selection for Events with Single Shower}
 
-Similar to how we tuned our 2-shower cuts, we begin here by examining potential variables to use in the selection.  First, we consider the impact parameter of all showers with the vertex.  As noted earlier, we expect small impact parameters, as the vertex is used to reconstruct 3D direction. However, due to the effect on shower direction noted in the two-shower section, we choose to impose an impact parameter cut to improve the angular resolution of our candidate shower sample. To be conservative, we choose here an impact parameter $\leq$ 4cm, as shown in Figure \ref{fig:cutjust_pi0_1shower_IP}a.   Next, we consider the conversion distance of the shower from the reconstructed vertex. Because there is some separation power in this variable, we employ a conversion distance cut of 62 cm (Figure \ref{fig:cutjust_pi0_1shower_IP}b).  Finally, if more than one reconstructed shower passes both previous cut, we select the higher energy shower as our shower candidate. This is in contrast to the 2-shower path in which multiple-candidate-pair events were removed.  Events selected from OnBeam data via this 1-shower path are shown in Figure \ref{fig:one_shower_event_displays}. 
+The one shower sample is next subjected to quality checks. First, the impact parameter of all showers with the vertex is considered.  As noted earlier, small impact parameters are expected, as the vertex is used to reconstruct 3D direction. However, due to the effect on shower direction noted in the two-shower section, an impact parameter cut is imposed to improve the angular resolution of the one shower sample. To be conservative, an impact parameter cut of $\leq$ 4cm is imposed, as shown in Figure \ref{fig:cutjust_pi0_1shower_IP}a.   Next, the conversion distance of the shower from the reconstructed vertex is considered. Because there is some separation power in this variable, a conversion distance cut of 62 cm is employed (Figure \ref{fig:cutjust_pi0_1shower_IP}b).  Finally, if more than one reconstructed shower passes both previous cut, the higher energy shower is selected as the shower candidate. This is in contrast to the two shower path in which multiple-candidate-pair events were removed.  Events selected from OnBeam data via the one shower path are shown in Figure \ref{fig:one_shower_event_displays}. 
 
 
 \begin{figure}[H]
@@ -609,7 +576,7 @@ Similar to how we tuned our 2-shower cuts, we begin here by examining potential 
 \includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_vtx_IP.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{20mm}
+  \hspace{9mm}
   \begin{subfigure}[t]{0.35\textwidth}
 \includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_RL.png}
   \caption{ }
@@ -617,23 +584,6 @@ Similar to how we tuned our 2-shower cuts, we begin here by examining potential 
 \caption{ Impact parameter of shower axis with vertex for a) Unscaled MicroBooNE simulation; b) Data to simulation comparison }
 \label{fig:cutjust_pi0_1shower_IP}
 \end{figure}
-
-%\begin{figure}[H]
-%\centering
-%  \begin{subfigure}[t]{0.35\textwidth}
-%    \centering
-%\includegraphics[scale=0.35]{Pi0_Cut_Section/CutJustify_pi0_1shower_eff_gamma_RL.png}
-%  \caption{ }
-%  \end{subfigure} 
-%  \hspace{30mm}
-%  \begin{subfigure}[t]{0.35\textwidth}
-%    \centering
-%\includegraphics[scale=0.35]{Pi0_Cut_Section/Physics_showerPostSel2_onoffseparate__gamma_RL.png}
-%  \caption{ }
-%  \end{subfigure} 
-%\caption{ Conversion distance of shower candidate from vertex for a) Unscaled MicroBooNE simulation; b) Data to simulation comparison }
-%\label{fig:cutjust_pi0_1shower_RL}
-%\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -645,7 +595,7 @@ Similar to how we tuned our 2-shower cuts, we begin here by examining potential 
 
 
 \subsubsection{Results for $\pi^0\rightarrow \geq 1\gamma$}
-\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and Simulation in Table \ref{tab:pi0_event_rates}. This can be compared to the two shower selection results summarized in Table \ref{tab:2shpi0_event_rates}.  
+\par A table with event rates scaled to OnBeam POT is shown for OnBeam, OffBeam, and Simulation in Table \ref{tab:pi0_event_rates}. This can be compared to the two shower selection results summarized in Table \ref{tab:2shpi0_event_rates}. Note again the good data-MC agreement, and the minimal contribution of MEC events at this final stage in Figure \ref{fig:physics_singleshower_inttype}.
 
 \begin{table}[H] 
  \centering
@@ -676,7 +626,7 @@ CC Inclusive & 3753 $\pm$ 61 & 564 $\pm$ 35  & 3189 $\pm$ 71 & 4268 $\pm$ 22  \\
 \captionof{table}{Evolution of passing rates through full analysis chain \label{tab:pi0_passrates}}
  \begin{tabular}{| l | l | l |l|l|l|l|}
  \hline
- & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other & All \\ [0.1ex] \hline
+ & CC1$\pi^0$ & CC0$\pi^0$ & NC$\pi^0$ & NC0$\pi^0$ & Other & All \\ [0.1ex] \hline
 No Cuts & - & - & - & - & - & -\\
 CC Inclusive & 0.331 & 0.105 & 0.008 & 0.010 & 0.030 & 0.087 \\ 
 1 Shower Cuts & 0.170 & 0.002 & 0.003 & 0.0003 & 0.009 & 0.005 \\ \hline
@@ -688,7 +638,7 @@ CC Inclusive & 0.331 & 0.105 & 0.008 & 0.010 & 0.030 & 0.087 \\
 \captionof{table}{Evolution of sample composition through full analysis chain \label{tab:pi0_purity}}
  \begin{tabular}{| l | l | l |l|l|l|l|l|}
  \hline
-  & CC 1$\pi^0$ & CC 0$\pi^0$ & NC $\pi^0$ & NC 0$\pi^0$ & Other& Cosmic+$\nu$) & Cosmic (Data) \\ [0.1ex] \hline
+  & CC1$\pi^0$ & CC0$\pi^0$ & NC$\pi^0$ & NC0$\pi^0$ & Other& Cosmic+$\nu$ & Cosmic\\ [0.1ex] \hline
 No Cuts  & 0.018 &  0.695 & 0.046 & 0.194  & 0.047 & -&-\\
 CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\ 
 1 Shower Cuts & 0.561 & 0.205 & 0.025 & 0.012 & 0.080 & 0.060 & 0.057 \\ \hline
@@ -696,34 +646,30 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \end{table}
 
 \begin{figure}[H]
-\centering
-  \begin{subfigure}[t]{0.4\textwidth}
-    \centering
-\includegraphics[scale=0.4]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mult.png}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mult.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{20mm}
-  \begin{subfigure}[t]{0.4\textwidth}
-    \centering
-\includegraphics[scale=0.4]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_len.png}
+  \hspace{34mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_len.png}
   \caption{ }
   \end{subfigure} 
-
 \caption{ Data to simulation comparison of a) multiplicity and b) $\mu$ length after single shower filter }
 \label{fig:physics_singleshower_mulen}
 \end{figure}
 
 \begin{figure}[H]
   \begin{subfigure}[t]{0.3\textwidth}
-\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_angle.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{20mm}
-  \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_phi.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Data to simulation comparison of $\mu$ a) $\theta$ and b) $\phi$ length after single shower filter }
+  \hspace{34mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_angle.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Data to simulation comparison of $\mu$ a) $\phi$ and b) $\theta$ length after single shower filter }
 \label{fig:physics_singleshower_muphi}
 \end{figure}
 
@@ -732,7 +678,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_startx.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{32mm}
+  \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_endx.png}
   \caption{ }
@@ -746,7 +692,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_starty.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{32mm}
+  \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_endy.png}
   \caption{ }
@@ -760,7 +706,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_startz.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{32mm}
+  \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_mu_endz.png}
   \caption{ }
@@ -774,7 +720,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_gamma_E.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{32mm}
+  \hspace{34mm}
   \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_gamma_E_corr.png}
   \caption{ }
@@ -785,20 +731,20 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117  \\
 
 \begin{figure}[H]
   \begin{subfigure}[t]{0.3\textwidth}
-\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_gamma_IP_w_vtx.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{20mm}
-  \begin{subfigure}[t]{0.3\textwidth}
 \includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_gamma_RL.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Data to simulation comparison of tagged shower a) impact parameter with the vertex and b) conversion distance }
+  \hspace{34mm}
+  \begin{subfigure}[t]{0.3\textwidth}
+\includegraphics[scale=0.3]{Pi0_Cut_Section/Physics_singleshower_onoffseparate_gamma_IP_w_vtx.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Data to simulation comparison of tagged shower a) conversion distance and b) impact parameter with the vertex  }
 \label{fig:physics_singleshower_ip}
 \end{figure}
 
 \subsubsection{A Closer Look at Sample Composition for $\pi^0\rightarrow\geq 1 \gamma$} 
-We again consider a detailed breakdown of the final selected sample of the single shower sample.  This breakdown is described in Table \ref{tab:singleshower_obnox_breakdown} and corresponds to the data-MC comparisons in this section. We see from this table that our sample is 56\% pure with our $\nu_\mu$ CC 1$\pi^0$ signal; this contrasts to the 67\% purity we observed previously along the 2-shower selection path.  We further examine the quality of this 56\% by considering the origin of each candidate shower in the signal sample in Table \ref{tab:singleshower_obnox_ccoth_breakdown}.  From row 3 in this table, we see that 97\% of our sample has a selected candidate shower that backtracks to a true $\nu$-induced $\pi^0$, with the majority of remaining tags due to tracks mis-reconstructed as showers. This indicates that we have selected a set of signal events with high quality, automated shower reconstruction.  Plots of signal and background as described in the `Sample Composition Category' in Table \ref{tab:singleshower_obnox_ccoth_breakdown} are shown in Figure \ref{fig:physics_showerOriginBreakdown_E}a-f. Example event displays of reconstructed showers that backtrack to $\nu$-induced showers and $\nu$-induced tracks are shown in Figure \ref{fig:ccoth_bkgd_nu_cos}.  We additionally include an example of a `noise'-originating shower in Figure \ref{fig:ccoth_bkgd_noise}, and finally a $\nu$-induced $\pi^0$ shower in Figure \ref{fig:cc1pi0_pi0}.
+A detailed breakdown of the final selected one shower sample is considered.  This breakdown is described in Table \ref{tab:singleshower_obnox_breakdown} and corresponds to the data-MC comparisons in this section. From this table, the one shower sample is 56\% pure; this contrasts to the 67\% purity observed previously along the two shower selection path.  The quality of this 56\% is further examined by considering the origin of each candidate shower in Figure \ref{fig:physics_showerOriginBreakdown_E}a.  From this figure, 97\% of the selected signal sample has a selected candidate shower that matches to a true $\nu$-induced $\pi^0$, with the majority of remaining tags due to tracks mis-reconstructed as showers. This, in conjunction with the comparable two shower results in the previous section, indicates that the shower reconstruction employed here for both chains is not only automated, but also produces a set of high quality final events.  Plots of background samples as described in the `Sample Composition Category' in Table \ref{tab:singleshower_obnox_breakdown} are also shown in Figure \ref{fig:physics_showerOriginBreakdown_E}b-f.  %Example event displays of reconstructed showers that are the result of true $\nu$-induced showers and tracks are shown in Figure \ref{fig:ccoth_bkgd_nu_cos}.  An example of a `noise'-originating shower is shown in Figure \ref{fig:ccoth_bkgd_noise}, and finally a $\nu$-induced $\pi^0$ shower in Figure \ref{fig:cc1pi0_pi0}.
 
 
 \begin{table}[H]
@@ -806,9 +752,9 @@ We again consider a detailed breakdown of the final selected sample of the singl
 \captionof{table}{Detailed breakdown of sample composition at final one shower selection stage \label{tab:singleshower_obnox_breakdown}}
  \begin{tabular}{|l|l|l|}
  \hline
-Sample Composition Category & Interaction & Sample Composition \\ [0.1ex] \hline
+Category & Interaction & Composition \\ [0.1ex] \hline
 $\nu_\mu$ Signal & $\nu_\mu$ CC 1$\pi^0$ in FV & 0.561 \\ \hline
-$\nu_\mu$ CC pion charge exchange & $\nu_\mu$ CC pion charge exchange & 0.036 \\ \hline
+$\nu_\mu$ CC Cex & $\nu_\mu$ CC pion charge exchange & 0.036 \\ \hline
 $\nu_\mu$ Multiple $\pi^0$ & $\nu_\mu$ Multiple $\pi^0$ & 0.047 \\ \hline
 $\nu_\mu$ NC $\pi^0$ & $\nu_\mu$ NC $\pi^0$ & 0.025 \\ \hline
 $\nu_\mu$ FSEM & $\nu_\mu$ CC 1$\pi^0$ out of FV & 0.022 \\
@@ -819,25 +765,24 @@ $\nu_\mu$ FSEM & $\nu_\mu$ CC 1$\pi^0$ out of FV & 0.022 \\
 Other & $\nu_e$ &0.007 \\
 &$\overline{\nu_\mu}$ & 0.003 \\
 & Misreconstruction & 0.075 \\ \hline
-Cosmic & Cosmic + Neutrino & 0.060 \\
+Cosmic & Cosmic + $\nu$ & 0.060 \\
 & Cosmic (Data) & 0.057 \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[H]
-\centering
-\captionof{table}{Detailed background breakdown of the CC 1$\pi^0$ sample from the single shower sample \label{tab:singleshower_obnox_ccoth_breakdown}}
- \begin{tabular}{|l|l|l|}
- \hline
-Candidate $\pi^0$ `Shower' Description & CC 1$\pi^0$ \\ [0.1ex] \hline
-$\nu$-Induced Track & 0.023 \\ 
-$\nu$-Induced Shower (non-$\pi^0$) & 0.007 \\ 
-$\nu$-Induced Shower ($\pi^0$) & 0.970 \\ 
-Noise & 0.031  \\ \hline
-\end{tabular}
-\end{table}
+%\begin{table}[H]
+%\centering
+%\captionof{table}{Detailed background breakdown of the CC 1$\pi^0$ sample from the single shower sample \label{tab:singleshower_obnox_ccoth_breakdown}}
+% \begin{tabular}{|l|l|l|}
+% \hline
+%Candidate $\pi^0$ `Shower' Description & CC 1$\pi^0$ \\ [0.1ex] \hline
+%$\nu$-Induced Track & 0.023 \\ 
+%$\nu$-Induced Shower (non-$\pi^0$) & 0.007 \\ 
+%$\nu$-Induced Shower ($\pi^0$) & 0.970 \\ 
+%Noise & 0.031  \\ \hline
+%\end{tabular}
+%\end{table}
 
-\clearpage
 \begin{figure}[H]
 \centering
   \begin{subfigure}[H]{0.25\textwidth}
@@ -875,36 +820,36 @@ Noise & 0.031  \\ \hline
 \includegraphics[scale=0.25]{Pi0_Cut_Section/Physics_showerOriginBreakdown_1gamma_Other_gamma_E.png}
   \caption{ }
   \end{subfigure} 
-\caption{ Breakdown of origin of both showers after 1 shower selection for each sample shown for uncorrected shower energy.  From left to right, and then top to bottom: a) $\nu_{\mu}$ CC 1 $\pi^0$; b) $\nu_\mu$ CC and NC Final State Electromagnetic Activity; c) $\nu_{\mu}$ CC Charge Exchange; d) $\nu_\mu$ CC Multiple $\pi^0$; e) NC $\pi^0$; f) Other.  }
+\caption{ Breakdown of origin of both showers after one shower selection for each sample shown for uncorrected shower energy.  From left to right, and then top to bottom: a) $\nu_{\mu}$ CC 1 $\pi^0$; b) $\nu_\mu$ CC and NC Final State Electromagnetic Activity; c) $\nu_{\mu}$ CC Charge Exchange; d) $\nu_\mu$ CC Multiple $\pi^0$; e) NC $\pi^0$; f) Other.  }
 \label{fig:physics_showerOriginBreakdown_E}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.8]{Pi0_Cut_Section/CCOther_nu_cos.png}
-\hspace{1 mm}
-\caption{ Example of $\nu$ and cosmic-induced CCOther backgrounds. The cyan circle is the reconstructed vertex and the green triangle is the candidate $\pi^0$ shower.  The candidate muon track is also shown in solid red in the $\nu$-induced track example to differentiate from the $\pi^0$ candidate `shower'.  }
-\label{fig:ccoth_bkgd_nu_cos}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.9]{Pi0_Cut_Section/CCOther_noise.png}
-\caption{ Example of a `Noise' CCOther background. MCClusters are energy depositions built into clusters based on the deposition’s true origin particle. Each mccluster color represents a new particle (though the event display color wheel is finite, so there is some cycling of colors).  Gaushits are reconstructed from waveforms into individual points (hits) with time and wire coordinates, and an associated charge. MCClusters are shown on the left, while reconstructed gaushits and the candidate reconstructed shower is shown on the right.
- Note that the candidate `shower' has no corresponding mccluster in the left panel. The cyan circle is the reconstructed vertex and the green triangle is the candidate $\pi^0$ shower.  }
-\label{fig:ccoth_bkgd_noise}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.8]{Pi0_Cut_Section/CC1pi0_nu_cos.png}
-\caption{ Example of $\nu$ and cosmic-induced CC 1-$\pi^0$ backgrounds. The cyan circle is the reconstructed vertex, the green triangle is the candidate $\pi^0$ shower, and the solid red line is the $\mu$ candidate. Track-like hits are shown in black, and shower-like hits are shown in faint red. }
-\label{fig:cc1pi0_nu_cos}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.8]{Pi0_Cut_Section/CC1pi0_pi0.png}
-\caption{ Example of a true CC 1-$\pi^0$ event. The cyan circle is the reconstructed vertex, the green triangle is the candidate $\pi^0$ shower, and the solid red line is the $\mu$ candidate. Track-like hits are shown in black, and shower-like hits are shown in faint red. }
-\label{fig:cc1pi0_pi0}
-\end{figure}
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.8]{Pi0_Cut_Section/CCOther_nu_cos.png}
+%\hspace{1 mm}
+%\caption{ Example of $\nu$ and cosmic-induced CCOther backgrounds. The cyan circle is the reconstructed vertex and the green triangle is the candidate $\pi^0$ shower.  The candidate muon track is also shown in solid red in the $\nu$-induced track example to differentiate from the $\pi^0$ candidate `shower'.  }
+%\label{fig:ccoth_bkgd_nu_cos}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.9]{Pi0_Cut_Section/CCOther_noise.png}
+%\caption{ Example of a `Noise' CCOther background. MCClusters are energy depositions built into clusters based on the deposition’s true origin particle. Each mccluster color represents a new particle (though the event display color wheel is finite, so there is some cycling of colors).  Gaushits are reconstructed from waveforms into individual points (hits) with time and wire coordinates, and an associated charge. MCClusters are shown on the left, while reconstructed gaushits and the candidate reconstructed shower is shown on the right.
+% Note that the candidate `shower' has no corresponding mccluster in the left panel. The cyan circle is the reconstructed vertex and the green triangle is the candidate $\pi^0$ shower.  }
+%\label{fig:ccoth_bkgd_noise}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.8]{Pi0_Cut_Section/CC1pi0_nu_cos.png}
+%\caption{ Example of $\nu$ and cosmic-induced CC 1-$\pi^0$ backgrounds. The cyan circle is the reconstructed vertex, the green triangle is the candidate $\pi^0$ shower, and the solid red line is the $\mu$ candidate. Track-like hits are shown in black, and shower-like hits are shown in faint red. }
+%\label{fig:cc1pi0_nu_cos}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.8]{Pi0_Cut_Section/CC1pi0_pi0.png}
+%\caption{ Example of a true CC 1-$\pi^0$ event. The cyan circle is the reconstructed vertex, the green triangle is the candidate $\pi^0$ shower, and the solid red line is the $\mu$ candidate. Track-like hits are shown in black, and shower-like hits are shown in faint red. }
+%\label{fig:cc1pi0_pi0}
+%\end{figure}

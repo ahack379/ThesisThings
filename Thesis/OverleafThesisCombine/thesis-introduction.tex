@@ -14,8 +14,10 @@
 \par
 Micro Booster Neutrino Experiment (MicroBooNE) is a Liquid Argon Time Projection Chamber (LArTPC) operating in the Booster Neutrino Beamline at Fermi National Accelerator Laboratory.  Of particular interest to MicroBooNE, and the broader LArTPC community, are electromagnetic showers; these showers are at the heart of searches for charged current $\nu_e$ interactions, including MicroBooNE's flagship search for a MiniBooNE-like low energy excess (LEE).  Neutral current $\pi^0$'s, which decay into 2 electromagnetic showers ($\gamma$'s), are the dominant source of non-$\nu_e$ backgrounds in searches for $\nu_{\mu}\rightarrow\nu_e$ oscillations in LArTPCs, such as the LEE. While precise measurements of this neutral current channel will provide a tight constraint on our modeling uncertainties, such events are particularly difficult to identify in data with our current tools, as there is often little or no activity at the neutrino interaction point. Charged current interactions, on the other hand, have simpler topologies with a long $\mu$ track that anchors to the interaction vertex.  With a vertex in hand, we can develop automated reconstruction tools for neutrino-induced shower topologies (like the $\gamma$'s from $\pi^0$ decay). Thus, in studying charged current $\pi^0$ interactions, we are developing tools that can potentially be used to reconstruct an important LEE background, while also studying the physics of neutrino interactions, of which data is sparse for argon.
 
-This thesis reports the world's first measurement of the absolute, flux-averaged cross section of $\nu_{\mu}$-charged current single $\pi^0$ production on argon. The analysis chain begins with the selection of inclusive $\nu_\mu$ charged current events, where we identify a candidate $\mu$ and neutrino interaction vertex. These events are then passed to a reconstruction framework where electromagnetic shower candidates are reconstructed using computer visualization tools. Finally, we calculate the cross section on two reconstructed topologies: those with at least two reconstructed showers and those with at least one.  Additionally, we describe the first fully-automated electromagnetic shower reconstruction process employed by a LArTPC to perform a cross section analysis.  We measure the cross section on argon via the two and one shower selections respectively to be $\langle \sigma\rangle_{\phi,2 Shower}$ =
-(2.56 $\pm$ $0.50_{stat}$ $\pm$ $0.31_{genie}$ $\pm$ $0.37_{flux}$ $\pm$ $0.31_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$ and $\langle \sigma\rangle_{\phi,1 Shower}$ = (2.64 $\pm$ $0.33_{stat}$ $\pm$ $0.36_{genie}$ $\pm$ $0.38_{flux}$ $\pm$ $0.35_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$ at energy 824 MeV.
+This thesis reports the world's first measurement of the absolute, flux-averaged cross section of $\nu_{\mu}$-charged current single $\pi^0$ production on argon. The analysis chain begins with the selection of inclusive $\nu_\mu$ charged current events, where a candidate $\mu$ and neutrino interaction vertex are identified. These events are then passed to a reconstruction framework where electromagnetic shower candidates are reconstructed using computer visualization tools. Finally, the cross section is calculated on two reconstructed topologies: those with at least two reconstructed showers and those with at least one.  Additionally, this work describes the first fully-automated electromagnetic shower reconstruction process employed by a LArTPC to perform a cross section analysis.  We measure the flux averaged cross section on argon at 824 MeV via the two and one shower selections respectively to be 
+\par \noindent $\sigma_{\geq2 Shower}$ =
+(2.56 $\pm$ $0.50_{stat}$ $\pm$ $0.31_{genie}$ $\pm$ $0.37_{flux}$ $\pm$ $0.31_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$, 
+\par \noindent $\sigma_{\geq 1 Shower}$ = (2.64 $\pm$ $0.33_{stat}$ $\pm$ $0.36_{genie}$ $\pm$ $0.38_{flux}$ $\pm$ $0.35_{det}$) $\times$ $10^{-38}$ $\frac{cm^2}{Ar}$.
 
 \thispagestyle{empty}
 \clearpage
@@ -62,19 +64,50 @@ All rights reserved.
 
 \doublespacing
 
+
 %For adding the header (footer) if so desired
 \pagestyle{fancy}% Change page style to fancy
 \fancyhead[C]{}
 \renewcommand{\headrulewidth}{0.4pt}% Default \headrulewidth is 0.4pt
 
 \pagenumbering{roman}
+%\clearpage
+\section*{Acknowledgements} 
+%\chapter*{Acknowledgements} 
+%\thispagestyle{empty} % or plain etc.
+\doublespacing
+
+When I got to graduate school, I expected life to become about work and for my hobbies to slowly melt away. Now here at the end I've learned this doesn't have to be true, and that you don't have to sacrifice your other interests to have a productive experience as a graduate student. I expect this largely depends on your lab experience and who you meet your first year; on this front, I've been extremely lucky. \\
+
+\noindent To this end, I'd first like to thank my adviser Bonnie Fleming.  In addition to the constant advice and useful discussions, Bonnie created a positive work environment that I benefited from immensely in the last 5 years. I've always appreciated the down-to-earth and honest nature of our conversations and the support when I've struggled.   I've always been comfortable discussing my work and opinions within her group, and I can only hope the next place I work will be so welcoming and open to new ideas. \\ 
+
+\noindent I would also like to thank the series of post docs (many now research scientists and professors) on MicroBooNE who helped me throughout my time on the experiment. Thanks to Andrzej Szkjfc and Kazu Terao for strong technical and physics support at the beginning of my PhD, and to Anne Schukraft and Andy Furmanski for guidance as my analysis matured.  I'd especially like to thank super hero Joseph Zennamo, who played an important role in pulling all the pieces together to complete this analysis.  \\
+
+\noindent I'd like to thank my softball team, Team Iron Chef Hirayuki Sakai. Last in wins, first in fun and friendship. In my mind, your cuisine will always reign the most supreme. \\
+
+\noindent I'd also like to thank my Yale family, near and far, for all the fun times and support.  In particular, thanks to Luis Salda\~{n}a and Kyung Eun Lim for sharing my snark and love of drinking beer in the sun. And of course to Elena Gramellini for listening to all my rants, sharing advice, and for laughing at my bad jokes. You guys are the best.\\
+
+\noindent I'd additionally like to thank my friends from high school Kenny, Greg and Mike who have consistently been able to bring me back to simpler times. It's been awesome to watch you guys figure out life and careers during the last few years, and I'm glad to say I can join you at last. Guys I'm finally done with school. \\
+
+\noindent I'd be remiss not to mention a series of places and things that have most defined my time in New Haven: GPSCY, Ordinary, Koi Pond, Fire Escape, and migrating birds through East Rock, you will all be dearly missed. \\
+
+\noindent I'd also like to thank my parents for always supporting me in everything I have pursued. Thank you for still sending me candy on Halloween and for coming to see me play flute in concerts, musicals, and operas, even here long past high school.  You have helped shape me into who I am today. \\
+
+\noindent Last but not least I'd like to thank my partner John. You taught me a lot in my time here: that garlic basically goes in everything, how to make beer, and how cool birds are. Thanks for playing catch, making music with me, and always knowing what word I meant to say. I can't imagine this experience here without you.
+
+\clearpage
+
 %Set Table of contents depth to 3 levels
+
+
+
 \tableofcontents
 \clearpage
 
 \listoffigures
 \setcounter{tocdepth}{3} 
 \phantomsection
+
 
 \clearpage
 \renewcommand{\thepage}{\arabic{page}}
@@ -83,7 +116,7 @@ All rights reserved.
 \section{Introduction}
 The idea of the neutrino was born out of an unwillingness to abandon energy conservation without a fight. At the heart of the debate was the experimentally observed energy spectrum of beta decay. According to energy conservation, two body beta decay was expected to occur at a single energy, however observations showed this distribution to be spectral; this suggested that the theory describing the process was either incomplete on incorrect.  In 1930 Wolfgang Pauli proposed the existence of an additional particle emitted during the decay which carried away some fraction of the energy to explain the observed beta spectrum \cite{bib:pauli}. These weakly interacting, spin 1/2, ``small neutral particles" were later named ``neutrinos" by Enrico Fermi \cite{bib:fermi}. 
 \par The clean transformation of theoretical predictions into experimentally measurable, physical parameters can at times prove to be its own kind of science. Pauli himself thought he had done a ``frightful thing" by proposing what he believed at the time to be an undetectable particle. However, nearly 30 years after Pauli's theory was born, Clyde Cowan and Frederick Reines confirmed the existence of anti-neutrinos experimentally in a cadmium-chloride liquid scintillator detector near the Savannah River Plant \cite{bib:cowan}. In 1995, they received the Nobel prize for their work.
-\par With this work, conservation of energy was safe, but new puzzles lay ahead. Nearly 90 years after it was first proposed, the neutrino remains shrouded in a number of mysteries. In this section, we explore some anomalous results and their impact on the present state of neutrino physics.  We also consider the theory behind the Standard Model, neutrino interactions, and the interaction channel of interest to this thesis work. 
+\par With this work, conservation of energy was safe, but new puzzles lay ahead. Nearly 90 years after it was first proposed, the neutrino remains shrouded in a number of mysteries. In this section, I explore some anomalous results and their impact on the present state of neutrino physics.  I also consider the Standard Model, neutrino interactions, and the interaction channel of interest to this thesis work. 
 %In the late 1960's, the Homestake experiment guided in a new era for neutrino experiments.
 % Definitive proof for neutrino oscillation has been delivered over and again in the last 15 years. Alongside this proof, however, has come several notoriously anomalous results. 
 %%As additional groups began to build experiments designed to look for neutrinos from different sources and energy scales, a number of questions arose.
@@ -96,7 +129,7 @@ The idea of the neutrino was born out of an unwillingness to abandon energy cons
 \begin{wrapfigure}{r}{0.5\textwidth}
 %\begin{center}
 %\captionsetup{justification=centering}
-\includegraphics[scale=0.5]{Introduction/solarFlux.png}
+\includegraphics[scale=0.45]{Introduction/solarFlux.png}
 %\end{center}
 \caption{John Bahcall's Standard Solar Flux Model}
 \label{fig:SSM}
@@ -105,7 +138,7 @@ The idea of the neutrino was born out of an unwillingness to abandon energy cons
 %\cite{rayreview} \cite{kam0} \cite{sno}.
 %Due to surrounding radioactivity, Kamiokande II was unable to probe the keV energies of the Homestake experiment. However, K
 \par Throughout the 80's and 90's, various collaborations confirmed this result. Kamiokande II, a 3 kiloton water Cherenkov detector built in Japan in the 80's, was sensitive to $B^8$ neutrinos above 6 MeV, and observed a similar discrepancy of solar neutrinos in this energy region. Kamiokande II was uniquely equipped to reconstruct both the energy and direction of interactions in real time, and was able to conclude for the first time that neutrinos were coming from the sun \cite{bib:kam0}. % \footnote{The original KamiokaNDE focused primarily on proton decay. After initial data taking, adjustments were made to the original detector in order to make it sensitive enough to study electron recoils from elastic neutrino scatters in water. One example addition was a surrounding layer of water which was intended to decrease background radiation.  This ``new" experiment was called Kamiokande II}
-\par Quick to follow suit was the Sudbury Neutrino Observatory (SNO) in 2002.  SNO was a 1 kt spherical deuterium Cherenkov detector located 6800ft under ground in the Creighton Mine in Sudbury. Up until now, the greatest barrier experiments had faced in detecting $\nu_\mu$ or $\nu_\tau$ interactions was that the $\mu$ and $\tau$ are heavier (105 MeV and 1777 MeV respectively) than the energy of the solar neutrino spectrum (extends to about 30MeV). Deuterium, which replaces the hydrogen in water with a proton and a neutron, has a dissociation energy of roughly 2 MeV. This fact uniquely equipped SNO to measure the flux of all three neutrino flavors via combination of the charged and neutral currents. SNO's final measured flux was in good agreement with Bahcall's SSM predictions \cite{bib:sno}.  With their identification of 3 neutrino flavors, SNO had conclusively solved the solar neutrino problem.  
+\par Quick to follow suit was the Sudbury Neutrino Observatory (SNO) in 2002.  SNO was a 1 kt spherical deuterium Cherenkov detector located 6800ft under ground in the Creighton Mine in Sudbury. Up until now, the greatest barrier experiments had faced in detecting $\nu_\mu$ or $\nu_\tau$ interactions was that the $\mu$ and $\tau$ are heavier (105 MeV and 1777 MeV respectively) than the energy of the solar neutrino spectrum (extends to about 30MeV). Deuterium, which replaces the hydrogen in water with a proton and a neutron, has a dissociation energy of roughly 2 MeV. This fact uniquely equipped SNO to measure the flux of all three neutrino flavors via combination of the charged and neutral currents. SNO's final measured flux was in good agreement with Bahcall's SSM predictions \cite{bib:sno}.  With the identification of 3 neutrino flavors, SNO had conclusively solved the solar neutrino problem.  
 \paragraph{Gallium Anomaly} The Gallium Experiment, or GALLEX, was a radiochemical experiment at Gran Sasso, Italy in the 90's. GALLEX was sensitive to the pp neutrino flux energies with a threshold of 233 keV, a thus far uncharted region of the solar flux related to nuclear fusion. After 6 years of running, results showed the neutrino flux at a deficit of 60\% of that predicted by the SSM \cite{bib:gal0}. In the 90's, SAGE, another Gallium experiment set in Russia, observed a deficit comparable to GALLEX's \cite{bib:sage}.  Together, these pieces are called the Gallium Anomaly.  
 
 % After 6 years of running, results showed the neutrino flux at a deficit of 60\% of that predicted by the SSM \cite{bib:gal0}. This result was reproduced when a \ce{^{51}Cr} source was added to the detector \cite{bib:gal2}. SAGE, another Gallium experiment set in Russia in the 90's observed a deficit comparable to GALLEX's.  A similar test of the SAGE detector's efficiency with a \ce{^{51}Cr} source confirmed it was operating near 100\% on the \ce{^{51}Cr} neutrinos \cite{bib:sage}.  Together, these pieces are called the Gallium Anomaly.  
@@ -114,16 +147,16 @@ The idea of the neutrino was born out of an unwillingness to abandon energy cons
 
 %\paragraph{SNO : A Conclusion to the Solar Neutrino Problem}
 \paragraph{Reactor Anomaly}
-A third class of neutrino anomalies arises from reactor experiments. Generally built at short baselines near nuclear plants, reactor experiments measure the flux of electron anti-neutrinos resulting from inverse beta decay. In the 80's and 90's, experiments such Bugey, ROVNO, ILL and others consistently observed an unexpected deficit in the measured neutrino flux \cite{bib:bugey} \cite{bib:rovno}. Though a small deficit in flux was observed consistently across experiments, it was not significant enough to draw a strong conclusion about the underlying physics.  Recently however, improved models of reactor anti-neutrino spectra \cite{bib:improvedReactor} and a reevaluation of previous reactor experiments \cite{bib:reactorGeneral} suggest more strongly that the deficit is real.  One potential explanation of the deficit is the oscillation of the electron anti-neutrinos into sterile neutrinos before they reach the detectors.  
+A third class of neutrino anomalies arises from reactor experiments. Generally built at short baselines near nuclear plants, reactor experiments measure the flux of electron anti-neutrinos resulting from inverse beta decay. In the 80's and 90's, experiments such Bugey, ROVNO, and others consistently observed an unexpected deficit in the measured neutrino flux \cite{bib:bugey} \cite{bib:rovno}. Though a small deficit in flux was observed consistently across experiments, it was not significant enough to draw a strong conclusion about the underlying physics.  Recently however, improved models of reactor anti-neutrino spectra \cite{bib:improvedReactor} and a reevaluation of previous reactor experiments \cite{bib:reactorGeneral} suggest more strongly that the deficit is real.  One potential explanation of the deficit is the oscillation of the electron anti-neutrinos into sterile neutrinos before they reach the detectors.  
 
 \paragraph{Low Energy Excess} %LSND and MiniBooNE}
-Finally, we arrive to the predecessors of MicroBooNE. Liquid Scintillator Neutrino Detector (LSND), a scintillation detector in a stopped pion beam from the 90's, expected the majority of its events to come from $\nu_\mu$ and $\bar{\nu}_\mu$, with a small fraction of $\bar{\nu}_e$ interactions. Their results indicated an excess of low energy $\bar{\nu}_e$ events for $\frac{L}{E} \sim 1 \frac{m}{MeV}$ (Figure \ref{fig:lsnd}a), explained at the time with a simple 2-neutrino oscillation model \cite{bib:lsnd}. These unexpected results led to the construction of the Mini Booster Neutrino Experiment (MiniBooNE), a Cherenkov detector in the Booster Neutrino Beam (BNB) at Fermilab with a comparable $\frac{L}{E}$ to LSND. After 10 years of running, MiniBooNE's data revealed an excess of low energy events in both neutrino and anti-neutrino modes at energies below and incorporating LSND's data \cite{bib:miniboone} (Figure \ref{fig:lsnd}b). Because MiniBooNE was a Cherenkov detector, particles appear as rings on the detector wall, with the ring sharpness determined by initiating particle. The rings associated to electrons and $\gamma$s appear comparably fuzzy, and are not distinguishable in a Cherenkov detector. Thus, these results called into question the nature of the observed low-energy excess.  Was it caused by $\nu_e$-sterile neutrino oscillation, or by some anomalous neutrino-induced $\gamma$ background?  MicroBooNE, a LArTPC with high quality image resolution, was primarily designed to identify the electromagnetic particle responsible for the MiniBooNE low energy excess. It will additionally extract valuable cross section measurements on argon and perform R\&D for future LArTPCs. 
+Finally, we arrive to the predecessors of MicroBooNE. Liquid Scintillator Neutrino Detector (LSND), a scintillation detector in a stopped pion beam from the 90's, expected the majority of its events to come from $\bar{\nu}_\mu$, with a small fraction of $\bar{\nu}_e$ interactions. Their results indicated an excess of low energy $\bar{\nu}_e$ events for $\frac{L}{E} \sim 1 \frac{m}{MeV}$ (Figure \ref{fig:lsnd}a), explained at the time with a simple 2-neutrino oscillation model \cite{bib:lsnd}. These unexpected results led to the construction of the Mini Booster Neutrino Experiment (MiniBooNE), a Cherenkov detector in the Booster Neutrino Beam (BNB) at Fermilab with a comparable $\frac{L}{E}$ to LSND. After several years of running, MiniBooNE's data revealed an excess of low energy $\nu_e$ events in neutrino mode at energies below and incorporating LSND's data \cite{bib:miniboone} (Figure \ref{fig:lsnd}b). A similar excess was observed in $\bar{\nu}_e$ in anti-neutrino mode. The signature of an electron neutrino interaction is the presence of an electron in the final state. Because MiniBooNE was a Cherenkov detector, particles appear as rings on the detector wall, with the ring sharpness determined by initiating particle. The rings associated to electrons and $\gamma$s appear comparably fuzzy, and are not distinguishable in a Cherenkov detector. Thus, these results called into question the nature of the observed low-energy excess.  Was it caused by $\nu_e$-sterile neutrino oscillation, or by some mis-estimated neutrino-induced $\gamma$ background?  MicroBooNE was primarily designed to answer this question.  As a LArTPC, MicroBooNE has fine grained image resolution and calorimetric capability to distinguish electrons from $\gamma$s, enabling it to identify the electromagnetic particle responsible for the MiniBooNE low energy excess.  It will additionally extract valuable cross section measurements on argon and perform R\&D for future LArTPCs. 
 %; R\&D and cross section measurements on Argon are his flagship measurement will be background narrative to the story of this thesis. 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.45]{Introduction/lsnd3.png}
 \hspace{1.5 mm}
-\includegraphics[scale=.6]{Introduction/minibooneNeuMode.png}
+\includegraphics[scale=.5]{Introduction/minibooneNeuMode_Clear.png}
 \caption{Low energy excesses seen by a) the LSND and b) MiniBooNE experiments.  MiniBooNE data is depicted here for runs taken in Neutrino Mode.}
 \label{fig:lsnd}
 \end{figure}
@@ -242,7 +275,7 @@ The Standard Model (SM) is a theory of fundamental forces and particles that tog
 %\end{wrapfigure}
 \end{figure}
 \par The Standard Model is made up two classes of particles: fermions and bosons. Fermions are particles which have half-integer spin and obey Fermi-Dirac statistics. Leptons (particles that do not experience strong interactions, such as electrons) and baryons (3 quark particles, like protons) are both characterized as fermions. Because of their spin properties, fermions must conserve both lepton and baryon numbers, as well as obey the Pauli Exclusion Principle. 
-\par Bosons, on the other hand, have integer spin, obey Bose-Einstein statistics and are unaffected by the Pauli Exclusion Principle. The 4 gauge bosons (photon, gluon, W, Z) and single scalar boson (Higgs) described by the SM are called elementary bosons. While the Higgs is thought to be the particle that gives other particles mass, the gauge bosons are force carriers and mediate interactions that occur between composite bosons (such as mesons) and fermions.  The gluon mediates the aptly named strong force, strongest of all the forces, between quarks and other gluons. Additionally, the gluon residually facilitates the nuclear force, or the interactions between nucleons and mesons, which is responsible for holding the nucleus together. A second force mediated by a gauge boson is the electromagnetic force.  This force is 137 times weaker than the strong force at distances of 1 fm \cite{bib:forces}, and is controlled by photon exchange between charged particles. The final force described by the SM is the weak interaction, a million times weaker than the strong force, and mediated by the Z and W gauge bosons. The Z boson is neutral and only allows for exchange of energy, momenta and spin between particles; this leaves the original neutrino with less energy after interaction, but otherwise in tact. Such an interaction is called neutral current (NC) (Figure \ref{fig:CCNC}a). The W boson, on the other hand, is charged and can facilitate neutrino emission and absorption, energy exchange and particle change as shown in Figure \ref{fig:SM}b.  An interaction that occurs via the exchange of a $W^\pm$ boson is called charged current (CC), and will be accompanied by a charged lepton in the final state (Figure \ref{fig:CCNC}b). The presence of the charged lepton in CC interactions makes them considerably easier to identify in our data, and will be the focus of the remainder of this thesis. 
+\par Bosons, on the other hand, have integer spin, obey Bose-Einstein statistics and are unaffected by the Pauli Exclusion Principle. The 4 gauge bosons (photon, gluon, W, Z) and single scalar boson (Higgs) described by the SM are called elementary bosons. While the Higgs is thought to be the particle that gives other particles mass, the gauge bosons are force carriers and mediate interactions that occur between composite bosons (such as mesons) and fermions.  The gluon mediates the aptly named strong force, strongest of all the forces, between quarks and other gluons. Additionally, the gluon residually facilitates the nuclear force, or the interactions between nucleons and mesons, which is responsible for holding the nucleus together. A second force mediated by a gauge boson is the electromagnetic force.  This force is 137 times weaker than the strong force at distances of 1 fm, and is controlled by photon exchange between charged particles. The final force described by the SM is the weak interaction, a million times weaker than the strong force, and mediated by the Z and W gauge bosons. The Z boson is neutral and only allows for exchange of energy, momenta and spin between particles; this leaves the original neutrino with less energy after interaction, but otherwise in tact. Such an interaction is called neutral current (NC) (Figure \ref{fig:CCNC}a). The W boson, on the other hand, is charged and can facilitate neutrino emission and absorption, energy exchange and particle change as shown in Figure \ref{fig:SM}b.  An interaction that occurs via the exchange of a $W^\pm$ boson is called charged current (CC), and will be accompanied by a charged lepton in the final state (Figure \ref{fig:CCNC}b). The presence of the charged lepton in CC interactions makes them considerably easier to identify in our data, and will be the focus of the remainder of this thesis. 
 
 \begin{figure}[H]
 \centering
@@ -260,23 +293,24 @@ The Standard Model (SM) is a theory of fundamental forces and particles that tog
 
 %\subsection{The Charged Current}
 \subsection{ Modes of Charged Current $\pi^0$ Production}
-A neutrino can interact via a number of different modes at MicroBooNE's energies (0.2 - 3 GeV). These modes as a function of incident neutrino (and anti-neutrino) energy are shown in Figure \ref{fig:numodes}. To get an idea of which modes will dominate CC $\pi^0$ production in MicroBooNE, we consider the true neutrino energy spectrum for only these interactions in Figure \ref{fig:res}a. The concentration of events around 1-3 GeV suggests that our signal will be dominated by resonance interactions at the final stage of our selection chain. We will explore resonance and other modes of CC $\pi^0$ production in the MicroBooNE detector below.
+A neutrino can interact via a number of different modes. These modes as a function of incident neutrino energy are shown in Figure \ref{fig:numodes}a. To get an idea of which modes will dominate CC $\pi^0$ production at MicroBooNE energies 0.2 - 3 GeV, the true neutrino energy spectrum for only these interactions is considered in Figure \ref{fig:numodes}b. The concentration of events around 1-3 GeV suggests that our signal will be dominated by resonance interactions at the final stage of our selection chain. Resonance and other modes of CC $\pi^0$ production in the MicroBooNE detector are explored below.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.8]{Introduction/NeutrinoModeProduction_Eranges.png}
-\caption{Neutrino and anti-neutrino interaction cross sections broken down by mode. Note that QE and RES processes are dominant in MicroBooNE's energy range \cite{bib:gzeller}. }
+\includegraphics[scale=0.38]{Introduction/NeutrinoModeProduction_Eranges_NuOnly.png}
+\hspace{2mm}
+\includegraphics[scale=0.37]{Introduction/MCVar_twoshower_OnlyNuE.png}
+\caption{ a) Neutrino interaction cross sections broken down by mode. Note that QE and RES processes are dominant in MicroBooNE's energy range \cite{bib:gzeller}; b) True neutrino energies from MicroBooNE simulation associated to signal CC $\pi^0$ interactions  }
 \label{fig:numodes}
 \end{figure}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.4]{Introduction/MCVar_twoshower_OnlyNuE.png}
-\hspace{2mm}
-\includegraphics[scale=0.35]{Introduction/Resonance.png}
-\caption{ a) True neutrino energies from MicroBooNE simulation associated to signal CC $\pi^0$ interactions; b) Example of resonance interaction process in the nucleus. }
-\label{fig:res}
-\end{figure}
+%\begin{figure}[h!]
+%\centering
+%\hspace{2mm}
+%\includegraphics[scale=0.35]{Introduction/Resonance.png}
+%\caption{ a)b) Example of resonance interaction process in the nucleus. }
+%\label{fig:res}
+%\end{figure}
 
 \paragraph {Resonance}  Resonance occurs when the incident neutrino has enough energy to excite a nucleon into a baryonic resonance state. This interaction is described by Equation \ref{eq:leptrans} 
 
@@ -285,13 +319,13 @@ A neutrino can interact via a number of different modes at MicroBooNE's energies
    \nu \ N \rightarrow L\ N'
 \end{equation}
 
-\noindent where N' is the nucleon resonance and L is the final state lepton. In order to calculate the probability of this resonance production, we first consider the transition of one fermion to another via the charged current. This can be written as follows:
+\noindent where N' is the nucleon resonance and L is the final state lepton. In order to calculate the probability of this resonance production, first consider the transition of one fermion to another via the charged current. This can be written as follows:
 
 \begin{equation}
    J^{(CC)\mu}(f \rightarrow f') =  \overline{u}_{f'}\gamma^\mu \frac{1}{2}(1 - \gamma^5)u_f
 \end{equation}
 
-\noindent where $\gamma^\mu$, $\gamma^5$ are the Dirac gamma matrices.  This current should be interpreted as the virtual intermediate boson's polarization vector  \cite{bib:rein_sehgal}.  We combine this amplitude with the hadronic current to calculate a transition amplitude for resonance production :
+\noindent where $\gamma^\mu$, $\gamma^5$ are the Dirac gamma matrices.  This current should be interpreted as the virtual intermediate boson's polarization vector  \cite{bib:rein_sehgal}.  This amplitude is combined with the hadronic current to calculate a transition amplitude for resonance production:
 %; it can be further broken down into left handed, right handed and scalar polarization vectors
 
 \begin{equation}
@@ -317,11 +351,11 @@ A neutrino can interact via a number of different modes at MicroBooNE's energies
 \noindent where $E$ is in the incident neutrino energy, $E'$ is the final lepton energy, and $m_N$ is the mass of the nucleon.  $\sigma_{L,R,s}$ are helicity cross sections for left-handed, right-handed, and zero helicity vector bosons respectively. 
 
 %(the resonance product in Figure \ref{fig:res}b is the $\pi^+$; in Figures \ref{fig:CCNC}a and b it is the $\pi^0$)
-\par  Once in a resonance state is created, the resonance (generally a $\Delta$) decays within $10^{-23}$s into a nucleon and a $\pi$.  There are many factors that play into modeling processes after this decay.  For one, we must describe the nature of nucleon interaction within the nucleus. The model employed by GENIE is the Bodek-Ritchie Relativistic Fermi Gas (RFG) model \cite{bib:bodek_ritchie}.  In this model, the nucleons together generate a constant binding potential that they move about in independently of one another. Nucleons in RFG obey Fermi-Dirac statistics: if an interaction produces a nucleon with momentum above $k_F$ (momentum on the surface of the Fermi sphere), it is allowed, otherwise it is blocked. Note that the version of Bodek-Ritchie's model employed here includes short range nucleon-nucleon correlations. 
+\par  Once a resonance state is created, the resonance (generally a $\Delta$) decays within $10^{-23}$ s into a nucleon and a $\pi$.  There are many factors that play into modeling processes after this decay.  For one, the nature of nucleon interaction within the nucleus must be described. The model employed by GENIE is the Bodek-Ritchie Relativistic Fermi Gas (RFG) model \cite{bib:bodek_ritchie}.  In this model, the nucleons together generate a constant binding potential that they move about in independently of one another. Nucleons in RFG obey Fermi-Dirac statistics: if an interaction produces a nucleon with momentum above $k_F$ (momentum on the surface of the Fermi sphere), it is allowed, otherwise it is blocked. Note that the version of Bodek-Ritchie's model employed here includes short range nucleon-nucleon correlations. 
 
-We must also consider our modeling of nuclear interactions. The version of GENIE used in this document includes Final State nuclear Interactions (FSI) and Meson Exchange Currents (MEC) models. FSI models predict probability of hadron re-interaction based on calculated cross sections and models of nucleon density. MEC models predict probability of $\pi$-conversion during charge exchange (e.g. $\pi^- p$ $\rightarrow$ $n \pi^0$). These processes can also kinematically alter the $\pi$ via elastic scattering off nucleons.
+The modeling of nuclear interactions must also be considered. The version of GENIE used in this document includes Final State nuclear Interactions (FSI) and Meson Exchange Current (MEC) models. FSI models predict probability of hadron re-interaction based on calculated cross sections and models of nucleon density. MEC models predict probability of $\pi$-conversion during charge exchange (e.g. $\pi^- p$ $\rightarrow$ $n \pi^0$). These processes can also kinematically alter the $\pi$ via elastic scattering off nucleons.
 
-Resonance production accounts for the majority of $\pi^0$ production in MicroBooNE's energy range (0.2 - 3 GeV). 
+%Resonance production accounts for the majority of $\pi^0$ production in MicroBooNE's energy range (0.2 - 3 GeV). 
 % Fermi gas regular: even at 0K, fermions in the gas still have energy (~3/5Eo) because cannot condense fermions onto one another. 
 
 
@@ -335,11 +369,11 @@ Resonance production accounts for the majority of $\pi^0$ production in MicroBoo
 %\par - Connection of the above with theoretical cross section 
 
 \paragraph{Deep Inelastic Scattering} Another mode of $\pi^0$ production is deep inelastic scattering (DIS). This higher energy process occurs when an incident neutrino has enough energy to interact with a quark inside a hadron. Broken down into its constituent pieces, `deep' refers to the fact that the high energy of the incident neutrino allows it to probe the nuclear components to the deepest, most fundamental degree (quarks). An `inelastic' nuclear process is one in which the target absorbs some of the incident particle's energy. Finally, `scattering' here refers to the deflection of the resulting lepton. 
-\par In this case of DIS processes, the neutrino-nucleon differential cross section must include a description of the quark distribution in each nucleon.  These descriptions are called `structure functions' and are extracted from fits to high energy data from SLAC, NMC and other experiments. GENIE uses the Bodek-Yang model to describe DIS processes.  This model calculates cross sectional probabilities on a partonic level for each individual quark \cite{bib:bodek_yang0}.  
+\par In DIS processes, the neutrino-nucleon differential cross section must include a description of the quark distribution in each nucleon.  These descriptions are called `structure functions' and are extracted from fits to high energy data from SLAC, NMC and other experiments. GENIE uses the Bodek-Yang model to describe DIS processes.  This model calculates cross sectional probabilities on a partonic level for each individual quark \cite{bib:bodek_yang0}.  
 
 \paragraph{ Quasi Elastic (and Meson Exchange Current) }
 Quasi-Elastic (QE) scattering describes the process in which the incident neutrino interacts with and knocks out a single nucleon (Figure \ref{fig:npnh}a). For this to be the case, the momentum transfer to the nucleon must be small relative to the energy of the incident particle. This process is known as 1 particle-1 hole (e.g., 1 particle is knocked out and leaves 1 hole in the nucleus). Note that while this interaction does not primarily produce a $\pi^0$, FSI can lead to one in the final state. GENIE simulates these interactions using the Llewellyn-Smith model \cite{bib:llewellyn}.
-\par Finally, the Meson Exchange Current (MEC) class of events describe n particle - n hole (np - nh) neutrino interactions (Figure \ref{fig:npnh}b). As discussed earlier, MEC models describe nucleon correlation and the exchange of $\pi$ in the nucleus. A review of results from a number of experiments led to the conclusion that a 1p-1h model of the QE did not take into account nucleon correlation in the nucleus, and thus underestimated the QE cross section as compared to data \cite{bib:martini_mec}. A recent, detailed description of these interaction types exists externally \cite{bib:katori_martini}. 
+\par Finally, the Meson Exchange Current (MEC) class of events describe n particle - n hole (np - nh) neutrino interactions (Figure \ref{fig:npnh}b). As discussed earlier, MEC models describe nucleon correlation and the exchange of $\pi$'s in the nucleus. A review of results from a number of experiments led to the conclusion that a 1p-1h model of the QE did not take into account nucleon correlation in the nucleus, and thus underestimated the QE cross section as compared to data \cite{bib:martini_mec}. A recent, detailed description of these interaction types exists in Ref. \cite{bib:katori_martini}. 
 
 \begin{figure}[H]
 \centering
@@ -350,49 +384,51 @@ Quasi-Elastic (QE) scattering describes the process in which the incident neutri
 
 
 \subsection{Previous CC $\pi^0$ Measurements}
-A number of previous measurements of CC single-$\pi^0$ production exist, and it worth first understanding where the field is and how we can contribute to it. A summary of relevant experimental comparisons is shown in Tables \ref{tab:history_ccpi0_detectors} and \ref{tab:history_ccpi0_results}.
+A number of previous measurements of CC single-$\pi^0$ production exist, and it worth first understanding where the field is and how MicroBooNE can contribute to it. A summary of relevant experimental comparisons is discussed in this section and summarized in Tables \ref{tab:history_ccpi0_detectors} and \ref{tab:history_ccpi0_results}.
 \par In the 80's, CC $\pi^0$ cross section measurements were made by a variety of experiments.  Argonne National Laboratory (ANL) used a 12-ft bubble chamber full of hydrogen and deuterium to investigate single-pion production by the weak charged current \cite{bib:ANL1}. ANL examined a restricted energy range of $E_\nu$ $<$ 1.5GeV in order to restrict multi-$\pi$ backgrounds from entering their final sample of 273 events. They measured the cross section as a function of energy. Brookhaven National Laboratory (BNL) performed similar studies in a 7ft deuterium bubble chamber in a broad-band beam with average energy 1.6GeV. BNL had a larger signal sample of 853 events, and spanned an energy range up to 3 GeV \cite{bib:ANL2} \cite{bib:BNL}. A few other experiments made measurements at higher energies, above the range of MicroBooNE \cite{bib:HE_unknown1} \cite{bib:HE_unknown2}.
 \par More recently, several experiments at Fermilab have made this cross section measurement. In 2011, the MiniBooNE experiment, a Cherenkov detector filled with mineral oil that sits in the Booster Neutrino Beam (BNB), made total and differential cross section measurements of the CC $\pi^0$ interaction channel. They required their signal events to have an observed single $\mu^-$, single $\pi^0$, any number of additional nucleons, and no additional mesons or leptons. With 5810 data events in their final sample, they measured a flux-integrated cross section of (9.2 $\pm$ 0.3stat. $\pm$ 1.5syst.) x $10^{-39}$ $\frac{cm^2}{CH_2}$ \cite{bib:numucc_miniboone} \cite{bib:miniboone_thesis}.  
-\par From 2007-2008, SciBar Booster Neutrino Experiment at Fermilab (SciBooNE) took data in the Booster Neutrino Beam. The SciBooNE detector consists of a polystyrene interaction volume, an electron calorimeter and a muon range detector further upstream.  In 2014, a SciBooNE thesis measured a CC $\pi^0$ cross section of (5.6 $\pm$ $1.9_{fit}$ $\pm$ $0.7_{beam}$ $\pm$ $0.5_{int}$ $\pm$ $0.7_{det})$ x $10^{-40}$ $\frac{cm^2}{nucleon}$ with 308 final selected data events \cite{bib:sciboone_thesis}. The signal definition employed was different than that used by MiniBooNE in that it allowed N additional mesons in its final state.  Nevertheless, when the MiniBooNE result is scaled per nucleon, the results agree with one another .  These points are shown for reference on a GENIE-extracted cross section plot in Figure \ref{fig:genie_extracted_xsec}.  
-\par In 2015, the MINERvA experiment measured a $\overline{\nu}_\mu$ CC $\pi^0$ differential cross sections against a number of variables on polystyrene \cite{bib:minerva_thesis} \cite{bib:minerva_paper}.  MINERvA lies in the Neutrinos at the Main Injector (NuMI) beamline at Fermilab, and probes an energy range of 2-10 GeV, a different energy range than MicroBooNE.  We note that the measurement signal here is the same as MiniBooNE's with the requirement of a $\mu^+$ rather than a $\mu^-$ in the final state. Most recently in 2017, MINERvA also published a $\nu_\mu$-induced charged current single $\pi^0$ differential cross section \cite{bib:minerva_paper_2017}.  The signal definition used in this paper also excludes charged mesons from the final state. While the scope of this thesis is a total rather than differential measurement, we note these publications here for completeness. 
-\par A final measurement of note is that of inclusive CC $\pi^0$ production cross section by K2K in 2011 \cite{bib:k2k_paper}; this measurement is presented as a ratio measurement to CCQE.  
-\par MicroBooNE, like MiniBooNE and SciBooNE, lives in the BNB at Fermilab. Ideally, we would like to compare our measurement to the high statistics MiniBooNE measurement, however the tools to separate $\mu^-$ and $\pi^-$ in the MicroBooNE detector are still under development. By attempting to exclude mesons from the final state the overall purity of the selected sample limited the quality of the analysis. For this reason we perform a more inclusive analysis that allows mesons in the final state, but limit ourselves to only a single neutral pion. This will be the first CC $\pi^0$ cross section measurement on argon.
+\par From 2007-2008, SciBar Booster Neutrino Experiment at Fermilab (SciBooNE) took data in the BNB. The SciBooNE detector consists of a polystyrene interaction volume, an electron calorimeter and a muon range detector further upstream.  In 2014, a SciBooNE thesis measured a CC $\pi^0$ cross section of (5.6 $\pm$ $1.9_{fit}$ $\pm$ $0.7_{beam}$ $\pm$ $0.5_{int}$ $\pm$ $0.7_{det})$ x $10^{-40}$ $\frac{cm^2}{nucleon}$ with 308 final selected data events \cite{bib:sciboone_thesis}. The signal definition employed was different than that used by MiniBooNE in that it allowed N additional mesons in its final state.  However, at BNB energies, the interaction cross sections for both definitions are nearly identical. This is shown in Figure \ref{fig:genie_extracted_xsec} where the GENIE CC $\pi^0$ cross section prediction on Carbon is plotted both with and without mesons in the final state.  Note that the MiniBooNE data point in this figure has been scaled per nucleon. Argon is shown for reference for both signal defintions.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{Introduction/GenieTruth_Prediction.png}
 \caption{ Carbon and argon cross sections extracted from GENIE. MiniBooNE and SciBooNE data points are overlaid for comparison. }
 \label{fig:genie_extracted_xsec}
 \end{figure}
 
-\begin{table*} 
+\par In 2015, the MINERvA experiment measured a $\overline{\nu}_\mu$ CC $\pi^0$ differential cross sections against a number of variables on polystyrene \cite{bib:minerva_thesis} \cite{bib:minerva_paper}.  MINERvA lies in the Neutrinos at the Main Injector (NuMI) beamline at Fermilab, and probes an energy range of 2-10 GeV, a different energy range than MicroBooNE.  The measurement signal here is the same as MiniBooNE's with the requirement of a $\mu^+$ rather than a $\mu^-$ in the final state. Most recently in 2017, MINERvA also published a $\nu_\mu$-induced charged current single $\pi^0$ differential cross section \cite{bib:minerva_paper_2017}.  The signal definition used in this paper also excludes charged mesons from the final state. While the scope of this thesis is a total rather than differential measurement, these publications are noted here for completeness. 
+\par A final measurement of note is that of inclusive CC $\pi^0$ production cross section by K2K in 2011 \cite{bib:k2k_paper}; this measurement is presented as a ratio measurement to CCQE.  
+\par MicroBooNE, like MiniBooNE and SciBooNE, lives in the BNB at Fermilab. Ideally, we would choose a signal definition comparable to the high statistics MiniBooNE measurement, however the tools to separate $\mu^-$ and $\pi^-$ in the MicroBooNE detector are still under development. By attempting to exclude mesons from the final state, the overall purity of the selected sample limited the quality of the analysis. For this reason a more inclusive analysis is performed here that allows mesons in the final state, but limits ourselves to only a single neutral pion. This will be the first CC $\pi^0$ cross section measurement on argon.
+
+\begin{table}[H]
  \centering
+ \singlespacing
  \captionof{table}{Summary of other experiments that made CC-$\pi^0$ related measurements \label{tab:history_ccpi0_detectors}}
  \begin{tabular}{| l | l | l | l |}
   \hline
-   Experiment & Nuclear Target & Signal & E [GeV]\\ [0.1ex] \hline
- ANL \cite{bib:ANL1} & $H_2$, D bubble chamber & $\mu^-$, 1 $\pi^0$, 1 proton & $<$ 1.5 \\ 
- BNL \cite{bib:ANL2} & D bubble chamber & $\mu^-$, 1 $\pi^0$, 1 proton & 1.6 \\ 
- BEBC \cite{bib:HE_unknown1} & D bubble chamber & $\mu^-$, 1 $\pi^0$, 1 proton & 54 \\ 
+   Experiment & Nuc Target & Signal & E [GeV]\\ [0.1ex] \hline
+ ANL \cite{bib:ANL1} & $H_2$, D & $\mu^-$, 1 $\pi^0$, 1 proton & $<$ 1.5 \\ 
+ BNL \cite{bib:ANL2} & D & $\mu^-$, 1 $\pi^0$, 1 proton & 1.6 \\ 
+ BEBC \cite{bib:HE_unknown1} & D & $\mu^-$, 1 $\pi^0$, 1 proton & 54 \\ 
  SKAT \cite{bib:HE_unknown2} & $CF_{3}Br$ & $\mu^-$, 1 $\pi^0$, 1 proton & 7 \\ 
  SKAT \cite{bib:HE_unknown2} & $CF_{3}Br$ & $\mu^+$, 1 $\pi^0$, 1 neutron & 7 \\ 
  MiniBooNE \cite{bib:miniboone_thesis} & $CH_2$ & $\mu^-$, 1 $\pi^0$, N nucleons, 0 mesons& 0.965 \\ 
  SciBooNE \cite{bib:sciboone_thesis} & $CH$ & $\mu^-$, 1 $\pi^0$, N nucleons, N mesons  & 0.89 \\
   MINERvA \cite{bib:minerva_thesis} & $CH$ & $\mu^+$, 1 $\pi^0$, N additional particles & 3.6 \\ 
   MINERvA \cite{bib:minerva_paper_2017} & $CH$ & $\mu^-$, 1 $\pi^0$, N nucleons, 0 mesons & 3.6 \\ 
- K2K \cite{bib:k2k_paper} & $C_{8}H_{8}$ & $\mu^-$, $>$ 0 $\pi^0$, N nucleons, N mesons& 1.3 \\ 
+ K2K \cite{bib:k2k_paper} & $C_{8}H_{8}$ & $\mu^-$, N $\pi^0$, N nucleons, N mesons& 1.3 \\ 
 \hline
 %Fe, C, Pb, He, $H_20$
-
 \end{tabular}
-\end{table*}
+\end{table}
 
-\begin{table*} 
+\begin{table}[H] 
  \centering
+ \singlespacing
  \captionof{table}{Summary of CC-$\pi^0$ related results \label{tab:history_ccpi0_results}}
  \begin{tabular}{| l | l | l | l | l | l |}
   \hline
-   Experiment & Measurement & POT [E20] & Selected Events & Efficiency & Purity  \\ [0.1ex] \hline
+   Experiment & Measurement & POT[E20] & Events & Eff & Pur\\ [0.1ex] \hline
  ANL \cite{bib:ANL1} & $\sigma(E)$, differential  & - & 273 & - & -\\ 
  BNL \cite{bib:ANL2} & $\sigma(E)$ & - & 853 & -& -\\ 
  BEBC \cite{bib:HE_unknown1} & $\sigma(E)$, $\frac{d\sigma}{dQ^2}$ & - & 251 & -& -\\ 
@@ -404,10 +440,12 @@ A number of previous measurements of CC single-$\pi^0$ production exist, and it 
  MINERvA \cite{bib:minerva_paper_2017} & $\sigma(E)$, differential & 3.04 & 6110 & 0.084 & 0.51 \\ 
  K2K \cite{bib:k2k_paper} & $\sigma_{CC\pi^0}$ : $\sigma_{CCQE}$ ratio & 0.202 & 479 & 0.076 & 0.592 \\ 
 \hline
-
 % MiniBoooNE results: search "5810" in thesis
 %SciBooNE results : search "purity" in thesis
 %MINERvA results : page 83 in thesis
-
 \end{tabular}
-\end{table*}
+\end{table}
+
+
+
+
