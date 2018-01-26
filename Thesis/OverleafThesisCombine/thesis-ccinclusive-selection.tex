@@ -2,8 +2,12 @@
 \section{ $\nu_{\mu}$ CC Inclusive Selection}
 
 
-\par In this section we begin to search for candidate events to perform the cross section analysis. This search is broken into three stages.  In the first stage, a set of charged current inclusive interactions is preselected. The role of this ``CC Inclusive" filter is largely to reduce the cosmic background and to select neutrino interactions in time with the beam spill that contain a forward-going $\mu$ candidate.  When events with no candidate track that meets all CC Inclusive criteria are filtered, shower reconstruction is run on the remaining events.  This involves first identifying electromagnetic-like candidate hit activity, clustering these candidate hits together with open-source computer vision tools, matching clusters across planes, and reconstructing the clusters into shower candidates.  Finally, two parallel $\pi^0$ candidate selections are considered: those that require two reconstructed showers in the interaction, and those that require one.  A final cross section analysis with systematics is performed on both samples.
-\par The analysis chain will be processed over three samples throughout this document: an MC simulation of neutrino interactions and cosmic activity in the MicroBooNE detector, BNB data (``OnBeam"), and EXTernal BNB data (``OffBeam").  Processing the selection over OffBeam data provides a necessary estimate of the number of OnBeam events that do not contain a neutrino interaction.  By normalizing OffBeam to OnBeam data and subtracting, it is possible to directly compare data to the MC sample, in which a neutrino interaction is simulated in every event.  Both simulation and OffBeam samples are normalized to OnBeam Protons On Target (POT) for all data-MC comparison plots and tables. Starting POT for each sample is summarized in Table \ref{tab:pot}.
+\par In this section we begin to search for candidate events to perform the CC $\pi^0$ cross section analysis. This search is broken into three stages.  In the first stage, a set of charged current inclusive interactions is preselected. The role of this ``CC Inclusive" filter is largely to reduce the cosmic background and to select neutrino interactions in time with the beam spill that contain a forward-going $\mu$ candidate.  When events with no candidate track that meets all CC Inclusive criteria are filtered, shower reconstruction is run on the remaining events.  This involves first identifying electromagnetic-like candidate hit activity, clustering these candidate hits together with open-source computer vision tools, matching clusters across planes, and reconstructing the clusters into shower candidates.  Finally, two parallel $\pi^0$ candidate selections are considered: those that require two reconstructed showers in the interaction, and those that require one.  A final cross section analysis with systematics is performed on both samples.
+\par MicroBooNE has currently collected 6.6e20 POT of BNB data over 3 separate run periods. Most of this data is blinded, while a small sample of 4.9e19 POT is available to all MicroBooNE analyzers.  In order to access blinded data, an analysis must show that its $\nu_e$ content is below some number.  This criteria ensures that analyzers will not develop significantly biased algorithms based on $\nu_e$ topologies, because $\nu_e$ content will be limited. While this particular analysis passes the blinding criteria (discussed in a later section), processing over the full Run I data set will take some time.  Thus, the 4.9e19 POT unblinded dataset will be used for the cross section analysis in this thesis, while the full Run I 1.8e20 POT collected from Oct 15, 2015 - September 26, 2016 will be used for eventual publication.
+\par The analysis chain will be processed over three samples throughout this document: an MC simulation of neutrino interactions and cosmic activity in the MicroBooNE detector, BNB data (``OnBeam"), and EXTernal BNB data (``OffBeam").  Processing the selection over OffBeam data provides a necessary estimate of the number of OnBeam events that do not contain a neutrino interaction.  By normalizing OffBeam to OnBeam data and subtracting, it is possible to directly compare data to the MC sample, in which a neutrino interaction is simulated in every event.  Both simulation and OffBeam samples are normalized to OnBeam Protons On Target (POT) for all data-MC comparison plots and tables.  Starting POT for each sample is summarized in Table \ref{tab:pot}.
+
+
+
 
 \begin{table}[H] 
  \centering
@@ -18,7 +22,7 @@ POT (E20) & 0.492 & 0.227 & 4.232 \\ \hline
 \subsection{Signal and Backgrounds Descriptions}
 \par It is sensible to begin the discussion of the CC Inclusive filter with a set of signal and background definitions.  These categories are used to tune analysis cuts and to present resulting pass rates and sample composition after each filter is applied.  These categories are: Signal, $\nu_\mu$ CC-0$\pi^0$, $\nu_\mu$ NC-0$\pi^0$, $\nu_\mu$ NC-$\pi^0$, Other, Cosmic + Neutrino, and Cosmic. Backgrounds will be further broken down into subcategories in data-MC comparison histograms to give the reader a more in-depth look at the selected interactions.  These categories (and subcategories) are described here. Note that all signal and background categories--except data-extracted ``Cosmic"--are defined by the GENIE simulation final state information stored for each interaction.
 
-\paragraph{Signal - $\nu_\mu$ CC 1$\pi^0$} The Signal category describes events with a single $\mu^-$, single final state $\pi^0$, any additional particles (except a second final state $\pi^0$), and a fiducial volume-contained true-interaction vertex. The fiducial volume (FV) is (20,20,10) cm from the TPC boundaries in (x,y,z). Note that this is the only category with a FV requirement.
+\paragraph{Signal - $\nu_\mu$ CC 1$\pi^0$} The Signal category describes events with a single $\mu^-$, single final state $\pi^0$, any additional particles (except a second final state $\pi^0$), and a fiducial volume-contained true-interaction vertex. The fiducial volume (FV) is (20,20,10) cm from the TPC boundaries in (x,y,z). The fiducial volume boundary was chosen to maximally exclude passing cosmic ray $\mu$'s from the selection without significantly damaging the signal efficiency. Note that this is the only category with a FV requirement.
 
 \paragraph{ $\nu_\mu$ CC 0$\pi^0$}
 The CC 0$\pi^0$ background describes charged current interactions with a single $\mu^-$ and 0 observable $\pi^0$'s originating from the interaction vertex.  Sub-categories of this background include CC $\pi^{\pm}$ charge exchange (`CC Cex'), interactions with 1 or more photons in the final state (`X$\rightarrow$ $\geq$ 1$\gamma$'), and other charged current (`CC Other') interactions. 
@@ -39,10 +43,16 @@ In this class of events a neutrino interacts somewhere in the cryostat during th
 Data cosmics are selected and scaled from OffBeam data.  This background describes events in which a cosmic interacts in the detector during the beam spill window when there is no neutrino interaction anywhere in the TPC.  
 
 \subsection{Tuning CC Inclusive Selection}
-The CC Inclusive selection cuts employed in this analysis are described in this section. The reconstructed products utilized here are the neutrino-candidate Pandora tracks, neutrino-candidate Pandora vertices, and optical flashes described in Section \ref{sec:reco}. 
+The CC Inclusive selection cuts employed in this analysis are described in this section. An example event display is shown in Figure \ref{fig:evd_0} to give the reader a sense of the cosmic background obstacles that must be navigated at this first stage. The reconstructed products utilized here are the neutrino-candidate Pandora tracks, neutrino-candidate Pandora vertices, and optical flashes described in Section \ref{sec:reco}.  
+\begin{figure}[H]
+	\centering
+    \includegraphics[scale=0.5]{Selection_II_Section/evd_0.png}
+\caption{ MicroBooNE simulation of neutrino interaction + cosmics reconstructed up to the hit level in the collection plane. The beam moves in the positive wire (z) direction.  The neutrino in this display is at low wires, low middle in time with a long forward going track. In this section we will systematically sift through the cosmic backgrounds to hone in on neutrino candidates.  }
+\label{fig:evd_0}
+\end{figure}
+
 
 \paragraph{Flash Cuts}
-
 The first analysis cut in the CC Inclusive selection requires that there be a flash of 40 PE or greater in the beam window. The highest PE flash per event is shown per neutrino interaction in MicroBooNE Simulation in Figure \ref{fig:cutjust_sel2_numPE}a. It is clear here that a cut on flash PE can mitigate many neutrino-induced backgrounds while having a minimal impact on our signal.  This effect is largely due to the FV requirement: interactions tend to have higher reconstructed PE flashes when they occur directly in front of the PMT array (such as those with a FV constraint), rather than in the surrounding regions. However, a known bug in the scintillation modeling in current simulation causes an underestimation of light production in the MC sample employed here.  Thus, to minimize the impact of this bug, we have opted for a conservatively loose cut of 40 PE with mind to re-assess when new simulation samples are available.  A data-MC comparison of highest PE flash is shown in Figure \ref{fig:cutjust_sel2_numPE}b.
 
 
@@ -61,7 +71,7 @@ The first analysis cut in the CC Inclusive selection requires that there be a fl
 \end{figure}
 
 
-\par Next, candidate tracks are matched to this selected flash.  Flash matching considers the weighted-PE $z$ position of the highest PE flash found in the event as well as the start and end $z$ points of all candidate tracks. As example of weighted-PE $z$ calculated is shown in Figure \ref{fig:flash_graphic}.  The distance between the weighted PE flash $z$ position and the start or end of the track must be $\leq$ 70 cm in order for the track to pass. If the weighted $z$ position of the flash is between the start z and end z point of a candidate track, the distance is set to 0 cm.  Background distributions are shown for this cut in Figure \ref{fig:cutjust_sel2_flashtrkdist}a, with a data-MC comparison in Figure \ref{fig:cutjust_sel2_flashtrkdist}b. 
+\par Next, candidate tracks are matched to this selected flash.  Flash matching considers the weighted-PE $z$ position of the highest PE flash found in the event as well as the start and end $z$ points of all candidate tracks. As example of weighted-PE $z$ calculated is shown in Figure \ref{fig:flash_graphic}.  The distance between the weighted PE flash $z$ position and the start or end of the track must be $\leq$ 70 cm in order for the track to pass. This cut is chosen to maximize cosmic removal without significantly damaging the signal efficiency. If the weighted $z$ position of the flash is between the start z and end z point of a candidate track, the distance is set to 0 cm.  Background distributions are shown for this cut in Figure \ref{fig:cutjust_sel2_flashtrkdist}a, with a data-MC comparison in Figure \ref{fig:cutjust_sel2_flashtrkdist}b. 
 
 \begin{figure}[H]
 \centering
@@ -83,7 +93,7 @@ The first analysis cut in the CC Inclusive selection requires that there be a fl
 \includegraphics[scale=0.4]{Selection_II_Section/CutJustify_sel2_datamc_flashtrkdist.png}
     \caption{ }
   \end{subfigure} 
-\caption{ a) Breakdown in simulation of backgrounds at flash match stage; b) Data to simulation comparison for the flash match cut }
+\caption{ A cut on the flash match distance at 70 cm was chosen to maximally remove cosmic backgrounds while minimizing the effect on signal selection efficiency. a) Breakdown in simulation of backgrounds at flash match stage; b) Data to simulation comparison for the flash match cut }
 \label{fig:cutjust_sel2_flashtrkdist}
 \end{figure}
 
@@ -102,7 +112,7 @@ The first analysis cut in the CC Inclusive selection requires that there be a fl
 %\end{figure}
 
 \paragraph{Track-Vertex Association + $\frac{dE}{dx}$ Correction}
-At this stage, a preliminary set of candidate $\mu^-$ tracks have been matched to a $\geq$ 40 PE flash in the beam window. These $\mu$ candidates are next associated to candidate neutrino vertices in the event. This is done by comparing the distance between the start (or end) of each track with each candidate vertex. If this distance is less than 3 cm, a track-vertex association is built.  The number of tracks associated to each vertex at the end of this procedure is called the ``observed vertex multiplicity''; a breakdown of backgrounds and a data-MC comparison of vertex-track association are shown in Figures \ref{fig:cutjust_sel2_vtxtrackdist}a and b.  The (unstacked) multiplicity distribution after this association is shown in Figure \ref{fig:cutjust_sel2_mult}. Considering from these figures that cosmics are the largest background at this stage, the goal now is to mitigate the cosmic contribution and to select a pure set of $\nu_{\mu}$ charged current interaction candidates.
+At this stage, a preliminary set of candidate $\mu^-$ tracks have been matched to a $\geq$ 40 PE flash in the beam window. These $\mu$ candidates are next associated to candidate neutrino vertices in the event. This is done by comparing the distance between the start (or end) of each track with each candidate vertex. If this distance is less than 3 cm, a track-vertex association is built. 3 cm is chosen to minimize the amount of un-correlated vertex-track activity that is associated during this stage.  The number of tracks associated to each vertex at the end of this procedure is called the ``observed vertex multiplicity''; a breakdown of backgrounds and a data-MC comparison of vertex-track association are shown in Figures \ref{fig:cutjust_sel2_vtxtrackdist}a and b.  The (unstacked) multiplicity distribution after this association is shown in Figure \ref{fig:cutjust_sel2_mult}. Considering from these figures that cosmics are the largest background at this stage, the goal now is to mitigate the cosmic contribution and to select a pure set of $\nu_{\mu}$ charged current interaction candidates.
 \begin{figure}[h!]
   \begin{subfigure}[t]{0.4\textwidth}
 \includegraphics[scale=0.4]{Selection_II_Section/CutJustify_sel2_vtxtrackdist.png}
@@ -113,7 +123,7 @@ At this stage, a preliminary set of candidate $\mu^-$ tracks have been matched t
 \includegraphics[scale=0.4]{Selection_II_Section/CutJustify_sel2_datamc_vtxtrkdist.png}
     \caption{ }
   \end{subfigure} 
-\caption{ Vertex-track distance for a) data to simulation comparison; b) Background breakdown distributions }
+\caption{ Vertex-track distance for a) data to simulation comparison; b) Background breakdown distributions.  A 3 cm cut is chosen to minimize the association of uncorrelated tracks and vertices. }
 \label{fig:cutjust_sel2_vtxtrackdist}
 \end{figure}
 
@@ -144,26 +154,7 @@ At this stage, a preliminary set of candidate $\mu^-$ tracks have been matched t
 \label{fig:cutjust_sel2_bestplane}
 \end{figure}
 
-\par Second, the simple 1D calibration employed to go from $\frac{dQ}{dx}$ to $\frac{dE}{dx}$ doesn't take into account variations of $\frac{dQ}{dx}$ over drift distance. Thus, an intermediate calibration is performed to correct the $\frac{dE}{dx}$ in the selected plane for an energy deposition at any location in drift. The $\frac{dE}{dx}$'s are shifted to a value that already aligns fairly well with the current distributions to avoid distorting the results more than necessary.  These corrections are extracted by first considering the $\frac{dE}{dx}$ vs x simulation distribution of all candidate tracks in the collection plane in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x} (right, top). The baseline for the shift is empirically determined from the uncorrected, but mostly-flat-over-x, collection plane to be 1.63 $\frac{MeV}{cm}$.  With a baseline in hand, a line is fit to the $\frac{dE}{dx}$ vs $x$ distributions in each plane and used to shift the distributions. These correction equations as a function of x are summarized for all three samples in Table \ref{tab:dedx_corr}. Examples of these before- and after-correction distributions for all three planes of MicroBooNE simulation are shown in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}, OnBeam in Figure \ref{fig:cutjust_sel2_onbeam_dedx_v_x}, and OffBeam in Figure \ref{fig:cutjust_sel2_offbeam_dedx_v_x}.  
-
-
-\begin{figure}[H]
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsX_2_0_0.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsX_2_0_1.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsX_2_0_2.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsXCor_2_0_0.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]
-{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsXCor_2_0_1.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]
-{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsXCor_2_0_2.png}
-\caption{MC candidate tracks' $\frac{dE}{dx}$ at each point along track before (top row) and after (bottom row) $\frac{dE}{dx}$ correction for planes 0, 1, 2 (left to right).  The empirical line extracted to do this intermediate calibration is shown in the top row. }
-\label{fig:cutjust_sel2_mc_dedx_v_x}
-\end{figure}
+\par Second, the simple 1D calibration employed to go from $\frac{dQ}{dx}$ to $\frac{dE}{dx}$ doesn't take into account variations of $\frac{dQ}{dx}$ over drift distance. Thus, an intermediate calibration is performed to correct the $\frac{dE}{dx}$ in the selected plane for an energy deposition at any location in drift. The $\frac{dE}{dx}$'s are shifted to a value that already aligns fairly well with the current distributions to avoid distorting the results more than necessary.  These corrections are extracted by first considering the $\frac{dE}{dx}$ vs x simulation distribution of all candidate tracks in the collection plane in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x} (top left). The baseline for the shift is empirically determined from the uncorrected, but mostly-flat-over-x, collection plane to be 1.63 $\frac{MeV}{cm}$.  With a baseline in hand, a line is fit to the $\frac{dE}{dx}$ vs $x$ distributions in each plane and used to shift the distribution (Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}, right column). Before- and after-correction distributions for all three planes of MicroBooNE simulation are shown in Figure \ref{fig:cutjust_sel2_mc_dedx_v_x}, OnBeam in Figure \ref{fig:cutjust_sel2_onbeam_dedx_v_x}, and OffBeam in Figure \ref{fig:cutjust_sel2_offbeam_dedx_v_x}.   These correction equations as a function of x are summarized for all three samples in Table \ref{tab:dedx_corr}. 
 
 \begin{table} 
  \centering
@@ -178,38 +169,61 @@ Plane 2 & $\frac{1.63}{0.0001953x + 1.40}$ & $\frac{1.63}{0.0007812x + 1.60}$ \\
 \end{table}
 
 
-\begin{figure}[h!]
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsX_0_0_0.png}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsX_2_0_2.png}
 \hspace{1 mm}
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsX_0_0_1.png}
+\includegraphics[scale=0.35]
+{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsXCor_2_0_2.png}
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsX_2_0_1.png}
 \hspace{1 mm}
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsX_0_0_2.png}
+\includegraphics[scale=0.35]
+{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsXCor_2_0_1.png}
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsX_2_0_0.png}
 \hspace{1 mm}
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsXCor_0_0_0.png}
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_MC_hdEdxVsXCor_2_0_0.png}
+
+\caption{MC candidate tracks' $\frac{dE}{dx}$ at each point along track before (top row) and after (bottom row) $\frac{dE}{dx}$ correction for planes 0, 1, 2 (left to right).  The empirical line extracted to do this intermediate calibration is shown in the top row. }
+\label{fig:cutjust_sel2_mc_dedx_v_x}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsX_0_0_2.png}
 \hspace{1 mm}
-\includegraphics[scale=0.24]
-{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsXCor_0_0_1.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]
+\includegraphics[scale=0.35]
 {Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsXCor_0_0_2.png}
+
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsX_0_0_1.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]
+{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsXCor_0_0_1.png}
+
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsX_0_0_0.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_OnBeam_hdEdxVsXCor_0_0_0.png}
 \caption{OnBeam candidate tracks' $\frac{dE}{dx}$ at each point along track before (top row) and after (bottom row) $\frac{dE}{dx}$ correction for planes 0, 1, 2 (left to right).  The empirical line extracted to do this intermediate calibration is shown in the top row. }
 \label{fig:cutjust_sel2_onbeam_dedx_v_x}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsX_1_0_0.png}
+	\centering
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsX_1_0_2.png}
 \hspace{1 mm}
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsX_1_0_1.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsX_1_0_2.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsXCor_1_0_0.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]
-{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsXCor_1_0_1.png}
-\hspace{1 mm}
-\includegraphics[scale=0.24]
+\includegraphics[scale=0.35]
 {Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsXCor_1_0_2.png}
+
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsX_1_0_1.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]
+{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsXCor_1_0_1.png}
+
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsX_1_0_0.png}
+\hspace{1 mm}
+\includegraphics[scale=0.35]{Selection_II_Section/CutJustify_sel2_OffBeam_hdEdxVsXCor_1_0_0.png}
 \caption{OffBeam candidate tracks' $\frac{dE}{dx}$ at each point along track before (top row) and after (bottom row) $\frac{dE}{dx}$ correction for planes 0, 1, 2 (left to right).  The empirical line extracted to do this intermediate calibration is shown in the top row. }
 \label{fig:cutjust_sel2_offbeam_dedx_v_x}
 \end{figure}
@@ -218,101 +232,79 @@ Candidate interactions are now subjected to a series of cuts determined by obser
 
 \paragraph{Multiplicity 1 Cuts}
 % Why so many single track cosmics passing the FV cut? Are they mainly broken/ mis-reconstructed?
-Multiplicity 1 events are most affected by the cosmic background because they topologically resemble crossing or stopping cosmic ray muons. To account for this, the candidate track is required to be fully contained in a FV 20 cm from the boundaries in X and Y, and 10 cm from the boundaries in Z. This cut removes exiting and entering cosmics that are well reconstructed.  Most of the cosmics that make it beyond this cut have tracks that were broken during reconstruction, tracks that pass dead regions of the detector, or tracks that were mis-reconstructed, and thus appear contained. To address this, we consider that most crossing muons will have a long projection in the vertical direction, and cut all candidate tracks with a cos($\theta$) of $>$ 0.4 and a length of candidate track $<$ 15cm. Note that these cuts, particularly that on cos($\theta$), remove a significant fraction of cosmic contamination, and shift the dominant background in the multiplicity 1 category to CC-0$\pi^0$. 2D distributions showing the effect of these cuts for CC 1$\pi^0$ signal and various backgrounds are shown in Figure \ref{fig:cutjust_sel2_mult1_len_v_cosy}. On and OffBeam distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_mult1_len_v_cosy}. 
-
-%\begin{figure}[H]
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_mult1_dcosy.png}
-%    \caption{ }
-%  \end{subfigure} 
-%  \hspace{25mm}
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_datamc_mult1_dcosy.png}
-%    \caption{ }
-%  \end{subfigure} 
-%\caption{Multiplicity 1 candidate directional y component shown for a) signal and all backgrounds and b) MC-data comparison.  Multiplicity 1 candidates are required to have a y-directional component less than or equal to 0.4. }
-%\label{fig:cutjust_sel2_mult1_cosy}
-%\end{figure}
-
-%\begin{figure}[H]
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_mult1_tracklen.png}
-%    \caption{ }
-%  \end{subfigure} 
-%  \hspace{25mm}
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_datamc_mult1_tracklen.png}
-%    \caption{ }
-%  \end{subfigure} 
-%\caption{Multiplicity 1 candidate track length shown for a) signal and all backgrounds and b) MC-data comparison }
-%\label{fig:cutjust_sel2_mult1_len}
-%\end{figure}
+Multiplicity 1 events are most affected by the cosmic background because they topologically resemble crossing or stopping cosmic ray muons. To account for this, the candidate track is required to be fully contained in a FV 20 cm from the boundaries in X and Y, and 10 cm from the boundaries in Z. These boundaries are chosen to maximally remove exiting and entering cosmics that are well reconstructed, while minimally affecting signal efficiency.  Most of the cosmics that make it beyond this cut have tracks that pass dead regions of the detector and were broken during reconstruction (as described in the Software chapter), or tracks that were mis-reconstructed and thus appear contained. To address this, we consider that most crossing muons will have a long projection in the vertical direction, and cut all candidate tracks with a cos($\theta$) of $>$ 0.4 and a length of candidate track $<$ 15cm. These cuts were selected to maximize signal to cosmic background selection.  2D distributions showing the effect of these cuts on CC 1$\pi^0$ signal and cosmic background are shown in Figure  \ref{fig:cutjust_sel2_mult1_len_v_cosy_sig}, while other background distributions are shown in Figure \ref{fig:cutjust_sel2_mult1_len_v_cosy}.  Note that these cuts, particularly that on cos($\theta$), remove a significant fraction of cosmic contamination, and shift the dominant background in the multiplicity 1 category to CC-0$\pi^0$.  On and OffBeam distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_mult1_len_v_cosy}. 
 
 \begin{figure}[H]
 \centering
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-    \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_All.png}
+    \includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_CC1pi0.png}
+   	\caption{ }
+  \end{subfigure} 
+  \hspace{10mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+    \includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_Cosmic.png}
+	\caption{ }
+  \end{subfigure} 
+  \caption{Multiplicity 1 track length vs y directional component distribution with cut shown in pink for a) CC 1$\pi^0$; b) Cosmic backgrounds. Cut values were chosen to maximize cosmic removal without significantly damaging the signal efficiency. }
+  \label{fig:cutjust_sel2_mult1_len_v_cosy_sig}
+  \end{figure}
+  
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+    \includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_All.png}
+	\caption{ }
+  \end{subfigure} 
+  \hspace{10mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_CC0pi0.png}
     \caption{ }
   \end{subfigure} 
   \hspace{3mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-    \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_Cosmic.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_NC1pi0.png}
+    \caption{ }
+  \end{subfigure} 
+  \hspace{10mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_NC0pi0.png}
     \caption{ }
   \end{subfigure} 
   \hspace{3mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-    \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_CC1pi0.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_Other.png}
     \caption{ }
   \end{subfigure} 
-  \hspace{3mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_CC0pi0.png}
-    \caption{ }
-  \end{subfigure} 
-  \hspace{3mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_NC1pi0.png}
-    \caption{ }
-  \end{subfigure} 
-  \hspace{3mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_NC0pi0.png}
-    \caption{ }
-  \end{subfigure} 
-  \hspace{3mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_Other.png}
-    \caption{ }
-  \end{subfigure} 
-
-\caption{Multiplicity 1 track length vs y directional component distribution with cut shown in pink for a) All candidates; b) Cosmics; c) CC 1$\pi^0$; d) CC 0$\pi^0$; e) NC $\pi^0$; f) NC 0$\pi^0$; g) Other }
+\caption{Multiplicity 1 track length vs y directional component distribution with cut shown in pink for a) All interactions; b) CC 0$\pi^0$; c) NC $\pi^0$; d) NC 0$\pi^0$; e) Other. }
 \label{fig:cutjust_sel2_mult1_len_v_cosy}
 \end{figure}
+
+
 \begin{figure}[h!]
 \centering
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_OnBeam.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_OnBeam.png}
     \caption{ }
   \end{subfigure} 
-  \hspace{20mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \hspace{10mm}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-    \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_OffBeam.png}
+    \includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_length_v_cosy_OffBeam.png}
     \caption{ }
   \end{subfigure} 
 \caption{Multiplicity 1 track length vs y directional component distribution with cut shown in pink for a) OnBeam and b) OffBeam }
 \label{fig:cutjust_sel2_onbeam_mult1_len_v_cosy}
 \end{figure}
 
-\par Some of the remaining cosmic contamination at this point consists of muons that stop or decay inside the FV.  These tracks deposit more energy near the $\mu$'s end (the Bragg peak) than along the rest of the length of the track (Figure \ref{fig:cut_ex_0}). Thus, the projected candidate track length in y and the ratio of start to end $\frac{dE}{dx}$ can be used as handles to identify cosmics. The start $\frac{dE}{dx}$ is calculated by averaging over the first 10 hits of the track in the best plane. A similar calculation is performed to calculate end $<\frac{dE}{dx}>$. Candidates are removed if either they have a a) ratio $>$ 1.5 or b) ratio $<=$ 1.5 and a projected track length less than 25cm.  2D distributions of all backgrounds are shown in Figure \ref{fig:cutjust_sel2_mult1_dedxratio_v_leny}, and of On and OffBeam in Figure \ref{fig:cutjust_sel2_onbeam_mult1_dedxratio_v_leny}. These distributions show (as expected) that CC-0$\pi^0$ interactions dominate the sample at this cut stage.
+\par Some of the remaining cosmic contamination at this point consists of muons that stop or decay inside the FV.  These tracks deposit more energy near the $\mu$'s end (the Bragg peak) than along the rest of the length of the track (Figure \ref{fig:cut_ex_0}). Thus, the projected candidate track length in y and the ratio of start to end $\frac{dE}{dx}$ can be used as handles to identify cosmics. The start $\frac{dE}{dx}$ is calculated by averaging over the first 10 hits of the track in the best plane. A similar calculation is performed to calculate end $<\frac{dE}{dx}>$. Candidates are removed if either they have a a) ratio $>$ 1.5 or b) ratio $<=$ 1.5 and a projected track length less than 25cm. These cuts were selected to maximize signal to cosmic background selection. 2D distributions of CC $\pi^0$ signal and Cosmics are shown in Figure \ref{fig:cutjust_sel2_mult1_dedxratio_v_leny_sig} while all backgrounds are shown in Figure \ref{fig:cutjust_sel2_mult1_dedxratio_v_leny}. Distributions of On and OffBeam are shown in Figure \ref{fig:cutjust_sel2_onbeam_mult1_dedxratio_v_leny}. These distributions show (as expected) that CC-0$\pi^0$ interactions dominate the sample at this cut stage.
 
 
 \begin{figure}[H]
@@ -322,95 +314,71 @@ Multiplicity 1 events are most affected by the cosmic background because they to
 \label{fig:cut_ex_0}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_CC1pi0.png}  
+  \caption{ }
+  \end{subfigure} 
+  \hspace{10 mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_Cosmic.png}
+  \caption{ }
+  \end{subfigure} 
+  \caption{Multiplicity 1 cut on $\frac{dE}{dx}$ ratio vs track length projection with cut shown in pink for a) CC 1$\pi^0$; b) Cosmics. Cut values were chosen to maximize cosmic removal without significantly damaging the signal efficiency.  }
+  \label{fig:cutjust_sel2_mult1_dedxratio_v_leny_sig}
+  \end{figure}
 
-%\begin{figure}[H]
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_datamc_mult1_ratiodedx_log.png}
-%%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_mult1_ratiodedx_log.png}
-%    \caption{ }
-%  \end{subfigure} 
-%  \hspace{25mm}
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_datamc_mult1_projylen.png}
-%   \caption{ }
-%  \end{subfigure} 
-%\caption{Multiplicity 1 data-MC comparisons of a) $\frac{dE}{dx}$ ratio; b) projected length in y }
-%\label{fig:cutjust_sel2_mult1_ratiodedx_log}
-%\end{figure}
-
-%\begin{figure}[H]
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_mult1_projylen.png}
-%    \caption{ }
-%  \end{subfigure} 
-%  \hspace{25mm}
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_datamc_mult1_projylen.png}
-%   \caption{ }
-%  \end{subfigure} 
-%\caption{Multiplicity 1 projected candidate length in Y for a) signal and all backgrounds and b) MC-data comparison }
-%\label{fig:cutjust_sel2_mult1_projylen}
-%\end{figure}
 
 \begin{figure}[H]
 \centering
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_All.png}    
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_All.png}    
+  \caption{ }
+  \end{subfigure} 
+  \hspace{10 mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_CC0pi0.png}
   \caption{ }
   \end{subfigure} 
   \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_Cosmic.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_NC1pi0.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{10 mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_NC0pi0.png}
   \caption{ }
   \end{subfigure} 
   \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_CC1pi0.png}  
-  \caption{ }
-  \end{subfigure} 
-  \hspace{5mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_CC0pi0.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_NC1pi0.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_NC0pi0.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_Other.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_Other.png}
   \caption{ }
   \end{subfigure}
   
-\caption{Multiplicity 1 cut on $\frac{dE}{dx}$ ratio vs track length projection with cut shown in pink for a) All candidates; b) Cosmics; c) CC 1$\pi^0$; d) CC 0$\pi^0$; e) NC $\pi^0$; f) NC 0$\pi^0$; g) Other }
+\caption{Multiplicity 1 cut on $\frac{dE}{dx}$ ratio vs track length projection with cut shown in pink for a) All candidates; b) CC 0$\pi^0$; c) NC $\pi^0$; d) NC 0$\pi^0$; e) Other }
 \label{fig:cutjust_sel2_mult1_dedxratio_v_leny}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\begin{subfigure}[t]{0.25\textwidth}
+\begin{subfigure}[t]{0.36\textwidth}
   \centering
-  \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_OnBeam.png}  
+  \includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_OnBeam.png}  
   \caption{ }
   \end{subfigure} 
   \hspace{10 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_OffBeam.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult1_dedxratio_v_projylen_OffBeam.png}
   \caption{ }
   \end{subfigure} 
 \caption{Multiplicity 1 cut on $\frac{dE}{dx}$ ratio vs track length projection with cut shown in pink for a) OnBeam and b) OffBeam }
@@ -418,10 +386,9 @@ Multiplicity 1 events are most affected by the cosmic background because they to
 
 \end{figure}
 
-\clearpage
+%\clearpage
 \paragraph{Multiplicity $>$ 1 Cuts}
-Cosmic tracks can be mistakenly identified as higher multiplicity events when they are ``broken'' during reconstruction. To minimize the contribution of these events to the final sample, the angle between the two longest neutrino candidate tracks is considered. If both tracks are from a broken cosmic, the $\theta$ between them should be roughly 180 degrees.  This distribution is shown in Figure \ref{fig:cutjust_sel2_cosangle}; candidates with a abs(cos($\theta$)) $>$ 0.9 are cut.  After this cut is employed, the largest remaining cosmic contribution comes from crossing muons that enter the detector from above and produce several secondary charged particles. An example of this topology is shown on the left in Figure \ref{fig:cut_ex_2}.  To mitigate the contribution of these interactions to the final sample, we consider instances in which the candidate $\mu$ track end point is higher in Y than the second longest track end point in Y (such as the example in Figure \ref{fig:cut_ex_2}).  In such instances, candidates with a second longest track length $<$ 30 cm and a cos($\theta_y$) component of the candidate track of $>$ 0.65 are cut.  2D distributions of signal and background are shown in Figure \ref{fig:cutjust_sel2_multgt1_len_v_cosy}; corresponding data distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_multgt1_len_v_cosy}. 
-%The 1D distributions of each variable are shown in Figures \ref{fig:cutjust_sel2_multgt1_tracklen1} and \ref{fig:cutjust_sel2_multgt1_dcosy}. 
+Cosmic tracks can be mistakenly identified as higher multiplicity events when they are broken during reconstruction (as described in the Software chapter). To minimize the contribution of these events to the final sample, the angle between the two longest neutrino candidate tracks is considered. If both tracks are from a broken cosmic, the $\theta$ between them should be roughly 180 degrees.  This distribution is shown in Figure \ref{fig:cutjust_sel2_cosangle}; candidates with a abs(cos($\theta$)) $>$ 0.9 are cut. This cut is selected to maximize signal to cosmic background selection. After this cut is employed, the largest remaining cosmic contribution comes from crossing muons that enter the detector from above and produce several secondary charged particles. An example of this topology is shown on the left in Figure \ref{fig:cut_ex_2}.  To mitigate the contribution of these interactions to the final sample, we consider instances in which the candidate $\mu$ track end point is higher in Y than the second longest track end point in Y (such as the example in Figure \ref{fig:cut_ex_2}).  In such instances, candidates with a second longest track length $<$ 30 cm and a cos($\theta_y$) component of the candidate track of $>$ 0.65 are cut.  2D distributions of signal and cosmic background distributions are shown in Figure \ref{fig:cutjust_sel2_multgt1_len_v_cosy_sig}. Remaining backgrounds are shown in Figure \ref{fig:cutjust_sel2_multgt1_len_v_cosy}, and the corresponding data distributions are shown in Figure \ref{fig:cutjust_sel2_onbeam_multgt1_len_v_cosy}. 
 
 \begin{figure}[H]
   \begin{subfigure}[t]{0.37\textwidth}
@@ -433,7 +400,7 @@ Cosmic tracks can be mistakenly identified as higher multiplicity events when th
 \includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_cosangle_OnBeam.png}
   \caption{ }
   \end{subfigure} 
-\caption{Cosine of the angle between largest 2 tracks associated to vertex by a) Data to simulation comparison and b) Background breakdown. }
+\caption{Cosine of the angle between largest 2 tracks associated to vertex by a) Data to simulation comparison and b) Background breakdown. A cut at 0.9 maximizes cosmic removal, without significantly damaging signal selection efficiency. }
 \label{fig:cutjust_sel2_cosangle}
 \end{figure}
 
@@ -445,92 +412,69 @@ Cosmic tracks can be mistakenly identified as higher multiplicity events when th
 \label{fig:cut_ex_2}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_CC1pi0.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{10 mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_Cosmic.png}
+  \caption{ }
+  \end{subfigure} 
+\caption{ Multiplicity $>$ 1 event cut on length of shorter track vs the y directional component of the longer track with cut shown in pink for a) CC 1$\pi^0$; b) Cosmics. Cut values were chosen to maximize cosmic removal without significantly damaging the signal efficiency. }
+\label{fig:cutjust_sel2_multgt1_len_v_cosy_sig}
+\end{figure}
 
-%\begin{figure}[H]
-% \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_multgt1_tracklen1.png}
-% \caption{ }
-%  \end{subfigure} 
-%  \hspace{25mm}
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_datamc_multgt1_tracklen1.png}
-% \caption{ }
-%  \end{subfigure} 
-%\caption{Multiplicity $>$ 1 length of second longest track of a) signal and all backgrounds and b) MC-data comparison }
-%\label{fig:cutjust_sel2_multgt1_tracklen1}
-%\end{figure}
-
-%\begin{figure}[H]
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_multgt1_cosy0.png}
-% \caption{ }
-%  \end{subfigure} 
-%  \hspace{25mm}
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_datamc_multgt1_cosy0.png}
-% \caption{ }
-%  \end{subfigure} 
-%\caption{Multiplicity $>$ 1 cos($\theta_y$) of candidate $\mu$ for a) signal and all backgrounds and b) MC-data comparison }
-%\label{fig:cutjust_sel2_multgt1_dcosy}
-%\end{figure}
 
 \begin{figure}[H]
 \centering
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_All.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_All.png}
+  \caption{ }
+  \end{subfigure} 
+  \hspace{10 mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_CC0pi0.png}
   \caption{ }
   \end{subfigure} 
   \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_Cosmic.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_NC1pi0.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \hspace{10 mm}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_CC1pi0.png}
-  \caption{ }
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_NC0pi0.png}  \caption{ }
   \end{subfigure} 
   \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_CC0pi0.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_NC1pi0.png}
-  \caption{ }
-  \end{subfigure} 
-  \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_NC0pi0.png}  \caption{ }
-  \end{subfigure} 
-  \hspace{5 mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_Other.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_Other.png}
  \caption{ }
   \end{subfigure} 
-\caption{ Multiplicity $>$ 1 event cut on length of shorter track vs the y directional component of the longer track with cut shown in pink for a) All candidates; b) Cosmics; c) CC 1$\pi^0$; d) CC 0$\pi^0$; e) NC $\pi^0$; f) NC 0$\pi^0$; g) Other }
+\caption{ Multiplicity $>$ 1 event cut on length of shorter track vs the y directional component of the longer track with cut shown in pink for a) All candidates; b) CC 0$\pi^0$; c) NC $\pi^0$; d) NC 0$\pi^0$; e) Other }
 \label{fig:cutjust_sel2_multgt1_len_v_cosy}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_OnBeam.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_OnBeam.png}
  \caption{ }
   \end{subfigure} 
-  \hspace{20mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \hspace{10mm}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-  \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_OffBeam.png}
+  \includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_multgt1_len_v_cosy_OffBeam.png}
    \caption{ }
   \end{subfigure} 
 \caption{ Multiplicity $>$ 1 event cut on length of shorter track vs the y directional component of the longer track with cut shown in pink for a) OnBeam and b) OffBeam }
@@ -538,7 +482,7 @@ Cosmic tracks can be mistakenly identified as higher multiplicity events when th
 \end{figure}
 
 \paragraph{Multiplicity 2 Cuts}
-Multiplicity 2 events pass first through the previous set of cuts for interactions with multiplicity $>$ 1, and are thus already a reduced sample. An additional set of cuts are applied to mitigate the remaining population of multiplicity 2 candidates formed mainly by stopping cosmic muons and their Michel electrons. Michel electron reconstruction-as-a-track occurs sometimes because these low energy showers tend to be fairly linear.  In these background events, the vertex candidate is at the stopping point of the muon, and is assumed to be the start point of a neutrino interaction. An example topology is shown in Figure \ref{fig:cut_ex_1}. To keep the event in the candidate pool, it is required to meet one of two conditions: in the first condition, the smaller of the two tracks must be longer than 30 cm (Figure \ref{fig:cutjust_sel2_mult2_secondtrklen}). If the smaller track satisfies this condition, the event passes the multiplicity 2 cuts. If the event does not pass the track length cut, an additional set of conditions are considered before filtering the event.  The second set of conditions considers the $<\frac{dE}{dx}>$ at the assumed start of the track, $<\frac{dE}{dx}>$ at the assumed end, and the end point of the candidate $\mu$.  In the case of a stopping muon, the start $<\frac{dE}{dx}>$ will be larger than the end $<\frac{dE}{dx}>$, and the end point of the candidate track will be high in Y in the TPC.  Thus, in the second set of conditions the end point of the candidate $\mu$ track must be $<=$ 96.5 cm in Y and either 1) the start $<\frac{dE}{dx}>$ of the candidate track is less than the end, 2) the start $<\frac{dE}{dx}>$ is $<=$ 2.5 $\frac{MeV}{cm}$ or 3) the end $<\frac{dE}{dx}>$ is $>=$ 4 $\frac{MeV}{cm}$. 2D distributions of these cuts are shown in Figures \ref{fig:cutjust_sel2_mult2_dedx_v_dedx} and \ref{fig:cutjust_sel2_onbeam_mult2_dedx_v_dedx}.
+Multiplicity 2 events pass first through the previous set of cuts for interactions with multiplicity $>$ 1, and are thus already a reduced sample. An additional set of cuts are applied to mitigate the remaining population of multiplicity 2 candidates formed mainly by stopping cosmic muons and their Michel electrons. Michel electron reconstruction-as-a-track occurs sometimes because these low energy showers tend to be fairly linear.  In these background events, the vertex candidate is at the stopping point of the muon, and is assumed to be the start point of a neutrino interaction. An example topology is shown in Figure \ref{fig:cut_ex_1}. To keep the event in the candidate pool, it is required to meet one of two conditions: in the first condition, the smaller of the two tracks must be longer than 30 cm (Figure \ref{fig:cutjust_sel2_mult2_secondtrklen}). This cut is chosen to maximally remove the CC 0$\pi^0$ that currently dominates the sample without significantly damaging the signal efficiency. If the smaller track satisfies this condition, the event passes the multiplicity 2 cuts. If the event does not pass the track length cut, an additional set of conditions are considered before filtering the event.  The second set of conditions considers the $<\frac{dE}{dx}>$ at the assumed start of the track, $<\frac{dE}{dx}>$ at the assumed end, and the end point of the candidate $\mu$.  In the case of a stopping muon, the start $<\frac{dE}{dx}>$ will be larger than the end $<\frac{dE}{dx}>$, and the end point of the candidate track will be high in Y in the TPC.  Thus, in the second set of conditions the end point of the candidate $\mu$ track must be $<=$ 96.5 cm in Y and either 1) the start $<\frac{dE}{dx}>$ of the candidate track is less than the end, 2) the start $<\frac{dE}{dx}>$ is $<=$ 2.5 $\frac{MeV}{cm}$ or 3) the end $<\frac{dE}{dx}>$ is $>=$ 4 $\frac{MeV}{cm}$. 2D distributions of these cuts are shown for signal and cosmic in Figure \ref{fig:cutjust_sel2_mult2_dedx_v_dedx_sig}, backgrounds in \ref{fig:cutjust_sel2_mult2_dedx_v_dedx} and data in Figure \ref{fig:cutjust_sel2_onbeam_mult2_dedx_v_dedx}.  These cuts are chosen to reduce the remaining population of cosmic events as much as possibly without significantly damaging the signal.  
 
 \begin{figure}[H]
   \centering
@@ -562,106 +506,36 @@ Multiplicity 2 events pass first through the previous set of cuts for interactio
 \label{fig:cutjust_sel2_mult2_secondtrklen}
 \end{figure}
 
-%\begin{figure}[H]
-%  \begin{subfigure}[t]{0.4\textwidth}
-%\includegraphics[scale=0.4]{Selection_II_Section/CutJustify_sel2_mult2_dedx_st.png}
-%    \caption{ }
-%  \end{subfigure} 
-%  \hspace{15mm}
-%  \begin{subfigure}[t]{0.4\textwidth}
-%\includegraphics[scale=0.4]{Selection_II_Section/CutJustify_sel2_datamc_mult2_dedxStart.png}
-%    \caption{ }
-%  \end{subfigure} 
-%\caption{Multiplicity 2 mean start $\frac{dE}{dx}$ on best plane of candidate $\mu$ for a) signal and all backgrounds and b) MC-data comparison }
-%\label{fig:cutjust_sel2_mult2_dedxst}
-%\end{figure}
-%
-%\begin{figure}[H]
-%  \begin{subfigure}[t]{0.4\textwidth}
-%\includegraphics[scale=0.4]{Selection_II_Section/CutJustify_sel2_mult2_dedx_end.png}
-%    \caption{ }
-%  \end{subfigure} 
-%  \hspace{15mm}
-%  \begin{subfigure}[t]{0.4\textwidth}
-%\includegraphics[scale=0.4]{Selection_II_Section/CutJustify_sel2_datamc_mult2_dedxEnd.png}
-%  \caption{ }
-%  \end{subfigure} 
-%  
-%\caption{Multiplicity 2 mean end $\frac{dE}{dx}$ on best plane of candidate $\mu$ for a) signal and all backgrounds and b) MC-data comparison }
-%\label{fig:cutjust_sel2_mult2_dedxend}
-%\end{figure}
-%
-%\begin{figure}[H]
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_mult2_longesttrk_endy.png}
-%    \caption{ }
-%  \end{subfigure} 
-%  \hspace{25mm}
-%  \begin{subfigure}[t]{0.37\textwidth}
-%\includegraphics[scale=0.37]{Selection_II_Section/CutJustify_sel2_datamc_mult2_longesttrk_endy.png}
-%    \caption{ }
-%  \end{subfigure} 
-%\caption{Multiplicity 2 end point in Y of the candidate $\mu$ track for a) signal and all backgrounds and b) MC-data comparison }
-%\label{fig:cutjust_sel2_mult2_endy}
-%\end{figure}
 
 \begin{figure}[H]
 \centering
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_All.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_CC1pi0.png}
     \caption{ }
   \end{subfigure} 
   \hspace{5mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_Cosmic.png}
-    \caption{ }
-  \end{subfigure} 
-  \hspace{5mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_CC1pi0.png}    
-  \caption{ }
-  \end{subfigure} 
-  \hspace{5mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_CC0pi0.png}
-    \caption{ }
-  \end{subfigure} 
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_NC1pi0.png}
-    \caption{ }
-  \end{subfigure} 
-  \hspace{5mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_NC0pi0.png}
-    \caption{ }
-  \end{subfigure} 
-  \begin{subfigure}[t]{0.25\textwidth}
-    \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_Other.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_Cosmic.png}
     \caption{ }
   \end{subfigure} 
 
-\caption{ Multiplicity 2 event cut on $\frac{dE}{dx}$ at end of track vs start a) All candidates; b) Cosmics; c) CC 1$\pi^0$; d) CC 0$\pi^0$; e) NC $\pi^0$; f) NC 0$\pi^0$; g) Other }
-\label{fig:cutjust_sel2_mult2_dedx_v_dedx}
+\caption{ Multiplicity 2 event cut on $\frac{dE}{dx}$ at end of track vs start a) CC 1$\pi^0$; b) Cosmics. Cut values were chosen to maximize cosmic removal without significantly damaging the signal efficiency. }
+\label{fig:cutjust_sel2_mult2_dedx_v_dedx_sig}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\begin{subfigure}[t]{0.25\textwidth}
+\begin{subfigure}[t]{0.36\textwidth}
     \centering
-\includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_OnBeam.png}
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_OnBeam.png}
     \caption{ }
   \end{subfigure} 
   \hspace{10mm}
-  \begin{subfigure}[t]{0.25\textwidth}
+  \begin{subfigure}[t]{0.36\textwidth}
     \centering
-    \includegraphics[scale=0.25]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_OffBeam.png}
+    \includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_OffBeam.png}
     \caption{ }
   \end{subfigure} 
 
@@ -669,21 +543,59 @@ Multiplicity 2 events pass first through the previous set of cuts for interactio
 \label{fig:cutjust_sel2_onbeam_mult2_dedx_v_dedx}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_All.png}
+    \caption{ }
+  \end{subfigure} 
+  \hspace{10mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_CC0pi0.png}
+    \caption{ }
+  \end{subfigure} 
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_NC1pi0.png}
+    \caption{ }
+  \end{subfigure} 
+  \hspace{10mm}
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_NC0pi0.png}
+    \caption{ }
+  \end{subfigure} 
+  \begin{subfigure}[t]{0.36\textwidth}
+    \centering
+\includegraphics[scale=0.36]{Selection_II_Section/CutJustify_sel2_mult2_dedx_v_dedx_Other.png}
+    \caption{ }
+  \end{subfigure} 
+
+\caption{ Multiplicity 2 event cut on $\frac{dE}{dx}$ at end of track vs start a) All candidates; b) CC 0$\pi^0$; c) NC $\pi^0$; d) NC 0$\pi^0$; e) Other }
+\label{fig:cutjust_sel2_mult2_dedx_v_dedx}
+\end{figure}
+
+
 
 
 \clearpage
 \subsection{ Minimally Ionizing Particle Consistency}
 
-The CC Inclusive selection up until this point selects too many $\nu_e$ interactions for us to unblind more than the open 5e19 POT of BNB data according to the MicroBooNE blinding policy. Two additional cuts are considered here in order to comply with this blinding policy for a run over MicroBooNE's 1.8e20POT of Run I data. These cuts are considered in detail in internal document \cite{bib:jz_unblinding_note}, and discussed only briefly here in the context of the CC $\pi^0$ analysis. 
+The CC Inclusive selection up until this point selects too many $\nu_e$ interactions for us to unblind more than the open 4.92e19 POT of BNB data according to the MicroBooNE blinding policy for the $\nu_e$ appearance analysis. Two additional cuts are considered here in order to comply with this blinding policy for a run over MicroBooNE's 1.8e20POT of Run I data. These cuts are considered in detail in internal document \cite{bib:jz_unblinding_note}, and discussed only briefly here in the context of the CC $\pi^0$ analysis. 
 
 
 \begin{figure}[H]
+	%\centering
   \begin{subfigure}[t]{0.55\textwidth}
+	  \centering
 \includegraphics[scale=0.55]{Selection_II_Section/mip_length.png}
     \caption{ }
   \end{subfigure} 
-  \hspace{4mm}
-  \begin{subfigure}[t]{0.75\textwidth}
+  %\hspace{1mm}
+  \begin{subfigure}[t]{0.4\textwidth}
+	  \centering
 \includegraphics[scale=0.75]{Selection_II_Section/mip_angular_dev.png}
     \caption{ }
   \end{subfigure} 
@@ -692,7 +604,7 @@ The CC Inclusive selection up until this point selects too many $\nu_e$ interact
 \end{figure}
 
 
-\par The majority of $\nu_e$ contamination in the current sample have a candidate track produced by a proton rather than a muon (Figure \ref{fig:mip_ex_len_angular}a). Protons are shorter than muons and also highly ionizing while muons are minimally ionizing. To mitigate this population, cuts on candidate track length at 40 cm and on truncated mean $\frac{dQ}{dx}$ at 70000 $\frac{e^-}{cm}$ on the collection plane are imposed. These cuts aim to identify events in which the candidate $\mu$ is not consistent with a Minimally Ionizing Particle (MIP) hypothesis, as in the case of a proton. 1D distributions of these cuts are shown in Figures \ref{fig:cutjust_sel2_multall_len} and \ref{fig:cutjust_sel2_multall_dqdx}. Note that there is a bump in the $\frac{dQ}{dx}$ distribution at low values of $\frac{e^-}{cm}$; this is due crossing tracks that are near-perpendicular to the anode plane.  2D distributions are shown for signal and all backgrounds in Figure \ref{fig:cutjust_mip_2d}.  In these distributions, the majority of NC events lie in the cut region, as most of the candidate tracks for these events are also actually protons. These cuts thus play a large role in mitigating the NC background.
+\par The majority of $\nu_e$ contamination in the current sample have a candidate track produced by a proton rather than a muon (Figure \ref{fig:mip_ex_len_angular}a). Protons are shorter than muons and also highly ionizing while muons are minimally ionizing. To mitigate this population, cuts on candidate track length at 40 cm and on truncated mean $\frac{dQ}{dx}$ at 70000 $\frac{e^-}{cm}$ on the collection plane are imposed.  These cuts aim to identify events in which the candidate $\mu$ is not consistent with a Minimally Ionizing Particle (MIP) hypothesis, as in the case of a proton.  They are chosen to minimize the selected $\nu_e$ population without damaging the signal efficiency too significantly.  1D distributions of these cuts are shown in Figures \ref{fig:cutjust_sel2_multall_len} and \ref{fig:cutjust_sel2_multall_dqdx}. Note that there is a bump in the $\frac{dQ}{dx}$ distribution at low values of $\frac{e^-}{cm}$; this is due crossing tracks that are near-perpendicular to the anode plane.  2D distributions are shown for signal and all backgrounds in Figure \ref{fig:cutjust_mip_2d}.  In these distributions, the majority of NC events lie in the cut region, as most of the candidate tracks for these events are also actually protons. These cuts thus play a large role in mitigating the NC background.
 
 \begin{figure}[h!]
   \begin{subfigure}[t]{0.35\textwidth}
@@ -780,10 +692,18 @@ One additional cut is considered before proceeding to results of the CC Inclusiv
 \label{fig:cutjust_sel2_multall_deviation}
 \end{figure}
 
+An example CC $\pi^0$ signal that passes all CC Inclusive cuts is shown in Figure \ref{fig:evd_1}, with the candidate vertex in cyan and the candidate track in red.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Selection_II_Section/evd_1.png}
+   	\caption{ Example signal CC $\pi^0$ event that passes the CC Inclusive cuts in the collection plane.  The candidate vertex is shown in cyan and the candidate track is shown in red. }
+\label{fig:evd_1}
+\end{figure}
+
+
 \clearpage
-
 \subsection{CC Inclusive Selection Results}
-
 \begin{table}[H]
  \centering
  \captionof{table}{Normalized event counts before and after CC Inclusive selection \label{tab:sel2_w_mip_event_rates}}
@@ -856,7 +776,7 @@ CC Inclusive & 0.060 & 0.743 & 0.004 & 0.020 & 0.014 & 0.042 & 0.117 \\ \hline
 \label{fig:physics_sel2_vtxres}
 \end{figure}
 
-\par Signal and background distributions are shown for a variety of kinematic variables in Figures \ref{fig:physics_sel2_mulen} - \ref{fig:physics_sel2_z}. Only one legend is shown per line to simplify visualization, and applies to both surrounding plots.  OffBeam data is included in the histogram distributions, rather than subtracted from OnBeam as in Table \ref{tab:sel2_w_mip_event_rates}, to give a sense of the underlying distribution.  The cross hatched region corresponds to the statistical uncertainty from the MC sample combined in quadrature with the OffBeam statistical uncertainty.  The data-simulation normalizations and shapes in these Figures are sufficiently similar within the previously discussed variations to the underlying GENIE model for us to stamp our CC Inclusive sample and send it to shower reconstruction.
+\par Signal and background distributions are shown for a variety of kinematic variables in Figures \ref{fig:physics_sel2_mulen} - \ref{fig:physics_sel2_z}. Only one legend is shown per line to simplify visualization, and applies to both surrounding plots.  OffBeam data is included in the histogram distributions, rather than subtracted from OnBeam as in Table \ref{tab:sel2_w_mip_event_rates}, to give a sense of the underlying distribution.  The cross hatched region corresponds to the statistical uncertainty from the MC sample combined in quadrature with the OffBeam statistical uncertainty.  The data-simulation normalizations and shapes in these Figures are sufficiently similar within the previously discussed variations to the underlying GENIE model for us to finalize the selection of our CC Inclusive sample and send it to shower reconstruction.
 
 \begin{figure}[h!]
   \begin{subfigure}[t]{0.3\textwidth}

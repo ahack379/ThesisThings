@@ -110,17 +110,19 @@ This background contains everything that is left over after all other background
 
 
 \subsubsection{Tuning Selection for Events with Two Showers}
-A few additional checks are applied before calculating the cross section.  First, the impact parameter of every two shower permutation is considered.  Small impact parameters between most shower pairs are expected because the candidate vertex is used to reconstruct 3D direction. However, sometimes mis-matches are made, mis-reconstruction occurs, or clusters are under-merged resulting in an incorrect reconstructed direction. The effect of IP on shower angular resolution can be seen in Figure \ref{fig:ex_cutjust_IP}a. The effect seems small at first glance, but when propagated through to the reconstructed two shower mass peak, it becomes clear that poorer angular resolution of high IP events smears the mass plot towards lower energies (Figure \ref{fig:ex_cutjust_IP}b). Thus, a cut on impact parameter between showers is important to ensure both spatial correlation between showers, and higher quality angular resolution.  To be conservative, shower-to-shower impact parameter must be $\leq$ 4cm.  A data-MC comparison of IP is shown in Figure \ref{fig:cutjust_pi0_IP}a. 
+A few additional checks are applied before calculating the cross section.  First, the impact parameter of every two shower permutation is considered.  Small impact parameters (IP) between most shower pairs are expected because the candidate vertex is used to reconstruct 3D direction. However, sometimes mis-matches are made, mis-reconstruction occurs, or clusters are under-merged resulting in an incorrect reconstructed direction. The effect of IP on shower angular resolution can be seen in Figure \ref{fig:ex_cutjust_IP}a. The effect seems small at first glance, but when propagated through to the reconstructed two shower mass peak, it becomes clear that poorer angular resolution of high IP events smears the mass plot towards lower energies (Figure \ref{fig:ex_cutjust_IP}b). Thus, a cut on impact parameter between showers is important to ensure both spatial correlation between showers, and higher quality angular resolution.  To be conservative, shower-to-shower impact parameter must be $\leq$ 4cm.  This cut is chosen to maximize the quality of angular resolution in our pool of selected events, to increase the eventual power of $\pi^0$ peak calibration in data. A data-MC comparison of IP is shown in Figure \ref{fig:cutjust_pi0_IP}a. 
 
 %We do this for the backgrounds described in the previous paragraph, and additionally for a simplified breakdown.  In this additional background, the signal sample is defined the same.  The remaining non-signal events are broken into 2 kinds of backgrounds.  The first defined as events that are not signal, but have any number of $\pi^0$'s in the final state induced by the neutrino interaction. The second no neutrino-induced $\pi^0$'s. 
 \begin{figure}[H]
-  \begin{subfigure}[t]{0.25\textwidth}
-\includegraphics[scale=0.7]{Pi0_Cut_Section/ex_2shower_angular_res_IP.png}
+  \begin{subfigure}[t]{0.4\textwidth}
+	\centering
+\includegraphics[scale=0.75]{Pi0_Cut_Section/ex_2shower_angular_res_IP.png}
   \caption{ }
   \end{subfigure} 
-  \hspace{30mm}
-  \begin{subfigure}[t]{0.25\textwidth}
-\includegraphics[scale=0.7]{Pi0_Cut_Section/ex_2shower_mass_peak.png}
+  \hspace{15mm}
+  \begin{subfigure}[t]{0.4\textwidth}
+	\centering
+\includegraphics[scale=0.75]{Pi0_Cut_Section/ex_2shower_mass_peak.png}
   \caption{ }
   \end{subfigure} 
 \caption{ a) Angular resolution of reconstructed showers with and without a conservative 4 cm cut on IP; b) The effect of the poorer angular resolution events propagates through to the two-shower mass peak, smearing it towards lower energies. }
@@ -527,7 +529,7 @@ Cosmic & Cosmic + Neutrino& 0.063 \\
 \end{tabular}
 \end{table}
 
-\par The two shower sample is now complete and ready to be analyzed for a cross section measurement. First, a complimentary sample of events with at least on reconstructed shower is prepared. This selection is discussed in the next section.
+\par The two shower sample is now complete and ready to be analyzed for a cross section measurement. First, a complimentary sample of events with at least one reconstructed shower is prepared. This selection is discussed in the next section.
 
 
 \clearpage
